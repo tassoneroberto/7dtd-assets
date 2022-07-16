@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Defines global world information -->
+
+<worldglobal>
+
+	<environment>
+
+		<!-- day, night -->
+		<property name="ambientEquatorScale" value=".7, .65"/>
+		<property name="ambientGroundScale" value=".4, .2"/>
+		<property name="ambientSkyScale" value=".9, .5"/>
+
+		<property name="ambientMoon" value=".6, .4"/><!-- add, scale -->
+
+		<property name="ambientInsideSpeed" value=".3"/>
+		<property name="ambientInsideThreshold" value=".2"/>
+		<property name="ambientInsideEquatorScale" value=".4"/>
+		<property name="ambientInsideGroundScale" value=".3"/>
+		<property name="ambientInsideSkyScale" value=".6"/>
+
+		<property name="fogPower" value="1, 1"/>		<!-- day, night -->
+		<property name="fogWater" value=".47, .2"/>	<!-- density, speed -->
+		<property name="fogWaterColor" value=".38, .42, .38"/>
+
+		<property name="test" value="1"/>
+	</environment>
+
+</worldglobal>

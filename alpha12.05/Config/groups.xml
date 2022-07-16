@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<groups> <!--http://www.colorpicker.com/-->
+
+  <!--Red-->
+	  <group name="Ammo/Weapons"		color="000000"	alpha="0.5"/>
+    <group name="Tools/Traps"			color="000000"	alpha="0.5"/> 
+  
+  <!--Orange-->
+	  <group name="Building"		color="000000"	alpha="0.5"/>
+	  <group name="Resources"		color="000000"	alpha="0.5"/>
+    <group name="Forging/Molds"			color="000000"	alpha="0.5"/>
+  
+  <!--Magenta-->
+    <group name="Decor"			color="000000"	alpha="0.5"/>
+  
+  <!--Yellow--> 
+	  <group name="Medicine"		color="000000"	alpha="0.5"/>
+	  <group name="Chemicals"		color="000000"	alpha="0.5"/>
+
+  <!--Green-->
+    <group name="Food/Cooking"			color="000000"	alpha="0.5"/>
+
+  <!--Brown-->
+	  <group name="Clothing"		color="000000"	alpha="0.5"/>
+
+  <!--Blue-->
+	  <group name="Miscellaneous"		color="000000"	alpha="0.5"/>
+	  
+  <!--Purple-->
+	  <group name="Special Items"		color="000000"	alpha="0.5"/>
+</groups>
+
+

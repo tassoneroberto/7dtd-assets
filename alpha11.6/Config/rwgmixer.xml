@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rwgmixer>
+	<world>
+		<property name="BiomeCacheSize" value="8" />									        <!-- The higher the number the more RAM is uesed, the lower the number, the more CPU is used. 8 is good for SP. -->
+		<property name="BiomeSizeInMeters" value="1200" />									<!-- The distance between each biome center point -->
+		<property name="BiomeMaxCenterOffset" value="0.8" /> 								<!-- The maximum distance percentage to offset from the center point,  0.8 is max of 80% of BiomeSizeInMeters -->
+		<property name="RiverRadius" value="24" /> 												<!-- The global river half width, must be a whole number. -->
+		<property name="RiverCurveOffsetDistance" value="80" />							<!-- How curvy the rivers are, higher means curvier but less controlled, lower means more straight -->
+		<property name="MaxGenerationDistanceFromWorldCenter" value="0,0" /> 	<!--0,0 means no max dist. First value is X, Second Value is Y, Measured in Biomes -->
+	</world>
+	
+	<biome name="snow" prob="0.15">
+		<property name="EdgeTrimDistance" value="64" />										<!-- Distance from the biome edge in which to start height trimming calculation -->
+		<property name="RoadTrimDistance" value="20" /> 										<!-- Distance from the road edge in which to start height trimming calculation -->
+		<property name="RoadCurveOffsetDistance" value="40" /> 							<!-- How curvy the roads are, higher means curvier but less controlled, lower means more straight -->
+		
+		<property name="RoadMaterial" value="snowRoad" /> 										<!-- The block used for roads in this biome -->
+		<property name="RoadRadius" value="7" /> 												<!-- The half width of biome roads must be a whole number-->
+		
+		<property name="WildernessPOIProb" value="0.75" /> 								<!-- Controls the chance for Wilderness POIs to spawn in this biome -->
+		<property name="WildernessPOIMinCount" value="1" /> 								<!-- Controls the minimum amount of wilderness POIs to spawn -->
+		<property name="WildernessPOIMaxCount" value="6" /> 								<!-- Controls the maximum amount of wilderness POIs to spawn. clamped to the number of biome edges max (~6 edges)-->
+		
+		<hub name="rural" prob="0.65">
+			<property name="MinCityBlockSizeInMeters" value="96,96" /> 					<!-- Minimum City Block size. First value is width, Second value is height -->
+			<property name="MaxCityBlockSizeInMeters" value="96,96" /> 				<!-- Maximum City Block size. First value is width, Second value is height -->
+			
+			<property name="MinHubSizeInCityBlocks" value="1,1" /> 						<!-- Minimum Hub size in city blocks. First value is width, Second value is height this is multiplied by CityBlockSizeInMeters -->
+			<property name="MaxHubSizeInCityBlocks" value="1,1" />  						<!-- Maximum Hub size in city blocks. First value is width, Second value is height this is multiplied by CityBlockSizeInMeters -->
+			
+			<property name="RoadMaterial" value="snowRoad" /> 									<!-- The block used for roads in this hub -->
+			<property name="RoadRadius" value="7" /> 											<!-- The half width of hub roads must be a whole number-->
+		</hub>
+		
+		<hub name="town" prob="0.3">
+			<property name="MinCityBlockSizeInMeters" value="103,103" /> 
+			<property name="MaxCityBlockSizeInMeters" value="412,412" />
+			
+			<property name="MinHubSizeInCityBlocks" value="1,1" />
+			<property name="MaxHubSizeInCityBlocks" value="1,1" />
+			
+			<property name="RoadMaterial" value="snowRoad" />
+			<property name="RoadRadius" value="7" />
+		</hub>
+	</biome>
+	
+	<biome name="forest" prob="0.3"> 
+		<property name="EdgeTrimDistance" value="64" /> 
+		<property name="RoadTrimDistance" value="20" /> 
+		<property name="RoadCurveOffsetDistance" value="40" />
+		
+		<property name="RoadMaterial" value="asphalt" />
+		<property name="RoadRadius" value="7" />
+
+		<property name="WildernessPOIProb" value="0.75" />
+		<property name="WildernessPOIMinCount" value="1" />
+		<property name="WildernessPOIMaxCount" value="6" />
+		
+		<hub name="rural" prob="0.5">
+			<property name="MinCityBlockSizeInMeters" value="96,96" />
+			<property name="MaxCityBlockSizeInMeters" value="96,96" />
+			
+			<property name="MinHubSizeInCityBlocks" value="1,1" />
+			<property name="MaxHubSizeInCityBlocks" value="1,1" />
+			
+			<property name="RoadMaterial" value="asphalt" />
+			<property name="RoadRadius" value="7" />
+		</hub>
+		
+		<hub name="town" prob="0.65">
+			<property name="MinCityBlockSizeInMeters" value="103,103" />
+			<property name="MaxCityBlockSizeInMeters" value="412,412" />
+			
+			<property name="MinHubSizeInCityBlocks" value="1,1" />
+			<property name="MaxHubSizeInCityBlocks" value="1,1" />
+			
+			<property name="RoadMaterial" value="asphalt" />
+			<property name="RoadRadius" value="7" />
+		</hub>
+	</biome>
+	
+	<biome name="pine_forest" prob="0.3">
+		<property name="EdgeTrimDistance" value="64" />
+		<property name="RoadTrimDistance" value="40" />
+		<property name="RoadCurveOffsetDistance" value="40" />
+		
+		<property name="RoadMaterial" value="asphalt" />
+		<property name="RoadRadius" value="7" />
+		
+		<property name="WildernessPOIProb" value="0.75" />
+		<property name="WildernessPOIMinCount" value="1" /> 
+		<property name="WildernessPOIMaxCount" value="6" /> 
+		
+		<hub name="rural" prob="0.5">
+			<property name="MinCityBlockSizeInMeters" value="96,96" /> 
+			<property name="MaxCityBlockSizeInMeters" value="96,96" /> 
+			
+			<property name="MinHubSizeInCityBlocks" value="1,1" /> 
+			<property name="MaxHubSizeInCityBlocks" value="1,1" /> 
+			
+			<property name="RoadMaterial" value="asphalt" /> 
+			<property name="RoadRadius" value="7" /> 
+		</hub>
+		
+		<hub name="town" prob="0.65">
+			<property name="MinCityBlockSizeInMeters" value="103,103" /> 
+			<property name="MaxCityBlockSizeInMeters" value="412,412" /> 
+			
+			<property name="MinHubSizeInCityBlocks" value="1,1" />  
+			<property name="MaxHubSizeInCityBlocks" value="1,1" /> 
+			
+			<property name="RoadMaterial" value="asphalt" /> 
+			<property name="RoadRadius" value="7" /> 
+		</hub>
+	</biome>
+	
+	<biome name="plains" prob="0.35">
+		<property name="EdgeTrimDistance" value="64" /> 
+		<property name="RoadTrimDistance" value="20" />  
+		<property name="RoadCurveOffsetDistance" value="40" /> 
+		
+		<property name="RoadMaterial" value="asphalt" /> 
+		<property name="RoadRadius" value="7" /> 
+		
+		<property name="WildernessPOIProb" value="0.75" /> 
+		<property name="WildernessPOIMinCount" value="1" /> 
+		<property name="WildernessPOIMaxCount" value="6" /> 
+		
+		<hub name="rural" prob="0.45">
+			<property name="MinCityBlockSizeInMeters" value="96,96" /> 
+			<property name="MaxCityBlockSizeInMeters" value="96,96" /> 
+			
+			<property name="MinHubSizeInCityBlocks" value="1,1" /> 
+			<property name="MaxHubSizeInCityBlocks" value="1,1" /> 
+			
+			<property name="RoadMaterial" value="asphalt" /> 
+			<property name="RoadRadius" value="7" /> 
+		</hub>
+		
+		<hub name="town" prob="0.75">
+			<property name="MinCityBlockSizeInMeters" value="103,103" /> 
+			<property name="MaxCityBlockSizeInMeters" value="412,412" /> 
+			
+			<property name="MinHubSizeInCityBlocks" value="1,1" /> 
+			<property name="MaxHubSizeInCityBlocks" value="1,1" /> 
+			
+			<property name="RoadMaterial" value="asphalt" /> 
+			<property name="RoadRadius" value="7" /> 
+		</hub>
+	</biome>
+	
+	<biome name="desert" prob="0.3">
+		<property name="EdgeTrimDistance" value="64" /> 
+		<property name="RoadTrimDistance" value="20" />  
+		<property name="RoadCurveOffsetDistance" value="40" /> 
+		
+		<property name="RoadMaterial" value="asphalt" /> 
+		<property name="RoadRadius" value="7" /> 
+		
+		<property name="WildernessPOIProb" value="0.75" /> 
+		<property name="WildernessPOIMinCount" value="1" /> 
+		<property name="WildernessPOIMaxCount" value="6" /> 
+		
+		<hub name="rural" prob="0.5">
+			<property name="MinCityBlockSizeInMeters" value="96,96" /> 
+			<property name="MaxCityBlockSizeInMeters" value="96,96" /> 
+			
+			<property name="MinHubSizeInCityBlocks" value="1,1" /> 
+			<property name="MaxHubSizeInCityBlocks" value="1,1" /> 
+			
+			<property name="RoadMaterial" value="asphalt" /> 
+			<property name="RoadRadius" value="7" /> 
+		</hub>
+		
+		<hub name="town" prob="0.4">
+			<property name="MinCityBlockSizeInMeters" value="103,103" /> 
+			<property name="MaxCityBlockSizeInMeters" value="412,412" /> 
+			
+			<property name="MinHubSizeInCityBlocks" value="1,1" />
+			<property name="MaxHubSizeInCityBlocks" value="1,1" /> 
+			
+			<property name="RoadMaterial" value="asphalt" /> 
+			<property name="RoadRadius" value="7" /> 
+		</hub>
+	</biome>
+	
+	<biome name="wasteland" prob="0.15">
+		<property name="EdgeTrimDistance" value="64" /> 
+		<property name="RoadTrimDistance" value="20" />  
+		<property name="RoadCurveOffsetDistance" value="40" /> 
+		
+		<property name="RoadMaterial" value="asphalt" /> 
+		<property name="RoadRadius" value="7" /> 
+		
+		<property name="WildernessPOIProb" value="0.75" /> 
+		<property name="WildernessPOIMinCount" value="1" /> 
+		<property name="WildernessPOIMaxCount" value="6" /> 
+		
+		<hub name="rural" prob="0.55">
+			<property name="MinCityBlockSizeInMeters" value="96,96" /> 
+			<property name="MaxCityBlockSizeInMeters" value="96,96" /> 
+			
+			<property name="MinHubSizeInCityBlocks" value="1,1" /> 
+			<property name="MaxHubSizeInCityBlocks" value="1,1" /> 
+			
+			<property name="RoadMaterial" value="asphalt" /> 
+			<property name="RoadRadius" value="7" /> 
+		</hub>
+		
+		<hub name="town" prob="0.75">
+			<property name="MinCityBlockSizeInMeters" value="103,103" /> 
+			<property name="MaxCityBlockSizeInMeters" value="412,412" /> 
+			
+			<property name="MinHubSizeInCityBlocks" value="1,1" /> 
+			<property name="MaxHubSizeInCityBlocks" value="1,1" /> 
+			
+			<property name="RoadMaterial" value="asphalt" /> 
+			<property name="RoadRadius" value="7" /> 
+		</hub>
+	</biome>
+	
+	<biome name="burnt_forest" prob="0.25">
+		<property name="EdgeTrimDistance" value="64" /> 
+		<property name="RoadTrimDistance" value="20" />  
+		<property name="RoadCurveOffsetDistance" value="40" /> 
+		
+		<property name="RoadMaterial" value="asphalt" /> 
+		<property name="RoadRadius" value="7" /> 
+		
+		<property name="WildernessPOIProb" value="0.75" /> 
+		<property name="WildernessPOIMinCount" value="1" /> 
+		<property name="WildernessPOIMaxCount" value="6" /> 
+		
+		<hub name="rural" prob="0.5">
+			<property name="MinCityBlockSizeInMeters" value="96,96" /> 
+			<property name="MaxCityBlockSizeInMeters" value="96,96" /> 
+			
+			<property name="MinHubSizeInCityBlocks" value="1,1" /> 
+			<property name="MaxHubSizeInCityBlocks" value="1,1" /> 
+			
+			<property name="RoadMaterial" value="asphalt" /> 
+			<property name="RoadRadius" value="7" /> 
+		</hub>
+		
+		<hub name="town" prob="0.5">
+			<property name="MinCityBlockSizeInMeters" value="103,103" /> 
+			<property name="MaxCityBlockSizeInMeters" value="412,412" /> 
+			
+			<property name="MinHubSizeInCityBlocks" value="1,1" /> 
+			<property name="MaxHubSizeInCityBlocks" value="1,1" /> 
+			
+			<property name="RoadMaterial" value="asphalt" /> 
+			<property name="RoadRadius" value="7" /> 
+		</hub>
+	</biome>
+	
+	<biome name="wasteland_hub" prob="0.05">
+		<property name="EdgeTrimDistance" value="64" /> 
+		<property name="RoadTrimDistance" value="20" />  
+		<property name="RoadCurveOffsetDistance" value="40" /> 
+		
+		<property name="RoadMaterial" value="asphalt" /> 
+		<property name="RoadRadius" value="7" /> 
+		
+		<hub name="city" prob="1">
+			<property name="MinCityBlockSizeInMeters" value="103,103" /> 
+			<property name="MaxCityBlockSizeInMeters" value="103,103" /> 
+			
+			<property name="MinHubSizeInCityBlocks" value="2,2" /> 
+			<property name="MaxHubSizeInCityBlocks" value="6,6" /> 
+			
+			<property name="RoadMaterial" value="asphalt" /> 
+			<property name="RoadRadius" value="7" /> 
+		</hub>
+	</biome>
+	
+	<biome name="radiated" prob="0">
+		<property name="EdgeTrimDistance" value="64" /> 
+	</biome>
+	
+	<biome name="water" prob="0">
+		<property name="EdgeTrimDistance" value="0" /> 
+	</biome>
+</rwgmixer>

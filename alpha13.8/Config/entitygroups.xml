@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entitygroups>
+
+    <entitygroup name="ZombiesAll">
+        <entity name="zombieBoe" />
+        <entity name="zombieJoe" />
+        <entity name="zombieSteve" />
+        <entity name="zombieMoe" />
+        <entity name="zombieYo" />
+		<entity name="zombieArlene" />
+		<entity name="zombieDarlene" />
+		<entity name="zombieMarlene" />
+		<entity name="zombieNurse" />
+		<entity name="zombieSteveCrawler" />
+    </entitygroup>
+	
+    <entitygroup name="ZombiesNight">
+	
+		<entity name="spiderzombie"/>
+        <entity name="zombieBoe"/>
+        <entity name="zombieJoe" />
+        <entity name="zombieSteve" />
+        <entity name="zombieMoe" />
+        <entity name="zombieYo" />
+		<entity name="zombieArlene" />
+		<entity name="zombieDarlene" />
+		<entity name="zombieMarlene" />
+		<entity name="zombieNurse" />
+		<entity name="hornet" prob="0.05" />
+		<entity name="zombiedog" prob="0.05" />
+		<entity name="zombieSteveCrawler" />
+    </entitygroup>
+    
+    
+    <entitygroup name="ZombiesWasteland">
+		<entity name="spiderzombie"/>
+        <entity name="zombieBoe" />
+        <entity name="zombieJoe" />
+        <entity name="zombieSteve" />
+        <entity name="zombieMoe" />
+        <entity name="zombieYo" />
+		<entity name="zombieArlene" />
+		<entity name="zombieDarlene" />
+		<entity name="zombieMarlene" />
+		<entity name="zombieNurse" />		
+		<entity name="hornet" />
+		<entity name="zombiedog" />
+		<entity name="zombieSteveCrawler" />
+		<entity name="fatzombiecop" />
+		<entity name="burntzombie" />			
+		<!--<entity name="zombieFemaleHazmat" prob="0.02" /> removed because of uma zombie bug	-->
+    </entitygroup>	
+    
+    <entitygroup name="ZombiesWastelandNight">
+		<entity name="spiderzombie"/>
+        <entity name="zombieBoe" prob="0.05"/>
+        <entity name="zombieJoe" prob="0.05"/>
+        <entity name="zombieSteve" prob="0.05"/>
+        <entity name="zombieMoe" prob="0.05"/>
+        <entity name="zombieYo" prob="0.05"/>
+		<entity name="zombieArlene" />
+		<entity name="zombieDarlene" />
+		<entity name="zombieMarlene" />
+		<entity name="zombieNurse" />		
+		<entity name="hornet" prob="0.15"/>
+		<entity name="zombiedog" prob="0.15"/>
+		<entity name="zombieSteveCrawler" prob="0.05"/>
+		<entity name="fatzombiecop" prob="0.15"/>
+		<entity name="burntzombie" prob="0.05"/>
+		<entity name="zombieBear" prob="0.05"/>
+		<entity name="zombieferal" prob="0.05"/>
+		<!-- <entity name="zombieFemaleHazmat" prob="0.02" /> -->
+
+    </entitygroup>	
+    
+    <entitygroup name="ZombiesWastelandNight2">
+        <entity name="zombieBoe" prob="0.03"/>
+        <entity name="zombieJoe" prob="0.03"/>
+        <entity name="zombieSteve" prob="0.03"/>
+        <entity name="zombieMoe" prob="0.03"/>
+        <entity name="zombieYo" prob="0.03"/>
+		<entity name="zombieArlene" />
+		<entity name="zombieDarlene" />
+		<entity name="zombieMarlene" />
+		<entity name="zombieNurse" />
+		<entity name="spiderzombie" prob="0.15"/>		
+		<entity name="hornet" prob="0.15"/>
+		<entity name="zombiedog" prob="0.20"/>
+		<entity name="zombieSteveCrawler" prob="0.03"/>
+		<entity name="zombieBear" prob="0.1"/>
+		<entity name="fatzombiecop" prob="0.2"/>
+		<entity name="burntzombie" prob="0.03"/>
+    </entitygroup>	            		    		        		    		
+	
+    <entitygroup name="ZombiesHoard">
+		<entity name="spiderzombie"/>
+        <entity name="zombieBoe" prob="0.1"/>
+        <entity name="zombieJoe" prob="0.1"/>
+        <entity name="zombieSteve" prob="0.1"/>
+        <entity name="zombieMoe" prob="0.1"/>
+        <entity name="zombieYo" prob="0.1"/>
+		<entity name="zombieArlene" />
+		<entity name="zombieDarlene" />
+		<entity name="zombieMarlene" />
+		<entity name="zombieNurse" />		
+		<entity name="fatzombiecop" prob="0.05"/>
+		<entity name="hornet" prob="0.05"/>
+		<entity name="zombiedog" prob="0.05"/>
+		<entity name="zombieBear" prob="0.05"/>
+		<entity name="zombieSteveCrawler" prob="0.1"/>
+    </entitygroup>
+
+	<entitygroup name="ZombieScouts">
+		<entity name="zombieScreamer" />
+	</entitygroup>
+
+  <entitygroup name="ZombiesCrawlersDogs">
+    <entity name="zombiedog" prob="0.04"/>
+    <entity name="zombieSteveCrawler" prob="0.1"/>
+  </entitygroup>
+
+  <entitygroup name="ZombiesBurntForest">
+    <entity name="burntzombie" prob="0.2"/>
+    <entity name="zombieSteveCrawler" prob="0.05"/>
+    <entity name="zombiedog" prob="0.01"/>
+  </entitygroup>
+    
+    <entitygroup name="SnowZombies">
+        <entity name="snowzombie" prob="1"/>
+    </entitygroup>    		
+	
+    <entitygroup name="ZombiesBoss">
+		<entity name="fatzombiecop" />		
+    </entitygroup>	
+	
+    <entitygroup name="ZombiesFeral">
+		<entity name="zombieferal" />
+    </entitygroup>
+
+  <entitygroup name="ZombiesCave">
+    <entity name="animalBear" prob="0.1"/>
+    <entity name="zombieSteveCrawler" prob="0.05"/>
+    <entity name="zombieJoe" prob="0.05"/>
+    <entity name="zombieSteve" prob="0.05"/>
+    <entity name="zombieMoe" prob="0.05"/>
+    <entity name="zombieYo" prob="0.05"/>
+    <entity name="zombieferal" prob="0.01"/>
+  </entitygroup>
+
+    <entitygroup name="AnimalsSmall">
+        <entity name="animalRabbit" />
+		<entity name="animalChicken" />
+    </entitygroup>
+    
+    <entitygroup name="AnimalsFarm">
+        <entity name="animalPig" />
+		<entity name="animalChicken" />
+    </entitygroup>
+	
+    <entitygroup name="AnimalsBig">
+        <entity name="animalStag" />
+    </entitygroup>   
+    
+    <entitygroup name="AnimalsAll" >        
+    	<entity name="animalRabbit" />
+		<entity name="animalChicken" />
+        <entity name="animalStag" />
+        <entity name="animalPig" />
+        <entity name="animalBear" prob="0.05" />
+    </entitygroup>    
+	
+    <entitygroup name="HornetGroup">
+        <entity name="hornet" />
+    </entitygroup>	
+	
+    <entitygroup name="ZombieDogGroup">
+        <entity name="zombiedog" />
+    </entitygroup>	
+
+    <entitygroup name="SupplyCrates_General">
+		<entity name="sc_General" />		
+    </entitygroup>	
+</entitygroups>

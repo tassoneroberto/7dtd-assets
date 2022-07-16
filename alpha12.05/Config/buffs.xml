@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+
+	Define a buff: <buff [attributes]><modify [attributes]/></buff> 
+	
+	timeString:
+	
+		A time string can contain two types of times, a real-time, or a game-time value.
+		A real-time value is just a number, example: duration="90" would be 90 real-time seconds
+		A game-time value is a number with a trailing 't', example: duration="900t" would be 9 in-game hours.
+		
+	types:
+	
+		Types organize buffs and can be used to add/remove immunity to certain effects. Multiple types can
+		be specified seperated by a ';':
+		
+		sickness,disease,armorup,armordown,healthup,healthdown,staminaup,staminadown
+		
+		built-in buff variables, these update 1 time per second. If you create or name other variables in here
+		they will also update 1 time per second, if you need more frequent updates they must be declared in code
+		with specific settings:
+		
+		+water/-water : the time in seconds the entity has been in or out of water
+		+radiation/-radiation : the time in seconds the entity has been in or out of radiation
+		+starve/+full : the time on seconds the player has been starving or has not been starving
+		+thirst/+hydrated : the time in seconds the player has been thirsty or has been hydrated
+	
+	<buff> attributes:
+		id="uniqueName" : Internally used to reference buffs from actions or other buffs
+		duration="timeString" : Controlls the duration of the buff. A duration of "0" means the buff will persist 
+		                        forever and can only be removed by being debuffed. If no duration attribute is 
+		                        present then the buff's duration will be the longest <modify>. 
+		                        See definition of a timeString above.
+		name="String To Display" : The name of the buff presented to the user in the UI.
+		description="Description Of Buff" : The description of the buff presented to the user in the UI.
+		icon="buff_icon" : The icon to display
+		stack="discard,stack,extend,reset" : Default is "discard". Sets the stacking mode of the buff, if it is applied more than once.
+		                               "discard" discards any addition buff of that type (it is ignored).
+		                               "reset" will reset the time on the buff
+		                               "stack" will stack up to a number specified by "stacklimit".
+		                               "extend" will extend the existing buff.
+		stacklimit="number" : Controls the maximum times a buff can stack. This is required if stack="stack" is used.
+		ondebuff="name" : Specified a new buff to apply when this buff is debuffed.
+		onexpired="name" : Specified a new buff to apply when this buff expires.
+		castsound="sound" : Plays the specified sound when the buff is applied
+		ondebuffsound="sound" : Plays the specified sound when the buff is removed by another buff
+		onexpiredsound="sound" : Plays the specified sound when the buff expires
+		type="types" : Specifies the buff type for use when a damage() action is present. This will specify
+		               the type of damage that is applied.
+		hitmask="bodypart;bodypart" : Specifies the required hit location for the buff to be applied.
+									  Valid parts: body, head, leftarm, rightarm, leftleg, rightleg
+		mutex="name,name,name" : Specifies a list of buffs that, if already applied, will prevent this buff from being added.
+		requires="name,name,name" : Specifies a list of buffs that must be present for this buff to be cast
+		buffif="condition;condition;condition" : The buff will be cast on an entity if the specified conditions are met
+										condition = variable greater value, variable less value, variable lequal value, variable gequal value
+		debuffif="condition;condition;condition" : see "buffif"
+		actions="action1;action2;action3" : When a buff is applied an optional set of actions can be performed.
+		                                    Actions are seperated by ';'.
+		                                    
+		                                    Actions example: actions="addimmunity(sickness);damage(5,5,24t,0)"
+		                                    
+		                                    kill : Kills the player the buff is applied to
+		                                    damage(amount,frequency,duration,count) : Deals damage to the player the buff is 
+		                                                                          attached to, example: damage(5,5,25,0)
+		                                                                          
+		                                                                          "amount" is the amount of health to damage the player each time.
+		                                                                          "frequency" is a timeString value which controls how often damage is dealt.
+		                                                                          "duration" is a timeString value which controls how long damage is dealt, if "0" then there is no max duration.
+		                                                                          "count" is the maximum number of times damage can be dealt, or 0 for no limit.
+		                                                                          
+		                                                                          NOTE: The damage type that is associated with a damage action is defined by the
+		                                                                          type of the buff.
+		                                                                          
+		                                                                          You can also damage the player with a negative <modify> but that will not be affected by
+		                                                                          armor (if the damage type is applied to armor) and the player HUD will not shake or
+		                                                                          play pain noises.
+		                                                                          
+		                                     addimmunity(types)                  : Adds immunity to stat modifiers of the specified types, see types for a list above.
+		                                     
+		                                     debuff(name)                        : Name of the buff to remove
+											 buff(name)                          : Name of the buff to apply.
+		                                     setvalue(name, value)               : Sets the value of a stat
+		                                     resetvalue(name)                    : Resets the value of a stat to its original value including max modifiers.
+		                                     attach(prefab, bone, time (optional)) : Attaches the specified prefab to the specified bone of the entity that is being buffed.
+		                                     										 NOTE: the bone may be set to @impact to attach the prefab to whatever bone was hit
+		                                     										 if an attack item was used to apply the buff (projectile or melee). This only makes sense if the buff is applied
+		                                     										 from the buff effects on a weapon, otherwise @impact will emit a yellow warning in the console
+		                                     										 about not having a valid bone.
+		                                     increment(variable, amount, frequency, duration, count) : Increments the specified variable. Amount can be negative.
+		                                     									  "counter" is the name of the counter to increment
+		                                     									  "amount" is the amount to increment the counter
+		                                                                          "frequency" is a timeString value which controls how often the variable is incremented.
+		                                                                          "duration" is a timeString value which controls how long the variable is incremented, if "0" then there is no max duration.
+		                                                                          "count" is the maximum number of times the variable can be incremented, or 0 for no limit.
+											 max(variable, maxValue)             : Clamps the maximum value of a variable.
+											 min(variable, minValue)             : Clamps the minimum value of a variable.
+											 setvar(variable, value)             : Sets a variable to the specified value.
+	
+	<modify> attributes:
+		id="number" : This attribute is required and is also saved with gamestate in the saved game. 
+		              Adding or Removing modifiers should never re-use the id's inside a <modify>
+		stat="name" : Specified the stat to modify: "health,stamina,gassiness,sickness" are valid.
+		amount="number" : For DOT effects the amount by which to add (or remove if negative) from the stat.
+		rate="number" : For DOT effects this the frequency in seconds to apply the value.
+		modifyMaxValue="number" : To effect the max or capping value of a stat. Cannot be combined with amount or rate.
+		modifyValue="number" : To statically effect the value of a stat (+/-)
+		setValue="number" : To set the value of a stat
+		duration="timeString" : The amount of time before the modify no longer applies. If duration is "0" or
+		                        is not present then the modify is applied until the buff is removed.
+		type="types" : The types of the stat modify, allowing it to be rendered inert via immunity.
+	
+-->
+
+<buffs>
+	
+	<buff id="bleeding" duration="60" name="Bleeding" type="bleeding" actions="debuff(fullBuff)" description="You are bleeding out. Use a bandage to stop the bleeding." icon="buff_icon_critical_hit">
+		<modify id="0" stat="stamina" amount="-1" rate="1"/>
+		<modify id="1" stat="health" amount="-1" rate="1"/>
+	</buff>
+
+	<!-- 
+	
+	Drunkeness: Starts with the DrinkBeer buff, which is triggered by the Beer item each time a beer is consumed.
+	
+	DrinkBeer has no icon specified so it is invisible to the player, you can use hidden buffs to perform some more
+	advanced types of effects.
+	
+	DrinkBeer increments the "beers" variable. The "beers" variable controls several buffs:
+	
+	"Buzzed" is cast up to 5 beers, after which the player becomes "Drunk".
+	If the player drinks more than 8 beers they become "SickDrunk".
+	
+	If the player lets SickDrunk wear off they will have a hangover. Drinking during a hangover makes them instantly SickDrunk again.
+	
+	If the player drinks more than 14 beers they will have alcohol poisoning.
+	
+	The "MetabolizeBeer" buff will slowly reduce the beer variable.
+	
+	-->
+	<buff id="DrinkBeer" duration="1" actions="increment(beers, 1, 0, 0, 1)">
+		<modify id="0" stat="stamina" amount="2" rate="1"/>
+	</buff>
+	
+	<buff id="DrinkGrainAlcohol" duration="1" actions="increment(beers, 4, 0, 0, 1)">
+		<modify id="0" stat="stamina" amount="2" rate="1"/>
+	</buff>	
+
+	<buff id="MetabolizeBeer" buffif="beers greater 0" debuffif="beers less 1" actions="increment(beers, -1, 100t, 0, 0);min(beers, 0)"/>
+	
+	<buff id="Buzzed" mutex="Hangover,Drunk,SickDrunk,AlcoholPoisoning" buffif="beers greater 0" debuffif="beers less 1" duration="0" name="Beer Buzz" type="staminaup" description="A nice buzz." icon="buff_icon_beer" >
+		<modify id="0" stat="stamina" amount="2" rate="1"/>
+	</buff>
+
+	<buff id="Drunk" mutex="Hangover,SickDrunk,AlcoholPoisoning" buffif="beers greater 5" debuffif="beers less 2" actions="debuff(Buzzed)" name="Drunk" type="staminadown" description="You are drunk." icon="buff_icon_beer_hangover">
+		<modify id="0" stat="stamina" amount="5" rate="1"/>
+		<modify id="0" stat="speedmodifier" setValue="0.90"/>
+	</buff>
+	
+	<buff id="InstantSickDrunk" duration="1" buffif="beers greater 0" mutex="SickDrunk,AlcoholPoisoning" requires="Hangover" actions="setvar(beers, 9)" name="InstantSickDrunk" type="staminadown"/>
+
+	<buff id="SickDrunk" mutex="AlcoholPoisoning" buffif="beers greater 8" debuffif="beers less 1" actions="increment(@wellness, -0.5, 100t, 0, 0);debuff(Drunk);debuff(Hangover)" ondebuff="Hangover" name="Sick Drunk" type="staminadown" description="You are extremely drunk." icon="buff_icon_dysentery">
+		<modify id="0" stat="stamina" amount="-1" rate="1"/>
+		<modify id="0" stat="speedmodifier" setValue="0.70"/>
+	</buff>
+
+	<buff id="Hangover" mutex="AlcoholPoisoning" duration="1200t" name="Hangover" type="staminadown" description="You have a hangover." icon="buff_icon_food_poisoning">
+		<modify id="0" stat="stamina" amount="-1" rate="1"/>
+	</buff>
+	
+	<buff id="AlcoholPoisoning" buffif="beers greater 14" debuffif="beers less 9" ondebuff="SickDrunk" name="Alcohol Poisoning" type="bleeding" description="You have alcohol poisoning." actions="increment(@wellness, -1, 100t, 0, 0);debuff(SickDrunk);debuff(Hangover)" icon="buff_icon_food_poisoning" stack="extend">
+		<modify id="0" stat="stamina" amount="-5" rate="1"/>
+		<modify id="0" stat="speedmodifier" setValue="0.40"/>
+	</buff>
+
+	<!-- todo ideally this buff is only applied on a critical hit to the heart region and not applied to zombies. Armor would limit this too -->
+	<buff id="criticalBleedout" duration="50" name="Bleeding" type="bleeding" description="You are bleeding profusely. Use a bandage to stop the bleeding." icon="buff_icon_critical_hit">
+		<modify id="0" stat="stamina" amount="-1" rate="1" type="bleeding"/>
+		<modify id="1" stat="health" amount="-1" rate="1" type="bleeding"/>
+	</buff>				
+	
+	<buff id="CoffeeStaminaBoost" duration="180" name="Caffiene Buzz" type="staminaup" description="A nice rush of energy." icon="buff_icon_coffee" stack="extend">
+		<modify id="0" stat="stamina" amount="2" rate="1"/>
+	</buff>
+	
+	<buff id="criticalBlunt" hitmask="body;head" critical="true" duration="1" name="Blunt Force Trauma" castsound="Buffs/critical_blunt" description="You have blunt force trauma." actions="damage(100,0,0,1)" icon="buff_icon_stunned"/>
+	
+	<buff id="dysentery" castsound="playersick" type="sickness" ondebuffsound="trunkbreak" onexpiredsound="trunkbreak" actions="increment(@wellness, -0.02, 30t, 0, 0)" duration="2400" name="Dysentery" onexpired="dysentery2" mutex="dysentery2" description="You feel sick to your stomach and have diarrhea. Goldenrod tea may help." icon="buff_icon_dysentery">
+		<modify id="0" stat="stamina" amount="-1" rate="1"/>
+	</buff>
+	
+	<buff id="dysentery2" duration="0" name="Advanced Dysentery" type="sickness" actions="increment(@wellness, -0.25, 100t, 0, 0)" description="You feel nauseated and have bloody diarrhea. Use antibiotics to cure the sickness." icon="buff_icon_dysentery">
+		<modify id="0" stat="stamina" amount="-2" rate="1"/>
+		<modify id="1" stat="health" amount="-5" rate="60"/>
+	</buff>			
+
+	<buff id="foodPoisoning" duration="30" name="Food Poisoning" type="sickness" actions="increment(@wellness, -.5, 15, 0, 0)"  description="You feel sick to your stomach." icon="buff_icon_food_poisoning">
+		<modify id="0" stat="stamina" amount="-10" rate="1"/>
+	</buff>	 
+	
+	<buff id="steroids" duration="2400t" actions="addimmunity(sickness)" name="Steroids" description="Reduces swelling and supresses the symptoms of infection." icon="buff_icon_medicine"/>
+	
+	<buff id="cured" duration="2400t" name="Cured" description="You are immune to further infection." actions="increment(@wellness, 0.125, 100, 0, 0)" icon="buff_icon_medicine"/>
+	
+	<buff id="smelly" duration="30" name="Smelly" smell="largeSmell" description="You stink." icon="buff_icon_dysentery"/>
+	
+	<buff id="infection" name="Infection Stage 1" type="sickness" mutex="cured,infection2,infection3,infection4" onexpired="infection2" duration="7200t" description="You are infected. Use antibiotics to heal the infection." icon="buff_icon_infection">
+		<modify id="0" stat="stamina" amount="-0.3" rate="1"/>
+	</buff>
+	
+	<buff id="infection2" name="Infection Stage 2" type="sickness" duration="7200t" actions="damage(25,2100t,0,3);increment(@wellness, -0.25, 100t, 0, 0)" onexpired="infection3" description="Your infection is progressing. Use antibiotics to heal the infection." icon="buff_icon_infection">
+		<modify id="0" stat="stamina" amount="-1" rate="1"/>
+	</buff>
+	
+	<buff id="infection3" name="Infection Stage 3" type="sickness" duration="2400t" actions="damage(25,800t,0,3);increment(@wellness, -0.25, 100t, 0, 0)" onexpired="infection4" description="You are dying from infection. Use antibiotics to heal the infection." icon="buff_icon_infection">
+		<modify id="0" stat="stamina" amount="-2" rate="1"/>
+		<modify id="1" stat="health" amount="-1" rate="3"/>
+	</buff>
+	
+	<buff id="infection4" name="Infection Stage 4" actions="kill" description="Your infection has reached its lethal phase." icon="buff_icon_infection"/>
+	
+	<buff id="firstAid" duration="30" name="First Aid" type="healthup" description="You applied a first aid bandage and are now healing." icon="buff_icon_first_aid">
+		<modify id="1" stat="health" amount="1" rate="1"/>
+	</buff>	
+	
+	<buff id="firstAidLarge" duration="10" name="First Aid" type="healthup" description="You applied a first aid and are now healing." icon="buff_icon_first_aid">
+		<modify id="1" stat="health" amount="5" rate="1"/>
+	</buff>		
+	
+	<buff id="painkillerBuff" duration="60" name="Pain Killers" type="healthup" description="You took painkillers." icon="buff_icon_medicine">
+		<modify id="1" stat="health" amount="0.5" rate="1"/>
+	</buff>	
+	
+	<buff id="internalBleeding" duration="10" name="Internal Bleeding" type="bleeding" description="You are bleeding internally." actions="damage(15,1,0,0)" icon="buff_icon_critical_hit">
+		<modify id="0" stat="stamina" amount="-15" rate="1"/>	
+	</buff>	
+	
+	<buff id="brokenLeg" duration="7200t" name="Broken Leg" stack="reset" type="speedmodifier" actions="debuff(firstAid);debuff(splint);debuff(sprainedLeg)" description="Your leg is broken." icon="buff_icon_breakleg">
+		<modify id="0" stat="speedmodifier" setValue="0.40"/>
+	</buff>	
+	
+	<buff id="splint" overrides="brokenLeg,sprainedLeg" name="Splint" type="speedmodifier" overrideicon="true" description="Your leg is splinted." icon="buff_icon_splint">
+		<modify id="0" stat="speedmodifier" setValue="0.60,0.80"/>
+		<modify id="1" buff="brokenLeg" tickrate="2"/>
+		<modify id="2" buff="sprainedLeg" tickrate="2"/>
+	</buff>
+		
+	<buff id="sprainedLeg" type="speedmodifier" duration="2400" name="Sprained Leg" description="You have a sprained leg." icon="buff_icon_breakleg">
+		<modify id="0" stat="speedmodifier" setValue="0.80"/>			
+	</buff>
+	
+	<buff id="stunned" duration="4" name="Stunned" type="speedmodifier" actions="increment(@wellness, -0.5, 0, 0, 1)" description="You are stunned." icon="buff_icon_stunned">
+		<modify id="0" stat="speedmodifier" setValue="0.1"/>
+	</buff>	
+	
+	<buff id="burningSmall" mutex="burning" debuffif="+water > 1" ffcheck="true" duration="10" name="Burning" description="You are burning." actions="attach(ParticleEffects/p_onFire, @impact);damage(2,1,0,0)" icon="buff_icon_fire"/>
+	<buff id="burning" debuffif="+water > 1" duration="15" ffcheck="true" name="Fire" description="You are on fire." actions="debuff(burningSmall);attach(ParticleEffects/p_onFire, @impact);damage(10,1,0,0)" icon="buff_icon_fire"/>
+	
+	
+	<buff id="wellnessExample" duration="10" type="wellness" name="Gain Wellness" description="You are getting health." icon="buff_icon_stunned">
+		<modify id="0" stat="wellness" amount="5" rate="1"/>
+	</buff>	
+	
+	<buff id="hungry" buffif="+starve > 1" mutex="hungry2" debuffif="+full > 1" name="Hungry" actions="increment(@wellness, -0.5, 150, 0, 0)" description="You are hungry." icon="buff_icon_hunger"/>
+	<buff id="hungry2" buffif="+starve > 1200" debuffif="+full > 1" name="Starving" actions="increment(@wellness, -0.5, 30, 0, 0);debuff(hungry)" description="You are starving." icon="buff_icon_hunger">
+		<modify id="0" stat="stamina" amount="-3" rate="1"/>
+		<modify id="1" stat="health" amount="-1" rate="1"/>
+	</buff>
+	
+	<buff id="thirsty" buffif="+thirst > 1" mutex="thirsty2" debuffif="+hydrated > 5" name="Thirsty" actions="increment(@wellness, -0.1, 30, 0, 0)" description="You are thirsty." icon="buff_icon_thirst"/>
+	<buff id="thirsty2" buffif="+thirst > 600" debuffif="+hydrated > 5" name="Dehydrated" actions="increment(@wellness, -0.5, 15, 0, 0);debuff(thirsty)" description="You are very thirsty." icon="buff_icon_thirst">
+		<modify id="0" stat="stamina" amount="-3" rate="1"/>
+		<modify id="1" stat="health" amount="-3" rate="1"/>
+    </buff>			
+
+	<buff id="cannotBreath" stack="reset" duration="20" name="Cannot Breathe" description="" mutex="cannotBreath,drowning" onexpired="drowning" icon="buff_icon_oxygen" />
+
+	<buff id="drowning" stack="discard" duration="0" name="Drowning" description="You are drowning." actions="damage(15,4,0,0)" icon="buff_icon_oxygen" type="drowning" />		
+
+	<buff id="freshAir" stack="discard" duration="1" name="Fresh Air" actions="debuff(cannotBreath);debuff(drowning)" description="" icon="" />
+			
+	<buff id="smell" duration="0" name="Emitting Smell" description="You are carrying something that smells and attracts zombies. Store it in a container." icon="buff_icon_smell" />
+	
+	<buff id="wellnessSmallGain" duration="800t" name="Wellness Improved" description="Your wellness has improved" stack="discard" actions="increment(@wellness, 1, 0, 0, 1)" icon="buff_icon_smell" />
+
+	<buff id="fullBuff" mutex="bleeding" buffif="food > 0.5" debuffif="food lequal 0.5" name="Healing" description="You have enough food to slowly heal." icon="buff_icon_natural_healing">
+		<modify id="0" stat="health" amount="1" rate="60" />
+	</buff>
+	
+</buffs>

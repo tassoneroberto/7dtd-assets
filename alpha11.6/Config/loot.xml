@@ -1,0 +1,1213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Example
+        <item name="can_pasta" count="2,5" prob="0.1" />
+        
+        <itemlist prob="0.1">
+		  <item name="pistol" count="1" />	
+		  <item name="9mmBullet" count="4"  />
+		</itemlist>
+-->
+
+
+<lootcontainers>
+
+    <lootplaceholders>
+    
+        <!-- Replace the lootForest with one of the following -->
+        <placeholder name="lootForest">
+            <block name="trashPile01" prob="0.1" />
+            <block name="trashPile02" prob="0.1" />
+            <block name="trashPile03" prob="0.1" />
+            <block name="trashPile04" prob="0.1" />
+            <block name="trashPile05" prob="0.1" />
+            <block name="trashPile06" prob="0.1" />
+            <block name="trashPile07" prob="0.1" />
+            <block name="trashPile08" prob="0.1" />
+            <block name="trashPile09" prob="0.1" />
+            <block name="Stump" prob="0.1" />
+			<block name="backpack01" prob="0.03" />
+			<block name="backpack02" prob="0.03" />
+			<block name="backpack03" prob="0.03" />
+			<block name="duffle01" prob="0.03" />			
+			<block name="sportsBag01" prob="0.03" />
+			<block name="sportsBag02" prob="0.03" />
+			<block name="purse01" prob="0.03" />
+        </placeholder>
+		
+        <!-- Replace the Wasteland with one of the following -->
+        <placeholder name="lootWasteland">
+            <block name="trashPile01" prob="0.1" />
+            <block name="trashPile02" prob="0.1" />
+            <block name="trashPile03" prob="0.1" />
+            <block name="trashPile04" prob="0.1" />
+            <block name="trashPile05" prob="0.1" />
+            <block name="trashPile06" prob="0.1" />
+            <block name="trashPile07" prob="0.1" />
+            <block name="trashPile08" prob="0.1" />
+            <block name="trashPile09" prob="0.05" />
+			<block name="backpack01" prob="0.03" />
+			<block name="backpack02" prob="0.03" />
+			<block name="backpack03" prob="0.03" />
+			<block name="duffle01" prob="0.03" />			
+			<block name="sportsBag01" prob="0.03" />
+			<block name="sportsBag02" prob="0.03" />
+			<block name="purse01" prob="0.03" />
+			<block name="deskSafe" prob="0.03" />
+        </placeholder>	
+	
+		<!-- Replace the lootDesert with one of the following -->
+        <placeholder name="lootDesert">
+            <block name="trashPile01" prob="0.1" />
+            <block name="trashPile02" prob="0.1" />
+            <block name="trashPile03" prob="0.1" />
+            <block name="trashPile04" prob="0.1" />
+            <block name="trashPile05" prob="0.1" />
+            <block name="trashPile06" prob="0.1" />
+            <block name="trashPile07" prob="0.1" />
+            <block name="trashPile08" prob="0.1" />
+            <block name="trashPile09" prob="0.1" />
+			<block name="backpack01" prob="0.03" />
+			<block name="backpack02" prob="0.03" />
+			<block name="backpack03" prob="0.03" />
+			<block name="duffle01" prob="0.03" />			
+			<block name="sportsBag01" prob="0.03" />
+			<block name="sportsBag02" prob="0.03" />
+			<block name="purse01" prob="0.03" />			
+        </placeholder>
+		
+		<!-- Replace the lootBurntForest with one of the following -->
+        <placeholder name="lootBurntForest">
+            <block name="trashPile01" prob="0.1" />
+            <block name="trashPile02" prob="0.1" />
+            <block name="trashPile03" prob="0.1" />
+            <block name="trashPile04" prob="0.1" />
+            <block name="trashPile05" prob="0.1" />
+            <block name="trashPile06" prob="0.1" />
+            <block name="trashPile07" prob="0.1" />
+            <block name="trashPile08" prob="0.1" />
+            <block name="trashPile09" prob="0.1" />
+        </placeholder>		
+
+		<!-- Replace the lootPlains with one of the following -->
+        <placeholder name="lootPlains">
+            <block name="trashPile01" prob="0.1" />
+            <block name="trashPile02" prob="0.1" />
+            <block name="trashPile03" prob="0.1" />
+            <block name="trashPile04" prob="0.1" />
+            <block name="trashPile05" prob="0.1" />
+            <block name="trashPile06" prob="0.1" />
+            <block name="trashPile07" prob="0.1" />
+            <block name="trashPile08" prob="0.1" />
+            <block name="trashPile09" prob="0.1" />
+			<block name="backpack01" prob="0.03" />
+			<block name="backpack02" prob="0.03" />
+			<block name="backpack03" prob="0.03" />
+			<block name="duffle01" prob="0.03" />			
+			<block name="sportsBag01" prob="0.03" />
+			<block name="sportsBag02" prob="0.03" />
+			<block name="purse01" prob="0.03" />			
+        </placeholder>	
+		
+        <!-- Replace the lootHouse with one of the following -->
+        <placeholder name="lootHouse">
+            <block name="trashPile01"  />
+            <block name="trashPile02"  />
+            <block name="trashPile03"  />
+            <block name="trashPile04"  />
+            <block name="trashPile05"  />
+            <block name="trashPile06"  />
+            <block name="trashPile07"  />
+            <block name="trashPile08"  />
+            <block name="trashPile09"  />
+            <block name="chest01" />
+            <block name="cardboardBox" />
+            <block name="bin" />
+            <block name="suitcase" />
+			<block name="backpack01" />
+			<block name="backpack02" />
+			<block name="backpack03" />
+			<block name="duffle01" />			
+			<block name="sportsBag01" />
+			<block name="sportsBag02" />
+			<block name="purse01" />		
+        </placeholder>
+
+        <!-- Replace the lootStreet with one of the following -->
+        <placeholder name="lootStreet">   
+        	<block name="trashPile01" />
+        	<block name="trashPile02" />
+        	<block name="trashPile03" />
+        	<block name="trashPile04" />
+            <block name="trashPile05" />
+            <block name="trashPile06" />
+            <block name="trashPile07" />
+            <block name="trashPile08" />
+            <block name="trashPile09" />
+            <block name="shoppingCart" prob="0.05" />            
+            <block name="shoppingCartEmpty" prob="0.05" /> 
+			<block name="backpack01" prob="0.05" />
+			<block name="backpack02" prob="0.05" />
+			<block name="backpack03" prob="0.05" />
+			<block name="duffle01" prob="0.05" />			
+			<block name="sportsBag01" prob="0.05" />
+			<block name="sportsBag02" prob="0.05" />
+			<block name="purse01" prob="0.05" />	
+								
+        </placeholder>
+
+        <!-- Replace the lootYard with one of the following -->
+        <placeholder name="lootYard">
+            <block name="trashPile07" prob=".5" />
+            <block name="cardboardBox" prob="0.2" />
+			<block name="backpack01" prob="0.03" />
+			<block name="backpack02" prob="0.03" />
+			<block name="backpack03" prob="0.03" />
+			<block name="duffle01" prob="0.03" />			
+			<block name="sportsBag01" prob="0.03" />
+			<block name="sportsBag02" prob="0.03" />
+			<block name="purse01" prob="0.03" />
+        </placeholder>
+
+      <!-- Replace the lootYard with one of the following -->
+      <placeholder name="lootGarage">
+			<block name="garageStorage" prob=".2" /> 
+            <block name="trashPile02" prob=".5" /> 
+            <block name="cardboardBox" prob="0.2" />
+			<block name="backpack01" prob="0.03" />
+			<block name="backpack02" prob="0.03" />
+			<block name="backpack03" prob="0.03" />
+			<block name="duffle01" prob="0.03" />			
+			<block name="sportsBag01" prob="0.03" />
+			<block name="sportsBag02" prob="0.03" />
+			<block name="purse01" prob="0.03" />
+      </placeholder>
+		
+      <!-- Replaces the lootMP with one of the following -->
+      <placeholder name="lootMP">
+			<!--block name="supplyCrate" prob="0.1" /--> 
+      </placeholder>		
+        
+    </lootplaceholders>
+    
+    <!-- 
+    
+    	How random loot generation works now:
+    	
+    	A loot container defines a list of items and/or lootgroups, a count, and a size configuration.
+    	
+    	The size configuration is the strict limit on the what the container can hold, and this limit can be reached even if
+    	your container specifies a much smaller count value.
+    	
+    	The loot containers count value specified how many if the items in the containers loot list should be selected randomly.
+    	NOTE: that the same item could be chosen more than one time.
+    	
+    	If the chosen item is an item then the item is spawned into the conatiner according to its count.
+    	
+    	However if the chosen item is a lootgroup then a lootgroup is spawned into the container.
+    	
+    	Loot Groups:
+    	
+    	NOTE: if a lootgroup says count="all" then all subitems will be spawned.
+    	
+    	A lootgroup functions identically to a container in its spawning logic. A lootgroup has a count like a container does.
+    	The count value specifies how many items out of the lootgroup should be spawned each time the lootgroup is spawend. This
+    	can lead to multiplicitive behaviour if it is setup that way for example:
+    	
+    	<lootgroup name="group1" count="2" level="25,50">
+    		...
+    	</lootgroup>
+    	
+    	<lootcontainer id="1" count="2" size="4,4">
+    		<item group="group1" count="2">
+    	</lootcontainer>
+    
+    	The above example would spawn the contents of group1 8 times. Here's why:
+    	The container is told to spawn 2 items, since there's only 1 item in the container it will choose group1
+    	2 times. Each time group1 is chosen, the container <item group="group1" count="2"> line specifies that
+    	the contents of group1 should be spawned 2 times. So on the first iteration of the container group1 is spawned
+    	2 times, and then again on the second iteration.
+    	
+    	The group1 lootgroup specifies that each time it is spawned (recall 4 times in the example) that is should
+    	select 2 items from its list.
+    	
+    	So the above example would spawn 8 items into the container.
+    	
+    	NOTE: it is safe to specify groups and counts that exceed the containers capacity. If the containers space
+    	is exceeded excess items will not be spawned, and items will automatically stack to fill the container.
+      
+      <item name="smallEngine" quality="1,200"/>
+    
+    -->
+
+	<lootgroup name="empty"/>
+	
+	<lootgroup name="ammo" count="1,3">
+		<item name="shotgunShell" count="1,10"/>
+		<item name="9mmBullet" count="1,20"/>
+        <item name="10mmBullet" count="1,20"/>
+        <item name="762mmBullet" count="1,20"/>
+        <item name="44MagBullet" count="1,12" prob="0.1" /> 
+	</lootgroup>
+	
+	<lootgroup name="rottenFood">
+	    <item name="rottingFlesh" />
+        <item name="shamSandwich" />
+		<item name="moldyBread" />
+	</lootgroup>	
+	
+	<lootgroup name="pistol+ammo" count="all">
+		<item name="9mmBullet" count="1,10"/>
+		<item name="pistol" count="1"/>	
+	</lootgroup>
+	
+	<lootgroup name="rabbit+hide" count="all">
+		<item name="rabbit" count="1,3"/>
+		<item name="animalHide" count="1"/>	
+	</lootgroup>
+	
+	<lootgroup name="deer+hide" count="all">
+		<item name="venison" count="3,7"/>
+		<item name="animalHide" count="2,4"/>	
+		<item name="femur" count="1"/>
+		<item name="animalFat" count="2,3"/>	
+	</lootgroup>
+	
+	<lootgroup name="pig+hide" count="all">
+		<item name="pork" count="3,7"/>
+		<item name="animalHide" count="2,4"/>	
+		<item name="femur" count="1"/>
+		<item name="animalFat" count="4,8"/>			
+	</lootgroup>			
+	
+	<lootgroup name="zdog+hide" count="all">
+		<item name="rottingFlesh" count="2,4"/>
+		<item name="animalHide" count="1,3"/>	
+		<item name="femur" count="1"/>
+	</lootgroup>	
+		
+	<lootgroup name="shotguns">
+	  <item name="sawedOffPumpShotgun"/>
+	  <item name="PumpShotgun" prob="0.25"/>
+	</lootgroup>
+	
+	<lootgroup name="shotgun+ammo" count="all">
+		<item group="shotguns"/>
+		<item name="shotgunShell" count="1,6"/>
+	</lootgroup>
+	
+	<lootgroup name="pumpshotgun+ammo" count="all">
+		 <item name="PumpShotgun"/>
+		<item name="shotgunShell" count="1,6"/>
+	</lootgroup>
+	
+	<lootgroup name="mp5+ammo" count="all">
+		<item name="mp5"/>
+		<item name="10mmBullet" count="1,20"/>
+	</lootgroup>
+
+	<lootgroup name="huntingRifle+ammo" count="all">
+		<item name="huntingRifle"/>
+		<item name="762mmBullet" count="1,10"/>	
+	</lootgroup>
+	
+	<lootgroup name="trophyGroup" count="1">
+		<item name="trophy"/>
+		<item name="trophy2"/>
+
+	</lootgroup>	
+
+	<lootgroup name="sniperRifle+ammo" count="all">
+		<item name="sniperRifle"/>
+		<item name="762mmBullet" count="1,10"/>	
+	</lootgroup>
+				
+	<lootgroup name="magnumparts">
+		<item name="44MagnumCylinder"/>
+        <item name="44MagnumFrame"/>
+        <item name="44MagnumGrip"/>
+        <item name="44MagnumParts"/>
+	</lootgroup>
+	
+	<lootgroup name="commonWeaponParts">
+		<item name="pistol_barrel"/>
+        <item name="pistol_parts"/>
+        <item name="pistol_receiver"/>
+        <item name="PumpShotgun_barrel"/> 	
+		    <item name="PumpShotgun_parts"/>
+        <item name="PumpShotgun_shortBarrel"/>
+        <item name="PumpShotgun_shortStock"/>
+        <item name="PumpShotgun_stock"/>	
+        <item name="PumpShotgun_receiver"/>
+        <item name="huntingRifleBarrel"/>
+        <item name="huntingRifleStock"/>	
+        <item name="huntingRifleBolt"/>	
+        <item name="huntingRifleParts"/>
+	</lootgroup>
+	
+	<lootgroup name="militaryWeaponParts">
+		<item name="mp5_barrel"/>
+        <item name="mp5_stock"/>
+        <item name="mp5_receiver"/>
+        <item name="mp5_parts"/>
+        <item name="sniperRifleBarrel"/> 	
+        <item name="sniperRifle_stock"/>
+        <item name="sniperRifle_triggerHousing"/>	
+        <item name="sniperRifleParts"/>
+	</lootgroup>	
+	
+	<lootgroup name="gunparts">
+		<item group="magnumparts"/>
+	</lootgroup>
+	<!--
+	<lootgroup name="m136+ammo" count="all">
+		<item name="m136"/>
+		<item name="m136Rocket" count="4"/>	
+	</lootgroup>
+	-->
+		
+	<lootgroup name="guns+ammo">
+		<item group="commonWeaponParts" />
+		<item group="pistol+ammo" prob="0.01" />
+		<item group="shotgun+ammo" prob="0.01" />
+		<item group="huntingRifle+ammo" prob="0.01"/>
+		<item group="gunparts" prob="0.03"/>
+	</lootgroup>
+	
+	<lootgroup name="melee">
+		<item name="clubWood" />
+		<item name="clubIron" />
+		<item name="clubBarbed" prob="0.2" />
+		<item name="clubSpiked" prob="0.15"/>
+		<item name="huntingKnife" prob="0.2"/>
+	</lootgroup>	
+	
+	<lootgroup name="crossbow+ammo" count="all">
+		<item name="crossbow" count="1" />
+		<item name="crossbowBolt" count="40" />
+	</lootgroup>
+	
+	<lootgroup name="rareBooks" count="1">
+		<item name="ironHelmetSchematic" />
+		<item name="ironChestArmorSchematic" />		
+		<item name="ironLegArmorSchematic" />		
+		<item name="ironBootsSchematic" />				
+		<item name="ironGlovesSchematic" />	
+		<item name="theEnforcerMagazine"/>
+		<item name="smgSchematics"/>
+		<item name="sniperRifleSchematic"/>
+		<item name="homeMaintenanceBookVolumeII"/>
+		<item name="macDyverBook"/>
+	</lootgroup>	
+	
+	
+	<lootgroup name="books" count="1">
+		<item name="forgeAheadBook"/>	
+		<item name="homeMaintenanceBook"/>	
+		<item name="huntingKnifeBook"/>
+		<item name="pistolBook"/>
+		<item name="huntingBook"/>
+		<item name="urbanCombatBook"/>
+		<item name="ammunitionNationBook"/>
+		<item name="reloadingWeeklyBook"/>	
+		<item name="leatherTanning"/>
+		<item group="rareBooks" prob=".2" />		
+	</lootgroup>
+	
+	<lootgroup name="militaryguns+ammo">
+		<item group="militaryWeaponParts" />
+		<item group="mp5+ammo" prob="0.03" />
+		<item group="sniperRifle+ammo" prob="0.03" />
+		<!--<item group="m136+ammo" prob="0.01"/> -->
+	</lootgroup>
+	
+	<lootgroup name="militaryammo">
+		<item name="10mmBullet" count="10,40" />
+		<item name="762mmBullet" count="5,30" />
+		<!--<item name="m136Rocket" count="1,4" /> -->
+	</lootgroup>			
+	
+	<lootgroup name="cannedfood">		
+		<item name="canBeef"/>
+		<item name="canCatfood"/>
+		<item name="canChicken"/>
+		<item name="canChili"/>
+		<item name="canDogfood"/>
+		<item name="canHam"/>
+        <item name="canLamb"/>
+        <item name="canMiso"/>
+        <item name="canPasta"/>
+		<item name="canPeas"/>
+		<item name="canSalmon"/>
+		<item name="canSoup"/>
+		<item name="canStock"/>	
+        <item name="canTuna"/> 
+    </lootgroup>
+    
+	<lootgroup name="seeds">	
+		<item name="potatoSeed"/>
+		<item name="coffeeBeans"/>
+		<item name="cornSeed"/>
+		<item name="blueberrySeed"/>
+		<item name="coffeeBeans" />
+    </lootgroup>    
+    
+	<lootgroup name="airdropfood">		
+		<item name="canBeef"/>
+		<item name="canChicken"/>
+        <item name="canLamb"/>
+    </lootgroup>    
+    
+    <lootgroup name="coldfood">
+    	<item name="egg" count="1,2" />
+		<item name="blueberryPie"/>
+		<item name="venisonStew"/>
+		<item name="venison"/>
+		<item name="rabbit"/>
+		<item name="pork"/>
+		<item name="corn"/>
+		<item name="potato"/>
+		<item name="blueberries"/>
+    </lootgroup>
+    
+    <lootgroup name="cupboard">
+    	<item name="canEmpty" />
+    	<item group="cannedfood" />
+        <item group="seeds" prob="0.05"/>
+        <item name="bottledWater"/>
+		<item name="emptyJar" count="1,4"  />
+		<item name="cornMeal" prob="0.05" />
+	</lootgroup>
+	
+	<lootgroup name="junk">
+		<item name="candyTin"/>
+		<item name="emptyJar" count="1"/>
+		<item name="canEmpty" count="1"/>
+		<item name="painkillers" />
+		<item name="book"/>
+		<item name="paper" count="1,6"/>
+		<item name="cloth" count="1,4"/>
+        <item group="trophyGroup"/>
+        <item name="candleStick"/>
+        <item name="glass"/> 
+        <item name="gunPowder" count="1,3" />
+        <item name="doorKnob" count="1" />
+        <item name="oil" count="2,6"/>
+        <item name="femur" count="1,2"/>
+        <item name="shortMetalPipe" count="1"/>
+        <item name="fishingWeight" count="1,3"/>
+        <item name="scrapLead" count="1"/>
+        <item name="woodPlank" count="1"/>
+        <item name="nail" count="1"/>
+        <item name="casinoCoin" count="1,5"/>
+        <item name="bulletCasing"  count="1,10"/>
+        <item name="feather" count="1,3"/> 
+		<item group="rottenFood"  count="1" />
+		<item group="books" />
+		<item group="seeds" />
+        
+	</lootgroup>
+	
+	<lootgroup name="rareAutomotive">     
+        <item name="smallEngine" />
+        <item name="augerBlade" />
+        <item name="handlebars" />
+	</lootgroup>	
+		
+	<lootgroup name="automotive">
+         
+        <item name="gasCan" count="1,3" />
+        <item name="radiator" />
+    	<item name="hubcap"  />
+		<item name="airFilter"  />
+		<item name="carBattery"  />   
+		<item name="oil" count="1,4" /> 
+		<item group="rareAutomotive"  /> 
+	</lootgroup>	
+	
+				
+	
+	<lootgroup name="hats">
+		<item name="cowboyHat"/>
+        <item name="skullCap"/>
+        <item name="ballCap"/>
+        <item name="miningHelmet"/>
+        <item name="clothHat"/>
+        <item name="footballHelmet"/> 
+        <item name="santaHat"/>          
+	</lootgroup>
+	
+	<lootgroup name="clothes">
+		<item name="clothPants"/>
+        <item name="clothJacket"/>
+        <item name="clothBoots"/>
+        <item name="clothGloves"/>
+		<item name="cowboyHat"/>
+        <item name="skullCap"/>
+        <item name="skullCapRed"/>
+        <item name="skullCapGreen"/>
+        <item name="skullCapBlue"/>
+        <item name="skullCapBrown"/>
+        <item name="ballCap"/>
+        <item name="miningHelmet"/> 
+        <item name="denimPants"/> 
+        <item name="denimJacket"/> 
+        <item name="tankTopWhite"/>
+        <item name="tankTopRed"/> 
+        <item name="tankTopPurple"/>
+        <item name="tankTopGreen"/> 
+        <item name="tankTopBlue"/>
+        <item name="wornBoots"/>
+        <item name="bandana"/>
+        <item name="bandanaRed"/>
+        <item name="bandanaBlue"/>
+        <item name="bandanaGreen"/>
+        <item name="bandanaBrown"/>
+        <item name="bandanaBlack"/>
+        
+        
+        <item name="shades"/>
+        <item name="plaidShirt"/>
+        <item name="plaidShirtRed"/>
+        <item name="plaidShirtBrown"/>
+        <item name="footballHelmet"/>
+        <item name="blackDenimPants"/> 
+        <item name="redDenimPants"/> 
+        <item name="brownDenimPants"/>     
+	
+	</lootgroup>
+	
+	<lootgroup name="lightArmor">
+		<item name="leatherBoots"/>
+        <item name="leatherPants"/>
+        <item name="leatherJacket"/>
+        <item name="leatherGloves"/>
+        <item name="goggles"/>
+	</lootgroup>
+	
+	<lootgroup name="heavyArmor">
+		<item name="ironBoots"/>
+        <item name="ironLegArmor"/>
+        <item name="ironChestArmor"/>
+        <item name="ironGloves"/>
+        <item name="kevlarHelmet"/>
+        <item name="swatHelmet"/>     
+	</lootgroup>	
+	
+	<lootgroup name="Armor">
+		<item group="clothes"/>
+        <item group="lightArmor" prob=".1" />
+        <item group="heavyArmor" prob=".05" />
+	</lootgroup>
+	
+																														
+	
+	<lootgroup name="garbage">
+		<item group="junk"/>	
+
+	</lootgroup>
+	
+	<lootgroup name="metalpipe_scrap">
+		<item name="scrapIron" prob="1.5"/>
+		<item group="empty"/>
+	</lootgroup>
+	
+	<lootgroup name="metalpipe" count="all">
+		<item name="shortMetalPipe"/>	
+		<item group="metalpipe_scrap"/>
+	</lootgroup>
+	
+	<lootgroup name="rareTools" count="1">
+		<item name="chainsaw" />
+		<item name="hammer"/>
+		<item name="sledgehammer"/>
+		<item name="nailgun"/>
+		<item name="smallEngine"/>
+		<item name="augerBlade"/>
+	</lootgroup>	
+	
+	<lootgroup name="tools" count="1">	
+		<item name="stoneAxe"/>
+		<item name="pickaxeIron"/>
+		<item name="shovel"/>
+		<item name="fireaxe"/>
+		<item name="hoe"/>
+		<item name="wrench"/>
+		<item name="weaponRepairKit" count="1,4"/>
+		<item group="rareTools"/>
+	</lootgroup>
+	
+	<lootgroup name="workingStiffs" count="1">
+		<item name="pickaxeIron"/>
+		<item name="shovel"/>
+		<item name="fireaxe"/>
+		<item name="hoe"/>
+		<item name="wrench"/>
+		<item name="weaponRepairKit" count="1,4"/>
+		<item name="woodFrame" count="10,50" />
+		<item name="rebarFrame" count="10,50" />
+		<item name="woodPlank" count="50,250" />
+		<item name="steelDoor1_v1" />
+		<item group="rareTools"/>
+
+	</lootgroup>			
+	
+		<lootgroup name="rareMedicine" count="1">	
+		<item name="firstAidKit" />
+		<item name="beaker" />
+		<item name="antibiotics" />
+		<item name="bloodDrawKit" />
+	</lootgroup>
+		
+	<lootgroup name="medicine" count="1">	
+		<item name="painkillers" />
+		<item name="firstAidBandage" />
+		<item name="bandage" />
+		<item name="emptyJar" />
+		<item name="bloodBag" />
+		<item name="vitamins" />
+		<item name="grainAlcohol" />
+		<item name="splint" />
+		<item group="rareMedicine" />
+	</lootgroup>	
+	
+	<lootgroup name="sportingGoods" count="1">	
+        <item name="skullCap"/>
+        <item name="skullCapRed"/>
+        <item name="skullCapGreen"/>
+        <item name="skullCapBlue"/>
+        <item name="skullCapBrown"/>
+        <item name="ballCap"/>
+        <item name="denimPants"/> 
+        <item name="denimJacket"/> 
+        <item name="wornBoots"/>
+        <item name="bandana"/>
+        <item name="bandanaRed"/>
+        <item name="bandanaBlue"/>
+        <item name="bandanaGreen"/>
+        <item name="bandanaBrown"/>
+        <item name="bandanaBlack"/>
+        <item name="shades"/>
+        <item name="plaidShirt"/>
+        <item name="plaidShirtRed"/>
+        <item name="plaidShirtBrown"/>
+        <item name="footballHelmet"/>
+        <item name="brownDenimPants"/>  
+        <item name="flashlight02"/>  
+        <item name="huntingKnife"/>  
+        <item name="gunPowder"/>
+        <item name="bulletCasing"/>
+        <item name="bulletTip"/>
+        <item name="cookingGrill"/>
+        <item name="leather"/>
+        <item name="goggles"/>
+        <item name="nightvisionGoggles"/>
+        <item name="firstAidKit"/>
+        <item name="flare"/>
+        <item name="gunPowderCharge"/> 
+        <item name="bedRoll01_1"/>       
+	</lootgroup>	
+
+	<lootgroup name="beverages" count="1">	
+		<item name="emptyJar" />
+		<item name="bottledWater" />
+		<item name="beer" />
+
+	</lootgroup>		
+	
+	<lootgroup name="automotive+tools+junk" count="all">
+        <item group="automotive" /> 
+        <item group="tools" count="0,1"/>
+        <item group="junk" count="0,1"/>
+	</lootgroup>	
+	
+	<lootgroup name="backpacks" count="all">
+	    <item group="cupboard" />
+        <item group="guns+ammo" count="0,1" />
+        <item group="melee" count="0,1"/>
+        <item group="Armor" count="0,1"/>
+	</lootgroup>				
+	
+	<lootgroup name="airdropMedicine" count="all">	
+		<item name="painkillers" count="2,5" />
+		<item name="firstAidKit" count="2,5" />
+		<item name="antibiotics" count="1,3" />	
+	</lootgroup>		
+
+    <!-- lootcontainer 1 misc storage, cardboard boxes-->
+    <lootcontainer id="1" count="0,2" size="4,4" sound_open="UseActions/open_cardboard" sound_close="UseActions/close_cardboard">
+ 
+    	<item group="junk"/>
+    	<item group="books" prob="0.1"/>
+		
+    </lootcontainer>
+
+    <!-- lootcontainer 2 garbage-->
+    <lootcontainer id="2" count="1,2" size="3,3" sound_open="UseActions/open_garbage" sound_close="UseActions/close_garbage">
+    
+    	<item group="garbage"/>
+        		
+    </lootcontainer>
+	
+    <!-- lootcontainer 3 canned or dry food cupboard door open sound-->
+    <lootcontainer id="3" count="0,1" size="3,3" sound_open="UseActions/open_cupboard" sound_close="UseActions/close_cupboard">
+    
+    	<item group="cupboard"/>
+		    
+    </lootcontainer>	
+	
+    <!-- lootcontainer 4 frozen or refridgerated food, spoiled food -->
+    <lootcontainer id="4" count="0,1" size="6,3" sound_open="UseActions/open_fridge" sound_close="UseActions/close_fridge">
+    
+    	<item group="coldfood"/>
+    	<item name="bottledWater" count="1,2" />
+		<item name="emptyJar" count="1,2"/>
+				
+    </lootcontainer>	
+
+    <!-- lootcontainer 5 stove, cooking pots and pans rotten food -->
+    <lootcontainer id="5" count="0,2" size="3,3" sound_open="UseActions/open_mailbox" sound_close="UseActions/close_mailbox">
+    
+		<item name="cookingPot" count="1,2" prob="1.5" />
+		<item name="scrapIron" count="1,2" prob="1.5" />
+		<item name="emptyJar" count="1,2"/>
+		<item name="canEmpty"  count="1,2"/>
+    </lootcontainer>	
+
+    <!-- lootcontainer 6 night stands and dressers, pistol, ammo, magazines, books -->
+    <lootcontainer id="6" count="1,2" size="3,2" sound_open="UseActions/open_drawer" sound_close="UseActions/close_drawer">
+    
+    	<item group="clothes" prob="6" />
+    	<item group="ammo"  />
+    	<item group="pistol+ammo"  />
+    	<item group="books"  />
+		<item name="book" count="1,2" />
+		<item group="medicine" />
+		<item group="trophyGroup" />
+		
+        
+    </lootcontainer>	
+	
+    <!-- lootcontainer 7 medicine cabinets -->
+    <lootcontainer id="7" count="0,2" size="2,3" sound_open="UseActions/open_medicine_cabinet" sound_close="UseActions/close_medicine_cabinet">
+    
+		<item group="medicine"/>
+  
+    </lootcontainer>	
+	
+    <!-- lootcontainer 8 kitchen cupboards (lower), cleaning chemicals, plates, silverware, pots and pans -->
+    <lootcontainer id="8" count="0,2" size="3,3" sound_open="UseActions/open_cupboard" sound_close="UseActions/close_cupboard">
+		<item name="cookingPot" count="1"/>
+		<item name="emptyJar" count="1,2" />
+        <item name="canEmpty"  count="1,2"/>
+        <item name="coffeeBeans" count="1,4"/>
+        <item name="shortMetalPipe" count="1,2" prob="1.5" />
+        <item name="wrench" count="1"/>
+        <item name="scrapLead" count="1"/>
+    </lootcontainer>		
+	
+    <!-- lootcontainer 9 backpack, place where people stash things,  -->
+    <lootcontainer id="9" count="1" size="2,3" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1.5">
+    	<item group="backpacks" />	
+    </lootcontainer>
+	
+    <!-- lootcontainer 10 empty, storage containers the player crafts-->
+    <lootcontainer id="10" size="8,4" sound_open="UseActions/open_chest" sound_close="UseActions/close_chest"> 
+		<item name="cobweb" count="1,2"/>	
+    </lootcontainer>		
+	
+    <!-- lootcontainer 11 safes, weapon caches rare good loot -->
+    <lootcontainer id="11" count="2,5" size="3,3" sound_open="UseActions/open_safe" sound_close="UseActions/close_safe" open_time="15">
+		
+		<item group="guns+ammo"/>	
+		<item group="books"/>		            
+		                        
+    </lootcontainer>	
+	
+    <!-- lootcontainer 12 deer todo add deer skin or leather bones-->
+    <lootcontainer id="12" count="1" size="3,2" sound_open="UseActions/open_animal" sound_close="UseActions/close_animal" open_time="5" destroy_on_close="true">
+		<item group="deer+hide" />	
+    </lootcontainer>	
+    
+    <!-- lootcontainer 13 rabbit todo add rabbit fur-->
+    <lootcontainer id="13" count="1" size="3,1" sound_open="UseActions/open_animal" sound_close="UseActions/close_animal" open_time="2.5">
+		<item group="rabbit+hide" />
+    </lootcontainer>
+	
+    <!-- lootcontainer 14 misc metal container mailbox-->
+    <lootcontainer id="14" count="0,2" size="2,1" sound_open="UseActions/open_mailbox" sound_close="UseActions/close_mailbox">
+    	
+    	<item group="books" prob="0.1"/>
+		<item name="paper" count="1,10" />
+        		
+    </lootcontainer>	
+	
+    <!-- lootcontainer 15 generic zombie loot-->
+    <lootcontainer id="15" count="0,2" size="3,1" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse">
+		
+        <item group="junk"/>
+		<item group="rottenFood" prob="0.05"/>		
+        		      
+    </lootcontainer>	
+	
+    <!-- lootcontainer 16 metal garbage can-->
+    <lootcontainer id="16" count="0,3" size="3,1" sound_open="UseActions/open_trashcan" sound_close="UseActions/close_trashcan">
+    
+    	<item group="garbage"/>
+    			
+    </lootcontainer>	
+	
+    <!-- lootcontainer 17 zombie cop-->
+    <lootcontainer id="17" count="1,2" size="3,1" sound_open="UseActions/open_garbage" sound_close="UseActions/close_garbage">
+    
+    	<item group="pistol+ammo"/>
+    	<item group="shotgun+ammo"/>
+    	<item name="9mmBullet" count="15,60"/>
+    	<item name="shamSandwich" count="1,5"/>
+        <item name="shotgunShell" count="1,2"/>
+        
+    </lootcontainer>	
+	
+    <!-- lootcontainer 18 pig -->
+    <lootcontainer id="18" count="1" size="3,2" sound_open="UseActions/open_animal" sound_close="UseActions/close_animal" open_time="5" destroy_on_close="true">
+		<item group="pig+hide" />
+    </lootcontainer>	
+	
+    <!-- lootcontainer 19 cars-->
+    <lootcontainer id="19" count="1" size="7,3" sound_open="UseActions/open_vehicle" sound_close="UseActions/close_vehicle" open_time="4">
+    	
+    	<item group="automotive+tools+junk" />
+    </lootcontainer>	
+
+    <!-- lootcontainer 20 air conditioners-->
+    <lootcontainer id="20" count="0,2" size="3,1" sound_open="UseActions/open_mailbox" sound_close="UseActions/close_mailbox" open_time="4">
+		<item group="metalpipe"/>
+    </lootcontainer>
+
+
+    <!-- lootcontainer 21 medical supplies dead nurse-->
+    <lootcontainer id="21" count="0,2" size="3,1" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse">
+		<item group="medicine" />	
+
+    </lootcontainer>		
+		
+    <!-- lootcontainer 22 garage stuff, tools, etc -->
+    <lootcontainer id="22" count="0,2" size="3,3" sound_open="UseActions/open_cardboard" sound_close="UseActions/close_cardboard">
+
+		<item group="books" />
+		<item group="tools" prob="0.4" />
+		<item group="junk" />
+		<item group="automotive" prob="0.4" />
+		<item name="canCatfood" />
+		<item name="canDogfood" />   
+        
+    </lootcontainer>	
+
+	<!-- 23 see below !!! -->
+	
+    <!-- lootcontainer 24 hornets and hives-->
+    <lootcontainer id="24" count="1,2" size="3,1" sound_open="UseActions/open_animal" sound_close="UseActions/close_animal">
+		<item name="foodHoney"/>
+    </lootcontainer>		
+	
+    <!-- lootcontainer 25 birds nest-->
+    <lootcontainer id="25" count="0,4" size="3,1" sound_open="UseActions/open_garbage" sound_close="UseActions/close_garbage">
+		<item name="egg" count="1,2" prob="0.15" />
+		<item name="feather" count="1,5" prob="0.35" />
+    </lootcontainer>	
+		
+    <!-- lootcontainer 23 Supply Crate Melee weapons -->
+    <lootcontainer id="23" count="1,3" size="3,1" destroy_on_close="true" sound_open="SupplyDrops/open_supply_crate" sound_close="SupplyDrops/close_supply_crate">		
+		
+		<item name="clubWood" prob="0.1" count="1" />	
+		<item name="clubIron" prob="0.1" count="1" />
+		<item name="pickaxeIron" prob="0.1" count="1" />
+		<item name="shovel" prob="0.1" count="1" />
+		<item name="fireaxe" prob="0.1" count="1" />		
+		<item name="clubBarbed" prob="0.075" count="1" />
+		<item name="clubSpiked" prob="0.05" count="1" />
+		<item name="wrench" prob="0.1" count="1" />
+		<!-- Joel: add more -->
+    </lootcontainer>	
+		
+    <!-- lootcontainer 26 Supply Crate Food -->
+    <lootcontainer id="26" count="3,9" size="3,1" destroy_on_close="true" sound_open="SupplyDrops/open_supply_crate" sound_close="SupplyDrops/close_supply_crate">				
+		<item name="bottledWater" prob="0.15" count="2,5" />	
+		<item name="canHam" prob="0.1" count="1" />
+		<item name="canChicken" prob="0.1" count="1" />
+		<item name="canChili" prob="0.1" count="1" />	
+   		<item name="painkillers" prob="0.1" count="1" />
+	    <item name="firstAidBandage" prob="0.1" count="1" />		
+    </lootcontainer>	
+
+    <!-- lootcontainer 27 Supply Crate Building Supplies -->
+    <lootcontainer id="27" count="3,9" size="3,1" destroy_on_close="true" sound_open="SupplyDrops/open_supply_crate" sound_close="SupplyDrops/close_supply_crate">
+		<item name="trunkPine" prob="0.15" count="1,8" />	
+		<item name="ingotIron" prob="0.15" count="3,12" />
+		<item name="concrete" prob="0.1" count="1,6" />
+    </lootcontainer>		
+	
+    <!-- lootcontainer 28 Supply Crate Ammo -->
+    <lootcontainer id="28" count="9" size="3,1" destroy_on_close="true" sound_open="SupplyDrops/open_supply_crate" sound_close="SupplyDrops/close_supply_crate">
+    <item name="shotgunShell" prob="0.1" count="4,12" />	
+		<item name="762mmBullet" prob="0.1" count="10,20" />
+		<item name="9mmBullet" prob="0.1" count="15,90" />
+		<item name="10mmBullet" prob="0.1" count="120" />
+		<!-- <item name="m136Rocket" prob="0.1" count="3,10" /> -->
+    </lootcontainer>		
+	
+    <!-- lootcontainer 29 Supply Crate Ranged weapons Day 3 -->
+    <lootcontainer id="29" count="4" size="3,3" destroy_on_close="true" sound_open="SupplyDrops/open_supply_crate" sound_close="SupplyDrops/close_supply_crate">
+
+		<item group="guns+ammo"/>			
+					
+    </lootcontainer>		
+	
+    <!-- lootcontainer 30 Supply Crate Health -->
+    <lootcontainer id="30" count="5" size="3,3" destroy_on_close="true" sound_open="SupplyDrops/open_supply_crate" sound_close="SupplyDrops/close_supply_crate">
+    <item name="painkillers" prob="0.1" count="5" />
+	<item name="firstAidBandage" prob="0.1" count="5" />
+    </lootcontainer>		
+	
+    <!-- lootcontainer 31 Supply Crate Explosives -->
+    <lootcontainer id="31" count="5" size="3,3" destroy_on_close="true" sound_open="SupplyDrops/open_supply_crate" sound_close="SupplyDrops/close_supply_crate">
+		<item name="pipeBomb" prob="0.1" count="10" />
+		<item name="mineHubcap" prob="0.1" count="10" />
+    </lootcontainer>	
+	
+    <!-- lootcontainer 32 Supply Crate Ranged weapons Day 5 -->
+    <lootcontainer id="32" count="6" size="3,3" destroy_on_close="true" sound_open="SupplyDrops/open_supply_crate" sound_close="SupplyDrops/close_supply_crate">
+
+		<item group="guns+ammo"/>				
+					
+    </lootcontainer>		
+	
+    <!-- lootcontainer 33 Supply Crate Ranged weapons Day 7 -->
+    <lootcontainer id="33" count="9" size="3,3" destroy_on_close="true" sound_open="SupplyDrops/open_supply_crate" sound_close="SupplyDrops/close_supply_crate">
+
+		<item group="guns+ammo"/>				
+					
+    </lootcontainer>	
+
+    <!-- lootcontainer 34 Supply Crate General -->
+    <lootcontainer id="34" count="3,6" size="10,4" destroy_on_close="true" sound_open="SupplyDrops/open_supply_crate" sound_close="SupplyDrops/close_supply_crate">
+    	<item group="militaryguns+ammo" />
+    	<item group="rareBooks" />		
+		<item group="airdropMedicine" />				
+    </lootcontainer>	
+
+    <!-- lootcontainer 35 tree hollowed stump, place where people stash things,  -->
+    <lootcontainer id="35" count="0,2" size="3,2" sound_open="UseActions/open_stump" sound_close="UseActions/close_stump">
+    
+    	<item group="guns+ammo" prob="0.02"/>
+		<item name="bottledWater" count="1,2" prob="0.15" />
+		<item name="canHam" prob="0.1" />
+		<item name="canChicken" prob="0.1" />
+		<item name="flashlight02" prob="0.1" />
+		<item name="painkillers" prob="0.1" />
+				
+    </lootcontainer>	
+	
+    <!-- lootcontainer 36 suitcase  -->
+    <lootcontainer id="36" count="0,3" size="3,3" sound_open="UseActions/open_suitcase" sound_close="UseActions/close_suitcase">
+    
+		<item name="bottledWater" count="1,2" prob="0.15" />
+		<item group="cannedfood" />
+		<item group="junk" />
+		<item name="flashlight02" prob="0.1" />
+		<item group="medicine" prob="0.1" />
+		<item group="guns+ammo" prob="0.01"/>
+		<item group="melee" prob="0.015"/>		
+		
+    </lootcontainer>	
+	
+    <!-- lootcontainer 37 corpses -->
+    <lootcontainer id="37" count="0,2" size="3,3" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse">
+    
+        <item group="junk" />       
+        <item group="ammo" />
+        <item group="gunparts" />
+		
+    </lootcontainer>	
+	
+    <!-- fat zombie loot  -->
+    <lootcontainer id="38" count="0,3" size="3,3" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse">
+    
+		<item name="bottledWater" count="1,2" prob="0.15" />
+		<item name="shamSandwich" prob="0.2" />
+		<item name="flashlight02" prob="0.1" />
+		<item name="painkillers" prob="0.1" />
+		<item group="ammo" prob="0.05"/>
+        <item group="pistol+ammo" prob="0.01"/>
+        <item name="animalFat" count="4,8"/>		
+		
+    </lootcontainer>	
+    
+    <!-- shotgun messiah  -->
+    <lootcontainer id="39" count="2,3" size="3,3" sound_open="UseActions/open_chest" sound_close="UseActions/close_chest" >
+		<item group="militaryguns+ammo" prob="0.1" />
+		<item group="gunparts" prob="0.5" />
+		<item group="guns+ammo" prob="0.1" />
+		<item group="sportingGoods" prob="0.5" />		
+    </lootcontainer>	 
+    
+    <!-- military munitions  -->
+    <lootcontainer id="40" count="1"  size="8,4" sound_open="UseActions/open_chest" sound_close="UseActions/close_chest" open_time="15">
+	
+		<item group="militaryguns+ammo" prob="0.3"/>
+		
+    </lootcontainer>	
+
+	<!-- player dropped backpacks -->
+    <lootcontainer id="41" count="0,1" size="10,5" destroy_on_close="true" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1">
+		<item name="cobweb" count="1,2" prob="0.01" />	
+    </lootcontainer>
+    
+    <!-- lootcontainer 42 gun safe -->
+    <lootcontainer id="42" count="2,6" size="10,4" sound_open="UseActions/open_safe" sound_close="UseActions/close_safe" open_time="30">
+		
+		<item group="guns+ammo"/>
+		
+    </lootcontainer>	
+    
+    <!-- lockers -->
+    <lootcontainer id="43" count="0,3" size="2,4" sound_open="UseActions/open_locker" sound_close="UseActions/close_locker">
+    
+    	<item group="pistol+ammo" prob="0.02"/>
+    	<item group="hats" />
+    	<item group="clothes" />
+    	<item group="ammo" prob="0.02" />
+    	<item group="pumpshotgun+ammo" prob="0.01"/>   	
+        <item name="book" count="1,2"  />
+        <item name="paper" count="1,2"  />
+		<item group="medicine" prob="0.05" />
+		<item group="trophyGroup"/>
+		<item name="gunPowder" count="1,5" />
+        
+    </lootcontainer>	   
+    
+                          <!-- file cabinet -->
+    <lootcontainer id="44" count="0,2" size="2,4" sound_open="UseActions/open_file_cabinet" sound_close="UseActions/close_file_cabinet">
+    
+
+		<item group="ammo" prob="0.05"/>
+        <item name="book" count="1,4"  />
+		<item name="paper" count="5,30" />
+		<item name="painkillers" prob="0.05" />
+		<item group="trophyGroup"/>
+        
+    </lootcontainer>	
+    
+    <!-- cooler loot -->
+    <lootcontainer id="45" count="0,3" size="3,3" sound_open="UseActions/open_cooler" sound_close="UseActions/close_cooler">
+     
+    	<item group="cupboard" />
+    	<item group="coldfood" />	
+    	<item group="beverages" />	   	    
+    </lootcontainer>
+    
+    <!-- lootcontainer 46 Supply Crate General multi player -->
+    <lootcontainer id="46" count="1,5" size="10,4" destroy_on_close="true" sound_open="SupplyDrops/open_supply_crate" sound_close="SupplyDrops/close_supply_crate">
+		
+    	<item group="militaryguns+ammo" />
+    	<item group="rareBooks" />		
+		<item group="airdropMedicine" />
+					
+    </lootcontainer>	   
+    
+    <!-- zombie dog loot-->
+    <lootcontainer id="47" count="1" size="3,1" sound_open="UseActions/open_animal" sound_close="UseActions/close_animal" open_time="5">
+        <item group="zdog+hide"/>
+    </lootcontainer>  
+    
+    <!-- lootcontainer 48 purse  -->
+    <lootcontainer id="48" count="1,3" size="2,3" sound_open="UseActions/open_backpack" sound_close="UseActions/close_backpack" open_time="1.5">
+    
+    	<item group="pistol+ammo" prob="0.15"/>
+    	<item group="books" prob="0.05"/>
+    	<item group="cannedfood"  />
+    	<item name="bottledWater" />
+		<item group="medicine" prob="0.5"/> 							
+		
+    </lootcontainer>  
+    
+    <!-- bookcase  -->
+    <lootcontainer id="49" count="0,2" size="2,3" sound_open="UseActions/open_drawer" sound_close="UseActions/close_drawer">
+    	<item group="books" prob="0.05"/>							
+    </lootcontainer> 
+    
+    <!-- shotgun Messiah  -->
+    <lootcontainer id="50" count="0,3" size="3,3" sound_open="SupplyDrops/open_supply_crate" sound_close="SupplyDrops/close_supply_crate">
+		<item group="guns+ammo" prob="3"/>
+		<item group="militaryguns+ammo" />		
+    </lootcontainer> 
+    
+    <!-- pop n pills  -->
+    <lootcontainer id="51" count="0,3" size="3,3" sound_open="UseActions/open_pill_case" sound_close="UseActions/close_pill_case">
+		<item group="medicine" />
+    </lootcontainer> 
+    
+    <!-- beer cooler  -->
+    <lootcontainer id="52" count="0,3" size="3,3" sound_open="UseActions/open_cooler" sound_close="UseActions/close_cooler">
+		<item group="beverages" />
+    </lootcontainer> 
+    
+    <!-- working stiffs  -->
+    <lootcontainer id="53" count="0,3" size="3,3" sound_open="SupplyDrops/open_supply_crate" sound_close="SupplyDrops/close_supply_crate">
+		<item group="workingStiffs" />
+    </lootcontainer> 
+    
+    <!-- shopping cart-->
+    <lootcontainer id="54" count="1,3" size="3,3" sound_open="UseActions/open_shopping_cart" sound_close="UseActions/close_shopping_cart">    
+    	<item group="cupboard" />
+    	<item group="beverages" />			    
+    </lootcontainer>	                                  	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                   	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                          	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                   	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                                	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                   	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                          	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                   	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                                    	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                   	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                          	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                   	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                                	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                   	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                          	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                   	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	                	      	       	      	         	      	       	      	           	      	       	      	         	      	       	      	      
+    
+        <!-- cash register-->
+    <lootcontainer id="55" count="1,5" size="3,3" sound_open="UseActions/open_cash_register" sound_close="UseActions/close_cash_register">    
+    	<item name="paper" />
+    	<item name="casinoCoin" count="1,20"/>
+    </lootcontainer>
+    
+        <!-- Apache Artifact Chest -->
+    <lootcontainer id="56" count="1" size="3,3" sound_open="UseActions/open_apache_artifact_chest" sound_close="UseActions/close_apache_artifact_chest">    
+    	<item name="tazasStoneaxe" count="1" />
+    	<item name="casinoCoin" count="20,200"/>
+    </lootcontainer>    
+    
+        <!-- miners chest -->
+    <lootcontainer id="57" count="1,5" size="3,3" sound_open="UseActions/open_chest" sound_close="UseActions/close_chest">       	
+    	<item group="tools" />
+    </lootcontainer>  
+    
+    <!-- shopping basket -->
+    <lootcontainer id="58" count="0,3" size="3,3" sound_open="UseActions/open_shopping_basket" sound_close="UseActions/close_shopping_basket">    
+    	<item group="cupboard" />
+    	<item group="beverages" />			    
+    </lootcontainer>
+
+
+  <!-- Shamway Cardboard Loot-->
+  <lootcontainer id="59" count="0,5" size="4,4" sound_open="UseActions/open_cardboard" sound_close="UseActions/close_cardboard">
+
+    <item name="shamSandwich" count="1,5"/>
+    <item name="canHam" count="1,5"/>
+    <item group="coldfood" />
+    <item group="beverages" />
+    <item name="bottledWater" count="1,2" />
+  </lootcontainer>
+
+  <!-- Bookstore bookcase  -->
+  <lootcontainer id="60" count="0,2" size="2,3" sound_open="UseActions/open_drawer" sound_close="UseActions/close_drawer">
+    <item group="books" prob="0.05"/>
+  </lootcontainer>
+  
+      <!-- feral loot  -->
+    <lootcontainer id="61" count="1,3" size="3,3" sound_open="UseActions/open_corpse" sound_close="UseActions/close_corpse">
+    
+		<item group="militaryguns+ammo" prob="0.1" />
+		<item group="gunparts" prob="0.5" />	
+		
+    </lootcontainer>	
+  
+</lootcontainers>

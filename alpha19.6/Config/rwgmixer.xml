@@ -1,0 +1,1398 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rwgmixer>
+  <world ruleset="vanillaMedium" />
+  <rulesets>
+    <ruleset name="vanillaSmall" terrain_generator="vanilla4k" biome_generator="vanilla4k">
+		<cell_rule name="default4k" prob="1" />
+    </ruleset>
+    <ruleset name="vanillaMedium" terrain_generator="vanilla8k" biome_generator="vanilla8k">
+		<cell_rule name="default8k" prob="1" />
+    </ruleset>
+    <ruleset name="vanillaLarge" terrain_generator="vanilla8k" biome_generator="vanilla8k">
+		<cell_rule name="default8k" prob="1" />
+    </ruleset>
+  </rulesets>
+  <cell_rules>
+    <cell_rule name="default4k">
+		<hub_rule name="default4k" prob="1" />
+		<wilderness_rule name="default4k" prob="1" />
+    </cell_rule>
+    <cell_rule name="default8k">
+		<hub_rule name="default8k" prob="1" />
+		<wilderness_rule name="default8k" prob="1" />
+    </cell_rule>
+  </cell_rules>
+  <hub_rules>
+    <hub_rule name="default4k">
+		<downtown_zone_size_perc value="0.5" />
+		<hub_size value="200,600" />
+		<prefab_rule name="prefabGroup4k" />
+		<street_gen level="5" length_multiplier="8">
+		  <axiom value="[FFCT][-FFT][+FFI][--FFN][+FFT][-FFI][++FN][F-FF+FF[-T]FF+FF+FFFF-FF-FF[+I]FF-F[+N]" />
+		  <rule char="T" replace_with="F-FF+FF[-T**]FF+FF+FFFF-FF-FF[+I**]FF-F[+N*K]" />
+		  <rule char="I" replace_with="F-FF+FF[-T**]FF+FF+FFFF-FF-FF[+I**]FF-F[+N*K]" />
+		  <rule char="N" replace_with="F-FF+FF[-T**]FF+FF+FFFF-FF-FF[+I**]FF-F[+N*K]" />
+		  <rule char="K" replace_with="[FFCT][-FFT][+FFI][--FFN][+FFT][-FFI][++FN]" />
+		  <alt_commands chars="T,I,N,K" />
+		</street_gen>
+    </hub_rule>
+	
+	<hub_rule name="default8k">
+		<downtown_zone_size_perc value="0.45" />
+		<hub_size value="400,1200" />
+		<prefab_rule name="prefabGroup8k" />
+		<street_gen level="5" length_multiplier="8">
+		  <axiom value="[FFCT][-FFT][+FFI][--FFN][+FFT][-FFI][++FN][F-FF+FF[-T]FF+FF+FFFF-FF-FF[+I]FF-F[+N]" />
+		  <rule char="T" replace_with="F-FF+FF[-T**]FF+FF+FFFF-FF-FF[+I**]FF-F[+N*K]" />
+		  <rule char="I" replace_with="F-FF+FF[-T**]FF+FF+FFFF-FF-FF[+I**]FF-F[+N*K]" />
+		  <rule char="N" replace_with="F-FF+FF[-T**]FF+FF+FFFF-FF-FF[+I**]FF-F[+N*K]" />
+		  <rule char="K" replace_with="[FFCT][-FFT][+FFI][--FFN][+FFT][-FFI][++FN]" />
+		  <alt_commands chars="T,I,N,K" />
+		</street_gen>
+    </hub_rule>
+  </hub_rules>
+  <wilderness_rules>
+	<wilderness_rule name="default4k">
+		<prefab_rule name="prefabGroup4k" />
+    </wilderness_rule>
+	<wilderness_rule name="default8k">
+		<prefab_rule name="prefabGroup8k" />
+    </wilderness_rule>
+  </wilderness_rules>
+  <prefab_rules>
+	<prefab_rule name="prefabGroup4k">
+		<prefab rule="prefabList"/>
+		<prefab name="trader_rekt" max_count="1" min_repeat_distance="800" />
+		<prefab name="trader_joel" max_count="1" min_repeat_distance="800" />
+		<prefab name="trader_jen" max_count="1" min_repeat_distance="800" />
+		<prefab name="trader_bob" max_count="1" min_repeat_distance="800" />
+		<prefab name="trader_hugh" max_count="1" min_repeat_distance="800" />
+	</prefab_rule>
+	
+	<prefab_rule name="prefabGroup8k">
+		<prefab rule="prefabList"/>
+		<prefab name="trader_rekt" max_count="2" min_repeat_distance="1000" />
+		<prefab name="trader_joel" max_count="2" min_repeat_distance="1000" />
+		<prefab name="trader_jen" max_count="2" min_repeat_distance="1000" />
+		<prefab name="trader_bob" max_count="2" min_repeat_distance="1000" />
+		<prefab name="trader_hugh" max_count="2" min_repeat_distance="1000" />
+	</prefab_rule>
+	
+	<prefab_rule name="prefabList">
+		<prefab name="bombshelter_01"/>
+		<prefab name="bombshelter_md_01"/>
+		<prefab name="carlot_01"/>
+		<prefab name="carlot_02"/>
+		<prefab name="skate_park_01"/>
+		<prefab name="business_old_01" />
+		<prefab name="business_old_02" />
+		<prefab name="business_old_03" />
+		<prefab name="business_old_04" />
+		<prefab name="business_old_05" />
+		<prefab name="business_old_06" />
+		<prefab name="business_old_07" />
+		<prefab name="business_old_08" />
+		<prefab name="business_burnt_01" />
+		<prefab name="business_burnt_02" />
+		<prefab name="business_strip_old_01"/>
+		<prefab name="business_strip_old_02"/>
+		<prefab name="business_strip_old_03"/>
+		<prefab name="business_strip_old_04"/>
+		<prefab name="courthouse_med_01"/>
+		<prefab name="post_office_sm_01"/>
+		<prefab name="post_office_med_01"/>
+		<prefab name="mp_waste_bldg_governer_08"/>
+		<prefab name="police_station1"/>
+		<prefab name="hotel_roadside_01"/>
+		<prefab name="hotel_roadside_02"/>
+		<prefab name="hotel_ostrich"/>
+		<prefab name="hotel_new_01"/>
+		<prefab name="prison_01"/>
+		<prefab name="parking_lot_01" />
+		<prefab name="parking_lot_02" />
+		<prefab name="parking_lot_03" />
+		<prefab name="parking_garage_01" />
+		<prefab name="theater_01"/>
+		<prefab name="bar_theater_01"/>
+		<prefab name="bar_stripclub_01" />
+		<prefab name="bar_sm_01" />
+		<prefab name="fire_station_01"/>
+		<prefab name="fire_station_02"/>
+		<prefab name="park_plaza_01"/>
+		<prefab name="park_plaza_02"/>
+		<prefab name="park_basketball"/>
+		<prefab name="departure_city_blk_plaza"/>
+		<prefab name="store_pawn_01"/>
+		<prefab name="cabin_01" />
+		<prefab name="cabin_02" />
+		<prefab name="cabin_03" />
+		<prefab name="cabin_04" />
+		<prefab name="cabin_05" />
+		<prefab name="cabin_06" />
+		<prefab name="cabin_07" />
+		<prefab name="cabin_08" />
+		<prefab name="cabin_09" />
+		<prefab name="cabin_10" />
+		<prefab name="cabin_11" />
+		<prefab name="cabin_12" />
+		<prefab name="cabin_13" />
+		<prefab name="cabin_14" />
+		<prefab name="cabin_15" />
+		<prefab name="ranger_station_01" />
+		<prefab name="ranger_station_02" />
+		<prefab name="ranger_station_03" />
+		<prefab name="ranger_station_04" />
+		<prefab name="ranger_station_05" />
+		<prefab name="ranger_station_06" />
+		<prefab name="ranger_station_07" />
+		<prefab name="lodge_01" />
+		<prefab name="survivor_site_01" />
+		<prefab name="survivor_site_02" />
+		<prefab name="survivor_site_03" />
+		<prefab name="survivor_site_04" />
+		<prefab name="survivor_site_05" />
+		<prefab name="survivor_site_06" />
+		<prefab name="survivor_site_07" />
+		<prefab name="survivor_site_08" />
+		<prefab name="indian_burial_grounds_01" />
+		<prefab name="cave_01" />
+		<prefab name="cave_02" />
+		<prefab name="cave_03" />
+		<prefab name="cave_04" />
+		<prefab name="army_barracks_01"/>
+		<prefab name="house_old_bungalow_03" />
+		<prefab name="house_construction_01" />
+		<prefab name="house_construction_02" />
+		<prefab name="house_old_ranch_02" />
+		<prefab name="house_old_ranch_03" />
+		<prefab name="house_old_ranch_04" />
+		<prefab name="house_old_ranch_07" />
+		<prefab name="house_old_ranch_08"/>
+		<prefab name="house_modern_01"/>
+		<prefab name="house_modern_02"/>
+		<prefab name="house_modern_03"/>
+		<prefab name="house_modern_04"/>
+		<prefab name="house_modern_05"/>
+		<prefab name="house_modern_06"/>
+		<prefab name="house_modern_07"/>
+		<prefab name="house_modern_08"/>
+		<prefab name="house_modern_09"/>
+		<prefab name="house_modern_10"/>
+		<prefab name="house_modern_11"/>
+		<prefab name="house_modern_12"/>
+		<prefab name="house_modern_13"/>
+		<prefab name="house_modern_14"/>
+		<prefab name="house_modern_15"/>
+		<prefab name="house_modern_16"/>
+		<prefab name="house_modern_17"/>
+		<prefab name="house_old_spanish_01"/>
+		<prefab name="park_01"/>
+		<prefab name="park_02"/>
+		<prefab name="church_sm_01"/>
+		<prefab name="church_01"/>
+		<prefab name="funeral_home_01"/>
+		<prefab name="hospital_01" />
+		<prefab name="school_01"/>
+		<prefab name="school_k6_01"/>
+		<prefab name="school_daycare_01"/>
+		<prefab name="football_stadium" />
+		<prefab name="apartment_adobe_red_5_flr"/>
+		<prefab name="apartment_brick_6_flr" />
+		<prefab name="house_old_bungalow_01"/>
+		<prefab name="house_old_bungalow_02"/>
+		<prefab name="house_old_bungalow_04"/>
+		<prefab name="house_old_bungalow_05"/>
+		<prefab name="house_old_bungalow_06"/>
+		<prefab name="house_old_bungalow_07"/>
+		<prefab name="house_old_bungalow_08"/>
+		<prefab name="house_old_bungalow_09"/>
+		<prefab name="house_old_bungalow_10"/>
+		<prefab name="house_old_bungalow_11"/>
+		<prefab name="house_old_bungalow_12"/>
+		<prefab name="house_old_gambrel_01"/>
+		<prefab name="house_old_gambrel_02"/>
+		<prefab name="house_old_gambrel_03"/>
+		<prefab name="house_old_gambrel_04"/>
+		<prefab name="house_old_mansard_01"/>
+		<prefab name="house_old_mansard_02"/>
+		<prefab name="house_old_mansard_03"/>
+		<prefab name="house_old_mansard_04"/>
+		<prefab name="house_old_mansard_05"/>
+		<prefab name="house_old_mansard_06"/>
+		<prefab name="house_old_modular_01"/>
+		<prefab name="house_old_modular_02"/>
+		<prefab name="house_old_modular_03"/>
+		<prefab name="house_old_modular_04"/>
+		<prefab name="house_old_modular_05"/>
+		<prefab name="house_old_modular_06"/>
+		<prefab name="house_old_modular_07"/>
+		<prefab name="house_old_modular_08"/>
+		<prefab name="house_old_pyramid_01"/>
+		<prefab name="house_old_pyramid_02"/>
+		<prefab name="house_old_pyramid_03"/>
+		<prefab name="house_old_pyramid_04"/>
+		<prefab name="house_old_pyramid_05"/>
+		<prefab name="house_old_ranch_01"/>
+		<prefab name="house_old_ranch_05"/>
+		<prefab name="house_old_ranch_06"/>
+		<prefab name="house_old_ranch_09"/>
+		<prefab name="house_old_ranch_10"/>
+		<prefab name="house_old_tudor_01"/>
+		<prefab name="house_old_tudor_02"/>
+		<prefab name="house_old_tudor_03"/>
+		<prefab name="house_old_tudor_04"/>
+		<prefab name="house_old_tudor_05"/>
+		<prefab name="house_old_tudor_06"/>
+		<prefab name="house_old_victorian_01"/>
+		<prefab name="house_old_victorian_02"/>
+		<prefab name="house_old_victorian_03"/>
+		<prefab name="house_old_victorian_04"/>
+		<prefab name="house_old_victorian_05"/>
+		<prefab name="house_old_victorian_06"/>
+		<prefab name="house_old_victorian_07"/>
+		<prefab name="house_old_victorian_08"/>
+		<prefab name="house_old_victorian_09"/>
+		<prefab name="house_old_victorian_10"/>
+		<prefab name="house_old_victorian_11"/>
+		<prefab name="house_old_victorian_12"/>
+		<prefab name="house_old_victorian_13" />
+		<prefab name="abandoned_house_01"/>
+		<prefab name="abandoned_house_02"/>
+		<prefab name="abandoned_house_03"/>
+		<prefab name="abandoned_house_04"/>
+		<prefab name="abandoned_house_05"/>
+		<prefab name="abandoned_house_06"/>
+		<prefab name="abandoned_house_07"/>
+		<prefab name="abandoned_house_08"/>
+		<prefab name="house_burnt_01"/>
+		<prefab name="house_burnt_02"/>
+		<prefab name="house_burnt_03"/>
+		<prefab name="house_burnt_04"/>
+		<prefab name="house_burnt_05"/>
+		<prefab name="house_burnt_06"/>
+		<prefab name="remnant_burnt_01"/>
+		<prefab name="remnant_burnt_02"/>
+		<prefab name="remnant_burnt_03"/>
+		<prefab name="remnant_burnt_04"/>
+		<prefab name="remnant_burnt_05"/>
+		<prefab name="remnant_burnt_06"/>
+		<prefab name="remnant_burnt_07"/>
+		<prefab name="remnant_burnt_08"/>
+		<prefab name="remnant_burnt_09"/>
+		<prefab name="remnant_house_01"/>
+		<prefab name="remnant_house_02"/>
+		<prefab name="remnant_house_03"/>
+		<prefab name="remnant_house_04"/>
+		<prefab name="remnant_house_05"/>
+		<prefab name="remnant_house_06"/>
+		<prefab name="remnant_house_07"/>
+		<prefab name="remnant_house_08"/>
+		<prefab name="remnant_house_09"/>
+		<prefab name="remnant_house_10"/>
+		<prefab name="remnant_house_11"/>
+		<prefab name="remnant_house_12"/>
+		<prefab name="remnant_house_13"/>
+		<prefab name="remnant_business_01"/>
+		<prefab name="remnant_business_02"/>
+		<prefab name="remnant_business_03"/>
+		<prefab name="remnant_business_04"/>
+		<prefab name="remnant_business_05"/>
+		<prefab name="trailer_01"/>
+		<prefab name="trailer_02"/>
+		<prefab name="trailer_03"/>
+		<prefab name="trailer_04"/>
+		<prefab name="trailer_park_01" />
+		<prefab name="garage_01"/>
+		<prefab name="garage_02"/>
+		<prefab name="garage_03"/>
+		<prefab name="garage_04"/>
+		<prefab name="garage_05"/>
+		<prefab name="garage_06"/>
+		<prefab name="garage_07" />
+		<prefab name="cemetery_01"/>
+		<prefab name="cemetery_02"/>
+		<prefab name="church_graveyard1" />
+		<prefab name="army_camp_01"/>
+		<prefab name="army_camp_02"/>
+		<prefab name="army_camp_03"/>
+		<prefab name="barn_01"/>
+		<prefab name="barn_02"/>
+		<prefab name="barn_03" />
+		<prefab name="cornfield_sm"/>
+		<prefab name="cornfield_med"/>
+		<prefab name="blueberryfield_sm"/>
+		<prefab name="potatofield_sm" />
+		<prefab name="oldwest_business_01"/>
+		<prefab name="oldwest_business_02"/>
+		<prefab name="oldwest_business_03"/>
+		<prefab name="oldwest_business_04"/>
+		<prefab name="oldwest_business_05"/>
+		<prefab name="oldwest_business_06"/>
+		<prefab name="oldwest_business_07" />
+		<prefab name="oldwest_business_08" />
+		<prefab name="oldwest_business_09" />
+		<prefab name="oldwest_business_10" />
+		<prefab name="oldwest_business_11" />
+		<prefab name="oldwest_business_12" />
+		<prefab name="oldwest_business_13" />
+		<prefab name="oldwest_business_14" />
+		<prefab name="oldwest_church"/>
+		<prefab name="oldwest_coal_factory" />
+		<prefab name="oldwest_gallows" />
+		<prefab name="oldwest_jail"/>
+		<prefab name="oldwest_stables"/>
+		<prefab name="oldwest_strip_01" />
+		<prefab name="oldwest_strip_02" />
+		<prefab name="oldwest_strip_03" />
+		<prefab name="oldwest_strip_04" />
+		<prefab name="oldwest_watertower"/>
+		<prefab name="remnant_oldwest_01"/>
+		<prefab name="remnant_oldwest_02"/>
+		<prefab name="remnant_oldwest_03"/>
+		<prefab name="remnant_oldwest_04"/>
+		<prefab name="remnant_oldwest_05"/>
+		<prefab name="remnant_oldwest_06"/>
+		<prefab name="remnant_oldwest_07"/>
+		<prefab name="remnant_oldwest_08"/>
+		<prefab name="remnant_oldwest_09"/>
+		<prefab name="water_tower_01"/>
+		<prefab name="water_tower_02"/>
+		<prefab name="water_tower_03" />
+		<prefab name="diner_01"/>
+		<prefab name="diner_02"/>
+		<prefab name="diner_03"/>
+		<prefab name="fastfood_01"/>
+		<prefab name="fastfood_02"/>
+		<prefab name="fastfood_03" />
+		<prefab name="fastfood_04" />
+		<prefab name="gas_station1"/>
+		<prefab name="gas_station2"/>
+		<prefab name="gas_station3"/>
+		<prefab name="gas_station4"/>
+		<prefab name="gas_station5"/>
+		<prefab name="gas_station6"/>
+		<prefab name="gas_station7"/>
+		<prefab name="gas_station8"/>
+		<prefab name="gas_station9"/>
+		<prefab name="store_clothing_01"/>
+		<prefab name="store_clothing_02"/>
+		<prefab name="store_electronics_01"/>
+		<prefab name="store_electronics_02"/>
+		<prefab name="store_gun_01"/>
+		<prefab name="store_gun_02"/>
+		<prefab name="store_hardware_01"/>
+    	<prefab name="store_hardware_02"/>
+		<prefab name="store_grocery_01"/>
+		<prefab name="store_grocery_02"/>
+		<prefab name="store_book_01"/>
+		<prefab name="store_book_02"/>
+		<prefab name="store_bank_01"/>
+		<prefab name="store_laundry_01"/>
+		<prefab name="store_salon"/>
+		<prefab name="store_autoparts_01"/>
+      	<prefab name="store_pharmacy_01" />
+		<prefab name="store_pharmacy_02" />
+		<prefab name="skyscraper_01"/>
+		<prefab name="skyscraper_02"/>
+		<prefab name="skyscraper_03"/>
+		<prefab name="skyscraper_04" />
+		<prefab name="installation_red_mesa"/>
+		<prefab name="sawmill_01"/>
+		<prefab name="utility_waterworks_01"/>
+		<prefab name="utility_electric_co_01"/>
+		<prefab name="utility_refinery_01"/>
+		<prefab name="factory_lg_01"/>
+		<prefab name="factory_lg_02"/>
+		<prefab name="settlement_01" />
+		<prefab name="mp_waste_bldg_01_white"/>
+		<prefab name="mp_waste_bldg_02_red"/>
+		<prefab name="mp_waste_bldg_03_tan"/>
+		<prefab name="mp_waste_bldg_04_grey"/>
+		<prefab name="mp_waste_bldg_05_grey"/>
+		<prefab name="mp_waste_bldg_06_grey" />
+		<prefab name="remnant_industrial_01"/>
+		<prefab name="remnant_industrial_02"/>
+		<prefab name="remnant_industrial_03"/>
+		<prefab name="remnant_industrial_04" />
+		<prefab name="vacant_lot_01"/>
+		<prefab name="vacant_lot_02"/>
+		<prefab name="vacant_lot_03"/>
+		<prefab name="vacant_lot_04"/>
+		<prefab name="vacant_lot_05"/>
+		<prefab name="utility_celltower_02"/>
+		<prefab name="utility_celltower_01"/>
+		<prefab name="army_barracks_01"/>
+		<prefab name="junkyard_lg_01"/>
+		<prefab name="junkyard_med_01"/>
+		<prefab name="remnant_mill_01"/>
+    </prefab_rule>
+  </prefab_rules>
+  <hub_layouts></hub_layouts>
+  <terrain_generators>
+    <terrain_generator name="vanilla4k" base_height="0" water_level="43">
+		<module name="Biome Stamp Node-1896" type="BiomeStamper">
+		  <property name="seedAdditive" value="0" />
+		  <property name="blurRadius" value="50" />
+		  <property name="scale" value="0.5" />
+		  <property name="upscalingType" value="Closest" />
+		</module>
+		<module name="Noise From Stamp Node19136" type="TerrainStamper">
+		  <property name="stampNames" value="desert_ground01.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="0" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="1" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="1" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="0,0" />
+		  <property name="offsetMax" value="0,0" />
+		  <property name="seedAdditive" value="0" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="Lerp" />
+		</module>
+		<module name="Noise From Stamp Node19132" type="TerrainStamper">
+		  <property name="stampNames" value="plateau01.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.25" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.9" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="1" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="Random" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Noise From Stamp Node19134" type="TerrainStamper">
+		  <property name="stampNames" value="plateau02.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.25" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.9" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="3" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="Random" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Larger Output Modifier Node19122" type="LargerOutput">
+		  <property name="sourceModule1" value="Noise From Stamp Node19132" />
+		  <property name="sourceModule2" value="Noise From Stamp Node19134" />
+		</module>
+		<module name="Noise From Stamp Node19140" type="TerrainStamper">
+		  <property name="stampNames" value="plateau03.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.25" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.9" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="2" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="Random" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Noise From Stamp Node19146" type="TerrainStamper">
+		  <property name="stampNames" value="plateau04.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.25" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.9" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="0" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="Random" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Larger Output Modifier Node19102" type="LargerOutput">
+		  <property name="sourceModule1" value="Noise From Stamp Node19140" />
+		  <property name="sourceModule2" value="Noise From Stamp Node19146" />
+		</module>
+		<module name="Larger Output Modifier Node19114" type="LargerOutput">
+		  <property name="sourceModule1" value="Larger Output Modifier Node19122" />
+		  <property name="sourceModule2" value="Larger Output Modifier Node19102" />
+		</module>
+		<module name="Larger Output Modifier Node19118" type="LargerOutput">
+		  <property name="sourceModule1" value="Noise From Stamp Node19136" />
+		  <property name="sourceModule2" value="Larger Output Modifier Node19114" />
+		</module>
+		<module name="Noise From Stamp Node19138" type="TerrainStamper">
+		  <property name="stampNames" value="plateau05.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.5" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.75" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="6" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="Random" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Noise From Stamp Node19142" type="TerrainStamper">
+		  <property name="stampNames" value="plateau06.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="3" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.5" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.9" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="6" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="Random" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Larger Output Modifier Node19116" type="LargerOutput">
+		  <property name="sourceModule1" value="Noise From Stamp Node19138" />
+		  <property name="sourceModule2" value="Noise From Stamp Node19142" />
+		</module>
+		<module name="Larger Output Modifier Node19100" type="LargerOutput">
+		  <property name="sourceModule1" value="Larger Output Modifier Node19118" />
+		  <property name="sourceModule2" value="Larger Output Modifier Node19116" />
+		</module>
+		<module name="Scale Bias Modifier Node19232" type="ScaleBiasOutput">
+		  <property name="sourceModule" value="Larger Output Modifier Node19100" />
+		  <property name="scale" value="1.05" />
+		  <property name="bias" value="0" />
+		</module>
+		<module name="Noise From Stamp Node19166" type="TerrainStamper">
+		  <property name="stampNames" value="outcrop01.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.5" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.75" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="6" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Noise From Stamp Node19144" type="TerrainStamper">
+		  <property name="stampNames" value="outcrop02.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.5" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.75" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="7" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Larger Output Modifier Node19106" type="LargerOutput">
+		  <property name="sourceModule1" value="Noise From Stamp Node19166" />
+		  <property name="sourceModule2" value="Noise From Stamp Node19144" />
+		</module>
+		<module name="Noise From Stamp Node19156" type="TerrainStamper">
+		  <property name="stampNames" value="outcrop03.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.5" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="1" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="8" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Noise From Stamp Node19168" type="TerrainStamper">
+		  <property name="stampNames" value="outcrop04.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.5" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.75" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="9" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Larger Output Modifier Node19110" type="LargerOutput">
+		  <property name="sourceModule1" value="Noise From Stamp Node19156" />
+		  <property name="sourceModule2" value="Noise From Stamp Node19168" />
+		</module>
+		<module name="Noise From Stamp Node19162" type="TerrainStamper">
+		  <property name="stampNames" value="outcrop05.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.5" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.75" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="10" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Larger Output Modifier Node19128" type="LargerOutput">
+		  <property name="sourceModule1" value="Larger Output Modifier Node19110" />
+		  <property name="sourceModule2" value="Noise From Stamp Node19162" />
+		</module>
+		<module name="Larger Output Modifier Node19104" type="LargerOutput">
+		  <property name="sourceModule1" value="Larger Output Modifier Node19106" />
+		  <property name="sourceModule2" value="Larger Output Modifier Node19128" />
+		</module>
+		<module name="Noise From Stamp Node19158" type="TerrainStamper">
+		  <property name="stampNames" value="ground01.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="0" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="1" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="1" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="0,0" />
+		  <property name="offsetMax" value="0,0" />
+		  <property name="seedAdditive" value="0" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Noise From Stamp Node19152" type="TerrainStamper">
+		  <property name="stampNames" value="hills01.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.25" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.9" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="1" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Noise From Stamp Node19160" type="TerrainStamper">
+		  <property name="stampNames" value="hills02.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.25" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.9" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="3" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Larger Output Modifier Node19126" type="LargerOutput">
+		  <property name="sourceModule1" value="Noise From Stamp Node19152" />
+		  <property name="sourceModule2" value="Noise From Stamp Node19160" />
+		</module>
+		<module name="Noise From Stamp Node19170" type="TerrainStamper">
+		  <property name="stampNames" value="hills03.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.25" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.9" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="2" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Noise From Stamp Node19164" type="TerrainStamper">
+		  <property name="stampNames" value="hills04.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.25" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.9" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="0" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Larger Output Modifier Node19112" type="LargerOutput">
+		  <property name="sourceModule1" value="Noise From Stamp Node19170" />
+		  <property name="sourceModule2" value="Noise From Stamp Node19164" />
+		</module>
+		<module name="Larger Output Modifier Node19120" type="LargerOutput">
+		  <property name="sourceModule1" value="Larger Output Modifier Node19126" />
+		  <property name="sourceModule2" value="Larger Output Modifier Node19112" />
+		</module>
+		<module name="Larger Output Modifier Node19124" type="LargerOutput">
+		  <property name="sourceModule1" value="Noise From Stamp Node19158" />
+		  <property name="sourceModule2" value="Larger Output Modifier Node19120" />
+		</module>
+		<module name="Larger Output Modifier Node19108" type="LargerOutput">
+		  <property name="sourceModule1" value="Larger Output Modifier Node19104" />
+		  <property name="sourceModule2" value="Larger Output Modifier Node19124" />
+		</module>
+		<module name="Blend Modifier Node19096" type="Blend">
+		  <property name="controlModule" value="Biome Stamp Node-1896" />
+		  <property name="sourceModule1" value="Scale Bias Modifier Node19232" />
+		  <property name="sourceModule2" value="Larger Output Modifier Node19108" />
+		  <property name="lowerBound" value="0" />
+		  <property name="upperBound" value="0.1" />
+		  <property name="smoothStep" value="False" />
+		</module>
+		<module name="Noise From Stamp Node19154" type="TerrainStamper">
+		  <property name="stampNames" value="outcrop03.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="2" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="90" />
+		  <property name="scaleMin" value="1" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="1" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="0,0" />
+		  <property name="offsetMax" value="0,0" />
+		  <property name="seedAdditive" value="1" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Scale Bias Modifier Node19230" type="ScaleBiasOutput">
+		  <property name="sourceModule" value="Noise From Stamp Node19154" />
+		  <property name="scale" value="12" />
+		  <property name="bias" value="0" />
+		</module>
+		<module name="Clamp Modifier Node19098" type="ClampOutput">
+		  <property name="sourceModule" value="Scale Bias Modifier Node19230" />
+		  <property name="bounds" value="0,1" />
+		</module>
+		<module name="Multiply Modifier Node19130" type="Multiply">
+		  <property name="sourceModule1" value="Blend Modifier Node19096" />
+		  <property name="sourceModule2" value="Clamp Modifier Node19098" />
+		</module>
+		<output module="Multiply Modifier Node19130" />
+    </terrain_generator>
+    <terrain_generator name="vanilla8k" base_height="0" water_level="43">
+		<module name="Biome Stamp Node-15354" type="BiomeStamper">
+		  <property name="seedAdditive" value="3" />
+		  <property name="blurRadius" value="100" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Noise From Stamp Node18964" type="TerrainStamper">
+		  <property name="stampNames" value="desert_ground01.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="0" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="1" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="1" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="0,0" />
+		  <property name="offsetMax" value="0,0" />
+		  <property name="seedAdditive" value="0" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="Lerp" />
+		</module>
+		<module name="Noise From Stamp Node18976" type="TerrainStamper">
+		  <property name="stampNames" value="plateau01.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.25" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.9" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="1" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="Random" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Noise From Stamp Node18978" type="TerrainStamper">
+		  <property name="stampNames" value="plateau02.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.25" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.9" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="3" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="Random" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Larger Output Modifier Node18956" type="LargerOutput">
+		  <property name="sourceModule1" value="Noise From Stamp Node18976" />
+		  <property name="sourceModule2" value="Noise From Stamp Node18978" />
+		</module>
+		<module name="Noise From Stamp Node18998" type="TerrainStamper">
+		  <property name="stampNames" value="plateau03.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.25" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.9" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="2" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="Random" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Noise From Stamp Node18968" type="TerrainStamper">
+		  <property name="stampNames" value="plateau04.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.25" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.9" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="0" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="Random" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Larger Output Modifier Node18948" type="LargerOutput">
+		  <property name="sourceModule1" value="Noise From Stamp Node18998" />
+		  <property name="sourceModule2" value="Noise From Stamp Node18968" />
+		</module>
+		<module name="Larger Output Modifier Node18942" type="LargerOutput">
+		  <property name="sourceModule1" value="Larger Output Modifier Node18956" />
+		  <property name="sourceModule2" value="Larger Output Modifier Node18948" />
+		</module>
+		<module name="Larger Output Modifier Node18932" type="LargerOutput">
+		  <property name="sourceModule1" value="Noise From Stamp Node18964" />
+		  <property name="sourceModule2" value="Larger Output Modifier Node18942" />
+		</module>
+		<module name="Noise From Stamp Node18988" type="TerrainStamper">
+		  <property name="stampNames" value="plateau05.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.5" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.75" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="6" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="Random" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Noise From Stamp Node19000" type="TerrainStamper">
+		  <property name="stampNames" value="plateau06.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="3" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.5" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.9" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="6" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="Random" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="Lerp" />
+		</module>
+		<module name="Larger Output Modifier Node18950" type="LargerOutput">
+		  <property name="sourceModule1" value="Noise From Stamp Node18988" />
+		  <property name="sourceModule2" value="Noise From Stamp Node19000" />
+		</module>
+		<module name="Larger Output Modifier Node18940" type="LargerOutput">
+		  <property name="sourceModule1" value="Larger Output Modifier Node18932" />
+		  <property name="sourceModule2" value="Larger Output Modifier Node18950" />
+		</module>
+		<module name="Scale Bias Modifier Node19062" type="ScaleBiasOutput">
+		  <property name="sourceModule" value="Larger Output Modifier Node18940" />
+		  <property name="scale" value="1.05" />
+		  <property name="bias" value="0" />
+		</module>
+		<module name="Noise From Stamp Node18970" type="TerrainStamper">
+		  <property name="stampNames" value="outcrop01.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.5" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.75" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="6" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Noise From Stamp Node18966" type="TerrainStamper">
+		  <property name="stampNames" value="outcrop02.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.5" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.75" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="7" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Larger Output Modifier Node18954" type="LargerOutput">
+		  <property name="sourceModule1" value="Noise From Stamp Node18970" />
+		  <property name="sourceModule2" value="Noise From Stamp Node18966" />
+		</module>
+		<module name="Noise From Stamp Node18984" type="TerrainStamper">
+		  <property name="stampNames" value="outcrop03.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.5" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="1" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="8" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Noise From Stamp Node18972" type="TerrainStamper">
+		  <property name="stampNames" value="outcrop04.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.5" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.75" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="9" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Larger Output Modifier Node18946" type="LargerOutput">
+		  <property name="sourceModule1" value="Noise From Stamp Node18984" />
+		  <property name="sourceModule2" value="Noise From Stamp Node18972" />
+		</module>
+		<module name="Noise From Stamp Node19002" type="TerrainStamper">
+		  <property name="stampNames" value="outcrop05.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.5" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.75" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="10" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Larger Output Modifier Node18938" type="LargerOutput">
+		  <property name="sourceModule1" value="Larger Output Modifier Node18946" />
+		  <property name="sourceModule2" value="Noise From Stamp Node19002" />
+		</module>
+		<module name="Larger Output Modifier Node18936" type="LargerOutput">
+		  <property name="sourceModule1" value="Larger Output Modifier Node18954" />
+		  <property name="sourceModule2" value="Larger Output Modifier Node18938" />
+		</module>
+		<module name="Noise From Stamp Node18986" type="TerrainStamper">
+		  <property name="stampNames" value="ground01.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="0" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="1" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="1" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="0,0" />
+		  <property name="offsetMax" value="0,0" />
+		  <property name="seedAdditive" value="0" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Noise From Stamp Node18974" type="TerrainStamper">
+		  <property name="stampNames" value="hills01.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.25" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.9" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="1" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Noise From Stamp Node18996" type="TerrainStamper">
+		  <property name="stampNames" value="hills02.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.25" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.9" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="3" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Larger Output Modifier Node18944" type="LargerOutput">
+		  <property name="sourceModule1" value="Noise From Stamp Node18974" />
+		  <property name="sourceModule2" value="Noise From Stamp Node18996" />
+		</module>
+		<module name="Noise From Stamp Node18980" type="TerrainStamper">
+		  <property name="stampNames" value="hills03.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.25" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.9" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="2" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Noise From Stamp Node18994" type="TerrainStamper">
+		  <property name="stampNames" value="hills04.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="4" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="0" />
+		  <property name="scaleMin" value="0.25" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="0.9" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="-1,-1" />
+		  <property name="offsetMax" value="1,1" />
+		  <property name="seedAdditive" value="0" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Larger Output Modifier Node18958" type="LargerOutput">
+		  <property name="sourceModule1" value="Noise From Stamp Node18980" />
+		  <property name="sourceModule2" value="Noise From Stamp Node18994" />
+		</module>
+		<module name="Larger Output Modifier Node18934" type="LargerOutput">
+		  <property name="sourceModule1" value="Larger Output Modifier Node18944" />
+		  <property name="sourceModule2" value="Larger Output Modifier Node18958" />
+		</module>
+		<module name="Larger Output Modifier Node18960" type="LargerOutput">
+		  <property name="sourceModule1" value="Noise From Stamp Node18986" />
+		  <property name="sourceModule2" value="Larger Output Modifier Node18934" />
+		</module>
+		<module name="Larger Output Modifier Node18952" type="LargerOutput">
+		  <property name="sourceModule1" value="Larger Output Modifier Node18936" />
+		  <property name="sourceModule2" value="Larger Output Modifier Node18960" />
+		</module>
+		<module name="Blend Modifier Node18928" type="Blend">
+		  <property name="controlModule" value="Biome Stamp Node-15354" />
+		  <property name="sourceModule1" value="Scale Bias Modifier Node19062" />
+		  <property name="sourceModule2" value="Larger Output Modifier Node18952" />
+		  <property name="lowerBound" value="0" />
+		  <property name="upperBound" value="0.1" />
+		  <property name="smoothStep" value="False" />
+		</module>
+		<module name="Noise From Stamp Node18982" type="TerrainStamper">
+		  <property name="stampNames" value="outcrop03.raw" />
+		  <property name="blendMode" value="Max" />
+		  <property name="frequency" value="1" />
+		  <property name="rotationMin" value="0" />
+		  <property name="rotationMax" value="360" />
+		  <property name="rotationStepAmount" value="90" />
+		  <property name="scaleMin" value="1" />
+		  <property name="scaleMax" value="1" />
+		  <property name="minHeightMultiplier" value="1" />
+		  <property name="maxHeightMultiplier" value="1" />
+		  <property name="offsetMin" value="0,0" />
+		  <property name="offsetMax" value="0,0" />
+		  <property name="seedAdditive" value="1" />
+		  <property name="blurRadius" value="0" />
+		  <property name="xflip" value="No" />
+		  <property name="yflip" value="No" />
+		  <property name="upscalingType" value="None" />
+		</module>
+		<module name="Scale Bias Modifier Node19064" type="ScaleBiasOutput">
+		  <property name="sourceModule" value="Noise From Stamp Node18982" />
+		  <property name="scale" value="12" />
+		  <property name="bias" value="0" />
+		</module>
+		<module name="Clamp Modifier Node18930" type="ClampOutput">
+		  <property name="sourceModule" value="Scale Bias Modifier Node19064" />
+		  <property name="bounds" value="0,1" />
+		</module>
+		<module name="Multiply Modifier Node18962" type="Multiply">
+		  <property name="sourceModule1" value="Blend Modifier Node18928" />
+		  <property name="sourceModule2" value="Clamp Modifier Node18930" />
+		</module>
+		<output module="Multiply Modifier Node18962" />
+    </terrain_generator>
+  </terrain_generators>
+  <biome_generators>
+    <biome_generator name="vanilla4k">
+		<module name="Biome Stamp Node-1894" type="BiomeStamper">
+		   <property name="seedAdditive" value="0" />
+		   <property name="blurRadius" value="0" />
+		   <property name="scale" value="0.5" />
+		   <property name="upscalingType" value="Closest" />
+		</module>
+		<module name="Biome Mapper Node19092" type="BiomeIDMapper">
+		   <property name="sourceModule" value="Biome Stamp Node-1894" />
+		   <property name="biomemap0.BiomeName" value="Snow" />
+		   <property name="biomemap0.ID" value="1" />
+		   <property name="biomemap0.Range" value="0.9,2" />
+		   <property name="biomemap1.BiomeName" value="PineForest" />
+		   <property name="biomemap1.ID" value="3" />
+		   <property name="biomemap1.Range" value="0.4,0.9" />
+		   <property name="biomemap2.BiomeName" value="BurntForest" />
+		   <property name="biomemap2.ID" value="9" />
+		   <property name="biomemap2.Range" value="0.2,0.4" />
+		   <property name="biomemap3.BiomeName" value="Wasteland" />
+		   <property name="biomemap3.ID" value="8" />
+		   <property name="biomemap3.Range" value="0.1,0.2" />
+		   <property name="biomemap4.BiomeName" value="Desert" />
+		   <property name="biomemap4.ID" value="5" />
+		   <property name="biomemap4.Range" value="0,0.1" />
+		</module>
+		<output module="Biome Mapper Node19092" />
+	</biome_generator>
+    <biome_generator name="vanilla8k">
+		<module name="Biome Stamp Node-15614" type="BiomeStamper">
+			<property name="seedAdditive" value="3" />
+			<property name="blurRadius" value="0" />
+			<property name="upscalingType" value="Closest" />
+		</module>
+		<module name="Biome Mapper Node18926" type="BiomeIDMapper">
+			<property name="sourceModule" value="Biome Stamp Node-15614" />
+			<property name="biomemap0.BiomeName" value="Snow" />
+			<property name="biomemap0.ID" value="1" />
+			<property name="biomemap0.Range" value="0.9,2" />
+			<property name="biomemap1.BiomeName" value="PineForest" />
+			<property name="biomemap1.ID" value="3" />
+			<property name="biomemap1.Range" value="0.4,0.9" />
+			<property name="biomemap2.BiomeName" value="BurntForest" />
+			<property name="biomemap2.ID" value="9" />
+			<property name="biomemap2.Range" value="0.2,0.4" />
+			<property name="biomemap3.BiomeName" value="Wasteland" />
+			<property name="biomemap3.ID" value="8" />
+			<property name="biomemap3.Range" value="0.1,0.2" />
+			<property name="biomemap4.BiomeName" value="Desert" />
+			<property name="biomemap4.ID" value="5" />
+			<property name="biomemap4.Range" value="0,0.1" />
+		</module>
+		<output module="Biome Mapper Node18926" />
+    </biome_generator>
+  </biome_generators>
+  <!--
+	GENERATOR MODULE TYPES
+			AbsoluteOutput
+			Add
+			BiasOutput
+			Blend
+			ClampOutput
+			CurveOutput
+			DisplaceInput
+			ExponentialOutput
+			InvertInput
+			InvertOutput
+			LargerOutput
+			Multiply
+			Power
+			RotateInput
+			ScaleBiasOutput
+			ScaleInput
+			ScaleOutput
+			Select
+			SmallerOutput
+			Terrace
+			TranslateInput
+			Billow
+			Checkerboard
+			Constant
+			FastBillow
+			FastNoise
+			FastNoiseBasis
+			FastRidgedMultifractal
+			FastTurbulence
+			GradientNoiseBasis
+			RidgedMultifractal
+			Turbulence
+			Voronoi
+
+-->
+</rwgmixer>

@@ -1,0 +1,1114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rwgmixer>
+	<world ruleset="vanillaMedium" />
+
+	<rulesets>
+		<ruleset name="vanillaSmall" world_size="4096" terrain_generator="vanilla" biome_generator="vanillaSmall">
+			<cell_rule name="default" prob="1"/>
+		</ruleset>
+		<ruleset name="vanillaMedium" world_size="8192" terrain_generator="vanilla" biome_generator="vanillaSmall">
+			<cell_rule name="default" prob="1"/>
+		</ruleset>
+		<ruleset name="vanillaLarge" world_size="16384" terrain_generator="vanilla" biome_generator="vanillaSmall">
+			<cell_rule name="default" prob="1"/>
+		</ruleset>
+	</rulesets>
+
+	<cell_rules>
+		<cell_rule name="default">
+			<hub_rule name="default" prob="1"/>
+			<wilderness_rule name="default" prob="1"/>
+		</cell_rule>
+	</cell_rules>
+
+	<hub_rules>
+		<hub_rule name="default">
+			<downtown_zone_size_perc value="0.45"/>
+
+			<prefab_rule name="townGroup"/>
+
+			<street_gen level="25" length_multiplier="6">
+				<axiom value="[FFCT][-FFT][+FFI][--FFN][+FFT][-FFI][++FN][F-FF+FF[-T]FF+FF+FFFF-FF-FF[+I]FF-F[+N]"/>
+
+				<rule char="T" replace_with="F-FF+FF[-T**]FF+FF+FFFF-FF-FF[+I**]FF-F[+N*K]"/>
+				<rule char="I" replace_with="F-FF+FF[-T**]FF+FF+FFFF-FF-FF[+I**]FF-F[+N*K]"/>
+				<rule char="N" replace_with="F-FF+FF[-T**]FF+FF+FFFF-FF-FF[+I**]FF-F[+N*K]"/>
+				<rule char="K" replace_with="[FFCT][-FFT][+FFI][--FFN][+FFT][-FFI][++FN]"/>
+				<alt_commands chars="T,I,N,K"/>
+			</street_gen>
+		</hub_rule>
+	</hub_rules>
+
+	<wilderness_rules>
+		<wilderness_rule name="default">
+			<prefab_rule name="wildernessGroup"/>
+		</wilderness_rule>
+	</wilderness_rules>
+
+	<prefab_rules>
+		<prefab_rule name="townGroup">
+			<prefab rule="residentialOldGroup"/>
+			<prefab rule="residentialNewGroup"/>
+			<prefab rule="commercialGroup"/>
+			<prefab rule="downtownGroup"/>
+			<prefab rule="industrialGroup"/>
+			<prefab rule="ruralGroup"/>
+			<prefab rule="detailFillerGroup" prob="0.05"/>
+		</prefab_rule>
+
+		<prefab_rule name="residentialOldGroup">
+			<prefab rule="oldResidential_abandoned_Burnt_Homes" max_count="4"/>
+			<prefab rule="oldResidential_Garages" max_count="3"/>
+			<prefab name="bombshelter_lg_01" max_count="1"/>
+			<prefab name="bombshelter_md_01" max_count="1"/>
+			<prefab rule="oldResidential_Cemetary-Churches" max_count="1"/>
+			<prefab rule="oldResidential_Trailers" max_count="4"/>
+			<prefab rule="oldResidential_Bldgs"/>
+		</prefab_rule>
+
+		<prefab_rule name="residentialNewGroup">
+			<prefab rule="residentialNew_Bldgs" max_count="8"/>
+			<prefab rule="residentialNew_ServBldgs" max_count="2"/>
+			<prefab rule="residentialNew_Schools" max_count="4"/>
+			<prefab rule="residentialNew_Apts" max_count="2"/>
+		</prefab_rule>
+
+		<prefab_rule name="commercialGroup">
+			<prefab rule="diner_FastfoodGroup" max_count="2"/>
+			<prefab rule="gas_Station_Group" max_count="2"/>
+			<prefab rule="storeGroup" max_count="4"/>
+			<prefab name="carlot_01" max_count="2"/>
+			<prefab name="carlot_02" max_count="2"/>
+			<prefab name="skate_park_01"  max_count="1"/>
+		</prefab_rule>
+
+		<prefab_rule name="downtownGroup">
+			<prefab name="business_old_01"/>
+			<prefab name="business_old_02"/>
+			<prefab name="business_old_03"/>
+			<prefab name="business_old_04"/>
+			<prefab name="business_old_05"/>
+			<prefab name="business_old_06"/>
+			<prefab name="business_old_07"/>
+			<prefab name="business_old_08"/>
+			<prefab name="business_strip_old_01" max_count="1"/>
+			<prefab name="business_strip_old_02" max_count="1"/>
+			<prefab name="business_strip_old_03" max_count="1"/>
+			<prefab name="business_strip_old_04" max_count="1"/>
+			<prefab name="courthouse_med_01" max_count="1" />
+			<prefab name="courthouse_med_02" max_count="1" />
+			<prefab name="post_office_sm_01" max_count="1" />
+			<prefab name="post_office_med_01" max_count="1" />
+			<prefab name="mp_waste_bldg_governer_08" max_count="1"/>
+			<prefab name="police_station1" max_count="1"/>
+			<prefab name="hotel_roadside_01" max_count="1"/>
+			<prefab name="hotel_roadside_02" max_count="1"/>
+			<prefab name="hotel_ostrich" max_count="1"/>
+			<prefab name="hotel_new_01" max_count="1"/>
+			<prefab name="prison_01" max_count="1"/>
+			<prefab name="parking_lot_01"/>
+			<prefab name="parking_lot_02"/>
+			<prefab name="parking_lot_03"/>
+			<prefab name="parking_garage_01"/>
+			<prefab name="theater_01"  max_count="1"/>
+			<prefab name="bar_theater_01"  max_count="1"/>
+			<prefab name="bar_stripclub_01" />
+			<prefab name="bar_sm_01" />
+			<prefab name="fire_station_01" max_count="1"/>
+			<prefab name="fire_station_02" max_count="1"/>
+			<prefab rule="skyscrapers" min_count="2"/>
+			<prefab name="store_pawn_01" max_count="1" />
+		</prefab_rule>
+
+		<prefab_rule name="industrialGroup">
+			<prefab rule="skyscrapers" min_count="1" max_count="2"/>
+			<prefab rule="industrial_Bldgs"/>
+			<prefab rule="industrial_JunkyardsLots" />
+			<prefab rule="industrial_MpWasteBldgs" max_count="4"/>
+			<prefab rule="industrial_RubbleBldgs" max_count="4"/>
+		</prefab_rule>
+
+		<prefab_rule name="ruralGroup">
+			<prefab rule="crop_Feilds" max_count="2"/>
+			<prefab rule="barns" max_count="2"/>
+			<prefab rule="waterTowers_Ponds" max_count="2"/>
+			<prefab rule="oldwest_bldgs" max_count="2"/>
+			<prefab rule="armyCamps" max_count="2"/>
+		</prefab_rule>
+
+		<prefab_rule name="wildernessGroup">
+			<prefab name="settlement_trader_01" min_count="1" max_count="1" prob="2" min_repeat_distance="800"/>
+			<prefab name="cabin_01" />
+			<prefab name="settlement_trader_02" min_count="1" max_count="1" prob="2" min_repeat_distance="800"/>
+			<prefab name="cabin_02" />
+			<prefab name="settlement_trader_03" min_count="1" max_count="1" prob="2" min_repeat_distance="800"/>
+			<prefab name="cabin_03" />
+			<prefab name="settlement_trader_04" min_count="1" max_count="1" prob="2" min_repeat_distance="800"/>
+			<prefab name="cabin_04" />
+			<prefab name="settlement_trader_05" min_count="1" max_count="1" prob="2" min_repeat_distance="800"/>
+			<prefab name="cabin_05" />
+			<prefab name="cabin_06" />
+			<prefab name="cabin_07"/>
+			<prefab name="cabin_08"/>
+			<prefab name="cabin_09"/>
+			<prefab name="cabin_10"/>
+			<prefab name="cabin_08"/>
+			<prefab name="cabin_12"/>
+			<prefab name="cabin_13"/>
+			<prefab name="cabin_14"/>
+			<prefab name="cabin_15"/>
+			<prefab name="ranger_station1" />
+			<prefab name="snowy_ski_lodge" />
+			<prefab name="survivor_site_01" />
+			<prefab name="survivor_site_02" />
+			<prefab name="survivor_site_03" />
+			<prefab name="survivor_site_04" />
+			<prefab name="survivor_site_05" />
+			<prefab name="survivor_site_06" />
+			<prefab name="survivor_site_07" />
+			<prefab name="survivor_site_08" />
+			<prefab name="indian_burial_grounds_01" prob="0.05"/>
+			<prefab name="oldwest_graveyard"/>
+			<prefab name="cave_01" />
+			<prefab name="cave_02" />
+			<prefab name="cave_03" />
+			<prefab name="cave_04" />
+		</prefab_rule>
+
+		<prefab_rule name="detailFillerGroup">
+			<prefab name="street_light_01" prob="0.25"/>
+			<prefab name="street_light_02" prob="0.25"/>
+			<prefab name="sign_slow"/>
+			<prefab name="sign_speed_25"/>
+			<prefab name="sign_speed_35"/>
+			<prefab name="sign_speed_45"/>
+			<prefab name="sign_73_north"/>
+			<prefab name="sign_73_south"/>
+			<prefab name="sign_albuquerque"/>
+			<prefab name="sign_phoenix"/>
+			<prefab name="tree_burntpine_01"/>
+			<prefab name="tree_burntpine_02"/>
+			<prefab name="tree_burntpine_03"/>
+		</prefab_rule>
+		
+		
+		<prefab_rule name="residentialNew_Bldgs">  <!-- Residential New Zone Groups-->
+			<prefab name="house_old_bungalow_03" prob="0.18"/>
+			<prefab name="house_construction_01" prob="0.18"/>
+			<prefab name="house_construction_02" prob="0.18"/>
+			<prefab name="house_old_ranch_02" prob="0.18"/>
+			<prefab name="house_old_ranch_03" prob="0.18"/>
+			<prefab name="house_old_ranch_04" prob="0.18"/>
+			<prefab name="house_old_ranch_07" prob="0.18"/>
+			<prefab name="house_old_ranch_08" prob="0.18"/>
+			<prefab name="house_new_mansion_01" prob="0.18"/>
+			<prefab name="house_new_mansion_02" prob="0.19"/>
+			<prefab name="house_new_mansion_03" prob="0.2"/>
+			<prefab name="house_new_01" prob="0.21"/>
+			<prefab name="house_new_02" prob="0.22"/>
+			<prefab name="house_new_03" prob="0.23"/>
+			<prefab name="house_new_04" prob="0.24"/>
+			<prefab name="house_new_05" prob="0.25"/>
+			<prefab name="house_new_06" />
+		</prefab_rule>
+		
+		<prefab_rule name="residentialNew_ServBldgs">
+			<prefab name="church_sm_01" prob="0.5"/>
+			<prefab name="funeral_home_01" prob="0.5" />
+			<prefab name="hospital_01" />
+		</prefab_rule>
+		
+		<prefab_rule name="residentialNew_Schools">
+			<prefab name="school_01" prob="0.28"/>
+			<prefab name="school_k6_01" prob="0.28"/>
+			<prefab name="school_daycare_01" prob="0.28"/>
+			<prefab name="football_stadium"  />
+		</prefab_rule>
+		
+		<prefab_rule name="residentialNew_Apts">
+			<prefab name="apartment_adobe_red_5_flr" prob="0.6"/>
+			<prefab name="apartment_brick_6_flr" />
+		</prefab_rule>
+		
+		<prefab_rule name="oldResidential_Bldgs"> <!-- Residential Old Zone Groups-->
+			<prefab name="house_old_bungalow_01" prob="0.18"/>
+			<prefab name="house_old_bungalow_02" prob="0.18"/>
+			<prefab name="house_old_bungalow_04" prob="0.18"/>
+			<prefab name="house_old_bungalow_05" prob="0.18"/>
+			<prefab name="house_old_bungalow_06" prob="0.18"/>
+			<prefab name="house_old_bungalow_07" prob="0.18"/>
+			<prefab name="house_old_bungalow_08" prob="0.18"/>
+			<prefab name="house_old_bungalow_09" prob="0.18"/>
+			<prefab name="house_old_bungalow_10" prob="0.18"/>
+			<prefab name="house_old_bungalow_11" prob="0.18"/>
+			<prefab name="house_old_bungalow_12" prob="0.18"/>
+			<prefab name="house_old_gambrel_01" prob="0.18"/>
+			<prefab name="house_old_gambrel_02" prob="0.18"/>
+			<prefab name="house_old_gambrel_03" prob="0.18"/>
+			<prefab name="house_old_mansard_01" prob="0.18"/>
+			<prefab name="house_old_mansard_02" prob="0.18"/>
+			<prefab name="house_old_mansard_03" prob="0.18"/>
+			<prefab name="house_old_mansard_04" prob="0.18"/>
+			<prefab name="house_old_mansard_05" prob="0.18"/>
+			<prefab name="house_old_mansard_06" prob="0.18"/>
+			<prefab name="house_old_modular_01" prob="0.18"/>
+			<prefab name="house_old_modular_02" prob="0.18"/>
+			<prefab name="house_old_modular_03" prob="0.18"/>
+			<prefab name="house_old_modular_04" prob="0.18"/>
+			<prefab name="house_old_modular_05" prob="0.18"/>
+			<prefab name="house_old_modular_06" prob="0.18"/>
+			<prefab name="house_old_modular_07" prob="0.18"/>
+			<prefab name="house_old_modular_08" prob="0.18"/>
+			<prefab name="house_old_pyramid_01" prob="0.18"/>
+			<prefab name="house_old_pyramid_02" prob="0.18"/>
+			<prefab name="house_old_pyramid_03" prob="0.18"/>
+			<prefab name="house_old_pyramid_04" prob="0.18"/>
+			<prefab name="house_old_pyramid_05" prob="0.18"/>
+			<prefab name="house_old_ranch_01" prob="0.18"/>
+			<prefab name="house_old_ranch_05" prob="0.18"/>
+			<prefab name="house_old_ranch_06" prob="0.18"/>
+			<prefab name="house_old_ranch_09" prob="0.18"/>
+			<prefab name="house_old_ranch_10" prob="0.18"/>
+			<prefab name="house_old_tudor_01" prob="0.18"/>
+			<prefab name="house_old_tudor_02" prob="0.18"/>
+			<prefab name="house_old_tudor_03" prob="0.18"/>
+			<prefab name="house_old_tudor_04" prob="0.18"/>
+			<prefab name="house_old_tudor_05" prob="0.18"/>
+			<prefab name="house_old_tudor_06" prob="0.18"/>
+			<prefab name="house_old_victorian_01" prob="0.18"/>
+			<prefab name="house_old_victorian_02" prob="0.18"/>
+			<prefab name="house_old_victorian_03" prob="0.18"/>
+			<prefab name="house_old_victorian_04" prob="0.18"/>
+			<prefab name="house_old_victorian_05" prob="0.18"/>
+			<prefab name="house_old_victorian_06" prob="0.19"/>
+			<prefab name="house_old_victorian_07" prob="0.2"/>
+			<prefab name="house_old_victorian_08" prob="0.21"/>
+			<prefab name="house_old_victorian_09" prob="0.22"/>
+			<prefab name="house_old_victorian_10" prob="0.23"/>
+			<prefab name="house_old_victorian_11" prob="0.24"/>
+			<prefab name="house_old_victorian_12" prob="0.25"/>
+			<prefab name="house_old_victorian_13" />
+		</prefab_rule>
+		
+		<prefab_rule name="oldResidential_abandoned_Burnt_Homes">
+			<prefab name="abandoned_house_01" prob="0.18"/>
+			<prefab name="abandoned_house_02" prob="0.18"/>
+			<prefab name="abandoned_house_03" prob="0.18"/>
+			<prefab name="abandoned_house_04" prob="0.18"/>
+			<prefab name="abandoned_house_05" prob="0.18"/>
+			<prefab name="abandoned_house_06" prob="0.19"/>
+			<prefab name="abandoned_house_07" prob="0.2"/>
+			<prefab name="abandoned_house_08" prob="0.21"/>
+			<prefab name="houseburnt1" prob="0.22"/>
+			<prefab name="houseburnt2" prob="0.23"/>
+			<prefab name="houseburnt3" prob="0.24"/>
+			<prefab name="houseburnt3b" prob="0.25"/>
+			<prefab name="houseburnt5" />
+		</prefab_rule>
+		
+		<prefab_rule name="oldResidential_Trailers">
+			<prefab name="trailer_01" prob="0.3"/>
+			<prefab name="trailer_02" prob="0.3"/>
+			<prefab name="trailer_03" prob="0.3"/>
+			<prefab name="trailer_04" prob="0.3"/>
+			<prefab name="trailer_park_01" />
+		</prefab_rule>
+		
+		<prefab_rule name="oldResidential_Garages">
+			<prefab name="garage_01" prob="0.3"/>
+			<prefab name="garage_02" prob="0.3"/>
+			<prefab name="garage_03" prob="0.3"/>
+			<prefab name="garage_04" prob="0.3"/>
+			<prefab name="garage_05" prob="0.3"/>
+			<prefab name="garage_06" prob="0.3"/>
+			<prefab name="garage_07" />
+		</prefab_rule>
+		
+		<prefab_rule name="oldResidential_Cemetary-Churches">
+			<prefab name="cemetery_01" prob="0.5"/>
+			<prefab name="cemetery_02" prob="0.5"/>
+			<prefab name="church_graveyard1"/>
+		</prefab_rule>
+		
+		<prefab_rule name="armyCamps"> <!-- Rural Groups / Residential Old  Sub Zone Groups-->
+			<prefab name="army_camp_01" prob="0.5"/>
+			<prefab name="army_camp_02" prob="0.5"/>
+			<prefab name="army_camp_03" />
+		</prefab_rule>
+		
+		<prefab_rule name="barns">
+			<prefab name="barn_01" prob="0.5"/>
+			<prefab name="barn_02" prob="0.5"/>
+			<prefab name="barn_03" />
+		</prefab_rule>
+		
+		<prefab_rule name="crop_Feilds">
+			<prefab name="cornfield_sm" prob="0.35"/>
+			<prefab name="cornfield_med" prob="0.35"/>
+			<prefab name="blueberryfield_sm" prob="0.35"/>
+			<prefab name="potatofield_sm" />
+		</prefab_rule>
+		
+		<prefab_rule name="oldwest_bldgs">
+			<prefab name="oldwest_stables" prob="0.2"/>
+			<prefab name="oldwest_watertower" prob="0.2"/>
+			<prefab name="oldwest_church" prob="0.21"/>
+			<prefab name="oldwest_hotel_01" prob="0.22"/>
+			<prefab name="oldwest_hotel_02" prob="0.23"/>
+			<prefab name="oldwest_jail" prob="0.24"/>
+			<prefab name="oldwest_md_shop_01" prob="0.25"/>
+			<prefab name="oldwest_md_shop_02" prob="0.26"/>
+			<prefab name="oldwest_md_shop_03" prob="0.27"/>
+			<prefab name="oldwest_md_shop_04" prob="0.28"/>
+			<prefab name="oldwest_sm_shop_01" prob="0.29"/>
+			<prefab name="oldwest_sm_shop_02" prob="0.3"/>
+			<prefab name="oldwest_sm_shop_03" />
+		</prefab_rule>
+		
+		<prefab_rule name="waterTowers_Ponds">
+			<prefab name="pond02" prob="0.5"/>
+			<prefab name="pond01" prob="0.5"/>
+			<prefab name="water_tower_01" prob="0.5"/>
+			<prefab name="water_tower_02" prob="0.5"/>
+			<prefab name="water_tower_03" />
+		</prefab_rule>
+			
+		
+		<prefab_rule name="diner_FastfoodGroup"> <!-- Commercial Zone Groups-->
+			<prefab name="diner_01" prob="0.4"/>
+			<prefab name="diner_02" prob="0.4"/>
+			<prefab name="fastfood_01" prob="0.4"/>
+			<prefab name="fastfood_02" prob="0.4"/>
+			<prefab name="fastfood_03" />
+		</prefab_rule>
+
+		<prefab_rule name="gas_Station_Group">
+			<prefab name="gas_station1" prob="0.3"/>
+			<prefab name="gas_station2" prob="0.3"/>
+			<prefab name="gas_station3" prob="0.3"/>
+			<prefab name="gas_station4" prob="0.3"/>
+			<prefab name="gas_station5" prob="0.3"/>
+			<prefab name="gas_station6" prob="0.3"/>
+			<prefab name="gas_station7" />
+		</prefab_rule>
+		
+		<prefab_rule name="storeGroup">
+			<prefab name="store_gun_lg_01" prob="0.2"/>
+			<prefab name="store_hardware_lg_01" prob="0.2"/>
+			<prefab name="store_book_lg_01" prob="0.2"/>
+			<prefab name="store_grocery_lg_01" prob="0.2"/>
+			<prefab name="store_bank_lg_01" porb="0.2"/>
+			<prefab name="store_laundry_01" prob="0.2" />
+			<prefab name="store_salon" prob="0.2" />
+			<prefab name="store_gun_sm_01" prob="0.21"/>
+			<prefab name="store_book_sm_01" prob="0.22"/>
+			<prefab name="store_autoparts_01" prob="0.23"/>
+			<prefab name="store_hardware_sm_01" prob="0.24"/>
+			<prefab name="store_grocery_sm_01" prob="0.25"/>
+			<prefab name="store_pharmacy_sm_01" />
+		</prefab_rule>
+		
+		
+		<prefab_rule name="skyscrapers"> <!-- Downtown Zone Groups -->
+			<prefab name="skyscraper_01" prob="0.2"/>
+			<prefab name="skyscraper_02" prob="0.2"/>
+			<prefab name="skyscraper_03" prob="0.2"/>
+			<prefab name="skyscraper_04" />
+		</prefab_rule>
+		
+		
+		<prefab_rule name="industrial_Bldgs">  <!-- Industrial Zone Groups -->
+			<prefab name="installation_red_mesa" prob="0.18"/>
+			<prefab name="sawmill_01_snow" prob="0.18"/>
+			<prefab name="utility_waterworks_01" prob="0.25"/>
+			<prefab name="utility_electric_co_01" prob="0.25"/>
+			<prefab name="utility_refinery_01" prob="0.25"/>
+			<prefab name="factory_lg_01" prob="0.3"/>
+			<prefab name="factory_lg_02" prob="0.3"/>
+			<prefab name="settlement_01" />
+		</prefab_rule>
+		
+		<prefab_rule name="industrial_MpWasteBldgs">
+			<prefab name="mp_waste_bldg_01_white" prob="0.18"/>
+			<prefab name="mp_waste_bldg_03_white" prob="0.18"/>
+			<prefab name="mp_waste_bldg_04_white" prob="0.18"/>
+			<prefab name="mp_waste_bldg_01_red" prob="0.18"/>
+			<prefab name="mp_waste_bldg_02_red" prob="0.18"/>
+			<prefab name="mp_waste_bldg_03_red" prob="0.18"/>
+			<prefab name="mp_waste_bldg_04_red" prob="0.19"/>
+			<prefab name="mp_waste_bldg_01_tan" prob="0.2"/>
+			<prefab name="mp_waste_bldg_02_tan" prob="0.21"/>
+			<prefab name="mp_waste_bldg_03_tan" prob="0.22"/>
+			<prefab name="mp_waste_bldg_04_tan" prob="0.23"/>
+			<prefab name="mp_waste_bldg_04_grey" prob="0.24"/>
+			<prefab name="mp_waste_bldg_05_grey" prob="0.25"/>
+			<prefab name="mp_waste_bldg_06_grey" />
+		</prefab_rule>
+		
+		<prefab_rule name="industrial_RubbleBldgs">
+			<prefab name="waste_rubble_bldg_01" prob="0.18"/>
+			<prefab name="waste_rubble_bldg_02" prob="0.19"/>
+			<prefab name="waste_rubble_bldg_03" prob="0.2"/>
+			<prefab name="waste_rubble_bldg_04" prob="0.21"/>
+			<prefab name="waste_rubble_bldg_05" prob="0.22"/>
+			<prefab name="waste_rubble_bldg_06" prob="0.23"/>
+			<prefab name="waste_rubble_bldg_07" prob="0.24"/>
+			<prefab name="waste_rubble_bldg_08" prob="0.25"/>
+			<prefab name="waste_rubble_bldg_09" />
+		</prefab_rule>
+		
+		<prefab_rule name="industrial_JunkyardsLots">
+			<prefab name="vacant_lot_01" prob="0.18"/>
+			<prefab name="vacant_lot_02" prob="0.18"/>
+			<prefab name="vacant_lot_03" prob="0.18"/>
+			<prefab name="vacant_lot_04" prob="0.18"/>
+			<prefab name="mp_waste_sewer_hole_1" prob="0.18"/>
+			<prefab name="utility_celltower_02" prob="0.19"/>
+			<prefab name="utility_celltower_01" prob="0.2"/>
+			<prefab name="army_barracks_01" prob="0.25"/>
+			<prefab name="junkyard_lg_01" prob="0.3"/>
+			<prefab name="junkyard_med_01" count="1"/>
+		</prefab_rule>
+		
+		
+		<prefab_rule name="traderGroup"> <!-- Wilderness Zone groups -->
+			<prefab name="settlement_trader_01" prob="0.25"/>
+			<prefab name="settlement_trader_02" prob="0.25"/>
+			<prefab name="settlement_trader_03" prob="0.25"/>
+			<prefab name="settlement_trader_04" prob="0.25"/>
+			<prefab name="settlement_trader_05" />
+		</prefab_rule>
+	</prefab_rules>
+
+	<hub_layouts>
+	</hub_layouts>
+
+<!--
+	GENERATOR MODULE TYPES
+	    AbsoluteOutput
+        Add
+        BiasOutput
+        Blend
+        ClampOutput
+        CurveOutput
+        DisplaceInput
+        ExponentialOutput
+        InvertInput
+        InvertOutput
+        LargerOutput
+        Multiply
+        Power
+        RotateInput
+        ScaleBiasOutput
+        ScaleInput
+        ScaleOutput
+        Select
+        SmallerOutput
+        Terrace
+        TranslateInput
+        Billow
+        Checkerboard
+        Constant
+        FastBillow
+        FastNoise
+        FastNoiseBasis
+        FastRidgedMultifractal
+        FastTurbulence
+        GradientNoiseBasis
+        RidgedMultifractal
+        Turbulence
+        Voronoi
+
+-->
+
+	<terrain_generators>
+		
+		<terrain_generator name="vanilla2" base_height="0" water_level="17">
+			<module name="Spheres Node-28012" type="Spheres">
+			   <property name="frequency" value="7E-05"/>
+			</module>
+			<module name="Translate Input Modifier Node13064" type="TranslateInput">
+			   <property name="sourceModule" value="Spheres Node-28012"/>
+			   <property name="x" value="-4095"/>
+			   <property name="y" value="0"/>
+			   <property name="z" value="-4096"/>
+			</module>
+			<module name="Spheres Node-29410" type="Spheres">
+			   <property name="frequency" value="-7E-05"/>
+			</module>
+			<module name="Translate Input Modifier Node13066" type="TranslateInput">
+			   <property name="sourceModule" value="Spheres Node-29410"/>
+			   <property name="x" value="-4095"/>
+			   <property name="y" value="0"/>
+			   <property name="z" value="-4096"/>
+			</module>
+			<module name="Smaller Output Modifier Node13058" type="SmallerOutput">
+			   <property name="sourceModule1" value="Translate Input Modifier Node13064"/>
+			   <property name="sourceModule2" value="Translate Input Modifier Node13066"/>
+			</module>
+			<module name="Fast Turbulence Node13036" type="FastTurbulence" seed_additive="2">
+			   <property name="frequency" value="-0.0012"/>
+			   <property name="power" value="750"/>
+			   <property name="roughness" value="18"/>
+			   <property name="sourceModule" value="Smaller Output Modifier Node13058"/>
+			</module>
+			<module name="Fast Ridged Multi Node13034" type="FastRidgedMultifractal" seed_additive="0">
+			   <property name="frequency" value="9E-05"/>
+			   <property name="noisequality" value="2"/>
+			   <property name="lacunarity" value="1.88"/>
+			   <property name="octavecount" value="4"/>
+			</module>
+			<module name="Perlin Noise Node13042" type="Perlin" seed_additive="0">
+			   <property name="frequency" value="0.00021"/>
+			   <property name="persistence" value="-0.4"/>
+			   <property name="noisequality" value="2"/>
+			   <property name="lacunarity" value="2.65"/>
+			   <property name="octavecount" value="4"/>
+			</module>
+			<module name="Add Modifier Node13026" type="Add">
+			   <property name="sourceModule1" value="Fast Ridged Multi Node13034"/>
+			   <property name="sourceModule2" value="Perlin Noise Node13042"/>
+			</module>
+			<module name="Scale Bias Modifier Node13046" type="ScaleBiasOutput">
+			   <property name="sourceModule" value="Add Modifier Node13026"/>
+			   <property name="scale" value="0.83"/>
+			   <property name="bias" value="-0.5"/>
+			</module>
+			<module name="Fast Billow Node13032" type="FastBillow" seed_additive="0">
+			   <property name="frequency" value="0.0007"/>
+			   <property name="persistence" value="-1.47"/>
+			   <property name="noisequality" value="1"/>
+			   <property name="lacunarity" value="0"/>
+			   <property name="octavecount" value="2"/>
+			</module>
+			<module name="Fast Turbulence Node13038" type="FastTurbulence" seed_additive="1">
+			   <property name="frequency" value="0.002"/>
+			   <property name="power" value="400"/>
+			   <property name="roughness" value="14"/>
+			   <property name="sourceModule" value="Fast Billow Node13032"/>
+			</module>
+			<module name="Scale Bias Modifier Node13050" type="ScaleBiasOutput">
+			   <property name="sourceModule" value="Fast Turbulence Node13038"/>
+			   <property name="scale" value="0.33"/>
+			   <property name="bias" value="0.17"/>
+			</module>
+			<module name="Clamp Modifier Node13028" type="ClampOutput">
+			   <property name="sourceModule" value="Scale Bias Modifier Node13050"/>
+			   <property name="bounds" value="0.32,0.93"/>
+			</module>
+			<module name="Scale Bias Modifier Node13052" type="ScaleBiasOutput">
+			   <property name="sourceModule" value="Add Modifier Node13026"/>
+			   <property name="scale" value="0.68"/>
+			   <property name="bias" value="-0.3"/>
+			</module>
+			<module name="Clamp Modifier Node13030" type="ClampOutput">
+			   <property name="sourceModule" value="Scale Bias Modifier Node13052"/>
+			   <property name="bounds" value="-0.26,1"/>
+			</module>
+			<module name="Select Modifier Node13056" type="Select">
+			   <property name="controlModule" value="Scale Bias Modifier Node13046"/>
+			   <property name="sourceModule1" value="Clamp Modifier Node13028"/>
+			   <property name="sourceModule2" value="Clamp Modifier Node13030"/>
+			   <property name="bounds" value="0.06,3.37"/>
+			   <property name="edgeFalloff" value="0.1"/>
+			</module>
+			<module name="Scale Bias Modifier Node13048" type="ScaleBiasOutput">
+			   <property name="sourceModule" value="Select Modifier Node13056"/>
+			   <property name="scale" value="1.16"/>
+			   <property name="bias" value="-0.2"/>
+			</module>
+			<module name="Select Modifier Node13054" type="Select">
+			   <property name="controlModule" value="Fast Turbulence Node13036"/>
+			   <property name="sourceModule1" value="Scale Bias Modifier Node13048"/>
+			   <property name="sourceModule2" value="Fast Turbulence Node13036"/>
+			   <property name="bounds" value="-1.15,0.18"/>
+			   <property name="edgeFalloff" value="0.2"/>
+			</module>
+			<output module="Select Modifier Node13054"/>
+		</terrain_generator>
+		
+		<terrain_generator name="vanilla" base_height="32" water_level="38">
+			<!-- Total Module Count [62] -->
+			<!--  Module Block: Main Land  [12] modules -->
+			<module name="lnd_Fn" type="FastNoise" seed_additive="1024">
+				<property name="frequency" value="0.00625"/>
+				<property name="persistence" value="0.5"/>
+				<property name="octave" value="1"/>
+			</module>
+			<module name="lnd_Fn1" type="FastNoise" seed_additive="1024">
+				<property name="frequency" value="0.00625"/>
+				<property name="persistence" value="0.25"/>
+				<property name="octave" value="1"/>
+			</module>
+			<module name="lnd_Cu" type="CurveOutput">
+				<property name="sourceModule" value="lnd_Fn1"/>
+				<property name="source_module1" value="lnd_Fn1"/>
+				<property name="controlPoints" value="-4.0,0.05; -3.0,-0.05; -2.00,-0.1; -1.00,0.05; -0.1,-0.05; 1.00,0.05; 2.00,-0.05; 3.0,0.0; 4.0,0.05"/>
+				<!--<property name="controlPoints" value="-2.00,-0.1; -1.75,-0.05; -1.50,0.0; -1.25,0.05; -1.00,0.05; -0.75,0.05; -0.50,0.0; -0.05,-0.05; 0.00,-0.05; 0.25,0.0; 0.50,0.05; 0.75,0.1; 1.00,0.05; 1.25,0.0; 1.50,-0.05; 1.75,-0.1; 2.00,-0.05"/>-->
+			</module>
+			<module name="lnd_Cu1" type="CurveOutput">
+				<property name="sourceModule" value="lnd_Fn1"/>
+				<property name="source_module1" value="lnd_Fn1"/>
+				<property name="controlPoints" value="-4.01,0.05; -3.01,-0.05; -2.01,-0.1; -1.01,0.05; -0.11,-0.05; 1.01,0.05; 2.01,-0.05; 3.01,0.0; 4.01,0.05"/>
+				<!--<property name="controlPoints" value="-2.00,-0.1; -1.75,-0.05; -1.50,0.0; -1.25,0.05; -1.00,0.05; -0.75,0.05; -0.50,0.0; -0.05,-0.05; 0.00,-0.05; 0.25,0.0; 0.50,0.05; 0.75,0.1; 1.00,0.05; 1.25,0.0; 1.50,-0.05; 1.75,-0.1; 2.00,-0.05"/>-->
+			</module>
+			<module name="lnd_Se0" type="Select">
+				<property name="controlModule" value="lnd_Fn"/>
+				<property name="sourceModule1" value="lnd_Cu"/>
+				<property name="sourceModule2" value="lnd_Cu1"/>
+				<property name="bounds" value="0,1"/>
+				<property name="edgeFalloff" value="0.6125"/>
+			</module>
+			<module name="lnd_Sb0" type="ScaleBiasOutput">
+				<property name="sourceModule" value="lnd_Se0"/>
+				<property name="scale" value="0.55"/>
+				<property name="bias" value="-0.1"/>
+			</module>
+			<module name="lnd_Fr1" type="Spheres" seed_additive="2">
+				<property name="frequency" value="0.0000175"/> 
+				<property name="persistence" value="0.5"/>
+				<property name="octave" value="8"/>
+			</module>
+			
+			<module name="lnd_Sb1" type="ScaleBiasOutput">
+				<property name="sourceModule" value="lnd_Fr1"/>
+				<property name="scale" value="0.375"/>
+				<property name="bias" value="0.625"/>
+			</module>
+			<module name="test_Ex" type="ExponentialOutput">
+				<property name="sourceModule" value="lnd_Sb1"/>
+				<property name="exponent" value="1.35"/> 
+			</module>
+			<module name="lnd_Sm" type="SmallerOutput">
+				<property name="sourceModule1" value="test_Ex"/>
+				<property name="sourceModule2" value="lnd_Sb0"/>
+			</module>
+			<module name="lnd_Cl" type="ClampOutput">
+				<property name="sourceModule" value="lnd_Sm"/>
+				<property name="bounds" value="-1,1"/>
+			</module>
+			<module name="lnd_Tu0" type="FastTurbulence" seed_additive="1024">
+				<property name="sourceModule" value="lnd_Cl"/>
+				<property name="frequency" value="5.75"/>
+				<property name="power" value="5"/>
+				<property name="roughness" value="13"/>
+			</module>
+			<module name="terra_Te" type="Terrace">
+				<property name="sourceModule" value="lnd_Tu0"/>
+				<property name="source_module1" value="lnd_Tu0"/>
+				<property name="controlPoints" value="-1,-0.01,-0.05,0.05,0.01,1"/>
+			</module>
+			<module name="lnd_Se" type="Select">
+				<property name="controlModule" value="terra_Te"/>
+				<property name="sourceModule1" value="lnd_Cl"/>
+				<property name="sourceModule2" value="lnd_Tu0"/>
+				<property name="bounds" value="-0.3,1024"/>
+				<property name="edgeFalloff" value="0.6125"/>
+			</module>
+			<module name="lnd_Refiner" type="ScaleBiasOutput">
+				<property name="sourceModule" value="lnd_Se"/>
+				<property name="scale" value="0.75"/> <!-- Set scale at "1" to output 100% defined in the Moudule block -->
+				<property name="bias" value="0.0"/> 
+			</module>
+			
+			<!--  Module Block: Mountains (Positions/ High/ Low/ Terra) [21] modules -->
+			
+			<!-- Mountain High (4) modules -->
+			<module name="mntHigh_Fr0" type="FastRidgedMultifractal" seed_additive="0">
+				<property name="frequency" value="0.00027"/>
+				<property name="octave" value="8"/>
+			</module>
+			<module name="mntHigh_Fr1" type="RidgedMultifractal" seed_additive="0">
+				<property name="frequency" value="0.00025"/>
+				<property name="octave" value="8"/>
+			</module>
+			<module name="mntHigh_Lo" type="LargerOutput">
+				<property name="sourceModule1" value="mntHigh_Fr0"/>
+				<property name="sourceModule2" value="mntHigh_Fr1"/>
+			</module>
+			<module name="mntHigh_Tu0" type="FastTurbulence" seed_additive="0">
+				<property name="sourceModule" value="mntHigh_Lo"/>
+				<property name="frequency" value="0.00141"/>
+				<property name="power" value="5"/>
+				<property name="roughness" value="5"/>
+			</module>
+			<!-- Mountain Low (3) modules-->
+			<module name="mntLow_Fr0" type="FastRidgedMultifractal" seed_additive="0">
+				<property name="frequency" value="0.00027"/>
+				<property name="octave" value="4"/>
+			</module>
+			<module name="mntLow_Fr1" type="RidgedMultifractal" seed_additive="0">
+				<property name="frequency" value="0.000125"/>
+				<property name="octave" value="4"/>
+			</module>
+			<module name="mntLow_Mu" type="Multiply">
+				<property name="sourceModule1" value="mntLow_Fr0"/>
+				<property name="sourceModule2" value="mntLow_Fr1"/>
+			</module>
+			<!-- Mountain Terra (6) modules -->
+			<module name="mnt_Si0" type="ScaleInput">
+				<property name="sourceModule" value="mntHigh_Tu0"/>
+				<property name="x" value="4"/>
+				<property name="z" value="4"/>
+			</module>
+			<module name="mntTerra_Sb0" type="ScaleBiasOutput">
+				<property name="sourceModule" value="mnt_Si0"/>
+				<property name="scale" value="0.35"/>
+				<property name="bias" value="0.25"/>
+			</module>
+			<module name="mnt_Si1" type="ScaleInput">
+				<property name="sourceModule" value="mntLow_Mu"/>
+				<property name="x" value="4"/>
+				<property name="z" value="4"/>
+			</module>
+			<module name="mntTerra_Sb1" type="ScaleBiasOutput">
+				<property name="sourceModule" value="mnt_Si1"/>
+				<property name="scale" value="0.4125"/>
+				<property name="bias" value="-0.1"/>
+			</module>
+			<module name="mntTerra_Se" type="Select">
+				<property name="sourceModule1" value="mntTerra_Sb0"/>
+				<property name="sourceModule2" value="mntTerra_Sb1"/>
+				<property name="controlModule" value="mntHigh_Fr0"/>
+				<property name="bounds" value="0,1"/>
+				<property name="edgeFalloff" value="0.65"/>
+			</module>
+			<module name="mntTerra_Sb2" type="ScaleBiasOutput">
+				<property name="sourceModule" value="mntTerra_Se"/>
+				<property name="scale" value="0.95"/>
+				<property name="bias" value="0.25"/> 
+			</module>
+			<module name="mntTerra_Ex" type="ExponentialOutput">
+				<property name="sourceModule" value="mntTerra_Sb2"/>
+				<property name="exponent" value="1.35"/> 
+			</module>
+			
+			<module name="mntTerra_Cl" type="ClampOutput">
+				<property name="sourceModule" value="mntTerra_Ex"/>
+				<property name="bounds" value="-0.25,1.5"/>
+			</module>
+			<module name="mnt_Tu0" type="FastTurbulence" seed_additive="1024">
+				<property name="sourceModule" value="mntTerra_Cl"/>
+				<property name="frequency" value="1.75"/>
+				<property name="power" value="2.5"/>
+				<property name="roughness" value="13"/>
+			</module>
+			<module name="mnt_Refiner" type="BiasOutput">
+				<property name="sourceModule" value="mnt_Tu0"/>
+				<property name="scale" value="10"/> <!-- Set scale at "1" to output 100% defined in the Moudule block -->
+				<property name="bias" value="0.1"/> 
+			</module>
+
+			<!-- Module Block: Plains (Smooth/ Rough/ Terra)[16] Modules-->
+			<!-- Plaines Smooth (5) modules -->
+			<module name="plns_Fr" type="FastRidgedMultifractal" seed_additive="0">
+				<property name="frequency" value="0.00025"/>
+				<property name="persistence" value="0.5"/>
+				<property name="octave" value="18"/>
+			</module>
+			<module name="plns_Sb0" type="ScaleBiasOutput">
+				<property name="sourceModule" value="plns_Fr"/>
+				<property name="scale" value="0.875"/>
+				<property name="bias" value="0.0"/>
+			</module>
+			<module name="plns_Vo" type="Voronoi" seed_additive="0">
+				<property name="frequency" value="0.000025"/>
+				<property name="displacement" value="0.5"/>
+				<property name="enableDistance" value="True"/>
+				<property name="persistence" value="0.5"/>
+			</module>
+			<module name="plns_Sb1" type="ScaleBiasOutput">
+				<property name="sourceModule" value="plns_Vo"/>
+				<property name="scale" value="0.75"/>
+				<property name="bias" value="0.25"/>
+			</module>
+			<module name="plns_Ad" type="Add">
+				<property name="sourceModule1" value="plns_Sb0"/>
+				<property name="sourceModule2" value="plns_Sb1"/>
+			</module>
+			
+			<!-- Plains Rough (6) modules -->
+			<module name="cliffEdges_Fn" type="FastNoise" seed_additive="0">
+				<property name="frequency" value="0.000125"/>
+				<property name="persistence" value="0.75"/>
+				<property name="octave" value="6"/>
+			</module>
+			<module name="cliffEdges_Cu" type="CurveOutput">
+				<property name="sourceModule" value="cliffEdges_Fn"/>
+				<property name="source_module1" value="cliffEdges_Fn"/>
+				<!--<property name="controlPoints" value="-2.00,-2.00; -1.00,-1.250; -0.00,-0.75; 0.500,-0.250; 0.625,0.875; 0.750,1.00; 2.00,1.250"/>-->
+				<!--<property name="controlPoints" value="-2.0,-2.0; -1.0,-1.25; -0.0,-0.75; 0.25,-0.25; 0.5,-0.25; 0.625,0.85; 0.75,1.0; 2.0,1.25"/>-->
+				<property name="controlPoints" value="-4.0,0.05; -3.0,-0.05; -2.00,-0.1; -1.00,0.05; -0.1,-0.05; 1.00,0.05; 2.00,-0.05; 3.0,0.0; 4.0,0.05"/>
+			</module>
+			<module name="cliffEdges_Cl" type="ClampOutput">
+				<property name="sourceModule" value="cliffEdges_Cu"/>
+				<property name="bounds" value="-1,1"/>
+			</module>
+			<module name="cliffEdges_Te" type="Terrace">
+				<property name="sourceModule" value="cliffEdges_Cl"/>
+				<property name="source_module1" value="cliffEdges_Cl"/>
+				<property name="controlPoints" value="-1,-0.935,-0.875,-0.75,-0.5,-0.125,0,0.125,0.25,0.33,0.5,0.75,0.875,0.991,1"/>
+			</module>
+			<module name="cliffEdges_Tu0" type="FastTurbulence" seed_additive="0">
+				<property name="sourceModule" value="cliffEdges_Te"/>
+				<property name="frequency" value="0.00175"/>
+				<property name="power" value="1"/>
+				<property name="roughness" value="13"/>
+			</module>
+			<module name="cliffEdges_Tu1" type="FastTurbulence" seed_additive="0">
+				<property name="sourceModule" value="cliffEdges_Tu0"/>
+				<property name="frequency" value="0.00175"/>
+				<property name="power" value="1"/>
+				<property name="roughness" value="13"/>
+			</module>
+			
+			<!-- Plains Terra (5) modules -->
+			<module name="cliffPlnsTerra_Sb" type="ScaleBiasOutput">
+				<property name="sourceModule" value="plns_Ad"/>
+				<property name="scale" value="0.25"/>
+				<property name="bias" value="-0.5"/>
+			</module>
+			<module name="cliffPlnsTerra_Lo" type="LargerOutput">
+				<property name="sourceModule1" value="cliffEdges_Tu1"/>
+				<property name="sourceModule2" value="cliffPlnsTerra_Sb"/>
+			</module>
+			<module name="cliffPlnsTerra_Cl" type="ClampOutput">
+				<property name="sourceModule" value="cliffPlnsTerra_Lo"/>
+				<property name="bounds" value="-1,1"/>
+			</module>
+			<module name="cliffPlnsTerra_Se" type="Select">
+				<property name="controlModule" value="cliffEdges_Te"/> 
+				<property name="sourceModule1" value="mnt_Refiner"/>
+				<property name="sourceModule2" value="cliffPlnsTerra_Cl"/>
+				<property name="bounds" value="0,1"/> 
+				<property name="edgeFalloff" value="0.06"/>
+			</module>
+			<module name="cliffPlns_Tu0" type="FastTurbulence" seed_additive="1024">
+				<property name="sourceModule" value="cliffPlnsTerra_Se"/>
+				<property name="frequency" value="2.75"/>
+				<property name="power" value="2.5"/>
+				<property name="roughness" value="13"/>
+			</module>
+			<module name="cliffPlns_Refiner" type="ScaleBiasOutput">
+				<property name="sourceModule" value="cliffPlns_Tu0"/>
+				<property name="scale" value="0.94"/> <!-- Set scale at "1" to output 100% defined in the Moudule block -->
+				<property name="bias" value="0.0"/> 
+			</module>
+			
+			<module name="lndPlns_Sm" type="SmallerOutput">
+				<property name="sourceModule1" value="lnd_Refiner"/>
+				<property name="sourceModule2" value="cliffPlns_Refiner"/>
+			</module>
+			
+			<!-- Module Block: Water Bodies(9) Modules-->
+			<module name="wtrPos_Fr0" type="FastRidgedMultifractal" seed_additive="0">
+				<property name="frequency" value="0.0039"/>
+				<property name="persistence" value="0.25"/>
+				<property name="octave" value="1"/>
+			</module>
+			<module name="wtrPos_Cu0" type="CurveOutput">
+				<property name="sourceModule" value="wtrPos_Fr0"/>
+				<property name="source_module1" value="wtrPos_Fr0"/>
+				<property name="controlPoints" value="-2.0,1.0; -1.0,1.0; -0.125,0.875; 0.0,-0.0; 1.0,-1.0; 2.0,-2.0"/>
+			</module>
+			<module name="wtrPos_Fr1" type="RidgedMultifractal" seed_additive="0">
+				<property name="frequency" value="0.004"/>
+				<property name="persistence" value="0.25"/>
+				<property name="octave" value="1"/>
+			</module>
+			<module name="wtrPos_Cu1" type="CurveOutput">
+				<property name="sourceModule" value="wtrPos_Fr1"/>
+				<property name="source_module1" value="wtrPos_Fr1"/>
+				<property name="controlPoints" value="-2.01,1.0; -1.01,1; -0.125,1; 0.01,0.5; 1.01,0.25; 2.01,0.0"/>
+			</module>
+			<module name="wtrPos_Sm" type="SmallerOutput">
+				<property name="sourceModule1" value="wtrPos_Cu0"/>
+				<property name="sourceModule2" value="wtrPos_Cu1"/>
+			</module>
+			<module name="wtrPos_Tu0" type="FastTurbulence" seed_additive="0">
+				<property name="sourceModule" value="wtrPos_Sm"/>
+				<property name="frequency" value="0.01411"/>
+				<property name="power" value="3"/>
+				<property name="roughness" value="6"/>
+			</module>
+			<module name="wtrTerra_Sb2" type="ScaleBiasOutput">
+				<property name="sourceModule" value="wtrPos_Tu0"/>
+				<property name="scale" value="-0.275"/> 
+				<property name="bias" value="-0.2"/>
+			</module>
+			<module name="wtrTerra_Cl" type="ClampOutput">
+				<property name="sourceModule" value="wtrTerra_Sb2"/>
+				<property name="bounds" value="-0.25,-0.1"/>
+			</module>
+			
+			<module name="wtr_Cntrl" type="RidgedMultifractal" seed_additive="0">
+				<property name="frequency" value="0.00175"/> 
+				<property name="persistence" value="0.75"/>
+				<property name="octave" value="14"/>
+			</module>
+			<module name="wtrTerra_Se" type="Select" seed_additive="0">
+				<property name="sourceModule1" value="cliffPlns_Refiner"/>
+				<property name="sourceModule2" value="wtrTerra_Cl"/>
+				<property name="controlModule" value="wtr_Cntrl"/> 
+				<property name="bounds" value="0,0.5"/> 
+				<property name="edgeFalloff" value="0.33"/>
+			</module>
+			<module name="wtr_Tu1" type="FastTurbulence" seed_additive="1024">
+				<property name="sourceModule" value="wtrTerra_Se"/>
+				<property name="frequency" value="3.75"/>
+				<property name="power" value="5"/>
+				<property name="roughness" value="13"/>
+			</module>
+			<module name="wtr_Refiner" type="ScaleBiasOutput">
+				<property name="sourceModule" value="wtr_Tu1"/>
+				<property name="scale" value="1"/> <!-- Set scale at "1" to output 100% defined in the Moudule block -->
+				<property name="bias" value="0.0"/> 
+			</module>
+			<module name="wtrPlns_Sm" type="SmallerOutput">
+				<property name="sourceModule1" value="wtr_Refiner"/>
+				<property name="sourceModule2" value="cliffPlns_Refiner"/>
+			</module>
+			
+			<!-- Module Block: Select  Modules (2)-->
+			<module name="wrld_Cntrl" type="FastRidgedMultifractal" seed_additive="0">
+				<property name="frequency" value="0.00175"/> 	
+			</module>
+			<module name="wrld_Se0" type="Select">
+				<property name="controlModule" value="wrld_Cntrl"/> 
+				<property name="sourceModule1" value="lndPlns_Sm"/>
+				<property name="sourceModule2" value="wtrPlns_Sm"/>
+				<property name="bounds" value="0.885,1000"/>
+				<property name="edgeFalloff" value="0.60"/>
+			</module>
+			
+			<module name="wrld_Refiner0" type="ScaleBiasOutput">
+				<property name="sourceModule" value="wrld_Se0"/>
+				<property name="scale" value="176"/>
+				<property name="bias" value="0.04"/> 
+			</module>
+			<module name="wrld_Refiner1" type="ScaleBiasOutput">
+				<property name="sourceModule" value="wrld_Se0"/>
+				<property name="scale" value="168"/>
+				<property name="bias" value="0.04"/> 
+			</module>
+			
+			<module name="wrld_Se1" type="Select">
+				<property name="controlModule" value="wrld_Cntrl"/> 
+				<property name="sourceModule1" value="wrld_Refiner0"/>
+				<property name="sourceModule2" value="wrld_Refiner1"/>
+				<property name="bounds" value="0,4096"/>
+				<property name="edgeFalloff" value="0.60"/>
+			</module>
+			
+			<!-- Master Output Modules (2) -->
+			<module name="MasterScaleBias" type="ScaleBiasOutput">
+				<property name="sourceModule" value="wrld_Se1"/>
+				<property name="scale" value="1"/> 
+				<property name="bias" value="30.75"/> 
+			</module>
+			<output module="MasterScaleBias"/>
+		</terrain_generator>
+	</terrain_generators>
+
+	<biome_generators>
+		<biome_generator name="vanillaSmall">
+			<module name="voronoi" type="Voronoi">
+				<property name="frequency" value="0.0012"/> 
+				<property name="displacement" value="0.5"/>
+			</module>
+			<module name="biasOutput" type="BiasOutput">
+				<property name="sourceModule" value="voronoi"/>
+				<property name="bias" value="0.5"/>
+			</module>
+			<module name="scaleOutput" type="ScaleOutput">
+				<property name="sourceModule" value="biasOutput"/>
+				<property name="scale" value="1"/>
+			</module>
+			<module name="dithering" type="FastTurbulence">
+				<property name="sourceModule" value="scaleOutput"/>
+				<property name="frequency" value="0.25"/>
+				<property name="power" value="40"/>
+				<property name="roughness" value="3"/>
+			</module>
+			<module name="jiggle" type="FastTurbulence">
+				<property name="sourceModule" value="dithering"/>
+				<property name="frequency" value="0.25"/>
+				<property name="power" value="30"/>
+				<property name="roughness" value="3"/>
+			</module>
+			<module name="clampOutput" type="ClampOutput">
+				<property name="sourceModule" value="jiggle"/>
+				<property name="bounds" value="0,1"/>
+			</module>
+			<module name="biomeOutput" type="BiomeIDMapper">
+				<property name="sourceModule" value="clampOutput"/>
+				<property name="biomemap0.Name" value="pine_forest"/>
+				<property name="biomemap0.Range" value="0.2,0.5"/>
+				<property name="biomemap1.Name" value="snow"/>
+				<property name="biomemap1.Range" value="0,0.2"/>
+				<property name="biomemap2.Name" value="wasteland"/>
+				<property name="biomemap2.Range" value="0.5,0.7"/>
+				<property name="biomemap3.Name" value="burnt_forest"/>
+				<property name="biomemap3.Range" value="0.7,0.8"/>
+				<property name="biomemap4.Name" value="desert"/>
+				<property name="biomemap4.Range" value="0.8,1.1"/>
+			</module>
+			
+			<output module="biomeOutput"/>
+		</biome_generator>
+		
+		<biome_generator name="vanillaMedium">
+			<module name="voronoi" type="Voronoi">
+				<property name="frequency" value="0.0006"/> 
+				<property name="displacement" value="0.5"/>
+			</module>
+			<module name="biasOutput" type="BiasOutput">
+				<property name="sourceModule" value="voronoi"/>
+				<property name="bias" value="0.45"/>
+			</module>
+			<module name="scaleOutput" type="ScaleOutput">
+				<property name="sourceModule" value="biasOutput"/>
+				<property name="scale" value="1.1"/>
+			</module>
+			<module name="dithering" type="FastTurbulence">
+				<property name="sourceModule" value="scaleOutput"/>
+				<property name="frequency" value="0.25"/>
+				<property name="power" value="40"/>
+				<property name="roughness" value="3"/>
+			</module>
+			<module name="jiggle" type="FastTurbulence">
+				<property name="sourceModule" value="dithering"/>
+				<property name="frequency" value="0.25"/>
+				<property name="power" value="50"/>
+				<property name="roughness" value="5"/>
+			</module>
+			<module name="clampOutput" type="ClampOutput">
+				<property name="sourceModule" value="jiggle"/>
+				<property name="bounds" value="0,1"/>
+			</module>
+			<module name="biomeOutput" type="BiomeIDMapper">
+				<property name="sourceModule" value="clampOutput"/>
+				
+				<property name="biomemap0.Name" value="pine_forest"/>
+				<property name="biomemap0.Range" value="0.25,0.5"/>
+				
+				<property name="biomemap1.Name" value="snow"/>
+				<property name="biomemap1.Range" value="0,0.25"/>
+				
+				<property name="biomemap2.Name" value="wasteland"/>
+				<property name="biomemap2.Range" value="0.5,0.65"/>
+				
+				<property name="biomemap3.Name" value="burnt_forest"/>
+				<property name="biomemap3.Range" value="0.65,0.75"/>
+				
+				<property name="biomemap4.Name" value="desert"/>
+				<property name="biomemap4.Range" value="0.75,1"/>
+			</module>
+			
+			<output module="biomeOutput"/>
+		</biome_generator>
+	</biome_generators>
+
+	<biome_intensity_generators/>
+	<biome_spawn_rules/>
+</rwgmixer>

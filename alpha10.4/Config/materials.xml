@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 
+     *** Materials definitions 
+     *** 
+     *** Attributes:
+     ***  id                    - mandatory, type: string, semantic: defines name of the material to be referenced within block tags         
+     ***  lightopacity
+     ***  hardness              - mandatory, float:, values go from 1 to infinite, hardnes="1" means one hit with current digger destroys the block
+     ***  explosionresistance
+     ***  collidable
+     ***  movement_factor       - optional, float: if specified then this factor is applied to the movement. values < 1 slow down player. value = 1 does nothing, > 1 increases speed
+     ***  plant                 - optional, bool: currently used only for farmland, if a "no plant" block is placed on top of a farmland block it turns to dirt
+     ***  fertile_level         - optional, int: some plants need a certain fertile level to grow
+     ***  growable              - optional, bool: a farm land block turn to dirt of no water and no "growable" block is nearby
+     ***  stability_glue
+
+     *** damage_category = wood, stone, metal, earth, glass
+     *** => used to determine the damage category if an item hits this block
+     
+     *** surface_category = stone, metal, earth, cloth, wood, water, glass
+     *** => used to determine the sound + effect on impact
+		damage category = damage bonus from items.xml so this is used for bonus damage.
+		
+	* DEFAULT SURFACE FRICTION = 0.454
+-->
+<materials>
+    
+    <material id="air" 
+        collidable="false" 
+        lightopacity="0"
+    />
+    
+    <material id="water" 
+		damage_category="water"
+        surface_category="water"
+        liquid="true"
+        collidable="false" 
+        stepsound="water"
+		lightopacity="3"
+        stability_glue="10"
+		movement_factor="0.9"
+        mass="0"
+    />
+    
+    <!-- *** All fertile ground materials -->
+
+    <material id="grass" 
+        damage_category="earth"
+        surface_category="earth"
+        particle_category="stone"
+        hardness="2.5"
+        stepsound="grass"
+        fertile_level="2"
+		stability_glue="2"
+    />
+	
+    <material id="organic" 
+        damage_category="organic"
+        surface_category="organic"
+        particle_category="organic"
+        hardness="0.3"
+        stepsound="organic"
+        fertile_level="1"
+		stability_glue="2"
+    />	
+    
+    <!-- was 0.6 hardness --> 
+  <material id="dirt" 
+        damage_category="earth"
+        surface_category="earth"
+        hardness="2.5" 
+        stepsound="dirt"
+        fertile_level="2"
+		stability_glue="20"
+		mass="10"
+    />
+  
+    <material id="forestGround"
+        damage_category="earth"
+        surface_category="earth"
+        hardness="2.5"
+        stepsound="leaves"
+        fertile_level="2"
+		stability_glue="20"
+		mass="10"
+     />
+     
+    <material id="farmland" 
+        damage_category="earth"
+        surface_category="earth"
+        hardness="2.5" 
+        stepsound="dirt" 
+        fertile_level="5"
+		stability_glue="20"
+		mass="10"
+    />     
+
+    <!-- *** All plants -->     
+
+    <material id="plants" 
+		damage_category="wood"	
+        surface_category="plant"
+        particle_category="cloth"
+        hardness="0.5"
+        stepsound="leaves"
+        lightopacity="1"
+        stability_glue="0"
+		mass="1"
+        plant="true"
+    />
+
+    <material id="corn" 
+		damage_category="wood"	
+        surface_category="plant"
+        particle_category="cloth"
+        hardness="0.5"
+        stepsound="leaves"
+        lightopacity="1"
+        collidable="false" 
+        stability_glue="0"
+		    mass="1"
+        movement_factor="0.9"
+        plant="true"
+    />
+
+    <material id="leaves" 
+		damage_category="earth"
+        surface_category="plant"
+        particle_destroy_category="xt_leaves2"
+        hardness="0.1"
+        stepsound="leaves"
+        lightopacity="5"
+        stability_glue="3"
+	    mass="0"			
+     
+        plant="true"
+    />    
+    
+    <material id="cactus" 
+		damage_category="wood"	
+        surface_category="plant"
+        particle_category="wood"
+        hardness="1.5"
+        stepsound="leaves"
+        lightopacity="1" 
+        plant="true"
+		    stability_glue="3"
+		    mass="1"
+    />
+    
+    <material id="tallgrass" 
+        damage_category="earth"
+        surface_category="plant"
+        particle_category="xt_tallgrass"
+        particle_destroy_category="xt_tallgrass"
+        hardness="0.1"
+        stepsound="grass"
+        collidable="false" 
+        ground_cover="true"
+        lightopacity="0"
+        plant="true"
+		stability_glue="0"
+		mass="1"
+    />          
+    
+    <!-- *** All hard surfaces -->    
+    
+    <material id="bridge_asphalt" 
+        damage_category="stone"
+        surface_category="stone"
+        hardness="3"
+        stepsound="stone"
+		  stability_glue="300"
+		  mass="12"
+    />
+
+    <material id="bridge_metal"
+      damage_category="metal"
+      surface_category="metal"
+      forge_category="iron"
+      hardness="5"
+      stepsound="metal"
+      stability_glue="400"
+      mass="12"
+      />
+
+  <material id="bridge_concrete"
+    damage_category="stone"
+    surface_category="stone"
+    hardness="5.0"
+    stepsound="stone"
+    stability_glue="240"
+    mass="12"
+    />
+  <material id="bridge_wood"
+      damage_category="wood"
+      surface_category="wood"
+      hardness="0.75"
+      stepsound="wood"
+      stability_glue="160"
+      mass="6"
+	  />
+    
+    <material id="gravel"
+        damage_category="earth"
+        surface_category="stone"
+        forge_category="stone"
+        hardness="1.5"
+        stepsound="gravel"
+		stability_glue="0"
+		mass="10"
+    />
+
+    <material id="rubble"
+		damage_category="stone"
+   		surface_category="stone"
+   		forge_category="stone"
+        hardness="1.5"
+        stepsound="gravel"
+		fertile_level="1"
+		stability_glue="1"
+		mass="12"
+	  />
+	<!-- hardness was 3.0 -->
+    <material id="stone" 
+        damage_category="stone"
+        surface_category="stone"
+        forge_category="stone"
+        hardness="5"
+        stepsound="stone"
+		stability_glue="72"
+		mass="12"
+    />
+	<!-- cobblestone and concrete -->
+    <material id="concrete" 
+        damage_category="stone"
+        surface_category="stone"
+        hardness="12.0"
+        stepsound="stone"
+		stability_glue="90"
+		mass="15"
+		explosionresistance=".25"
+    />	
+		<!-- has more explosion resistance -->
+    <material id="concrete_reinforced" 
+        damage_category="stone"
+        surface_category="stone"
+        hardness="16.0"
+        stepsound="stone"
+		stability_glue="110"
+		mass="15"
+		explosionresistance=".5"
+    />	
+    
+    <material id="concrete_reinforced_metal" 
+        damage_category="stone"
+        surface_category="stone"
+        hardness="16.0"
+        stepsound="stone"
+		stability_glue="110"
+		mass="15"
+		explosionresistance=".75"
+    />    		
+	
+    <material id="bedrock" 
+        damage_category="stone"
+        surface_category="stone"
+        hardness="10000"
+        stepsound="stone"
+		stability_glue="110"
+		mass="15"
+    />	
+	
+    <material id="coal" 
+        damage_category="stone"
+        surface_category="stone"
+        hardness="2.0"
+        stepsound="stone"
+		stability_glue="16"
+		mass="8"
+    />		
+	
+    <material id="brick" 
+        damage_category="stone"
+        surface_category="stone"
+        hardness="3.5"
+        stepsound="stone"
+		stability_glue="65"
+		mass="13"
+    />
+	
+    <material id="metal_thin" 
+        damage_category="metal"
+        surface_category="metal"
+        forge_category="iron"
+        hardness=".2"
+        stepsound="metal"
+		stability_glue="10"
+		mass="1"
+    />	
+	<!-- hardness was 2.5 -->
+    <material id="metal_weak"
+        damage_category="metal"
+        surface_category="metal"
+        forge_category="iron"
+        hardness="2.5"
+        stepsound="metal"
+		stability_glue="5"
+		mass="5"
+    />
+    <!-- hardness was 5.0 -->
+    <material id="metal" 
+        damage_category="metal"
+        surface_category="metal"
+		forge_category="iron"
+        hardness="5"
+        stepsound="metal"
+	    stability_glue="320"
+		mass="20"			
+    />    
+
+    <!-- hardness was 7.5 -->		
+    <material id="metal_medium" 
+        damage_category="metal"
+        surface_category="metal"
+        forge_category="iron"
+        hardness="10"
+        stepsound="metal"
+		stability_glue="320"
+		mass="20"
+		explosionresistance=".5"
+    />		
+	<!-- hardness was 10.0 -->
+    <material id="metal_hard" 
+        damage_category="metal"
+        surface_category="metal"
+        forge_category="iron"
+        hardness="15"
+        stepsound="metal"
+		stability_glue="320"
+		mass="20"
+		explosionresistance=".5"
+    />	
+    <!-- hardness was 20 -->
+    <material id="tungsten" 
+        damage_category="metal"
+        surface_category="metal"
+        forge_category="tungsten"
+        hardness="30"
+        stepsound="metal"
+		stability_glue="320"
+		mass="20"
+    />    	
+	
+    <material id="sand" 
+        damage_category="earth"
+        surface_category="earth"
+        hardness="1"
+        stepsound="sand"
+		stability_glue="0"
+		fertile_level="1"
+		mass="8"
+    />
+	
+    <material id="sandstone" 
+        damage_category="earth"
+        surface_category="earth"
+        hardness="1"
+        stepsound="sand"
+		stability_glue="24"
+		mass="8"
+    />	
+    
+    <!-- *** All other materials -->
+
+    <material id="hay"
+		damage_category="earth"
+        surface_category="plant"
+        hardness=".6"
+        stepsound="leaves"
+		stability_glue="0"
+		mass="3"	
+    />
+  
+    <material id="cloth_no_distortion"
+		damage_category="cloth"
+        surface_category="cloth"
+        hardness=".6"
+        stepsound="leaves"
+		stability_glue="5"
+		mass="3"
+		explosionresistance="0"	
+    />
+	    <!-- hardness was 2.0 -->
+    <material id="wood" 
+        damage_category="wood"
+        surface_category="wood"
+        hardness="3.0"
+        stepsound="wood"
+		stability_glue="24"
+		mass="5"
+    />	
+	<!-- hardness was 0.75 -->
+	<material id="barnwood" 
+        damage_category="wood"
+        surface_category="wood"
+        hardness="2"
+        stepsound="wood" 
+		stability_glue="24"
+		mass="6"
+	  />
+	
+    <material id="wood_weak"
+        damage_category="wood"
+        surface_category="wood"
+        hardness="1"
+        stepsound="wood"
+		stability_glue="6"
+		mass="6"
+    />
+    
+    <material id="wood_ladders"
+        damage_category="wood"
+        surface_category="wood"
+        hardness="0.5"
+        stepsound="wood"
+		stability_glue="3"
+		mass="3"
+    />	    		
+	  <!-- hardness was 2.0 -->
+    <material id="wood_planks" 
+        damage_category="wood"
+        surface_category="wood"
+        hardness="4"
+        stepsound="wood"
+		stability_glue="36"
+		mass="6"
+    />	
+    
+    <material id="wood+wood" 
+        damage_category="wood"
+        surface_category="wood"
+        hardness="8"
+        stepsound="wood"
+		stability_glue="36"
+		mass="6"
+    />
+    
+    <material id="wood+metal" 
+        damage_category="wood"
+        surface_category="wood"
+        hardness="12"
+        stepsound="wood"
+		stability_glue="36"
+		mass="6"
+    />            
+	
+	  <material id="cloth"
+		damage_category="cloth"	
+        surface_category="cloth"
+        hardness="0.2"
+        explosionresistance="0"
+        stepsound="cloth"
+        lightopacity="4"
+		stability_glue="2"
+		mass="1"
+    />
+    
+    <material id="glass" 
+        damage_category="glass"
+        surface_category="glass"
+        forge_category="glass"
+        hardness="0.5"
+        lightopacity="1"
+        stepsound="metal"
+		stability_glue="7"
+		mass="7"
+		
+    />
+    
+    <material id="snow" 
+        damage_category="earth"
+        surface_category="earth"
+        particle_category="snow"
+		particle_destroy_category="snow"
+        hardness="0.4"
+        stepsound="snow"
+		stability_glue="9"
+		fertile_level="1"
+		mass="3"
+    />
+
+    <material id="web" 
+        surface_category="cloth"
+        hardness="1"
+        lightopacity="1"
+        collidable="false" 
+        movement_factor="0.25"
+		stability_glue="100"
+		mass="1"
+    />
+	
+    <material id="cardboard" 
+        surface_category="cloth"
+        damage_category="wood"
+        hardness="0.3"
+        stepsound="wood"
+		stability_glue="0"
+		mass="2"
+    />	
+    
+    <material id="furniture" 
+        surface_category="cloth"
+        damage_category="wood"
+        hardness="0.5"
+        stepsound="cloth"
+		stability_glue="0"
+		mass="3"
+    />	    
+     
+        <material id="lead" 
+        damage_category="metal"
+        surface_category="metal"
+        forge_category="lead"
+        hardness="1.5"
+        stepsound="metal" 
+		stability_glue="320"
+		mass="20"
+    />	
+    
+        <material id="brass" 
+        damage_category="metal"
+        surface_category="metal"
+        forge_category="brass"
+        hardness="1"
+        stepsound="metal"
+		stability_glue="320"
+		mass="20"
+    />
+
+	  <material id="droppedBackpack"
+		damage_category="cloth"	
+        surface_category="cloth"
+        hardness="99"
+        explosionresistance="1"
+        stepsound="cloth"
+        lightopacity="4"
+		stability_glue="0"
+		mass="1"
+    /> 
+
+	  <material id="boulder"
+		damage_category="stone"	
+        surface_category="stone"
+		particle_destroy_category="boulder"
+        hardness="2"
+        explosionresistance="1"
+        stepsound="stone"
+		stability_glue="0"
+		mass="1"
+    />
+    
+</materials>    

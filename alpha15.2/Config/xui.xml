@@ -1,0 +1,187 @@
+<xui>
+	<ruleset name="default" scale="1.255" stackpanel_scale="1.05">
+	
+		<window_group name="crafting" controller="XUiC_CraftingWindowGroup">
+			<window name="windowCraftingList"/>
+			<window name="craftingInfoPanel"/>
+			<window name="windowCraftingQueue"/>
+		</window_group>
+		
+		<window_group name="character" controller="XUiC_CharacterSheetWindowGroup">
+			<window name="CharacterFrameWindow"/>
+			<window name="buffInfoPanel"/>
+			<window name="PlayerStatsWindow" />
+			<window name="ActiveBuffsWindow" />
+		</window_group>		
+		
+		<window_group name="workstation_campfire" controller="XUiC_WorkstationWindowGroup">
+			<window name="windowCraftingList"/>
+			<window name="craftingInfoPanel"/>
+			<window name="windowCraftingQueue"/>
+			<window name="windowToolsCampfire" />
+			<window name="windowFuel" />
+			<window name="windowOutput" />
+			<window name="windowNonPagingHeader" />
+		</window_group>
+		
+		<window_group name="workstation_forge" controller="XUiC_WorkstationWindowGroup">
+			<window name="windowCraftingList"/>
+			<window name="craftingInfoPanel"/>
+			<window name="windowCraftingQueue"/>
+			<window name="windowToolsForge" />
+			<window name="windowFuel" />
+			<window name="windowForgeInput" />
+			<window name="windowOutput" />
+			<window name="windowNonPagingHeader" />
+		</window_group>
+		
+		<window_group name="workstation_cementMixer" controller="XUiC_WorkstationWindowGroup">
+			<window name="windowCraftingList"/>
+			<window name="craftingInfoPanel"/>
+			<window name="windowCraftingQueue"/>
+			<window name="windowOutput" />
+			<window name="windowNonPagingHeader" />
+		</window_group>		
+		
+		<window_group name="workstation_workbench" controller="XUiC_WorkstationWindowGroup">
+			<window name="windowCraftingList"/>
+			<window name="craftingInfoPanel"/>
+			<window name="windowCraftingQueue"/>
+			<window name="windowOutput" />
+			<window name="windowNonPagingHeader" />
+			<window name="windowCombine" />
+		</window_group>				
+
+		<window_group name="workstation_chemistryStation" controller="XUiC_WorkstationWindowGroup">
+			<window name="windowCraftingList"/>
+			<window name="craftingInfoPanel"/>
+			<window name="windowCraftingQueue"/>
+			<window name="windowFuel" />
+			<window name="windowOutput" />
+			<window name="windowNonPagingHeader" />
+		</window_group>
+		
+		<window_group name="looting" left_panel_valign_top="false" controller="XUiC_LootWindowGroup">
+			<window name="windowLooting"/>
+			<window name="windowNonPagingHeader" />
+		</window_group>
+		
+		<window_group name="creative" controller="XUiC_CreativeWindowGroup">
+			<window name="windowCreative" />
+		</window_group>
+		
+		<window_group name="backpack">	
+			<window name="itemInfoPanel"/>
+			<window name="emptyInfoPanel" />
+			<window name="windowBackpack"/>
+		</window_group>
+		
+		<window_group name="dragAndDrop">
+			<window name="dragAndDropItemStack" />
+		</window_group>
+		
+		<window_group name="compass">
+			<window name="windowCompass" />
+		</window_group>
+		
+		<window_group name="toolTip">
+			<window name="toolTip" />
+			<window name="popupMenu" />
+		</window_group>
+		
+		<window_group name="tipWindow">
+			<window name="windowTip" />
+		</window_group>
+		
+		<window_group name="questOffer">
+			<window name="windowQuestOffer" />
+		</window_group>
+		
+		<window_group name="timer">
+			<window name="windowTimer"/>
+		</window_group>
+		
+		<window_group name="toolbelt">
+			<window name="windowToolbelt" anchor="CenterBottom" />
+			<window name="HUDLeftStatBars" anchor="LeftBottom" />
+			<window name="HUDRightStatBars" anchor="RightBottom" />
+			<window name="windowQuestTracker" anchor="RightTop" />
+		</window_group>
+		
+		<window_group name="vehicle" controller="XUiC_VehicleWindowGroup">
+			<window name="windowVehicle"/>
+			<window name="windowNonPagingHeader" />
+			<window name="windowVehicleStats" />
+			<window name="windowVehicleStorage" />
+		</window_group>
+		
+		<window_group name="windowpaging">
+			<window name="windowPagingHeader" anchor="CenterTop"/>
+		</window_group>
+
+		<window_group name="map">
+			<window name="mapTrackingPopup" />			<!-- keep this on top -->			
+			<window name="mapAreaSetWaypoint" />		<!-- keep this on top -->
+			<window name="mapAreaChooseWaypoint" />		<!-- keep this on top -->
+			<window name="mapAreaEnterWaypointName" />	<!-- keep this on top -->
+			<window name="mapArea" />
+			<window name="mapTracking" />
+			<window name="mapInvites" />
+		</window_group>
+		
+		<window_group name="players">
+			<window name="players" />
+		</window_group>
+		
+		<window_group name="assemble" controller="XUiC_AssembleWindowGroup">
+			<window name="windowAssemble" />
+			<window name="windowNonPagingHeader" />
+		</window_group>
+
+		<window_group name="radial">
+			<window name="windowRadial"/>
+		</window_group>
+		
+		<window_group name="skills" controller="XUiC_SkillWindowGroup">
+			<window name="windowSkillList"/>
+			<window name="windowSkillInfo"/>
+			<!-- <window name="windowSkillStats"/> -->
+		</window_group>
+		
+		<window_group name="quests" controller="XUiC_QuestWindowGroup">
+			<window name="windowQuestList" />
+			<window name="windowQuestDescription" />
+			<window name="windowQuestObjectives" />
+			<window name="windowQuestRewards" />
+		</window_group>
+		
+		<window_group name="journal" controller="XUiC_JournalWindowGroup">
+			<window name="windowJournalList" />
+			<window name="windowJournalEntryDescription" />
+		</window_group>
+		
+		<window_group name="profiles">
+			<window name="windowArchetypePreview"/>
+		</window_group>
+		
+		<window_group name="archetypes" controller="XUiC_ArchetypesWindowGroup" stack_panel_y_offset="332">
+			<window name="windowArchetypePreview2"/>
+			<window name="windowSliders"/>
+			<window name="windowColorPicker"/>
+		</window_group>
+		
+		<window_group name="trader" controller="XUiC_TraderWindowGroup">
+			<window name="windowTrader"/>
+			<window name="windowNonPagingHeader" />
+			<window name="serviceInfoPanel"/>
+		</window_group>
+		
+		<window_group name="sign">
+			<window name="windowSignEdit" />
+		</window_group>
+		
+		<window_group name="rwgeditor" controller="XUiC_RWGEditorWindowGroup">
+			<window name="windowRWGPreview" />
+		</window_group>
+	</ruleset>
+</xui>

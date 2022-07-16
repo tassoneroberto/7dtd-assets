@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+  <music_groups>
+    <music_group id="1" sample-rate="44100" hyperbar-length="4" dir="/Group1">
+      <property name="SampleRate" value="44100"/>
+      <property name="HBLength" value="4"/>
+
+      <configurations>
+        <configuration id="0" />
+      </configurations>
+
+      <ThreatLevel value="Exploration" tempo="60" sig-hi="6" sig-lo="4" dir="/Exp">
+        <Layer value="Primary" dir="/Pri" num="8">
+          <InstrumentID value="0">
+            <Placement value="Begin" location="/000aExpPri" />
+            <Placement value="Loop" location="/000bExpPri" />
+            <Placement value="End" location="/000cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="1">
+            <Placement value="Begin" location="/001aExpPri" />
+            <Placement value="Loop" location="/001bExpPri" />
+            <Placement value="End" location="/001cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="2">
+            <Placement value="Begin" location="/002aExpPri" />
+            <Placement value="Loop" location="/002bExpPri" />
+            <Placement value="End" location="/002cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="3">
+            <Placement value="Begin" location="/003aExpPri" />
+            <Placement value="Loop" location="/003bExpPri" />
+            <Placement value="End" location="/003cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="4">
+            <Placement value="Begin" location="/004aExpPri" />
+            <Placement value="Loop" location="/004bExpPri" />
+            <Placement value="End" location="/004cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="5">
+            <Placement value="Begin" location="/005aExpPri" />
+            <Placement value="Loop" location="/005bExpPri" />
+            <Placement value="End" location="/005cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="6">
+            <Placement value="Begin" location="/006aExpPri" />
+            <Placement value="Loop" location="/006bExpPri" />
+            <Placement value="End" location="/006cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="7">
+            <Placement value="Begin" location="/007aExpPri" />
+            <Placement value="Loop" location="/007bExpPri" />
+            <Placement value="End" location="/007cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="8">
+            <Placement value="Begin" location="/008aExpPri" />
+            <Placement value="Loop" location="/008bExpPri" />
+            <Placement value="End" location="/008cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="9">
+            <Placement value="Begin" location="/009aExpPri" />
+            <Placement value="Loop" location="/009bExpPri" />
+            <Placement value="End" location="/009cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="10">
+            <Placement value="Begin" location="/010aExpPri" />
+            <Placement value="Loop" location="/010bExpPri" />
+            <Placement value="End" location="/010cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="11">
+            <Placement value="Begin" location="/011aExpPri" />
+            <Placement value="Loop" location="/011bExpPri" />
+            <Placement value="End" location="/011cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="12">
+            <Placement value="Begin" location="/012aExpPri" />
+            <Placement value="Loop" location="/012bExpPri" />
+            <Placement value="End" location="/012cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="13">
+            <Placement value="Begin" location="/013aExpPri" />
+            <Placement value="Loop" location="/013bExpPri" />
+            <Placement value="End" location="/013cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="14">
+            <Placement value="Begin" location="/014aExpPri" />
+            <Placement value="Loop" location="/014bExpPri" />
+            <Placement value="End" location="/014cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="15">
+            <Placement value="Begin" location="/015aExpPri" />
+            <Placement value="Loop" location="/015bExpPri" />
+            <Placement value="End" location="/015cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="16">
+            <Placement value="Begin" location="/016aExpPri" />
+            <Placement value="Loop" location="/016bExpPri" />
+            <Placement value="End" location="/016cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="17">
+            <Placement value="Begin" location="/017aExpPri" />
+            <Placement value="Loop" location="/017bExpPri" />
+            <Placement value="End" location="/017cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="18">
+            <Placement value="Begin" location="/018aExpPri" />
+            <Placement value="Loop" location="/018bExpPri" />
+            <Placement value="End" location="/018cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="19">
+            <Placement value="Begin" location="/019aExpPri" />
+            <Placement value="Loop" location="/019bExpPri" />
+            <Placement value="End" location="/019cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="20">
+            <Placement value="Begin" location="/020aExpPri" />
+            <Placement value="Loop" location="/020bExpPri" />
+            <Placement value="End" location="/020cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="21">
+            <Placement value="Begin" location="/021aExpPri" />
+            <Placement value="Loop" location="/021bExpPri" />
+            <Placement value="End" location="/021cExpPri" />
+          </InstrumentID>
+
+          <InstrumentID value="22">
+            <Placement value="Begin" location="/022aExpPri" />
+            <Placement value="Loop" location="/022bExpPri" />
+            <Placement value="End" location="/022cExpPri" />
+          </InstrumentID>
+        </Layer>
+
+        <Layer value="PrimarySupporting" dir="/Psp" num="29">
+          <InstrumentID value="23">
+            <Placement value="Begin" location="/000aExpPsp" />
+            <Placement value="Loop" location="/000bExpPsp" />
+            <Placement value="End" location="/000cExpPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="24">
+            <Placement value="Begin" location="/001aExpPsp" />
+            <Placement value="Loop" location="/001bExpPsp" />
+            <Placement value="End" location="/001cExpPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="25">
+            <Placement value="Begin" location="/002aExpPsp" />
+            <Placement value="Loop" location="/002bExpPsp" />
+            <Placement value="End" location="/002cExpPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="26">
+            <Placement value="Begin" location="/003aExpPsp" />
+            <Placement value="Loop" location="/003bExpPsp" />
+            <Placement value="End" location="/003cExpPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="27">
+            <Placement value="Begin" location="/004aExpPsp" />
+            <Placement value="Loop" location="/004bExpPsp" />
+            <Placement value="End" location="/004cExpPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="28">
+            <Placement value="Begin" location="/005aExpPsp" />
+            <Placement value="Loop" location="/005bExpPsp" />
+            <Placement value="End" location="/005cExpPsp" />
+          </InstrumentID>
+        </Layer>
+
+        <Layer value="Secondary" dir="/Sec" num="4">
+          <InstrumentID value="29">
+            <Placement value="Begin" location="/000aExpSec" />
+            <Placement value="Loop" location="/000bExpSec" />
+            <Placement value="End" location="/000cExpSec" />
+          </InstrumentID>
+
+          <InstrumentID value="30">
+            <Placement value="Begin" location="/001aExpSec" />
+            <Placement value="Loop" location="/001bExpSec" />
+            <Placement value="End" location="/001cExpSec" />
+          </InstrumentID>
+
+          <InstrumentID value="31">
+            <Placement value="Begin" location="/002aExpSec" />
+            <Placement value="Loop" location="/002bExpSec" />
+            <Placement value="End" location="/002cExpSec" />
+          </InstrumentID>
+
+          <InstrumentID value="32">
+            <Placement value="Begin" location="/003aExpSec" />
+            <Placement value="Loop" location="/003bExpSec" />
+            <Placement value="End" location="/003cExpSec" />
+          </InstrumentID>
+
+          <InstrumentID value="33">
+            <Placement value="Begin" location="/004aExpSec" />
+            <Placement value="Loop" location="/004bExpSec" />
+            <Placement value="End" location="/004cExpSec" />
+          </InstrumentID>
+
+          <InstrumentID value="34">
+            <Placement value="Begin" location="/005aExpSec" />
+            <Placement value="Loop" location="/005bExpSec" />
+            <Placement value="End" location="/005cExpSec" />
+          </InstrumentID>
+
+          <InstrumentID value="35">
+            <Placement value="Begin" location="/006aExpSec" />
+            <Placement value="Loop" location="/006bExpSec" />
+            <Placement value="End" location="/006cExpSec" />
+          </InstrumentID>
+
+          <InstrumentID value="36">
+            <Placement value="Begin" location="/007aExpSec" />
+            <Placement value="Loop" location="/007bExpSec" />
+            <Placement value="End" location="/007cExpSec" />
+          </InstrumentID>
+
+          <InstrumentID value="37">
+            <Placement value="Begin" location="/008aExpSec" />
+            <Placement value="Loop" location="/008bExpSec" />
+            <Placement value="End" location="/008cExpSec" />
+          </InstrumentID>
+
+          <InstrumentID value="38">
+            <Placement value="Begin" location="/009aExpSec" />
+            <Placement value="Loop" location="/009bExpSec" />
+            <Placement value="End" location="/009cExpSec" />
+          </InstrumentID>
+
+          <InstrumentID value="39">
+            <Placement value="Begin" location="/010aExpSec" />
+            <Placement value="Loop" location="/010bExpSec" />
+            <Placement value="End" location="/010cExpSec" />
+          </InstrumentID>
+
+          <InstrumentID value="40">
+            <Placement value="Begin" location="/011aExpSec" />
+            <Placement value="Loop" location="/011bExpSec" />
+            <Placement value="End" location="/011cExpSec" />
+          </InstrumentID>
+
+          <InstrumentID value="41">
+            <Placement value="Begin" location="/012aExpSec" />
+            <Placement value="Loop" location="/012bExpSec" />
+            <Placement value="End" location="/012cExpSec" />
+          </InstrumentID>
+
+          <InstrumentID value="42">
+            <Placement value="Begin" location="/013aExpSec" />
+            <Placement value="Loop" location="/013bExpSec" />
+            <Placement value="End" location="/013cExpSec" />
+          </InstrumentID>
+
+          <InstrumentID value="43">
+            <Placement value="Begin" location="/014aExpSec" />
+            <Placement value="Loop" location="/014bExpSec" />
+            <Placement value="End" location="/014cExpSec" />
+          </InstrumentID>
+
+          <InstrumentID value="44">
+            <Placement value="Begin" location="/015aExpSec" />
+            <Placement value="Loop" location="/015bExpSec" />
+            <Placement value="End" location="/015cExpSec" />
+          </InstrumentID>
+
+          <InstrumentID value="45">
+            <Placement value="Begin" location="/016aExpSec" />
+            <Placement value="Loop" location="/016bExpSec" />
+            <Placement value="End" location="/016cExpSec" />
+          </InstrumentID>
+
+          <InstrumentID value="46">
+            <Placement value="Begin" location="/017aExpSec" />
+            <Placement value="Loop" location="/017bExpSec" />
+            <Placement value="End" location="/017cExpSec" />
+          </InstrumentID>
+        </Layer>
+
+        <Layer value="LongEffects" dir="/Lfx" num="7">
+          <InstrumentID value="47">
+            <Placement value="Begin" location="/000aExpLfx" />
+            <Placement value="Loop" location="/000bExpLfx" />
+            <Placement value="End" location="/000cExpLfx" />
+          </InstrumentID>
+
+          <InstrumentID value="48">
+            <Placement value="Begin" location="/001aExpLfx" />
+            <Placement value="Loop" location="/001bExpLfx" />
+            <Placement value="End" location="/001cExpLfx" />
+          </InstrumentID>
+
+          <InstrumentID value="49">
+            <Placement value="Begin" location="/002aExpLfx" />
+            <Placement value="Loop" location="/002bExpLfx" />
+            <Placement value="End" location="/002cExpLfx" />
+          </InstrumentID>
+
+          <InstrumentID value="50">
+            <Placement value="Begin" location="/003aExpLfx" />
+            <Placement value="Loop" location="/003bExpLfx" />
+            <Placement value="End" location="/003cExpLfx" />
+          </InstrumentID>
+
+          <InstrumentID value="51">
+            <Placement value="Begin" location="/004aExpLfx" />
+            <Placement value="Loop" location="/004bExpLfx" />
+            <Placement value="End" location="/004cExpLfx" />
+          </InstrumentID>
+
+          <InstrumentID value="52">
+            <Placement value="Begin" location="/005aExpLfx" />
+            <Placement value="Loop" location="/005bExpLfx" />
+            <Placement value="End" location="/005cExpLfx" />
+          </InstrumentID>
+
+          <InstrumentID value="53">
+            <Placement value="Begin" location="/006aExpLfx" />
+            <Placement value="Loop" location="/006bExpLfx" />
+            <Placement value="End" location="/006cExpLfx" />
+          </InstrumentID>
+        </Layer>
+      </ThreatLevel>
+
+      <ThreatLevel value="Suspense" tempo="60" sig-hi="6" sig-lo="4" dir ="/Sus">
+        <Layer value="Primary" dir="/Pri" num="1">
+          <InstrumentID value="54">
+            <Placement value="Loop" location="/000bSusPri" />
+          </InstrumentID>
+        </Layer>
+      </ThreatLevel>
+
+      <ThreatLevel value="CombatReady" tempo="60" sig-hi="6" sig-lo="4" dir="/Cbr">
+        <Layer value="Primary" dir="/Pri" num="3">
+          <InstrumentID value="55">
+            <Placement value="Loop" location="/000bCbrPri" />
+          </InstrumentID>
+
+          <InstrumentID value="56">
+            <Placement value="Loop" location="/001bCbrPri" />
+          </InstrumentID>
+
+          <InstrumentID value="57">
+            <Placement value="Loop" location="/002bCbrPri" />
+          </InstrumentID>
+        </Layer>
+      </ThreatLevel>
+
+      <ThreatLevel value="Combat" tempo="155" sig-hi="16" sig-lo="4" dir="/Cbt">
+        <Layer value="Primary" dir="/Pri" num="11">
+          <InstrumentID value="58">
+            <Placement value="Begin" location="/000aCbtPri" />
+            <Placement value="Loop" location="/000bCbtPri" />
+            <Placement value="End" location="/000cCbtPri" />
+          </InstrumentID>
+
+          <InstrumentID value="59">
+            <Placement value="Begin" location="/001aCbtPri" />
+            <Placement value="Loop" location="/001bCbtPri" />
+            <Placement value="End" location="/001cCbtPri" />
+          </InstrumentID>
+
+          <InstrumentID value="60">
+            <Placement value="Begin" location="/002aCbtPri" />
+            <Placement value="Loop" location="/002bCbtPri" />
+            <Placement value="End" location="/002cCbtPri" />
+          </InstrumentID>
+
+          <InstrumentID value="61">
+            <Placement value="Begin" location="/003aCbtPri" />
+            <Placement value="Loop" location="/003bCbtPri" />
+            <Placement value="End" location="/003cCbtPri" />
+          </InstrumentID>
+
+          <InstrumentID value="62">
+            <Placement value="Begin" location="/004aCbtPri" />
+            <Placement value="Loop" location="/004bCbtPri" />
+            <Placement value="End" location="/004cCbtPri" />
+          </InstrumentID>
+
+          <InstrumentID value="63">
+            <Placement value="Begin" location="/005aCbtPri" />
+            <Placement value="Loop" location="/005bCbtPri" />
+            <Placement value="End" location="/005cCbtPri" />
+          </InstrumentID>
+
+          <InstrumentID value="64">
+            <Placement value="Begin" location="/006aCbtPri" />
+            <Placement value="Loop" location="/006bCbtPri" />
+            <Placement value="End" location="/006cCbtPri" />
+          </InstrumentID>
+
+          <InstrumentID value="65">
+            <Placement value="Begin" location="/007aCbtPri" />
+            <Placement value="Loop" location="/007bCbtPri" />
+            <Placement value="End" location="/007cCbtPri" />
+          </InstrumentID>
+
+          <InstrumentID value="66">
+            <Placement value="Begin" location="/008aCbtPri" />
+            <Placement value="Loop" location="/008bCbtPri" />
+            <Placement value="End" location="/008cCbtPri" />
+          </InstrumentID>
+
+          <InstrumentID value="67">
+            <Placement value="Begin" location="/009aCbtPri" />
+            <Placement value="Loop" location="/009bCbtPri" />
+            <Placement value="End" location="/009cCbtPri" />
+          </InstrumentID>
+
+          <InstrumentID value="68">
+            <Placement value="Begin" location="/010aCbtPri" />
+            <Placement value="Loop" location="/010bCbtPri" />
+            <Placement value="End" location="/010cCbtPri" />
+          </InstrumentID>
+        </Layer>
+
+        <Layer value="PrimarySupporting" dir="/Psp" num="15">
+          <InstrumentID value="69">
+            <Placement value="Begin" location="/000aCbtPsp" />
+            <Placement value="Loop" location="/000bCbtPsp" />
+            <Placement value="End" location="/000cCbtPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="70">
+            <Placement value="Begin" location="/001aCbtPsp" />
+            <Placement value="Loop" location="/001bCbtPsp" />
+            <Placement value="End" location="/001cCbtPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="71">
+            <Placement value="Begin" location="/002aCbtPsp" />
+            <Placement value="Loop" location="/002bCbtPsp" />
+            <Placement value="End" location="/002cCbtPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="72">
+            <Placement value="Begin" location="/003aCbtPsp" />
+            <Placement value="Loop" location="/003bCbtPsp" />
+            <Placement value="End" location="/003cCbtPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="73">
+            <Placement value="Begin" location="/004aCbtPsp" />
+            <Placement value="Loop" location="/004bCbtPsp" />
+            <Placement value="End" location="/004cCbtPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="74">
+            <Placement value="Begin" location="/005aCbtPsp" />
+            <Placement value="Loop" location="/005bCbtPsp" />
+            <Placement value="End" location="/005cCbtPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="75">
+            <Placement value="Begin" location="/006aCbtPsp" />
+            <Placement value="Loop" location="/006bCbtPsp" />
+            <Placement value="End" location="/006cCbtPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="76">
+            <Placement value="Begin" location="/007aCbtPsp" />
+            <Placement value="Loop" location="/007bCbtPsp" />
+            <Placement value="End" location="/007cCbtPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="77">
+            <Placement value="Begin" location="/008aCbtPsp" />
+            <Placement value="Loop" location="/008bCbtPsp" />
+            <Placement value="End" location="/008cCbtPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="78">
+            <Placement value="Begin" location="/009aCbtPsp" />
+            <Placement value="Loop" location="/009bCbtPsp" />
+            <Placement value="End" location="/009cCbtPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="79">
+            <Placement value="Begin" location="/010aCbtPsp" />
+            <Placement value="Loop" location="/010bCbtPsp" />
+            <Placement value="End" location="/010cCbtPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="80">
+            <Placement value="Begin" location="/011aCbtPsp" />
+            <Placement value="Loop" location="/011bCbtPsp" />
+            <Placement value="End" location="/011cCbtPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="81">
+            <Placement value="Begin" location="/012aCbtPsp" />
+            <Placement value="Loop" location="/012bCbtPsp" />
+            <Placement value="End" location="/012cCbtPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="82">
+            <Placement value="Begin" location="/013aCbtPsp" />
+            <Placement value="Loop" location="/013bCbtPsp" />
+            <Placement value="End" location="/013cCbtPsp" />
+          </InstrumentID>
+
+          <InstrumentID value="83">
+            <Placement value="Begin" location="/014aCbtPsp" />
+            <Placement value="Loop" location="/014bCbtPsp" />
+            <Placement value="End" location="/014cCbtPsp" />
+          </InstrumentID>
+        </Layer>
+
+        <Layer value="Secondary" dir="/Sec" num="1">
+          <InstrumentID value="84">
+            <Placement value="Begin" location="/000aCbtSec" />
+            <Placement value="Loop" location="/000bCbtSec" />
+            <Placement value="End" location="/000cCbtSec" />
+          </InstrumentID>
+        </Layer>
+
+        <Layer value="LongEffects" dir="/Lfx" num="8">
+          <InstrumentID value="85">
+            <Placement value="Begin" location="/000aCbtLfx" />
+            <Placement value="Loop" location="/000bCbtLfx" />
+            <Placement value="End" location="/000cCbtLfx" />
+          </InstrumentID>
+
+          <InstrumentID value="86">
+            <Placement value="Begin" location="/001aCbtLfx" />
+            <Placement value="Loop" location="/001bCbtLfx" />
+            <Placement value="End" location="/001cCbtLfx" />
+          </InstrumentID>
+
+          <InstrumentID value="87">
+            <Placement value="Begin" location="/002aCbtLfx" />
+            <Placement value="Loop" location="/002bCbtLfx" />
+            <Placement value="End" location="/002cCbtLfx" />
+          </InstrumentID>
+
+          <InstrumentID value="88">
+            <Placement value="Begin" location="/003aCbtLfx" />
+            <Placement value="Loop" location="/003bCbtLfx" />
+            <Placement value="End" location="/003cCbtLfx" />
+          </InstrumentID>
+
+          <InstrumentID value="89">
+            <Placement value="Begin" location="/004aCbtLfx" />
+            <Placement value="Loop" location="/004bCbtLfx" />
+            <Placement value="End" location="/004cCbtLfx" />
+          </InstrumentID>
+
+          <InstrumentID value="90">
+            <Placement value="Begin" location="/005aCbtLfx" />
+            <Placement value="Loop" location="/005bCbtLfx" />
+            <Placement value="End" location="/005cCbtLfx" />
+          </InstrumentID>
+
+          <InstrumentID value="91">
+            <Placement value="Begin" location="/006aCbtLfx" />
+            <Placement value="Loop" location="/006bCbtLfx" />
+            <Placement value="End" location="/006cCbtLfx" />
+          </InstrumentID>
+
+          <InstrumentID value="92">
+            <Placement value="Begin" location="/007aCbtLfx" />
+            <Placement value="Loop" location="/007bCbtLfx" />
+            <Placement value="End" location="/007cCbtLfx" />
+          </InstrumentID>
+        </Layer>
+
+        <Layer value="ShortEffects" dir="/Sfx" num="7">
+          <InstrumentID value="93">
+            <Placement value="Loop" location="/000bCbtSfx" />
+          </InstrumentID>
+
+          <InstrumentID value="94">
+            <Placement value="Loop" location="/001bCbtSfx" />
+          </InstrumentID>
+
+          <InstrumentID value="95">
+            <Placement value="Loop" location="/002bCbtSfx" />
+          </InstrumentID>
+
+          <InstrumentID value="96">
+            <Placement value="Loop" location="/003bCbtSfx" />
+          </InstrumentID>
+
+          <InstrumentID value="97">
+            <Placement value="Loop" location="/004bCbtSfx" />
+          </InstrumentID>
+
+          <InstrumentID value="98">
+            <Placement value="Loop" location="/005bCbtSfx" />
+          </InstrumentID>
+
+          <InstrumentID value="99">
+            <Placement value="Loop" location="/006bCbtSfx" />
+          </InstrumentID>
+        </Layer>
+      </ThreatLevel>
+    </music_group>
+  </music_groups>
+
+  <configurations>
+    <configuration id="0">
+      <ThreatLevel value="Exploration" num="4" length="8">
+        <Layer value="Primary" num="1" Start="0" Stop="3"/>
+        <Layer value="PrimarySupporting" num="1" Start="1" Stop="1"/>
+        <Layer value="Secondary" num="1" Start="1" Stop="3"/>
+        <Layer value="LongEffects" num="1" Start="3" Stop="2"/>
+      </ThreatLevel>
+
+      <ThreatLevel value="Suspense" num="1" length="2">
+        <Layer value="Primary" num="1" Start="0" Stop="1"/>
+      </ThreatLevel>
+
+      <ThreatLevel value="CombatReady" num="1" length="2">
+        <Layer value="Primary" num="1" Start="0" Stop="1"/>
+      </ThreatLevel>
+
+      <ThreatLevel value="Combat" num="5" length="8">
+        <Layer value="Primary" num="1" Start="1" Stop="2"/>
+        <Layer value="PrimarySupporting" num="1" Start="0" Stop="1"/>
+        <Layer value="Secondary" num="1" Start="1" Stop="3"/>
+        <Layer value="LongEffects" num="1" Start="0" Stop="2"/>
+        <Layer value="ShortEffects" num="1" Start="0" Stop="6"/>
+      </ThreatLevel>
+    </configuration>
+  </configurations>
+
+  <configs>
+    <configuration id ="0">
+      <threat_level name="Exploration">
+
+        <layer name ="Primary" num="1"/>
+        <layer name ="PrimarySupporting" num="1"/>
+        <layer name ="Secondary" num="1"/>
+        <layer name ="LongEffects" num="1"/>
+        
+        <segment name="seg1" value="0,1,2" loop="false">
+          <layer name="Primary">
+            <placement name="Begin" value="0"/>
+            <placement name="Loop" value="1,2"/>
+          </layer>
+          <layer name="PrimarySupporting">
+            <placement name="Begin" value ="1"/>
+            <placement name="Loop" value="2"/>
+          </layer>
+          <layer name="Secondary">
+            <placement name="Begin" value="2"/>
+          </layer>
+          <layer name ="LongEffects">
+            <placement name="Begin" value="2"/>
+          </layer>
+        </segment>
+
+        <segment name="seg2" value="3,4,5" loop="true">
+          <layer name="Primary">
+            <placement name="Loop" value="3,4,5"/>
+          </layer>
+          <layer name="PrimarySupporting">
+            <placement name="Loop" value="3,4,5"/>
+          </layer>
+          <layer name="Secondary">
+            <placement name="Loop" value="3,4,5"/>
+          </layer>
+          <layer name ="LongEffects">
+            <placement name="Loop" value="3,4,5"/>
+          </layer>
+        </segment>
+
+        <segment name="seg3" value="6,7,8" loop="false">
+          <layer name="Primary">
+            <placement name="Loop" value="6"/>
+            <placement name="End" value="7"/>
+          </layer>
+          <layer name="PrimarySupporting">
+            <placement name="Loop" value ="6,7"/>
+            <placement name="End" value="8"/>
+          </layer>
+          <layer name="Secondary">
+            <placement name="Loop" value="6"/>
+            <placement name="End" value="7"/>
+          </layer>
+          <layer name ="LongEffects">
+            <placement name="End" value="6"/>
+          </layer>
+        </segment>
+      </threat_level>
+
+      <threat_level name="Suspense">
+        <layer name="Primary" num="1"/>
+
+        <segment name="seg1" value="0" loop="true">
+          <layer name="Primary">
+            <placement name="Loop" value="0"/>
+          </layer>
+        </segment>
+      </threat_level>
+
+      <threat_level name="CombatReady">
+        <layer name="Primary" num="1"/>
+
+        <segment name="seg1" value="0" loop="true">
+          <layer name="Primary">
+            <placement name="Loop" value="0"/>
+          </layer>
+        </segment>
+      </threat_level>
+
+      <threat_level name="Combat">
+
+        <layer name ="Primary" num="1"/>
+        <layer name ="PrimarySupporting" num="1"/>
+        <layer name ="Secondary" num="1"/>
+        <layer name ="LongEffects" num="1"/>
+        <layer name ="ShortEffects" num="1"/>
+
+        <segment name="seg1" value="0" loop="false">
+          <layer name="Primary">
+            <placement name="Begin" value="0"/>
+          </layer>
+          <layer name="PrimarySupporting">
+            <placement name="Begin" value ="0"/>
+          </layer>
+          <layer name="Secondary">
+            <placement name="Begin" value="0"/>
+          </layer>
+          <layer name ="LongEffects">
+            <placement name="Begin" value="0"/>
+          </layer>
+          <layer name ="ShortEffects">
+            <placement name="Loop" value="0"/>
+          </layer>
+
+        </segment>
+
+        <segment name="seg2" value="1" loop="true">
+          <layer name="Primary">
+            <placement name="Loop" value="1"/>
+          </layer>
+          <layer name="PrimarySupporting">
+            <placement name="Loop" value="1"/>
+          </layer>
+          <layer name="Secondary">
+            <placement name="Loop" value="1"/>
+          </layer>
+          <layer name ="LongEffects">
+            <placement name="Loop" value="1"/>
+          </layer>
+          <layer name ="ShortEffects">
+            <placement name="Loop" value="1"/>
+          </layer>
+        </segment>
+
+        <segment name="seg3" value="2" loop="false">
+          <layer name="Primary">
+            <placement name="End" value="2"/>
+          </layer>
+          <layer name="PrimarySupporting">
+            <placement name="End" value="2"/>
+          </layer>
+          <layer name="Secondary">
+            <placement name="End" value="2"/>
+          </layer>
+          <layer name ="LongEffects">
+            <placement name="End" value="2"/>
+          </layer>
+          <layer name ="ShortEffects">
+            <placement name="Loop" value="2"/>
+          </layer>
+        </segment>
+      </threat_level>
+    </configuration>
+    
+  </configs>
+</root>

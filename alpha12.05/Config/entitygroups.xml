@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<entitygroups>
+
+    <entitygroup name="ZombiesAll">
+        <entity name="zombie04" />
+        <entity name="zombie05" />
+        <entity name="zombie06" />
+        <entity name="zombie07" />
+		<entity name="zombiegal01" /> 
+		<entity name="zombiegal02" />
+		<entity name="zombiegal03" />
+		<entity name="zombiegal04" />
+		<entity name="fatzombie" />
+		<entity name="zombiecrawler" />
+    </entitygroup>
+	
+    <entitygroup name="ZombiesNight">
+        <entity name="zombie04"/>
+        <entity name="zombie05" />
+        <entity name="zombie06" />
+        <entity name="zombie07" />
+		<entity name="zombiegal01" /> 
+		<entity name="zombiegal02" />
+		<entity name="zombiegal03" />
+		<entity name="zombiegal04" />
+		<entity name="fatzombie" />
+		<entity name="hornet" prob="0.05" />
+		<entity name="zombiedog" prob="0.05" />
+		<entity name="zombiecrawler" />
+    </entitygroup>
+    
+    
+    <entitygroup name="ZombiesWasteland">
+        <entity name="zombie04" />
+        <entity name="zombie05" />
+        <entity name="zombie06" />
+        <entity name="zombie07" />
+		<entity name="zombiegal01" /> 
+		<entity name="zombiegal02" />
+		<entity name="zombiegal03" />
+		<entity name="zombiegal04" />
+		<entity name="fatzombie" />
+		<entity name="hornet" />
+		<entity name="zombiedog" />
+		<entity name="zombiecrawler" />
+		<entity name="fatzombiecop" />
+		<entity name="burntzombie" />		
+    </entitygroup>	
+    
+    <entitygroup name="ZombiesWastelandNight">
+        <entity name="zombie04" prob="0.05"/>
+        <entity name="zombie05" prob="0.05"/>
+        <entity name="zombie06" prob="0.05"/>
+        <entity name="zombie07" prob="0.05"/>
+		<entity name="zombiegal01" prob="0.05"/> 
+		<entity name="zombiegal02" prob="0.05"/>
+		<entity name="zombiegal03" prob="0.05"/>
+		<entity name="zombiegal04" prob="0.05"/>
+		<entity name="fatzombie" prob="0.05"/>
+		<entity name="hornet" prob="0.15"/>
+		<entity name="zombiedog" prob="0.15"/>
+		<entity name="zombiecrawler" prob="0.05"/>
+		<entity name="fatzombiecop" prob="0.15"/>
+		<entity name="burntzombie" prob="0.05"/>
+		<entity name="zombieferal" prob="0.05"/>
+
+    </entitygroup>	
+    
+    <entitygroup name="ZombiesWastelandNight2">
+        <entity name="zombie04" prob="0.03"/>
+        <entity name="zombie05" prob="0.03"/>
+        <entity name="zombie06" prob="0.03"/>
+        <entity name="zombie07" prob="0.03"/>
+		<entity name="zombiegal01" prob="0.03"/> 
+		<entity name="zombiegal02" prob="0.03"/>
+		<entity name="zombiegal03" prob="0.03"/>
+		<entity name="zombiegal04" prob="0.03"/>
+		<entity name="fatzombie" prob="0.15"/>
+		<entity name="hornet" prob="0.15"/>
+		<entity name="zombiedog" prob="0.20"/>
+		<entity name="zombiecrawler" prob="0.03"/>
+		<entity name="fatzombiecop" prob="0.2"/>
+		<entity name="burntzombie" prob="0.03"/>
+    </entitygroup>	            		    		        		    		
+	
+    <entitygroup name="ZombiesHoard">
+        <entity name="zombie04" prob="0.1"/>
+        <entity name="zombie05" prob="0.1"/>
+        <entity name="zombie06" prob="0.1"/>
+        <entity name="zombie07" prob="0.1"/>
+		<entity name="zombiegal01" prob="0.1"/> 
+		<entity name="zombiegal02" prob="0.1"/>
+		<entity name="zombiegal03" prob="0.1"/>
+		<entity name="zombiegal04" prob="0.1"/>
+		<entity name="fatzombie" prob="0.1"/>
+		<entity name="fatzombiecop" prob="0.05"/>
+		<entity name="hornet" prob="0.05"/>
+		<entity name="zombiedog" prob="0.05"/>
+		<entity name="zombiecrawler" prob="0.1"/>
+    </entitygroup>
+
+	<entitygroup name="ZombieScouts">
+		<entity name="spiderzombie" />
+	</entitygroup>
+
+  <entitygroup name="ZombiesCrawlersDogs">
+    <entity name="zombiedog" prob="0.04"/>
+    <entity name="zombiecrawler" prob="0.1"/>
+  </entitygroup>
+
+  <entitygroup name="ZombiesBurntForest">
+    <entity name="burntzombie" prob="0.2"/>
+    <entity name="zombiecrawler" prob="0.05"/>
+    <entity name="zombiedog" prob="0.01"/>
+  </entitygroup>
+    
+    <entitygroup name="SnowZombies">
+        <entity name="snowzombie01" prob="0.3"/>
+        <entity name="snowzombie02" prob="0.4"/>	
+        <entity name="snowzombie03" prob="0.3"/>
+    </entitygroup>    		
+	
+    <entitygroup name="ZombiesBoss">
+		<entity name="fatzombiecop" />		
+    </entitygroup>	
+	
+    <entitygroup name="ZombiesFeral">
+		<entity name="zombieferal" />
+    </entitygroup>
+
+  <entitygroup name="ZombiesCave">
+    <entity name="animalBear" prob="0.1"/>
+    <entity name="zombiecrawler" prob="0.05"/>
+    <entity name="zombie05" prob="0.05"/>
+    <entity name="zombie06" prob="0.05"/>
+    <entity name="zombie07" prob="0.05"/>
+    <entity name="zombieferal" prob="0.01"/>
+  </entitygroup>
+
+    <entitygroup name="AnimalsSmall">
+        <entity name="animalRabbit" />
+    </entitygroup>
+    
+    <entitygroup name="AnimalsFarm">
+        <entity name="animalPig" />
+    </entitygroup>
+	
+    <entitygroup name="AnimalsBig">
+        <entity name="animalStag" />
+    </entitygroup>   
+    
+    <entitygroup name="AnimalsAll" >        
+    	<entity name="animalRabbit" />
+        <entity name="animalStag" />
+        <entity name="animalPig" />
+        <entity name="animalBear" prob="0.1" />
+    </entitygroup>    
+	
+    <entitygroup name="HornetGroup">
+        <entity name="hornet" />
+    </entitygroup>	
+	
+    <entitygroup name="ZombieDogGroup">
+        <entity name="zombiedog" />
+    </entitygroup>	
+
+    <entitygroup name="SupplyCrates_General">
+		<entity name="sc_General" />		
+    </entitygroup>	
+</entitygroups>

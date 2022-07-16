@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+
+Sounds that are unspecified in this file will play on the default master at max volume
+with no rate or maxvoice limits.
+
+-->
+
+<!-- 
+A master acts like a mixing fader, it can be grouped and assigned to other mixes (like a submix)
+A masters volume is controlled by its submix
+
+Attributes:
+
+name: The name of the master, used to identify it in other sections of the xml
+volume: The volume level of the master, it will mix down to all assigned submasters. Default is 1.
+
+rate: How often (in seconds) a new sound can be played on this master. Zero (0) means no limit
+and is the default.
+
+NOTE: this attribute only applies directly to sounds that are played on this master, if this 
+master has submasters it will not throttle those submasters.
+
+maxvoices: The maximum number of concurrently playing sounds.
+
+NOTE: like the "rate" attribute this only applies directly to this master only.
+
+sounddebug tells you some limited information
+
+
+	<master name="footsteps" volume="0.35" crouchVolume="0.25" localVolume="0.35" localCrouchVolume="0.25">
+
+-->
+
+<mix>
+	<!-- The default master controls the global volume of all sounds not contained in this xml file. -->
+	<master name="default" volume=".6"/>
+	
+	<!-- Make footsteps emitted by a player sound quieter to them, but normal volume to observers -->
+  <master name="footsteps" volume="0.35" crouchVolume="0.25" localVolume="0.4" localCrouchVolume="0.3">
+		<assign filter="Step/step"/>
+	</master>
+	
+	<!-- Make a master that all zombie voices will get played on -->
+	<master name="testmastername" volume="0.5" maxvoices="3">
+		<!-- all nonspecific sounds with "zombie" in the name will go on "zombies" -->
+		<assign filter="testfilter"/>
+		<!-- submaster for some specific zombie sounds -->
+		<submaster name="testsubmastername" rate="0.2" maxvoices="3"> <!-- rate in this example would never here any closer than 2/10 of second apart -->
+			<!-- assign [filter] {volume=} -->
+			<assign filter="test1" />
+		</submaster>   
+	</master>
+
+  <master name="wellness" volume="0.3">
+    <assign filter="wellness_increase" />
+    <assign filter="wellness_decrease" />
+  </master>
+
+  <master name="footstep_overlays" volume="0.2" localVolume="0.2">
+    <assign filter="zombieferalfootstep" />
+    <assign filter="zombiesnowfootstep" />
+    <assign filter="zombieburntfootstep" />
+  </master>
+  
+
+  <master name="gun_fires" volume="1.0" localVolume="1.0">
+    <assign filter="pump_shotgun_fire" />
+    <assign filter="sawed_off_shotgun_fire" />
+    <assign filter="blunderbuss_fire" />
+    <assign filter="44magnum_fire" />
+    <assign filter="hunting_rifle_fire" />
+    <assign filter="m136_fire" />
+    <assign filter="mp5_fire_start" />
+    <assign filter="mp5_fire_lp" />
+    <assign filter="mp5_fire_end" />
+    <assign filter="pistol_fire" />
+    <assign filter="sniperrifle_fire" />
+    <assign filter="bow_fire" />
+    <assign filter="crossbow_fire" />
+  </master>
+
+  <master name="zombieroam" volume="0.1" rate="7.0" maxvoices="3">
+    <assign filter="hulkroam" />
+    <assign filter="zombiefemaleroam" />
+    <assign filter="zombiemaleroam" />
+    <assign filter="hornetroam" />
+    <assign filter="spiderroam" />
+    <assign filter="zombiedogroam" />
+    <assign filter="zombiemalesnowroam" />
+    <assign filter="zombiefemalesnowroam" />
+    <assign filter="zombieferalroam" />
+    <assign filter="zombieburntroam" />
+  </master>
+
+  <master name="zombiesense" volume="0.2" rate="7.0" maxvoices="4">
+    <assign filter="hulksense" />
+    <assign filter="zombiefemalesense" />
+    <assign filter="zombiemalesense" />
+    <assign filter="hornetsense" />
+    <assign filter="spidersense" />
+    <assign filter="zombiedogsense" />
+    <assign filter="zombiemalesnowsense" />
+    <assign filter="zombiefemalesnowsense" />
+    <assign filter="zombieferalsense" />
+    <assign filter="zombieburntsense" />
+	<assign filter="bearsense" />
+  </master>
+
+  <master name="zombiealert" volume="0.2" rate="7.0" maxvoices="4">
+    <assign filter="hulkalert" />
+    <assign filter="zombiefemalealert" />
+    <assign filter="zombiemalealert" />
+    <assign filter="hornetalert" />
+    <assign filter="spideralert" />
+    <assign filter="zombiedogalert" />
+    <assign filter="zombiemalesnowalert" />
+    <assign filter="zombiefemalesnowalert" />
+    <assign filter="zombieferalalert" />
+    <assign filter="zombieburntalert" />
+	<assign filter="bearalert" />
+  </master>
+
+  <master name="zombieattack" volume="0.2" rate="3.0" maxvoices="3">
+    <assign filter="hulkattack" />
+    <assign filter="zombiefemaleattack" />
+    <assign filter="zombiemaleattack" />
+    <assign filter="hornetattack" />
+    <assign filter="spiderattack" />
+    <assign filter="zombiedogattack" />
+    <assign filter="zombiemalesnowattack" />
+    <assign filter="zombiefemalesnowattack" />
+    <assign filter="zombieferalattack" />
+    <assign filter="zombieburntattack" />
+	<assign filter="bearattack" />
+  </master>
+
+  <master name="zombiepain" volume="0.2" rate="2.0" maxvoices="3">
+    <assign filter="hulkpain" />
+    <assign filter="zombiefemalepain" />
+    <assign filter="zombiemalepain" />
+    <assign filter="hornetpain" />
+    <assign filter="spiderpain" />
+    <assign filter="zombiedogpain" />
+    <assign filter="zombiemalesnowpain" />
+    <assign filter="zombiefemalesnowpain" />
+    <assign filter="zombieferalpain" />
+    <assign filter="zombieburntpain" />
+	<assign filter="bearpain" />
+  </master>
+
+  <master name="zombiedeath" volume="0.2" rate="2.0" maxvoices="3">
+    <assign filter="hulkdeath" />
+    <assign filter="zombiefemaledeath" />
+    <assign filter="zombiemaledeath" />
+    <assign filter="hornetdeath" />
+    <assign filter="spiderdeath" />
+    <assign filter="zombiedogdeath" />
+    <assign filter="zombiemalesnowdeath" />
+    <assign filter="zombiefemalesnowdeath" />
+    <assign filter="zombieferaldeath" />
+    <assign filter="zombieburntdeath" />
+	<assign filter="beardeath" />
+  </master>
+  
+  
+   <master name="giveup" volume="0.3" rate="7.0" maxvoices="4">
+    <assign filter="zombiedoggiveup" />
+    <assign filter="beargiveup" />
+  </master>
+
+  <master name="horentfly" volume="0.2" rate="7.0" maxvoices="3">
+    <assign filter="hornetflylp1" />
+
+  </master>
+
+  <master name="animals" volume="0.4" rate="2.0" maxvoices="3">
+    <assign filter="pigdeath" />
+    <assign filter="pigpain" />
+    <assign filter="rabbitdeath" />
+    <assign filter="rabbitpain" />
+    <assign filter="stagpain" />
+    <assign filter="stagdeath" />
+  </master>
+
+
+  <master name="weaponsmotorized" volume=".20">
+    <assign filter="chainsaw_fire_start" />
+    <assign filter="chainsaw_fire_lp" />
+    <assign filter="chainsaw_fire_end" />
+
+    <assign filter="auger_fire_start" />
+    <assign filter="auger_fire_lp" />
+    <assign filter="auger_fire_end" />
+    <assign filter="auger_idle" />
+  </master>
+  
+  
+    <master name="minibike" volume="0.25" maxvoices="2">
+    <assign filter="Vehicles/Minibike/minibike_start_" />
+    <assign filter="Vehicles/Minibike/minibike_shutoff_" />
+    <assign filter="Vehicles/Minibike/minibike_empty_" />
+    <assign filter="Vehicles/Minibike/minibike_idle_lp_" />
+    <assign filter="Vehicles/Minibike/minibike_accel_" />
+    <assign filter="Vehicles/Minibike/minibike_decel_" />
+    <assign filter="Vehicles/Minibike/minibike_run_lp_" />
+  </master>
+  
+
+  <master name="switchweapon" volume=".25">
+    <assign filter="weapon_holster" />
+        <assign filter="chainsaw_idle" />
+    <assign filter="weapon_unholster" />
+  </master>
+
+
+  <master name="pickup_place" volume=".25">
+    <assign filter="placeblock1" />
+    <assign filter="placeblock2" />
+    <assign filter="placeblock3" />
+    <assign filter="item_pickup" />
+    <assign filter="itemdropped" />
+  </master>
+
+
+  <master name="keystone_impact_overlay" volume=".225" rate=".75" maxvoices="3">
+    <assign filter="keystone_impact_overlay" />
+  </master>
+
+
+  <master name="loot" volume=".4" crouchVolume=".2">
+    <assign filter="takeall1"/>
+    <assign filter="open_animal"/>
+    <assign filter="close_animal"/>
+    <assign filter="open_backpack"/>
+    <assign filter="close_backpack"/>
+    <assign filter="open_cardboard"/>
+    <assign filter="close_cardboard"/>
+    <assign filter="open_chest"/>
+    <assign filter="close_chest"/>
+    <assign filter="open_corpse"/>
+    <assign filter="close_corpse"/>
+    <assign filter="open_cupboard"/>
+    <assign filter="close_cupboard"/>
+    <assign filter="open_cooler"/>
+    <assign filter="close_cooler"/>
+    <assign filter="open_drawer"/>
+    <assign filter="close_drawer"/>
+    <assign filter="open_fridge"/>
+    <assign filter="close_fridge"/>
+    <assign filter="open_garbage"/>
+    <assign filter="close_garbage"/>
+    <assign filter="open_mailbox"/>
+    <assign filter="close_mailbox"/>
+    <assign filter="open_safe"/>
+    <assign filter="close_safe"/>
+    <assign filter="open_stump"/>
+    <assign filter="close_stump"/>
+    <assign filter="open_suitcase"/>
+    <assign filter="close_suitcase"/>
+    <assign filter="open_trashcan"/>
+    <assign filter="close_trashcan"/>
+    <assign filter="open_vehicle"/>
+    <assign filter="close_vehicle"/>
+    <assign filter="open_locker"/>
+    <assign filter="close_locker"/>
+    <assign filter="open_file_cabinet"/>
+    <assign filter="close_file_cabinet"/>
+    <assign filter="open_medicine_cabinet"/>
+    <assign filter="close_medicine_cabinet"/> 
+    <assign filter="open_cash_register"/>
+    <assign filter="close_cash_register"/>   
+    <assign filter="open_shopping_basket"/>
+    <assign filter="close_shopping_basket"/>
+    <assign filter="open_shopping_cart"/>
+    <assign filter="close_shopping_cart"/>
+     <assign filter="open_pill_case"/>
+    <assign filter="close_pill_case"/>  
+     <assign filter="open_apache_artifact_chest"/>
+    <assign filter="close_apache_artifact_chest"/>
+  </master>
+
+  <master name="useactions" volume=".4" crouchVolume=".25">
+    <assign filter="UseActions/bucketfill_water"/>
+    <assign filter="UseActions/bucketbail_water"/>
+    <assign filter="UseActions/bucketplace_water"/>
+    <assign filter="UseActions/repair_block"/>
+    <assign filter="UseActions/player_bandage"/>
+    <assign filter="UseActions/player_drinking"/>
+    <assign filter="UseActions/player_eating"/>
+    <assign filter="UseActions/player_ointment"/>
+    <assign filter="UseActions/player_painkillers"/>
+    <assign filter="Forge/forge_open"/>
+    <assign filter="Forge/forge_close"/>
+    <assign filter="Crafting/open_inventory"/>
+    <assign filter="Crafting/close_inventory"/>
+    <assign filter="Campfire/campfire_open"/>
+    <assign filter="Campfire/campfire_close"/>
+    <assign filter="open_door_wood"/>
+    <assign filter="close_door_wood"/>
+    <assign filter="open_door_metal"/>
+    <assign filter="close_door_metal"/>
+  </master>
+
+
+  <master name="water" volume=".4" rate="3.0" maxvoices="3">
+    <assign filter="waterfallinginto" />
+  </master>
+
+  <master name="impacts" volume="0.2" crouchVolume="0.25" localVolume="0.5" localCrouchVolume="0.25" rate=".2" maxvoices="3">
+    <assign filter="metalhit" />
+    <assign filter="metaldestroy" />
+    <assign filter="organichit" />
+    <assign filter="organicdestroy" />
+    <assign filter="stonehit" />
+    <assign filter="stonedestroy" />
+    <assign filter="woodhit" />
+    <assign filter="wooddestroy" />
+    <assign filter="earthdestroy" />
+    <assign filter="clothdestroy" />
+    <assign filter="glassdestroy" />
+    <assign filter="planthit" />
+    <assign filter="plantdestroy" />   
+  </master>
+
+  <master name="swoosh" volume="0.4" rate=".2" maxvoices="3">
+    <assign filter="swoosh" />
+  </master>
+  
+  <master name="farting" volume="0.14" maxvoices="3">
+    <assign filter="playersick" />
+  </master>
+  
+</mix>

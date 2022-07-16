@@ -1,0 +1,341 @@
+<!--
+	Quest format description:
+
+	Example: <quest id="quest_BasicSurvival1" name_key="Basic Survival 1/8" subtitle_key="Craft a Stone Axe" description_key="blah" icon="ui_game_symbol_hammer" >
+
+	id = ID used for the quest
+	name_key - localization key for the quest used when displayed in the quest list.
+	subtitle_key = localization key for the sub name used when displayed in the quest details and tracker.
+	description_key = localization key for the description displayed in the description window.
+	offer_key = localization key for the offer window description.
+	icon = icon shown in the quest list and on the tracker.
+	category_key = localization key for the category type (quest,challenge)
+	difficulty = (veryeasy, easy, medium, hard, insane )
+
+	Alternative settings for custom quest creation:
+
+	name - quest name without localization.
+	subtitle - sub name without localization.
+	description - description without localization.
+	offer - offer without localization.
+	group_name - quest chain name without localization.
+	category - category type without localization.
+
+-->
+
+<quests>
+	<!-- Basic Survival 1 - Craft a Bedroll /> -->
+	<quest id="quest_BasicSurvival1" group_name_key="quest_BasicSurvival" name_key="quest_BasicSurvival1" subtitle_key="quest_BasicSurvival1_subtitle" description_key="quest_BasicSurvival1_description" icon="ui_game_symbol_map_bed" category_key="quest" difficulty="veryeasy" offer_key="quest_BasicSurvival_offer">
+		<action type="ShowTip" value="tutorialTipQuest02" />
+		<action type="TrackQuest" />
+
+		<objective type="FetchKeep" id="yuccaFibers" value="20" />
+		<objective type="Craft" id="bedroll" value="1" />
+		<objective type="BlockPlace" id="bedroll" value="1" />
+
+		<reward type="Quest" id="quest_BasicSurvival2" />
+    </quest>
+
+	<!-- Basic Survival 2 - Craft a Stone Axe /> -->
+    <quest id="quest_BasicSurvival2" group_name_key="quest_BasicSurvival" name_key="quest_BasicSurvival2" subtitle="Craft a Stone Axe" subtitle_key="quest_BasicSurvival2_subtitle" description_key="quest_BasicSurvival2_description"
+	icon="ui_game_symbol_hammer" category_key="quest" offer_key="quest_BasicSurvival_offer" >
+
+		<objective type="FetchKeep" id="yuccaFibers" value="2" />
+		<objective type="FetchKeep" id="wood" value="2" />
+		<objective type="FetchKeep" id="rockSmall" value="4" />
+
+		<objective type="Craft" id="stoneAxe" value="1" />
+		<reward type="Quest" id="quest_BasicSurvival3" />
+
+    </quest>
+
+	<!-- Basic Survival 3 - Craft Plant Fiber Clothing /> -->
+	<quest id="quest_BasicSurvival3" group_name_key="quest_BasicSurvival" name_key="quest_BasicSurvival3" subtitle_key="quest_BasicSurvival3_subtitle" description_key="quest_BasicSurvival3_description" icon="ui_game_symbol_tailoring" category_key="quest" difficulty="veryeasy">
+		<objective type="FetchKeep" id="yuccaFibers" value="35" />
+		<objective type="Craft" id="plantFiberPants" value="1" />
+		<objective type="Craft" id="plantFiberShirt" value="1" />
+		<objective type="Craft" id="plantFiberHood" value="1" />
+		<objective type="Craft" id="plantFiberShoes" value="1" />
+		<objective type="Craft" id="plantFiberGloves" value="1" />
+
+		<reward type="Quest" id="quest_BasicSurvival4" />
+    </quest>
+
+	<!-- Basic Survival 4 - Wear Plant Fiber Clothing /> -->
+	<quest id="quest_BasicSurvival4" group_name_key="quest_BasicSurvival" name_key="quest_BasicSurvival4" subtitle_key="quest_BasicSurvival4_subtitle" description_key="quest_BasicSurvival4_description" icon="ui_game_symbol_shirt" category_key="quest" difficulty="veryeasy">
+		<objective type="Wear" id="plantFiberPants" />
+		<objective type="Wear" id="plantFiberShirt" />
+		<objective type="Wear" id="plantFiberHood" />
+		<objective type="Wear" id="plantFiberShoes" />
+		<objective type="Wear" id="plantFiberGloves" />
+
+		<reward type="Quest" id="quest_BasicSurvival5" />
+    </quest>
+
+	<!-- Basic Survival 5 - Craft a Wooden Club /> -->
+	<quest id="quest_BasicSurvival5" group_name_key="quest_BasicSurvival" name_key="quest_BasicSurvival5" subtitle_key="quest_BasicSurvival5_subtitle" description_key="quest_BasicSurvival5_description" icon="ui_game_symbol_club" category_key="quest" difficulty="veryeasy">
+		<objective type="FetchKeep" id="wood" value="6" />
+		<objective type="Craft" id="clubWood" value="1" />
+
+		<reward type="Quest" id="quest_BasicSurvival6" />
+    </quest>
+
+	<!-- Basic Survival 6 - Craft Bow & Arrows /> -->
+	<quest id="quest_BasicSurvival6" group_name_key="quest_BasicSurvival" name_key="quest_BasicSurvival6" subtitle_key="quest_BasicSurvival6_subtitle" description_key="quest_BasicSurvival6_description" icon="ui_game_symbol_archery" category_key="quest" difficulty="veryeasy">
+		<objective type="FetchKeep" id="wood" value="10" />
+		<objective type="FetchKeep" id="yuccaFibers" value="3" />
+		<objective type="FetchKeep" id="feather" value="2" />
+		<objective type="FetchKeep" id="rockSmall" value="2" />
+		<objective type="Craft" id="woodenBow" value="1" />
+		<objective type="Craft" id="arrow" value="2" />
+
+		<reward type="Quest" id="quest_BasicSurvival7" />
+    </quest>
+
+	<!-- Basic Survival 7 - Start a Base /> -->
+	<quest id="quest_BasicSurvival7" group_name_key="quest_BasicSurvival" name_key="quest_BasicSurvival7" subtitle_key="quest_BasicSurvival7_subtitle" description_key="quest_BasicSurvival7_description" icon="ui_game_symbol_map_house" category_key="quest" difficulty="veryeasy">
+		<objective type="FetchKeep" id="wood" value="18" />
+		<objective type="Craft" id="woodFrameBlock" value="3" />
+		<objective type="BlockPlace" id="woodFrameBlock" value="3" />
+		<objective type="BlockUpgrade" id="woodFrameBlock" value="3" />
+
+		<reward type="Quest" id="quest_BasicSurvival8" />
+    </quest>
+
+	<!-- Basic Survival 8 - Build a Campfire /> -->
+	<quest id="quest_BasicSurvival8" group_name_key="quest_BasicSurvival" name_key="quest_BasicSurvival8" subtitle_key="quest_BasicSurvival8_subtitle" description_key="quest_BasicSurvival8_description" icon="ui_game_symbol_campfire" category_key="quest" difficulty="veryeasy">
+		<objective type="FetchKeep" id="rockSmall" value="8" />
+		<objective type="Craft" id="campfire" value="1" />
+		<objective type="BlockPlace" id="campfire" value="1" />
+
+		<reward type="SkillPoints" value="5" />
+		<reward type="ShowTip" value="skillPointTip" stage="aftercomplete" />
+		<reward type="Quest" id="quest_whiteRiverCitizen1" stage="aftercomplete" />
+    </quest>
+
+	<!-- White River Citizen 1 - Journey to Settlement -->
+	<quest id="quest_whiteRiverCitizen1" group_name_key="quest_WhiteRiverCitizen" name_key="quest_WhiteRiverCitizen1" subtitle_key="quest_WhiteRiverCitizen1_subtitle" description_key="quest_WhiteRiverCitizen1_description" icon="ui_game_symbol_map_trader" category_key="quest" difficulty="medium">
+		<objective type="Goto" id="trader" value="5" />
+
+		<reward type="SkillPoints" value="5" />
+    </quest>
+
+	<!-- CHALLENGES -->
+	<quest id="challenge_silenceofthelambs" name_key="challenge_silenceofthelambs" subtitle_key="challenge_silenceofthelambs_subtitle" description_key="challenge_silenceofthelambs_offer" icon="ui_game_symbol_zombie"
+	repeatable="true" category_key="challenge" offer_key="challenge_silenceofthelambs_offer" difficulty="insane" >
+		<objective type="Time" value="1200" optional="true" />
+		<objective type="ZombieKill" id="zombieScreamer,zombieScreamerFeral" value="3" />
+
+		<reward type="SkillPoints" value="2" />
+		<reward type="SkillPoints" value="1" optional="true" />
+	</quest>
+
+	<quest id="challenge_drunkanddisorderly" name_key="challenge_drunkanddisorderly" subtitle_key="challenge_drunkanddisorderly_subtitle" description_key="challenge_drunkanddisorderly_offer" icon="ui_game_symbol_zombie"
+		repeatable="true" category_key="challenge" offer_key="challenge_drunkanddisorderly_offer" difficulty="medium">
+		<objective type="Time" value="600" optional="true" />
+		<objective type="ZombieKill" value="2"  />
+		<requirement type="Holding" id="" />
+
+		<requirement type="Group" value="OR">
+			<requirement type="Buff" id="Drunk" />
+			<requirement type="Buff" id="SickDrunk" />
+		</requirement>
+
+
+		<reward type="SkillPoints" value="2" />
+		<reward type="SkillPoints" value="1" optional="true" />
+	</quest>
+
+	<quest id="challenge_nurseyoubacktohealth" name_key="challenge_nurseyoubacktohealth" subtitle_key="challenge_nurseyoubacktohealth_subtitle" description_key="challenge_nurseyoubacktohealth_offer" icon="ui_game_symbol_zombie"
+		repeatable="true" category_key="challenge" offer_key="challenge_nurseyoubacktohealth_offer" difficulty="medium" >
+
+		<objective type="Time" value="900" optional="true" />
+		<objective type="ZombieKill" id="zombieNurse,zombieNurseFeral" value="3" />
+
+		<reward type="SkillPoints" value="2" />
+		<reward type="SkillPoints" value="1" optional="true" />
+	</quest>
+
+	<quest id="challenge_copanattitude" name_key="challenge_copanattitude" subtitle_key="challenge_copanattitude_subtitle" description_key="challenge_copanattitude_offer" icon="ui_game_symbol_zombie"
+		repeatable="true" category_key="challenge" offer_key="challenge_copanattitude_offer" difficulty="hard">
+		<objective type="Time" value="1500" optional="true" />
+		<objective type="ZombieKill" id="zombieFatCop,zombieFatCopFeral,zombieFatCopFeralRadiated" value="2" />
+
+		<reward type="SkillPoints" value="2" />
+		<reward type="SkillPoints" value="1" optional="true" />
+	</quest>
+
+	<quest id="challenge_dogdaysareover" name_key="challenge_dogdaysareover" subtitle_key="challenge_dogdaysareover_subtitle" description_key="challenge_dogdaysareover_offer" icon="ui_game_symbol_zombie"
+		repeatable="true" category_key="challenge" offer_key="challenge_dogdaysareover_offer" difficulty="hard">
+		<objective type="Time" value="1500" optional="true" />
+		<objective type="ZombieKill" id="animalZombieDog" value="4" />
+
+		<reward type="SkillPoints" value="2" />
+		<reward type="SkillPoints" value="1" optional="true" />
+	</quest>
+
+	<quest id="challenge_itsybitsyspider" name_key="challenge_itsybitsyspider" subtitle_key="challenge_itsybitsyspider_subtitle" description_key="challenge_itsybitsyspider_offer" icon="ui_game_symbol_zombie"
+		repeatable="true" category_key="challenge" offer_key="challenge_itsybitsyspider_offer" difficulty="medium">
+		<objective type="Time" value="900" optional="true" />
+		<objective type="ZombieKill" id="zombieSpider,zombieSpiderFeral,zombieSpiderFeralRadiated" value="3" />
+
+		<reward type="SkillPoints" value="2" />
+		<reward type="SkillPoints" value="1" optional="true" />
+	</quest>
+
+	<quest id="challenge_ladykiller" name_key="challenge_ladykiller" subtitle_key="challenge_ladykiller_subtitle" description_key="challenge_ladykiller_offer" icon="ui_game_symbol_zombie"
+		repeatable="true" category_key="challenge" offer_key="challenge_ladykiller_offer" difficulty="medium">
+		<objective type="Time" value="900" optional="true" />
+		<objective type="ZombieKill" id="zombieArlene,zombieArleneFeral" value="1" />
+		<objective type="ZombieKill" id="zombieDarlene,zombieDarleneFeral" value="1" />
+		<objective type="ZombieKill" id="zombieMarlene,zombieMarleneFeral" value="1" />
+		<objective type="ZombieKill" id="zombieNurse,zombieNurseFeral" value="1" />
+
+		<reward type="SkillPoints" value="2" />
+		<reward type="SkillPoints" value="1" optional="true" />
+	</quest>
+
+
+	<quest id="challenge_maneater" name_key="challenge_maneater" subtitle_key="challenge_maneater_subtitle" description_key="challenge_maneater_offer" icon="ui_game_symbol_zombie"
+		repeatable="true" category_key="challenge" offer_key="challenge_maneater_offer" difficulty="medium">
+		<objective type="Time" value="900" optional="true" />
+		<objective type="ZombieKill" id="zombieBoe,zombieBoeFeral" value="1" />
+		<objective type="ZombieKill" id="zombieJoe,zombieJoeFeral" value="1" />
+		<objective type="ZombieKill" id="zombieMoe,zombieMoeFeral" value="1" />
+		<objective type="ZombieKill" id="zombieYo,zombieYoFeral" value="1" />
+		<objective type="ZombieKill" id="zombieSteve,zombieSteveFeral" value="1" />
+
+		<reward type="SkillPoints" value="2" />
+		<reward type="SkillPoints" value="1" optional="true" />
+	</quest>
+
+	<quest id="challenge_yournothingspecial" name_key="challenge_yournothingspecial" subtitle_key="challenge_yournothingspecial_subtitle" description_key="challenge_yournothingspecial_offer" icon="ui_game_symbol_zombie"
+		repeatable="true" category_key="challenge" offer_key="challenge_yournothingspecial_offer" difficulty="insane">
+		<objective type="Time" value="1800" optional="true" />
+		<objective type="ZombieKill" id="zombieSpider,zombieSpiderFeral,zombieSpiderFeralRadiated" value="1" />
+		<objective type="ZombieKill" id="zombieFatCop,zombieFatCopFeral,zombieFatCopFeralRadiated" value="1" />
+		<objective type="ZombieKill" id="zombieWightFeral,zombieWightFeralRadiated" value="1" />
+		<objective type="ZombieKill" id="zombieScreamer,zombieScreamerFeral" value="1" />
+		<objective type="ZombieKill" id="zombieBurnt" value="1" />
+
+		<reward type="SkillPoints" value="2" />
+		<reward type="SkillPoints" value="1" optional="true" />
+	</quest>
+
+	<quest id="challenge_imalumberjackandimokay" name_key="challenge_imalumberjackandimokay" subtitle_key="challenge_imalumberjackandimokay_subtitle" description_key="challenge_imalumberjackandimokay_offer" icon="ui_game_symbol_zombie"
+		repeatable="true" category_key="challenge" offer_key="challenge_imalumberjackandimokay_offer" difficulty="hard">
+
+		<objective type="Time" value="900" optional="true" />
+		<objective type="ZombieKill" id="zombieSnow,zombieSnowFeral" value="3" />
+
+		<requirement type="Group" id="requirementGroupFireaxe" value="OR">
+			<requirement type="Holding" id="fireaxeIron" />
+			<requirement type="Holding" id="fireaxeSteel" />
+		</requirement>
+
+		<reward type="SkillPoints" value="2" />
+		<reward type="SkillPoints" value="1" optional="true" />
+	</quest>
+
+
+	<quest id="challenge_killthewabbit" name_key="challenge_killthewabbit" subtitle_key="challenge_killthewabbit_subtitle" description_key="challenge_killthewabbit_offer" icon="ui_game_symbol_knife"
+	repeatable="true" category_key="challenge" offer_key="challenge_killthewabbit_offer" difficulty="medium">
+
+		<objective type="AnimalKill" id="animalRabbit" value="5"  />
+
+		<requirement type="Group" id="requirementGroupShotgun" value="OR">
+			<requirement type="Holding" id="gunSawedOffPumpShotgun" />
+			<requirement type="Holding" id="gunPumpShotgun" />
+		</requirement>
+
+		<reward type="SkillPoints" value="2" />
+	</quest>
+
+	<quest id="challenge_nailsomechicks" name_key="challenge_nailsomechicks" subtitle_key="challenge_nailsomechicks_subtitle" description_key="challenge_nailsomechicks_offer" icon="ui_game_symbol_knife"
+	repeatable="true" category_key="challenge" offer_key="challenge_nailsomechicks_offer" difficulty="medium">
+		<objective type="AnimalKill" id="animalChicken" value="5"  />
+
+		<requirement type="Holding" id="nailgun" />
+
+		<reward type="SkillPoints" value="2" />
+	</quest>
+
+	<quest id="challenge_thatlldopig" name_key="challenge_thatlldopig" subtitle_key="challenge_thatlldopig_subtitle" description_key="challenge_thatlldopig_offer" icon="ui_game_symbol_knife"
+	repeatable="true" category_key="challenge" offer_key="challenge_thatlldopig_offer" difficulty="easy">
+		<objective type="AnimalKill" id="animalBoar" value="5"  />
+
+		<reward type="SkillPoints" value="2" />
+	</quest>
+
+	<quest id="challenge_stagparty" name_key="challenge_stagparty" subtitle_key="challenge_stagparty_subtitle" description_key="challenge_stagparty_offer" icon="ui_game_symbol_knife"
+	repeatable="true" category_key="challenge" offer_key="challenge_stagparty_offer" difficulty="easy">
+		<objective type="AnimalKill" id="animalStag" value="5"  />
+
+		<reward type="SkillPoints" value="2" />
+	</quest>
+
+	<quest id="challenge_dontfeedthebears" name_key="challenge_dontfeedthebears" subtitle_key="challenge_dontfeedthebears_subtitle" description_key="challenge_dontfeedthebears_offer" icon="ui_game_symbol_knife"
+	repeatable="true" category_key="challenge" offer_key="challenge_dontfeedthebears_offer" difficulty="hard">
+		<objective type="AnimalKill" id="animalBear" value="3"  />
+
+
+		<reward type="SkillPoints" value="2" />
+	</quest>
+
+	<quest id="challenge_buythefarm" name_key="challenge_buythefarm" subtitle_key="challenge_buythefarm_subtitle" description_key="challenge_buythefarm_offer" icon="ui_game_symbol_knife"
+	repeatable="true" category_key="challenge" offer_key="challenge_buythefarm_offer" difficulty="medium">
+		<objective type="AnimalKill" id="animalRabbit" value="1"  />
+		<objective type="AnimalKill" id="animalChicken" value="1"  />
+		<objective type="AnimalKill" id="animalBoar" value="1"  />
+		<objective type="AnimalKill" id="animalStag" value="1"  />
+		<objective type="AnimalKill" id="animalBear" value="1"  />
+
+
+		<reward type="SkillPoints" value="2" />
+	</quest>
+
+	<quest id="treasure_taylor" name_key="treasure_taylor" subtitle_key="treasure_taylor_subtitle" description_key="treasure_taylor_offer" icon="ui_game_symbol_treasure"
+	repeatable="true" category_key="treasure" offer_key="treasure_taylor_offer" difficulty="medium">
+
+		<objective type="TreasureChest" id="treasureChest" value="1000-1750" />
+	</quest>
+
+	<quest id="treasure_nickole" name_key="treasure_nickole" subtitle_key="treasure_nickole_subtitle" description_key="treasure_nickole_offer" icon="ui_game_symbol_treasure"
+	repeatable="true" category_key="treasure" offer_key="treasure_nickole_offer" difficulty="medium">
+
+		<objective type="TreasureChest" id="treasureChest" value="1000-1750" />
+	</quest>
+
+	<quest id="treasure_stephan" name_key="treasure_stephan" subtitle_key="treasure_stephan_subtitle" description_key="treasure_stephan_offer" icon="ui_game_symbol_treasure"
+	repeatable="true" category_key="treasure" offer_key="treasure_stephan_offer" difficulty="medium">
+
+		<objective type="TreasureChest" id="treasureChest" value="1000-1750" />
+	</quest>
+
+	<quest id="treasure_jennifer" name_key="treasure_jennifer" subtitle_key="treasure_jennifer_subtitle" description_key="treasure_jennifer_offer" icon="ui_game_symbol_treasure"
+	repeatable="true" category_key="treasure" offer_key="treasure_jennifer_offer" difficulty="medium">
+
+		<objective type="TreasureChest" id="treasureChest" value="1000-1750" />
+	</quest>
+
+	<quest id="treasure_claude" name_key="treasure_claude" subtitle_key="treasure_claude_subtitle" description_key="treasure_claude_offer" icon="ui_game_symbol_treasure"
+	repeatable="true" category_key="treasure" offer_key="treasure_claude_offer" difficulty="medium">
+
+		<objective type="TreasureChest" id="treasureChest" value="1000-1750" />
+	</quest>
+
+	<quest id="treasure_sarah" name_key="treasure_sarah" subtitle_key="treasure_sarah_subtitle" description_key="treasure_sarah_offer" icon="ui_game_symbol_treasure"
+	repeatable="true" category_key="treasure" offer_key="treasure_sarah_offer" difficulty="medium">
+
+		<objective type="TreasureChest" id="treasureChest" value="1000-1750" />
+	</quest>
+
+	<quest id="treasure_raphael" name_key="treasure_raphael" subtitle_key="treasure_raphael_subtitle" description_key="treasure_raphael_offer" icon="ui_game_symbol_treasure"
+	repeatable="true" category_key="treasure" offer_key="treasure_raphael_offer" difficulty="medium">
+
+		<objective type="TreasureChest" id="treasureChest" value="1000-1750" />
+	</quest>
+
+
+
+</quests>

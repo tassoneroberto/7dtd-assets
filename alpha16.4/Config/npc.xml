@@ -1,0 +1,44 @@
+<npc>
+
+	<npc_info
+		id="traitorjoel"
+		name="Traitor Joel"
+		name_key="npc_traitorJoel"
+		faction="whiteriver"
+		greeting_type="nearby"
+		trader_id="1" dialog_id="newbieGuy_1" />
+
+	<npc_info
+		id="traderric"
+		name="Traitor Joel"
+		name_key="npc_traderRekt"
+		faction="whiteriver"
+		greeting_type="nearby"
+		trader_id="1" dialog_id="medstudent1" />
+
+	<factions>
+		<faction name="none">
+			<relationship name="*" value="neutral"/>
+		</faction>
+		<faction name="animals">
+			<relationship name="*" value="dislike"/>
+		</faction>
+		<faction name="undead">
+			<relationship name="bandits" value="hate"/>
+			<relationship name="*" value="hate"/>
+		</faction>
+		<faction name="bandits">
+			<relationship name="*" value="hate"/>
+		</faction>
+		<faction name="whiteriver">
+			<relationship name="undead" value="hate"/>
+			<relationship name="bandits" value="hate"/>
+			<relationship name="*" value="neutral"/>
+		</faction>
+		<faction name="trader">
+			<relationship name="undead" value="hate"/>
+			<relationship name="bandits" value="dislike"/>
+			<relationship name="*" value="neutral"/>
+		</faction>
+	</factions>
+</npc>

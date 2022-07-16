@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doc>
+	<backgrounds>
+		<tex file="GUI/loading_screen_1" />
+		<tex file="GUI/loading_screen_2" />
+		<tex file="GUI/loading_screen_3" />
+		<tex file="GUI/loading_screen_4" />
+	</backgrounds>
+
+	<tips>
+		<tip key="loadingTipMainHUD" /> 
+		<tip key="loadingTipStoneAxe" />
+		<tip key="loadingTipHarvestingResources" />
+		<tip key="loadingTipDistraction" />
+		<tip key="loadingTipStealth" />
+		<tip key="loadingTipEncumbrance" /> 
+		<tip key="loadingTipArmor" />
+		<tip key="loadingTipBandages" />
+		<tip key="loadingTipJournalEntries" />
+		<tip key="loadingTipQuestSharing" />
+		<tip key="loadingTipWhatIsItGoodFor" /> 
+		<tip key="loadingTipWorkstations" />
+		<tip key="loadingTipUnlockingRecipes" />
+		<tip key="loadingTipCraftingBetterQL" /> 
+		<tip key="loadingTipBaseUpgrading" />
+		<tip key="loadingTipRadials" />
+		<tip key="loadingTipHarvestingCorpses" />
+		<tip key="loadingTipGlue" />
+		<tip key="loadingTipProperTools" />
+		<tip key="loadingTipItemStats" /> 
+		<tip key="loadingTipExtCharStats" /> 
+		<tip key="loadingTipBladedWeapons" />
+		<tip key="loadingTipPickaxes" />
+		<tip key="loadingTipAxes" />
+		<tip key="loadingTipSteelKnuckles" />
+		<tip key="loadingTipWrenches" />
+		<tip key="loadingTipSledgehammers" />
+		<tip key="loadingTipUsingIronTools" /> 
+		<tip key="loadingTipScrapping" />
+		<tip key="loadingTipBuffs" />
+	</tips>
+</doc>
