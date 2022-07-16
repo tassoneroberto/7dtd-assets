@@ -1,0 +1,186 @@
+<controls>
+
+	<mainmenubutton depth="3" pos="0,0" width="200" height="32"
+			enabled_font_color="[labelColor]" disabled_font_color="[disabledLabelColor]" visible="true" enabled="true" pivot="left" tooltip_key="" sound="[default_click]" caption="" caption_key="" >
+		<rect name="${name}" depth="${depth}" pos="${pos}" width="${width}" height="${height}" enabled_font_color="${enabled_font_color}" disabled_font_color="${disabled_font_color}" controller="SimpleButton" visible="${visible}" button_enabled="${enabled}" font_size_default="${height-16}" font_size_hover="${height-12}">
+			<button name="clickable" sprite="ui_game_popup" flip="horizontally" pos="0,${Round(-height/2,0)}" defaultcolor="255,255,255,180" hovercolor="[white]" type="sliced" hoverscale="1.0" pivot="${pivot}" tooltip_key="${tooltip_key}" sound_play_on_hover="[default_hover]" sound="${sound}"/>
+			<label depth="2" name="btnLabel" width="${width-20}" pos="10,${Round(-height/2,0)}" justify="left" text="${caption}" text_key="${caption_key}" effect="outline" pivot="${pivot}" font_size="${height-16}" upper_case="true" />
+		</rect>
+	</mainmenubutton>
+	
+	<videooption pos="0,0" 
+			visible="true" value_min="@DEF" value_max="@DEF" value_wrap="@DEF" value_increment="@DEF" values="@DEF" reverse_list="@DEF" localization_prefix="" format_string="" width="655">
+		<rect pos="${pos}" width="${width}" height="32">
+			<label depth="4" pos="0,0" width="350" height="30" style="hover" tooltip_key="xuiOptionsVideo${name}Tooltip" text_key="xuiOptionsVideo${name}" font_size="28" color="[white]" justify="right" pivot="topleft" visible="${visible}" />
+			<combobox name="${name}" type="${type}" value_min="${value_min}" value_max="${value_max}" value_wrap="${value_wrap}" value_increment="${value_increment}" values="${values}" reverse_list="${reverse_list}" localization_prefix="${localization_prefix}" format_string="${format_string}" pos="355,0" width="${width-355}" height="32" visible="${visible}" />
+		</rect>
+	</videooption>
+
+	<audiooption pos="0,0"
+			visible="true" value_min="@DEF" value_max="@DEF" value_wrap="@DEF" value_increment="@DEF" values="@DEF" reverse_list="@DEF" localization_prefix="" format_string="" width="1380">
+		<rect pos="${pos}" width="${width}" height="32">
+			<label depth="4" pos="0,0" width="350" height="30" style="hover" tooltip_key="xuiOptionsAudio${name}Tooltip" text_key="xuiOptionsAudio${name}" font_size="28" color="[white]" justify="right" pivot="topleft" visible="${visible}" />
+			<combobox name="${name}" type="${type}" value_min="${value_min}" value_max="${value_max}" value_wrap="${value_wrap}" value_increment="${value_increment}" values="${values}" reverse_list="${reverse_list}" localization_prefix="${localization_prefix}" format_string="${format_string}" pos="355,0" width="${width-355}" height="32" visible="${visible}" />
+		</rect>
+	</audiooption>
+
+	<controloption pos="0,0"
+			visible="true" value_min="@DEF" value_max="@DEF" value_wrap="@DEF" value_increment="@DEF" values="@DEF" reverse_list="@DEF" localization_prefix="" format_string="" width="655">
+		<rect pos="${pos}" width="${width}" height="32">
+			<label depth="4" pos="0,0" width="350" height="30" style="hover" tooltip_key="xuiOptionsControls${name}Tooltip" text_key="xuiOptionsControls${name}" font_size="28" color="[white]" justify="right" pivot="topleft" visible="${visible}" />
+			<combobox name="${name}" type="${type}" value_min="${value_min}" value_max="${value_max}" value_wrap="${value_wrap}" value_increment="${value_increment}" values="${values}" reverse_list="${reverse_list}" localization_prefix="${localization_prefix}" format_string="${format_string}" pos="355,0" width="${width-355}" height="32" visible="${visible}" />
+		</rect>
+	</controloption>
+
+	<controller_button_caption_left>
+		<label name="${name}" pos="${pos}" depth="4" height="32" width="350" pivot="right" justify="right" on_hover="true" />
+	</controller_button_caption_left>
+
+	<controller_button_caption_right>
+		<label name="${name}" pos="${pos}" depth="4" height="32" width="350" pivot="left" justify="left" on_hover="true" />
+	</controller_button_caption_right>
+
+	<gameoption pos="0,0" width="570" visible="true"
+			is_textinput="false" display_names="" value_localization_prefix="" password_field="false" has_default="true" always_show="false"
+			value_min="@DEF" value_max="@DEF" value_wrap="@DEF" value_increment="@DEF" values="@DEF" reverse_list="@DEF" localization_prefix="" format_string="">
+		<rect name="${name}" pos="${pos}" width="${width}" height="32" is_textinput="${is_textinput}" value_type="${value_type}" controller="GamePrefSelector" has_default="${has_default}" always_show="${always_show}"
+			values="${values}" display_names="${display_names}" value_localization_prefix="${value_localization_prefix}" visible="${visible}">
+			<label name="ControlLabel" depth="4" pos="0,0" width="262" height="30" style="hover" tooltip_key="${title}Desc" text_key="${title}" font_size="28" color="[white]" justify="right" pivot="topleft" />
+			<combobox name="ControlCombo" type="ComboBoxList`1[XUiC_GamePrefSelector+GameOptionValue]" value_min="${value_min}" value_max="${value_max}" value_wrap="${value_wrap}" value_increment="${value_increment}" values="${values}" reverse_list="${reverse_list}" localization_prefix="${localization_prefix}" format_string="${format_string}" pos="269,0" width="${width-270}" height="32" />
+			<textfield name="ControlText" depth="5" pos="303,0" width="${Defined(password_field) and password_field ? 570-338+32+10 : width-338}" height="32" pivot="topLeft" password_field="${password_field}" />
+		</rect>
+	</gameoption>
+	
+	<browsergameoptioncombined pos="0,0" width="710" visible="true"
+			display_names="" value_localization_prefix="" allow_any="true" allow_custom="true" force_custom="false" default="" default_min="" default_max="" default_string=""
+			value_min="@DEF" value_max="@DEF" value_wrap="@DEF" value_increment="@DEF" values="@DEF" reverse_list="@DEF" localization_prefix="" format_string="">
+		<rect name="${name}" pos="${pos}" width="${width}" height="32" controller="ServerBrowserGamePrefSelectorCombo"
+			values="${values}" display_names="${display_names}" value_localization_prefix="${value_localization_prefix}" allow_any="${allow_any}" allow_custom="${allow_custom}" force_custom="${force_custom}" default="${default}" default_min="${default_min}" default_max="${default_max}" default_string="${default_string}" visible="${visible}">
+			<label depth="4" pos="0,0" width="220" height="30" style="hover" tooltip_key="${title}Desc" text_key="${title}" font_size="28" color="[white]" justify="right" pivot="topleft" />
+			<combobox name="ControlCombo" type="ComboBoxList`1[XUiC_ServerBrowserGamePrefSelectorCombo+GameOptionValue]" value_min="${value_min}" value_max="${value_max}" value_wrap="${value_wrap}" value_increment="${value_increment}" values="${values}" reverse_list="${reverse_list}" localization_prefix="${localization_prefix}" format_string="${format_string}" pos="225,0" width="${width-230}" height="32" />
+			<panel createuipanel="true" disableautobackground="true" depth="10" visible="{iscustomrange}">
+				<textfield name="valuemin" depth="5" pos="259,0" width="${Round((width-298-32)/2, 0)}" height="32" pivot="topLeft" validation="integer" character_limit="9" on_scroll="true" />
+				<sprite depth="3" name="background" pos="259,1" width="${width-298}" height="35" color="[mediumGrey]" type="sliced" pivot="topleft" globalopacity="false" />
+				<label name="comparison" depth="4" pos="${259+1+Round((width-298-32)/2, 0)},0" width="30" height="32" text="-" font_size="32" color="[white]" justify="center" pivot="topleft" />
+				<textfield name="valuemax" depth="5" pos="${259+1+32+Round((width-298-32)/2, 0)},0" width="${Round((width-298-32)/2, 0)}" height="32" pivot="topLeft" validation="integer" character_limit="9" on_scroll="true" />
+			</panel>
+			<panel createuipanel="true" disableautobackground="true" depth="10" visible="{iscustomstring}">
+				<textfield name="valuestring" depth="5" pos="259,0" width="${width-298}" height="32" pivot="topLeft" on_scroll="true" />
+				<sprite depth="3" name="background" pos="259,1" width="${width-298}" height="35" color="[mediumGrey]" type="sliced" pivot="topleft" globalopacity="false" />
+			</panel>
+		</rect>
+	</browsergameoptioncombined>
+	
+	<browsergameoptionstring pos="0,0" width="710" visible="true">
+		<rect name="${name}" pos="${pos}" width="${width}" height="32" controller="ServerBrowserGamePrefString" visible="${visible}">
+			<label depth="4" pos="0,0" width="220" height="30" style="hover" tooltip_key="${title}Desc" text_key="${title}" font_size="28" color="[white]" justify="right" pivot="topleft" />
+			<textfield name="value" depth="5" pos="259,0" width="${width-298}" height="32" pivot="topLeft" />
+		</rect>
+	</browsergameoptionstring>
+
+	<browsergameoptioninfo pos="0,0" width="560" visible="true"
+			display_names="" value_localization_prefix="">
+		<rect name="${name}" pos="${pos}" width="${width}" height="32" controller="ServerBrowserGamePrefInfo"
+			display_names="${display_names}" value_localization_prefix="${value_localization_prefix}" visible="${visible}">
+			<label depth="4" pos="0,0" width="220" height="30" style="hover" tooltip_key="${title}Desc" text_key="${title}" font_size="28" color="[white]" justify="right" pivot="topleft" />
+			<sprite depth="5" pos="225,0" width="${width-228}" height="32" pivot="topLeft" name="background" color="[black]" type="sliced" />
+			<label depth="6" pos="225,0" width="${width-228}" height="32" name="value" justify="center" font_size="32" pivot="topleft" />
+		</rect>
+	</browsergameoptioninfo>
+	
+	<dna_combo>
+		<rect pos="0,0" width="470" height="32">
+			<!-- tooltip_key="xuiOptionsVideo${name}Tooltip" -->
+			<label name="label" depth="4" pos="0,0" width="220" height="30" style="hover" font_size="28" color="[white]" justify="right" pivot="topleft" />
+			<combobox name="combo" type="ComboBoxFloat" value_min="0" value_max="1" value_increment="0.1" value_wrap="false" format_string="0.00" pos="225,0" width="240" height="32" font_size="30" />
+		</rect>
+	</dna_combo>
+
+	<poi_entry>
+		<rect height="43" style="press, hover, scroll" controller="Poi_Entry" disabled_font_color="[disabledLabelColor]" enabled_font_color="[labelColor]" sound="[recipe_click]" >
+			<sprite depth="2" name="backgroundMain" sprite="menu_empty3px" pos="-3,3" width="396" height="49" color="[black]" type="sliced" fillcenter="false" />
+			<sprite depth="3" name="background" width="100%" height="45" pos="0,1" color="[darkGrey]" type="sliced" />
+			<label depth="4" name="Name" pos="195,-19" width="250" height="30" text="{recipename}" font_size="28" color="{hasingredientsstatecolor}" justify="center" pivot="center"/>
+		</rect>
+	</poi_entry>
+	
+	<lsystem_rule_entry>
+		<rect height="43" style="scroll" controller="LSystemRuleEntry" disabled_font_color="[disabledLabelColor]" enabled_font_color="[labelColor]" sound="[recipe_click]" >
+			<sprite depth="2" name="backgroundMain" sprite="menu_empty3px" pos="-3,3" width="306" height="49" color="[black]" type="sliced" fillcenter="false" />
+			<sprite depth="3" name="background" width="300" height="45" pos="0,1" color="[darkGrey]" type="sliced" />
+			<label depth="4" name="Name" pos="24,-19" width="40" height="30" text="F" font_size="28" color="[white]" justify="center" pivot="center"/>
+			<panel depth="10" controller="TextInput" pos="49,-5" width="220" height="30" value="{ruletext}" active_text_color="[white]" caret_color="[white]" selection_color="[mediumGrey_half_alpha]" character_limit="13" validation="none" backgroundcolor="[black]" style="select">
+				<sprite depth="0" name="background" color="[black]" type="sliced"/>
+				<label depth="1" name="text" pos="0,-2" justify="center" pivot="topleft" upper_case="false"/>
+			</panel>
+		</rect>
+	</lsystem_rule_entry>
+	
+	<world_list_entry width="254" height="30">
+		<rect height="${height}" style="press, hover, scroll" on_doubleclick="true" disabled_font_color="[disabledLabelColor]" enabled_font_color="[labelColor]" sound="[recipe_click]" controller="ListEntry`1[XUiC_WorldList+WorldListEntry]">
+			<sprite depth="3" name="backgroundMain" sprite="menu_empty2px" height="${1+height}" pos="2,0" width="${width-4}" color="[black]" type="sliced" fillcenter="false" />
+			<sprite depth="2" name="background" color="[darkGrey]" pos="2,0" width="${width-4}" type="sliced" />
+			<label depth="4" name="Name" pos="8,${Round(-height/2,0)}" width="${width-8}" height="${height-4}" text="{name}" font_size="${height-4}" justify="left" pivot="left" />
+		</rect>
+	</world_list_entry>
+	
+	<profiles_list_entry width="250" height="30">
+		<rect height="${height}" width="${width}" style="press, hover, scroll" on_doubleclick="true" disabled_font_color="[disabledLabelColor]" enabled_font_color="[labelColor]" sound="[recipe_click]" controller="ListEntry`1[XUiC_ProfilesList+ListEntry]">
+			<sprite depth="3" name="backgroundMain" sprite="menu_empty2px" height="${1+height}" pos="0,0" width="${width}" color="[black]" type="sliced" fillcenter="false" />
+			<sprite depth="2" name="background" color="[darkGrey]" pos="0,0" width="${width}" type="sliced" />
+			<label depth="4" name="Name" pos="8,${Round(-height/2,0)}" width="${width-8}" height="${height-4}" text="{name}" font_size="${height-4}" justify="left" pivot="left" />
+		</rect>
+	</profiles_list_entry>
+	
+	<savegames_list_entry width="254" height="30">
+		<rect height="${height}" style="press, doubleclick, hover, scroll" disabled_font_color="[disabledLabelColor]" enabled_font_color="[labelColor]" sound="[recipe_click]" controller="ListEntry`1[XUiC_SavegamesList+ListEntry]">
+			<sprite depth="3" name="backgroundMain" sprite="menu_empty2px" height="${1+height}" pos="2,0" width="${width-4}" color="[black]" type="sliced" fillcenter="false" />
+			<sprite depth="2" name="background" color="[darkGrey]" pos="2,0" width="${width-4}" type="sliced" />
+			<label depth="4" name="Name" pos="8,-2" width="${width-100}" height="32" text="{savename}" font_size="26" justify="left" pivot="topleft" />
+			<label depth="4" name="Version" pos="${width-10},-2" style="press, doubleclick, hover, scroll" color="{versioncolor}" width="80" height="32" text="{version}" tooltip="{versiontooltip}" font_size="26" justify="right" pivot="topright" sound="[recipe_click]" />
+			<label depth="4" name="World" pos="8,${-height+2}" style="press, doubleclick, hover, scroll" color="{worldcolor}" width="${width-200}" height="32" text="{worldname} - {mode}" tooltip="{worldtooltip}" font_size="26" justify="left" pivot="bottomleft" visible="{hasentry}" sound="[recipe_click]" />
+			<label depth="4" name="LastPlayed" pos="${width-10},${-height+2}" color="255,255,255,128" width="180" height="32" text="{lastplayed}" font_size="26" justify="right" pivot="bottomright" />
+		</rect>
+	</savegames_list_entry>
+	
+	<servers_list_header depth="3" pos="0,0" width="254" height="30">
+		<rect depth="${depth}" pos="${pos}" height="${height}">
+			<sprite depth="3" name="backgroundMain" sprite="menu_empty2px" height="${1+height}" pos="2,0" width="${width-4}" color="[black]" type="sliced" fillcenter="false" />
+			<sprite depth="2" name="background" color="[lightGrey]" pos="2,0" width="${width-4}" type="sliced" />
+			<sprite depth="4" name="favorite" pos="15,-16" width="26" height="26" sprite="server_favorite" color="[white]" type="simple" pivot="center" style="hover" tooltip_key="xuiServerBrowserToggleFavoriteTooltip" />
+			<sprite depth="4" name="anticheat" pos="43,-16" width="26" height="26" sprite="server_icon_vac" color="[white]" type="simple" pivot="center" style="hover" tooltip_key="xuiServerBrowserEACTooltip" />
+			<sprite depth="4" name="password" pos="71,-16" width="26" height="26" sprite="server_locked" color="[white]" type="simple" pivot="center" style="hover" tooltip_key="xuiServerBrowserPasswordTooltip" />
+			<label depth="4" name="ServerName" pos="90,-2" width="${width-310}" height="32" text_key="xuiServerBrowserServerName" font_size="26" justify="left" pivot="topleft" style="hover,press" />
+			<label depth="4" name="World" pos="${width-215},-2" width="100" height="32" text_key="xuiServerBrowserWorldName" font_size="26" justify="left" pivot="topleft" style="hover,press" />
+			<!--<label depth="4" name="Difficulty" pos="${width-140},-2" width="30" height="32" text="Diff" font_size="26" justify="right" pivot="topleft" style="hover,press" />-->
+			<sprite depth="4" name="Players" pos="${width-75},-15" width="26" height="26" sprite="server_players" color="[white]" type="simple" pivot="center" style="hover,press" tooltip_key="xuiServerBrowserPlayersTooltip" />
+			<sprite depth="4" name="Ping" pos="${width-25},-15" width="26" height="26" sprite="server_ping" color="[white]" type="simple" pivot="center" style="hover,press" tooltip_key="xuiPing" />
+			<!--
+			<label depth="4" name="Version" pos="${width-10},-2" on_hover="true" color="{versioncolor}" width="80" height="32" text="{version}" tooltip="{versiontooltip}" font_size="26" justify="right" pivot="topright" />
+			<label depth="4" name="World" pos="8,${-height+2}" color="255,255,255,128" width="${width-200}" height="32" text="{worldname} - {mode}" font_size="26" justify="left" pivot="bottomleft" visible="{hasentry}" />
+			<label depth="4" name="LastPlayed" pos="${width-10},${-height+2}" color="255,255,255,128" width="180" height="32" text="{lastplayed}" font_size="26" justify="right" pivot="bottomright" />
+			-->
+		</rect>
+	</servers_list_header>
+
+	<servers_list_entry width="254" height="30">
+		<rect height="${height}" style="press, hover, scroll" on_doubleclick="true" disabled_font_color="[disabledLabelColor]" enabled_font_color="[labelColor]" sound="[recipe_click]" controller="ListEntry`1[XUiC_ServersList+ListEntry]">
+			<sprite depth="3" name="backgroundMain" sprite="menu_empty2px" height="${1+height}" pos="2,0" width="${width-4}" color="[black]" type="sliced" fillcenter="false" />
+			<sprite depth="2" name="background" color="[darkGrey]" pos="2,0" width="${width-4}" type="sliced" />
+			<button depth="4" name="favorite" pos="17,-16" width="26" height="26" sprite="server_favorite" defaultcolor="180,180,180" hovercolor="[white]" selectedcolor="[selectedColor]" type="simple" pivot="center" hoverscale="1.1" visible="{hasentry}" selected="{isfavorite}" tooltip_key="xuiServerBrowserToggleFavoriteTooltip" />
+			<sprite depth="4" name="anticheat" pos="45,-16" width="26" height="26" sprite="server_icon_vac" color="{anticheatcolor}" type="simple" pivot="center" visible="{hasentry}" />
+			<sprite depth="4" name="password" pos="73,-16" width="26" height="26" sprite="server_locked" color="{passwordcolor}" type="simple" pivot="center" visible="{hasentry}" />
+			<label depth="4" name="Name" pos="92,-2" width="${width-312}" height="32" text="{servername}" font_size="26" justify="left" pivot="topleft" support_bb_code="false" color="{textcolor}" />
+			<label depth="4" name="World" pos="${width-215},-2" width="100" height="32" text="{world}" font_size="26" justify="left" pivot="topleft" support_bb_code="false" color="{textcolor}" />
+			<!--<label depth="4" name="Difficulty" pos="${width-140},-2" width="30" height="32" text="{difficulty}" font_size="26" justify="right" pivot="topleft" visible="{hasentry}" />-->
+			<label depth="4" name="Players" pos="${width-105},-2" width="50" height="32" text="{playersonline}/{playersmax}" font_size="26" justify="right" pivot="topleft" visible="{hasentry}" color="{textcolor}" />
+			<label depth="4" name="Ping" pos="${width-50},-2" width="40" height="32" text="{ping}" color="{pingcolor}" font_size="26" justify="right" pivot="topleft" />
+			<!--
+			<label depth="4" name="Version" pos="${width-10},-2" on_hover="true" color="{versioncolor}" width="80" height="32" text="{version}" tooltip="{versiontooltip}" font_size="26" justify="right" pivot="topright" />
+			<label depth="4" name="World" pos="8,${-height+2}" color="255,255,255,128" width="${width-200}" height="32" text="{worldname} - {mode}" font_size="26" justify="left" pivot="bottomleft" visible="{hasentry}" />
+			<label depth="4" name="LastPlayed" pos="${width-10},${-height+2}" color="255,255,255,128" width="180" height="32" text="{lastplayed}" font_size="26" justify="right" pivot="bottomright" />
+			-->
+		</rect>
+	</servers_list_entry>
+
+</controls>
