@@ -1,0 +1,1085 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<recipes>
+    <recipe name="aloeCream" count="1">
+        <ingredient name="plantAloe" count="1" grid="0, -1" />
+        <ingredient name="emptyJar" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="arrow" count="4">
+        <ingredient name="rockSmall" count="1" grid="1, -1" />
+        <ingredient name="stick" count="1" grid="0, 0" />
+        <ingredient name="feather" count="1" grid="-1, 1" />
+    </recipe>
+
+    <recipe name="Awning1" count="4">
+        <ingredient name="yuccaFibers" count="1" grid="-1, -1" />
+        <ingredient name="yuccaFibers" count="1" grid="0, -1" />
+        <ingredient name="yuccaFibers" count="1" grid="1, -1" />
+        <ingredient name="yuccaFibers" count="1" grid="-1, 0" />
+        <ingredient name="yuccaFibers" count="1" grid="0, 0" />
+        <ingredient name="yuccaFibers" count="1" grid="1, 0" />
+        <ingredient name="yuccaFibers" count="1" grid="-1, 1" />
+        <ingredient name="yuccaFibers" count="1" grid="0, 1" />
+        <ingredient name="yuccaFibers" count="1" grid="1, 1" />
+    </recipe>
+
+    <recipe name="barbedFence" count="1">
+        <ingredient name="stick" count="1" grid="-1, 0" />
+        <ingredient name="barbedWireCrafted" count="1" grid="0, 0" />
+        <ingredient name="stick" count="1" grid="1, 0" />
+    </recipe>
+
+    <recipe name="barbedWireCrafted" count="15">
+        <ingredient name="thinMetalPlate" count="1" grid="-1, -1" />
+        <ingredient name="thinMetalPlate" count="1" grid="0, 0" />
+        <ingredient name="thinMetalPlate" count="1" grid="1, 1" />
+    </recipe>
+
+    <recipe name="barnWood" count="1">
+        <ingredient name="plantChrysanthemum" count="1" grid="0, -1" />
+        <ingredient name="oldWood" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="bed01" count="1">
+        <ingredient name="cloth" count="1" grid="-1, 0" />
+        <ingredient name="cloth" count="1" grid="0, 0" />
+        <ingredient name="cloth" count="1" grid="1, 0" />
+        <ingredient name="shortMetalPipe" count="1" grid="-2, 1" />
+        <ingredient name="spring" count="1" grid="-1, 1" />
+        <ingredient name="spring" count="1" grid="0, 1" />
+        <ingredient name="spring" count="1" grid="1, 1" />
+        <ingredient name="shortMetalPipe" count="1" grid="2, 1" />
+        <ingredient name="shortMetalPipe" count="1" grid="-2, 2" />
+        <ingredient name="shortMetalPipe" count="1" grid="-1, 2" />
+        <ingredient name="shortMetalPipe" count="1" grid="0, 2" />
+        <ingredient name="shortMetalPipe" count="1" grid="1, 2" />
+        <ingredient name="shortMetalPipe" count="1" grid="2, 2" />
+    </recipe>
+
+    <recipe name="bed01Frame" count="1">
+        <ingredient name="shortMetalPipe" count="1" grid="-2, 1" />
+        <ingredient name="shortMetalPipe" count="1" grid="2, 1" />
+        <ingredient name="shortMetalPipe" count="1" grid="-2, 2" />
+        <ingredient name="shortMetalPipe" count="1" grid="-1, 2" />
+        <ingredient name="shortMetalPipe" count="1" grid="0, 2" />
+        <ingredient name="shortMetalPipe" count="1" grid="1, 2" />
+        <ingredient name="shortMetalPipe" count="1" grid="2, 2" />
+    </recipe>
+
+    <recipe name="bedRoll01_1" count="1">
+        <ingredient name="cloth" count="1" grid="-2, 1" />
+        <ingredient name="cloth" count="1" grid="-2, 2" />
+        <ingredient name="cloth" count="1" grid="-1, 2" />
+        <ingredient name="cloth" count="1" grid="0, 2" />
+        <ingredient name="cloth" count="1" grid="1, 2" />
+        <ingredient name="cloth" count="1" grid="2, 2" />
+    </recipe>
+
+    <recipe name="blueberryPie" count="1">
+        <ingredient name="bottledWater" count="1" grid="0, -2" />
+        <ingredient name="blueberries" count="1" grid="0, -1" />
+        <ingredient name="cornMeal" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="blueberrySeed" count="4">
+        <ingredient name="blueberries" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="boardedWindows" count="6">
+        <ingredient name="thinPlanks" count="1" grid="-1, -2" />
+        <ingredient name="thinPlanks" count="1" grid="0, -2" />
+        <ingredient name="thinPlanks" count="1" grid="1, -2" />
+        <ingredient name="thinPlanks" count="1" grid="-1, 0" />
+        <ingredient name="thinPlanks" count="1" grid="0, 0" />
+        <ingredient name="thinPlanks" count="1" grid="1, 0" />
+    </recipe>
+
+    <recipe name="boardedWindows" count="6">
+        <ingredient name="thinPlanksOld" count="1" grid="-1, -2" />
+        <ingredient name="thinPlanksOld" count="1" grid="0, -2" />
+        <ingredient name="thinPlanksOld" count="1" grid="1, -2" />
+        <ingredient name="thinPlanksOld" count="1" grid="-1, 0" />
+        <ingredient name="thinPlanksOld" count="1" grid="0, 0" />
+        <ingredient name="thinPlanksOld" count="1" grid="1, 0" />
+    </recipe>
+
+    <recipe name="boneShiv" count="1">
+        <ingredient name="femur" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="bowl" count="4">
+        <ingredient name="clayLump" count="1" grid="-1, 0" />
+        <ingredient name="clayLump" count="1" grid="1, 0" />
+        <ingredient name="clayLump" count="1" grid="-1, 1" />
+        <ingredient name="clayLump" count="1" grid="0, 1" />
+        <ingredient name="clayLump" count="1" grid="1, 1" />
+    </recipe>
+
+    <recipe name="brick" count="9">
+        <ingredient name="clay" count="1" grid="-1, -1" />
+        <ingredient name="clay" count="1" grid="0, -1" />
+        <ingredient name="clay" count="1" grid="1, -1" />
+        <ingredient name="clay" count="1" grid="-1, 0" />
+        <ingredient name="clay" count="1" grid="0, 0" />
+        <ingredient name="clay" count="1" grid="1, 0" />
+        <ingredient name="clay" count="1" grid="-1, 1" />
+        <ingredient name="clay" count="1" grid="0, 1" />
+        <ingredient name="clay" count="1" grid="1, 1" />
+    </recipe>
+
+    <recipe name="brickDecayed" count="2">
+        <ingredient name="dirt" count="1" grid="0, -1" />
+        <ingredient name="brick" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="brickPaver" count="4">
+        <ingredient name="clay" count="1" grid="-1, -1" />
+        <ingredient name="clay" count="1" grid="0, -1" />
+        <ingredient name="clay" count="1" grid="-1, 0" />
+        <ingredient name="clay" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="bucket" count="4">
+        <ingredient name="ingotIron" count="1" grid="-1, -1" />
+        <ingredient name="ingotIron" count="1" grid="1, -1" />
+        <ingredient name="ingotIron" count="1" grid="-1, 0" />
+        <ingredient name="ingotIron" count="1" grid="1, 0" />
+        <ingredient name="ingotIron" count="1" grid="-1, 1" />
+        <ingredient name="ingotIron" count="1" grid="0, 1" />
+        <ingredient name="ingotIron" count="1" grid="1, 1" />
+    </recipe>
+
+    <recipe name="bucketWater" count="1">
+        <ingredient name="bottledWater" count="1" grid="0, -1" />
+        <ingredient name="bucket" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="campfire" count="1">
+        <ingredient name="paper" count="1" grid="0, -1" />
+        <ingredient name="trunkPine" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="campfire" count="1">
+        <ingredient name="paper" count="1" grid="0, -1" />
+        <ingredient name="trunk" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="campfire" count="1">
+        <ingredient name="paper" count="1" grid="0, -1" />
+        <ingredient name="trunkBirch" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="campfire" count="1">
+        <ingredient name="paper" count="1" grid="0, -1" />
+        <ingredient name="trunkBurnt" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="clayLump" count="9">
+        <ingredient name="clay" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="clubBarbed" count="1">
+        <ingredient name="barbedWireCrafted" count="1" grid="1, -2" />
+        <ingredient name="stick" count="1" grid="2, -2" />
+        <ingredient name="stick" count="1" grid="1, -1" />
+        <ingredient name="barbedWireCrafted" count="1" grid="2, -1" />
+        <ingredient name="stick" count="1" grid="0, 0" />
+        <ingredient name="stick" count="1" grid="-1, 1" />
+    </recipe>
+
+    <recipe name="clubIron" count="1">
+        <ingredient name="shortMetalPipe" count="1" grid="1, -2" />
+        <ingredient name="stick" count="1" grid="2, -2" />
+        <ingredient name="shortMetalPipe" count="1" grid="0, -1" />
+        <ingredient name="stick" count="1" grid="1, -1" />
+        <ingredient name="shortMetalPipe" count="1" grid="2, -1" />
+        <ingredient name="stick" count="1" grid="0, 0" />
+        <ingredient name="shortMetalPipe" count="1" grid="1, 0" />
+        <ingredient name="stick" count="1" grid="-1, 1" />
+    </recipe>
+
+    <recipe name="clubSpiked" count="1">
+        <ingredient name="scrapMetal" count="1" grid="1, -2" />
+        <ingredient name="stick" count="1" grid="2, -2" />
+        <ingredient name="scrapMetal" count="1" grid="0, -1" />
+        <ingredient name="stick" count="1" grid="1, -1" />
+        <ingredient name="scrapMetal" count="1" grid="2, -1" />
+        <ingredient name="stick" count="1" grid="0, 0" />
+        <ingredient name="scrapMetal" count="1" grid="1, 0" />
+        <ingredient name="stick" count="1" grid="-1, 1" />
+    </recipe>
+
+    <recipe name="clubWood" count="1">
+        <ingredient name="stick" count="1" grid="1, -2" />
+        <ingredient name="stick" count="1" grid="2, -2" />
+        <ingredient name="stick" count="1" grid="1, -1" />
+        <ingredient name="stick" count="1" grid="2, -1" />
+        <ingredient name="stick" count="1" grid="0, 0" />
+        <ingredient name="stick" count="1" grid="-1, 1" />
+    </recipe>
+
+    <recipe name="coal" count="10">
+        <ingredient name="coalOre" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="coalTorch" count="1">
+        <ingredient name="coal" count="1" grid="0, -1" />
+        <ingredient name="stick" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="cobblestone" count="4">
+        <ingredient name="destroyedStone" count="1" grid="-1, -1" />
+        <ingredient name="destroyedStone" count="1" grid="0, -1" />
+        <ingredient name="destroyedStone" count="1" grid="-1, 0" />
+        <ingredient name="destroyedStone" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="cobblestone" count="4">
+        <ingredient name="stone" count="1" grid="-1, -1" />
+        <ingredient name="stone" count="1" grid="0, -1" />
+        <ingredient name="stone" count="1" grid="-1, 0" />
+        <ingredient name="stone" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="concrete" count="9">
+        <ingredient name="stone" count="1" grid="-1, -1" />
+        <ingredient name="sand" count="1" grid="0, -1" />
+        <ingredient name="stone" count="1" grid="1, -1" />
+        <ingredient name="sand" count="1" grid="-1, 0" />
+        <ingredient name="stone" count="1" grid="0, 0" />
+        <ingredient name="sand" count="1" grid="1, 0" />
+        <ingredient name="stone" count="1" grid="-1, 1" />
+        <ingredient name="sand" count="1" grid="0, 1" />
+        <ingredient name="stone" count="1" grid="1, 1" />
+    </recipe>
+
+    <recipe name="concrete" count="9">
+        <ingredient name="destroyedStone" count="1" grid="-1, -1" />
+        <ingredient name="sand" count="1" grid="0, -1" />
+        <ingredient name="destroyedStone" count="1" grid="1, -1" />
+        <ingredient name="sand" count="1" grid="-1, 0" />
+        <ingredient name="destroyedStone" count="4" grid="0, 0" />
+        <ingredient name="sand" count="1" grid="1, 0" />
+        <ingredient name="destroyedStone" count="1" grid="-1, 1" />
+        <ingredient name="sand" count="1" grid="0, 1" />
+        <ingredient name="destroyedStone" count="1" grid="1, 1" />
+    </recipe>
+
+    <recipe name="concreteReinforced" count="9">
+        <ingredient name="concrete" count="1" grid="-1, -1" />
+        <ingredient name="shortMetalPipe" count="1" grid="0, -1" />
+        <ingredient name="concrete" count="1" grid="1, -1" />
+        <ingredient name="shortMetalPipe" count="1" grid="-1, 0" />
+        <ingredient name="concrete" count="1" grid="0, 0" />
+        <ingredient name="shortMetalPipe" count="1" grid="1, 0" />
+        <ingredient name="concrete" count="1" grid="-1, 1" />
+        <ingredient name="shortMetalPipe" count="1" grid="0, 1" />
+        <ingredient name="concrete" count="1" grid="1, 1" />
+    </recipe>
+
+    <recipe name="concreteSlope" count="6">
+        <ingredient name="concrete" count="1" grid="-1, -1" />
+        <ingredient name="concrete" count="1" grid="-1, 0" />
+        <ingredient name="concrete" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="cookingPot" count="1">
+        <ingredient name="ingotIron" count="1" grid="-1, -1" />
+        <ingredient name="ingotIron" count="1" grid="1, -1" />
+        <ingredient name="ingotIron" count="1" grid="-1, 0" />
+        <ingredient name="ingotIron" count="1" grid="0, 0" />
+        <ingredient name="ingotIron" count="1" grid="1, 0" />
+    </recipe>
+
+    <recipe name="cornBread" count="1">
+        <ingredient name="bottledWater" count="1" grid="0, -1" />
+        <ingredient name="cornMeal" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="cornerFullWedgeAwning1" count="4">
+        <ingredient name="wedgeAwning1" count="1" grid="0, -1" />
+        <ingredient name="wedgeAwning1" count="1" grid="0, 0" />
+        <ingredient name="wedgeAwning1" count="1" grid="1, 0" />
+    </recipe>
+
+    <recipe name="cornMeal" count="2">
+        <ingredient name="corn" count="1" grid="0, -1" />
+        <ingredient name="corn" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="cornSeed" count="4">
+        <ingredient name="corn" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="crossbow" count="1">
+        <ingredient name="stick" count="1" grid="0, -2" />
+        <ingredient name="stick" count="1" grid="1, -2" />
+        <ingredient name="stick" count="1" grid="2, -2" />
+        <ingredient name="yuccaFibers" count="1" grid="0, -1" />
+        <ingredient name="stick" count="1" grid="1, -1" />
+        <ingredient name="stick" count="1" grid="2, -1" />
+        <ingredient name="stick" count="1" grid="0, 0" />
+        <ingredient name="yuccaFibers" count="1" grid="1, 0" />
+        <ingredient name="stick" count="1" grid="2, 0" />
+        <ingredient name="stick" count="1" grid="-1, 1" />
+    </recipe>
+
+    <recipe name="crossbowBolt" count="4">
+        <ingredient name="scrapMetal" count="1" grid="1, -1" />
+        <ingredient name="stick" count="1" grid="0, 0" />
+        <ingredient name="feather" count="1" grid="-1, 1" />
+    </recipe>
+
+    <recipe name="desk01" count="1">
+        <ingredient name="planks4" count="1" grid="-2, 0" />
+        <ingredient name="planks4" count="1" grid="-1, 0" />
+        <ingredient name="planks4" count="1" grid="0, 0" />
+        <ingredient name="planks4" count="1" grid="1, 0" />
+        <ingredient name="planks4" count="1" grid="2, 0" />
+        <ingredient name="planks4" count="1" grid="-2, 1" />
+        <ingredient name="planks4" count="1" grid="-1, 1" />
+        <ingredient name="planks4" count="1" grid="1, 1" />
+        <ingredient name="planks4" count="1" grid="2, 1" />
+        <ingredient name="planks4" count="1" grid="-2, 2" />
+        <ingredient name="planks4" count="1" grid="-1, 2" />
+        <ingredient name="planks4" count="1" grid="1, 2" />
+        <ingredient name="planks4" count="1" grid="2, 2" />
+    </recipe>
+
+    <recipe name="doorHardMetal" count="1">
+        <ingredient name="ingotIron" count="1" grid="-1, -2" />
+        <ingredient name="ingotIron" count="1" grid="0, -2" />
+        <ingredient name="ingotIron" count="1" grid="-1, -1" />
+        <ingredient name="ingotIron" count="1" grid="0, -1" />
+        <ingredient name="ingotIron" count="1" grid="-1, 0" />
+        <ingredient name="ingotIron" count="1" grid="0, 0" />
+        <ingredient name="ingotIron" count="1" grid="-1, 1" />
+        <ingredient name="ingotIron" count="1" grid="0, 1" />
+    </recipe>
+
+    <recipe name="doorRustyMetal" count="1">
+        <ingredient name="thinMetalPlate" count="1" grid="-1, -2" />
+        <ingredient name="thinMetalPlate" count="1" grid="0, -2" />
+        <ingredient name="thinMetalPlate" count="1" grid="-1, -1" />
+        <ingredient name="thinMetalPlate" count="1" grid="0, -1" />
+        <ingredient name="thinMetalPlate" count="1" grid="-1, 0" />
+        <ingredient name="thinMetalPlate" count="1" grid="0, 0" />
+        <ingredient name="thinMetalPlate" count="1" grid="-1, 1" />
+        <ingredient name="thinMetalPlate" count="1" grid="0, 1" />
+    </recipe>
+
+    <recipe name="doorScrapMetal" count="1">
+        <ingredient name="scrapMetal" count="1" grid="-1, -2" />
+        <ingredient name="scrapMetal" count="1" grid="0, -2" />
+        <ingredient name="scrapMetal" count="1" grid="-1, -1" />
+        <ingredient name="scrapMetal" count="1" grid="0, -1" />
+        <ingredient name="scrapMetal" count="1" grid="-1, 0" />
+        <ingredient name="scrapMetal" count="1" grid="0, 0" />
+        <ingredient name="scrapMetal" count="1" grid="-1, 1" />
+        <ingredient name="scrapMetal" count="1" grid="0, 1" />
+    </recipe>
+
+    <recipe name="doorWooden" count="1">
+        <ingredient name="thinPlanks" count="1" grid="-1, -2" />
+        <ingredient name="thinPlanks" count="1" grid="0, -2" />
+        <ingredient name="thinPlanks" count="1" grid="-1, -1" />
+        <ingredient name="thinPlanks" count="1" grid="0, -1" />
+        <ingredient name="thinPlanks" count="1" grid="-1, 0" />
+        <ingredient name="thinPlanks" count="1" grid="0, 0" />
+        <ingredient name="thinPlanks" count="1" grid="-1, 1" />
+        <ingredient name="thinPlanks" count="1" grid="0, 1" />
+    </recipe>
+
+    <recipe name="doorWoodenOld" count="1">
+        <ingredient name="thinPlanksOld" count="1" grid="-1, -2" />
+        <ingredient name="thinPlanksOld" count="1" grid="0, -2" />
+        <ingredient name="thinPlanksOld" count="1" grid="-1, -1" />
+        <ingredient name="thinPlanksOld" count="1" grid="0, -1" />
+        <ingredient name="thinPlanksOld" count="1" grid="-1, 0" />
+        <ingredient name="thinPlanksOld" count="1" grid="0, 0" />
+        <ingredient name="thinPlanksOld" count="1" grid="-1, 1" />
+        <ingredient name="thinPlanksOld" count="1" grid="0, 1" />
+    </recipe>
+
+    <recipe name="emptyJar" count="4">
+        <ingredient name="thinMetalPlate" count="1" grid="0, -1" />
+        <ingredient name="glass" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="fireaxe" count="1">
+        <ingredient name="ingotIron" count="1" grid="1, -2" />
+        <ingredient name="stick" count="1" grid="1, -1" />
+        <ingredient name="ingotIron" count="1" grid="2, -1" />
+        <ingredient name="stick" count="1" grid="0, 0" />
+        <ingredient name="stick" count="1" grid="-1, 1" />
+    </recipe>
+
+    <recipe name="firstAidBandage" count="1">
+        <ingredient name="aloeCream" count="1" grid="0, -1" />
+        <ingredient name="cloth" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="foodYuccaJuice" count="1">
+        <ingredient name="plantYucca" count="1" grid="0, -1" />
+        <ingredient name="emptyJar" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="gasCan" count="6">
+        <ingredient name="oilBarrel" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="glass" count="4">
+        <ingredient name="sand" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="glass" count="4">
+        <ingredient name="desertGround" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="gunPowder" count="4">
+        <ingredient name="coal" count="1" grid="0, -1" />
+        <ingredient name="potassiumNitratePowder" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="halfBlockConcrete" count="2">
+        <ingredient name="concrete" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="hayBale" count="1">
+        <ingredient name="brownGrassDiagonal" count="1" grid="-1, -1" />
+        <ingredient name="brownGrassDiagonal" count="1" grid="0, -1" />
+        <ingredient name="brownGrassDiagonal" count="1" grid="-1, 0" />
+        <ingredient name="brownGrassDiagonal" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="hoe" count="1">
+        <ingredient name="ingotIron" count="1" grid="1, -1" />
+        <ingredient name="stick" count="1" grid="0, 0" />
+        <ingredient name="ingotIron" count="1" grid="2, 0" />
+        <ingredient name="stick" count="1" grid="-1, 1" />
+        <ingredient name="stick" count="1" grid="-2, 2" />
+    </recipe>
+
+    <recipe name="huntingKnife" count="1">
+        <ingredient name="ingotIron" count="1" grid="1, -1" />
+        <ingredient name="stick" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="ingotCopper" count="4">
+        <ingredient name="copperOre" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="ingotIron" count="1">
+        <ingredient name="scrapMetal" count="1" grid="-1, 0" />
+        <ingredient name="scrapMetal" count="1" grid="0, 0" />
+        <ingredient name="scrapMetal" count="1" grid="1, 0" />
+    </recipe>
+
+    <recipe name="ingotIron" count="2">
+        <ingredient name="scrapMetalBlock" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="ingotIron" count="9">
+        <ingredient name="ironOre" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="ingotLead" count="9">
+        <ingredient name="leadOre" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="ladder" count="3">
+        <ingredient name="stick" count="1" grid="-1, -2" />
+        <ingredient name="stick" count="1" grid="1, -2" />
+        <ingredient name="stick" count="1" grid="-1, -1" />
+        <ingredient name="stick" count="1" grid="0, -1" />
+        <ingredient name="stick" count="1" grid="1, -1" />
+        <ingredient name="stick" count="1" grid="-1, 0" />
+        <ingredient name="stick" count="1" grid="1, 0" />
+        <ingredient name="stick" count="1" grid="-1, 1" />
+        <ingredient name="stick" count="1" grid="0, 1" />
+        <ingredient name="stick" count="1" grid="1, 1" />
+        <ingredient name="stick" count="1" grid="-1, 2" />
+        <ingredient name="stick" count="1" grid="1, 2" />
+    </recipe>
+
+    <recipe name="ladderMetal" count="3">
+        <ingredient name="shortMetalPipe" count="1" grid="-1, -2" />
+        <ingredient name="shortMetalPipe" count="1" grid="1, -2" />
+        <ingredient name="shortMetalPipe" count="1" grid="-1, -1" />
+        <ingredient name="shortMetalPipe" count="1" grid="0, -1" />
+        <ingredient name="shortMetalPipe" count="1" grid="1, -1" />
+        <ingredient name="shortMetalPipe" count="1" grid="-1, 0" />
+        <ingredient name="shortMetalPipe" count="1" grid="1, 0" />
+        <ingredient name="shortMetalPipe" count="1" grid="-1, 1" />
+        <ingredient name="shortMetalPipe" count="1" grid="0, 1" />
+        <ingredient name="shortMetalPipe" count="1" grid="1, 1" />
+        <ingredient name="shortMetalPipe" count="1" grid="-1, 2" />
+        <ingredient name="shortMetalPipe" count="1" grid="1, 2" />
+    </recipe>
+
+    <recipe name="logCabin" count="8">
+        <ingredient name="trunkBurnt" count="1" grid="0, -1" />
+        <ingredient name="trunkBurnt" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="logCabin" count="8">
+        <ingredient name="trunkPine" count="1" grid="0, -1" />
+        <ingredient name="trunkPine" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="logCabin" count="8">
+        <ingredient name="trunk" count="1" grid="0, -1" />
+        <ingredient name="trunk" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="logCabin" count="8">
+        <ingredient name="trunkBirch" count="1" grid="0, -1" />
+        <ingredient name="trunkBirch" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="metalTrussing" count="3">
+        <ingredient name="shortMetalPipe" count="1" grid="-1, -1" />
+        <ingredient name="shortMetalPipe" count="1" grid="0, -1" />
+        <ingredient name="shortMetalPipe" count="1" grid="1, -1" />
+        <ingredient name="shortMetalPipe" count="1" grid="-1, 0" />
+        <ingredient name="shortMetalPipe" count="1" grid="1, 0" />
+        <ingredient name="shortMetalPipe" count="1" grid="-1, 1" />
+        <ingredient name="shortMetalPipe" count="1" grid="0, 1" />
+        <ingredient name="shortMetalPipe" count="1" grid="1, 1" />
+    </recipe>
+
+    <recipe name="mineAirFilter" count="1">
+        <ingredient name="scrapMetal" count="1" grid="-1, -2" />
+        <ingredient name="scrapMetal" count="1" grid="0, -2" />
+        <ingredient name="scrapMetal" count="1" grid="1, -2" />
+        <ingredient name="gunPowder" count="1" grid="-1, -1" />
+        <ingredient name="gunPowder" count="1" grid="0, -1" />
+        <ingredient name="gunPowder" count="1" grid="1, -1" />
+        <ingredient name="airFilter" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="mineCandyTin" count="1">
+        <ingredient name="scrapMetal" count="1" grid="0, -2" />
+        <ingredient name="gunPowder" count="1" grid="0, -1" />
+        <ingredient name="candyTin" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="mineHubcap" count="1">
+        <ingredient name="hubcap" count="1" grid="0, -2" />
+        <ingredient name="scrapMetal" count="1" grid="0, -1" />
+        <ingredient name="gunPowder" count="1" grid="0, 0" />
+        <ingredient name="gunPowder" count="1" grid="0, 1" />
+        <ingredient name="hubcap" count="1" grid="0, 2" />
+    </recipe>
+
+    <recipe name="oilBarrel" count="1">
+        <ingredient name="gasCan" count="1" grid="-1, -2" />
+        <ingredient name="gasCan" count="1" grid="0, -2" />
+        <ingredient name="gasCan" count="1" grid="-1, -1" />
+        <ingredient name="gasCan" count="1" grid="0, -1" />
+        <ingredient name="gasCan" count="1" grid="-1, 0" />
+        <ingredient name="gasCan" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="oldChair" count="3">
+        <ingredient name="stick" count="1" grid="1, -2" />
+        <ingredient name="stick" count="1" grid="1, -1" />
+        <ingredient name="plateOldWood" count="1" grid="-1, 0" />
+        <ingredient name="plateOldWood" count="1" grid="0, 0" />
+        <ingredient name="plateOldWood" count="1" grid="1, 0" />
+        <ingredient name="stick" count="1" grid="-1, 1" />
+        <ingredient name="stick" count="1" grid="1, 1" />
+        <ingredient name="stick" count="1" grid="-1, 2" />
+        <ingredient name="stick" count="1" grid="1, 2" />
+    </recipe>
+
+    <recipe name="oldWood" count="2">
+        <ingredient name="trunkBurntTip" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="oldWood" count="1">
+        <ingredient name="driftwood2" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="oldWood" count="1">
+        <ingredient name="driftwood" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="oldWood" count="4">
+        <ingredient name="trunkBurnt" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="paper" count="20">
+        <ingredient name="book" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="pickaxe" count="1">
+        <ingredient name="ingotIron" count="1" grid="0, -2" />
+        <ingredient name="ingotIron" count="1" grid="1, -2" />
+        <ingredient name="stick" count="1" grid="1, -1" />
+        <ingredient name="ingotIron" count="1" grid="2, -1" />
+        <ingredient name="stick" count="1" grid="0, 0" />
+        <ingredient name="ingotIron" count="1" grid="2, 0" />
+        <ingredient name="stick" count="1" grid="-1, 1" />
+    </recipe>
+
+    <recipe name="pipeBomb" count="1">
+        <ingredient name="yuccaFibers" count="1" grid="0, -1" />
+        <ingredient name="gunPowder" count="1" grid="0, 0" />
+        <ingredient name="shortMetalPipe" count="1" grid="0, 1" />
+    </recipe>
+
+    <recipe name="planks" count="4">
+        <ingredient name="trunk" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="planks" count="4">
+        <ingredient name="trunkPine" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="planks" count="2">
+        <ingredient name="trunkBirchTip" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="planks" count="2">
+        <ingredient name="trunkTip" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="planks" count="4">
+        <ingredient name="trunkBirch" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="planks" count="2">
+        <ingredient name="trunkPineTip" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="planks4" count="1">
+        <ingredient name="plantChrysanthemum" count="1" grid="0, -1" />
+        <ingredient name="planks" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="poleBlockPowerPole" count="4">
+        <ingredient name="planks" count="1" grid="0, -2" />
+        <ingredient name="planks" count="1" grid="0, -1" />
+        <ingredient name="planks" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="potassiumNitratePowder" count="10">
+        <ingredient name="potassiumNitrate" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="potatoSeed" count="4">
+        <ingredient name="potato" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="pyramidShinglesWood" count="1">
+        <ingredient name="wedgeCabinShingles" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="rabbitOnAStick" count="1">
+        <ingredient name="meatRabbit" count="1" grid="0, 0" />
+        <ingredient name="sharpStick" count="1" grid="-1, 1" />
+    </recipe>
+
+    <recipe name="rabbitStew" count="1">
+        <ingredient name="bottledWater" count="1" grid="0, -2" />
+        <ingredient name="potato" count="1" grid="0, -1" />
+        <ingredient name="meatRabbit" count="1" grid="0, 0" />
+        <ingredient name="bowl" count="1" grid="0, 1" />
+    </recipe>
+
+    <recipe name="reinforcedMetalSiding" count="4">
+        <ingredient name="scrapMetal" count="1" grid="-1, -1" />
+        <ingredient name="scrapMetal" count="1" grid="0, -1" />
+        <ingredient name="scrapMetal" count="1" grid="-1, 0" />
+        <ingredient name="scrapMetal" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="rockSmall" count="10">
+        <ingredient name="stone" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="sawedOffPumpShotgun" count="1">
+        <ingredient name="planks" count="1" grid="0, 0" />
+        <ingredient name="spring" count="1" grid="0, 1" />
+        <ingredient name="ingotIron" count="1" grid="0, 2" />
+    </recipe>
+
+    <recipe name="scrapMetal" count="3">
+        <ingredient name="airFilter" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="scrapMetal" count="2">
+        <ingredient name="hubcap" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="scrapMetal" count="1">
+        <ingredient name="candyTin" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="scrapMetalWall" count="3">
+        <ingredient name="scrapMetal" count="1" grid="-1, -1" />
+        <ingredient name="scrapMetal" count="1" grid="0, -1" />
+        <ingredient name="scrapMetal" count="1" grid="1, -1" />
+        <ingredient name="scrapMetal" count="1" grid="-1, 0" />
+        <ingredient name="scrapMetal" count="1" grid="0, 0" />
+        <ingredient name="scrapMetal" count="1" grid="1, 0" />
+        <ingredient name="scrapMetal" count="1" grid="-1, 1" />
+        <ingredient name="scrapMetal" count="1" grid="0, 1" />
+        <ingredient name="scrapMetal" count="1" grid="1, 1" />
+    </recipe>
+
+    <recipe name="sectionalArm" count="1">
+        <ingredient name="cloth" count="1" grid="0, -2" />
+        <ingredient name="cloth" count="1" grid="0, -1" />
+        <ingredient name="thinPlanks" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="sectionalCorner" count="1">
+        <ingredient name="thinPlanks" count="1" grid="-1, -2" />
+        <ingredient name="cloth" count="1" grid="0, -2" />
+        <ingredient name="thinPlanks" count="1" grid="-1, -1" />
+        <ingredient name="cloth" count="1" grid="0, -1" />
+        <ingredient name="thinPlanks" count="1" grid="-1, 0" />
+        <ingredient name="cloth" count="1" grid="0, 0" />
+        <ingredient name="cloth" count="1" grid="1, 0" />
+        <ingredient name="cloth" count="1" grid="2, 0" />
+        <ingredient name="thinPlanks" count="1" grid="-1, 1" />
+        <ingredient name="thinPlanks" count="1" grid="0, 1" />
+        <ingredient name="thinPlanks" count="1" grid="1, 1" />
+        <ingredient name="thinPlanks" count="1" grid="2, 1" />
+    </recipe>
+
+    <recipe name="sectionalMiddle" count="1">
+        <ingredient name="cloth" count="1" grid="0, -2" />
+        <ingredient name="thinPlanks" count="1" grid="1, -2" />
+        <ingredient name="cloth" count="1" grid="0, -1" />
+        <ingredient name="thinPlanks" count="1" grid="1, -1" />
+        <ingredient name="cloth" count="1" grid="-2, 0" />
+        <ingredient name="cloth" count="1" grid="-1, 0" />
+        <ingredient name="cloth" count="1" grid="0, 0" />
+        <ingredient name="thinPlanks" count="1" grid="1, 0" />
+        <ingredient name="thinPlanks" count="1" grid="-2, 1" />
+        <ingredient name="thinPlanks" count="1" grid="-1, 1" />
+        <ingredient name="thinPlanks" count="1" grid="0, 1" />
+        <ingredient name="thinPlanks" count="1" grid="1, 1" />
+    </recipe>
+
+    <recipe name="sharpStick" count="1">
+        <ingredient name="stick" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="shinglesWood" count="1">
+        <ingredient name="thinPlanks" count="1" grid="-1, -1" />
+        <ingredient name="thinPlanks" count="1" grid="0, -1" />
+        <ingredient name="thinPlanks" count="1" grid="-1, 0" />
+        <ingredient name="thinPlanks" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="shortMetalPipe" count="3">
+        <ingredient name="thinMetalPlate" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="shotgunShell" count="8">
+        <ingredient name="ingotLead" count="1" grid="1, -1" />
+        <ingredient name="gunPowder" count="1" grid="0, 0" />
+        <ingredient name="paper" count="1" grid="-1, 1" />
+    </recipe>
+
+    <recipe name="shovel" count="1">
+        <ingredient name="stick" count="1" grid="2, -2" />
+        <ingredient name="stick" count="1" grid="1, -1" />
+        <ingredient name="stick" count="1" grid="0, 0" />
+        <ingredient name="ingotIron" count="1" grid="-2, 1" />
+        <ingredient name="ingotIron" count="1" grid="-1, 1" />
+        <ingredient name="ingotIron" count="1" grid="-2, 2" />
+        <ingredient name="ingotIron" count="1" grid="-1, 2" />
+    </recipe>
+
+    <recipe name="sledgehammer" count="1">
+        <ingredient name="ingotIron" count="1" grid="0, -2" />
+        <ingredient name="ingotIron" count="1" grid="1, -1" />
+        <ingredient name="stick" count="1" grid="0, 0" />
+        <ingredient name="ingotIron" count="1" grid="2, 0" />
+        <ingredient name="stick" count="1" grid="-1, 1" />
+        <ingredient name="stick" count="1" grid="-2, 2" />
+    </recipe>
+
+    <recipe name="stairsConcrete" count="4">
+        <ingredient name="concrete" count="1" grid="2, -2" />
+        <ingredient name="concrete" count="1" grid="1, -1" />
+        <ingredient name="concrete" count="1" grid="0, 0" />
+        <ingredient name="concrete" count="1" grid="-1, 1" />
+    </recipe>
+
+    <recipe name="stairsPavers" count="4">
+        <ingredient name="brickPaver" count="1" grid="2, -2" />
+        <ingredient name="brickPaver" count="1" grid="1, -1" />
+        <ingredient name="brickPaver" count="1" grid="0, 0" />
+        <ingredient name="brickPaver" count="1" grid="-1, 1" />
+    </recipe>
+
+    <recipe name="stairsQuarterFilled" count="4">
+        <ingredient name="planks" count="1" grid="1, -1" />
+        <ingredient name="planks" count="1" grid="0, 0" />
+        <ingredient name="planks" count="1" grid="1, 0" />
+    </recipe>
+
+    <recipe name="stairsSmallRichwood" count="4">
+        <ingredient name="planks4" count="1" grid="2, -2" />
+        <ingredient name="planks4" count="1" grid="1, -1" />
+        <ingredient name="planks4" count="1" grid="0, 0" />
+        <ingredient name="planks4" count="1" grid="-1, 1" />
+    </recipe>
+
+    <recipe name="stairsStone" count="4">
+        <ingredient name="stone" count="1" grid="2, -2" />
+        <ingredient name="stone" count="1" grid="1, -1" />
+        <ingredient name="stone" count="1" grid="0, 0" />
+        <ingredient name="stone" count="1" grid="-1, 1" />
+    </recipe>
+
+    <recipe name="stick" count="3">
+        <ingredient name="thinPlanks" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="stick" count="3">
+        <ingredient name="thinPlanksOld" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="stone" count="1">
+        <ingredient name="rock03" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="stone" count="1">
+        <ingredient name="rock08" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="stone" count="1">
+        <ingredient name="rock12" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="stone" count="1">
+        <ingredient name="rock01" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="stone" count="1">
+        <ingredient name="rock04" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="stone" count="1">
+        <ingredient name="rock05" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="stone" count="1">
+        <ingredient name="rock06" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="stone" count="1">
+        <ingredient name="rock09" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="stone" count="1">
+        <ingredient name="rock10" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="stone" count="1">
+        <ingredient name="rock11" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="stone" count="1">
+        <ingredient name="rock02" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="stone" count="1">
+        <ingredient name="rock07" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="storageChest" count="1">
+        <ingredient name="thinPlanks" count="1" grid="-1, 0" />
+        <ingredient name="thinPlanks" count="1" grid="0, 0" />
+        <ingredient name="thinPlanks" count="1" grid="1, 0" />
+        <ingredient name="thinPlanks" count="1" grid="-1, 1" />
+        <ingredient name="thinPlanks" count="1" grid="0, 1" />
+        <ingredient name="thinPlanks" count="1" grid="1, 1" />
+    </recipe>
+
+    <recipe name="thinMetalPlate" count="4">
+        <ingredient name="ingotIron" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="thinPlanks" count="2">
+        <ingredient name="planks" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="thinPlanksOld" count="4">
+        <ingredient name="oldWood" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="tnt" count="1">
+        <ingredient name="yuccaFibers" count="1" grid="0, -2" />
+        <ingredient name="paper" count="1" grid="-1, -1" />
+        <ingredient name="gunPowder" count="1" grid="0, -1" />
+        <ingredient name="paper" count="1" grid="1, -1" />
+        <ingredient name="paper" count="1" grid="-1, 0" />
+        <ingredient name="gunPowder" count="1" grid="0, 0" />
+        <ingredient name="paper" count="1" grid="1, 0" />
+        <ingredient name="paper" count="1" grid="-1, 1" />
+        <ingredient name="paper" count="1" grid="0, 1" />
+        <ingredient name="paper" count="1" grid="1, 1" />
+    </recipe>
+
+    <recipe name="torch" count="4">
+        <ingredient name="cloth" count="1" grid="0, -1" />
+        <ingredient name="stick" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="torch" count="1">
+        <ingredient name="brownGrassDiagonal" count="1" grid="0, -1" />
+        <ingredient name="stick" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="trapMine" count="1">
+        <ingredient name="thinPlanks" count="1" grid="-1, -1" />
+        <ingredient name="thinPlanks" count="1" grid="0, -1" />
+        <ingredient name="thinPlanks" count="1" grid="1, -1" />
+        <ingredient name="gunPowder" count="1" grid="-1, 0" />
+        <ingredient name="gunPowder" count="1" grid="0, 0" />
+        <ingredient name="gunPowder" count="1" grid="1, 0" />
+    </recipe>
+
+    <recipe name="trapSpikes01" count="3">
+        <ingredient name="sharpStick" count="1" grid="-2, 0" />
+        <ingredient name="sharpStick" count="1" grid="0, 0" />
+        <ingredient name="sharpStick" count="1" grid="2, 0" />
+        <ingredient name="sharpStick" count="1" grid="-2, 1" />
+        <ingredient name="sharpStick" count="1" grid="0, 1" />
+        <ingredient name="sharpStick" count="1" grid="2, 1" />
+        <ingredient name="sharpStick" count="1" grid="-2, 2" />
+        <ingredient name="sharpStick" count="1" grid="0, 2" />
+        <ingredient name="sharpStick" count="1" grid="2, 2" />
+    </recipe>
+
+    <recipe name="trunkBirchTip" count="4">
+        <ingredient name="trunkBirch" count="1" grid="0, -1" />
+        <ingredient name="trunkBirch" count="1" grid="-1, 0" />
+        <ingredient name="trunkBirch" count="1" grid="0, 0" />
+        <ingredient name="trunkBirch" count="1" grid="1, 0" />
+    </recipe>
+
+    <recipe name="trunkBirchTip" count="4">
+        <ingredient name="trunkBirch" count="1" grid="0, -1" />
+        <ingredient name="trunkBirch" count="1" grid="-1, 0" />
+        <ingredient name="trunkBirch" count="1" grid="0, 0" />
+        <ingredient name="trunkBirch" count="1" grid="1, 0" />
+    </recipe>
+
+    <recipe name="trunkBurntTip" count="4">
+        <ingredient name="trunkBurnt" count="1" grid="0, -1" />
+        <ingredient name="trunkBurnt" count="1" grid="-1, 0" />
+        <ingredient name="trunkBurnt" count="1" grid="0, 0" />
+        <ingredient name="trunkBurnt" count="1" grid="1, 0" />
+    </recipe>
+
+    <recipe name="trunkBurntTip" count="4">
+        <ingredient name="trunkBurnt" count="1" grid="0, -1" />
+        <ingredient name="trunkBurnt" count="1" grid="-1, 0" />
+        <ingredient name="trunkBurnt" count="32" grid="0, 0" />
+        <ingredient name="trunkBurnt" count="1" grid="1, 0" />
+    </recipe>
+
+    <recipe name="trunkPineTip" count="4">
+        <ingredient name="trunkPine" count="1" grid="0, -1" />
+        <ingredient name="trunkPine" count="1" grid="-1, 0" />
+        <ingredient name="trunkPine" count="1" grid="0, 0" />
+        <ingredient name="trunkPine" count="1" grid="1, 0" />
+    </recipe>
+
+    <recipe name="trunkPineTip" count="4">
+        <ingredient name="trunkPine" count="1" grid="0, -1" />
+        <ingredient name="trunkPine" count="1" grid="-1, 0" />
+        <ingredient name="trunkPine" count="1" grid="0, 0" />
+        <ingredient name="trunkPine" count="1" grid="1, 0" />
+    </recipe>
+
+    <recipe name="trunkTip" count="4">
+        <ingredient name="trunk" count="1" grid="0, -1" />
+        <ingredient name="trunk" count="1" grid="-1, 0" />
+        <ingredient name="trunk" count="1" grid="0, 0" />
+        <ingredient name="trunk" count="1" grid="1, 0" />
+    </recipe>
+
+    <recipe name="trunkTip" count="4">
+        <ingredient name="trunk" count="1" grid="0, -1" />
+        <ingredient name="trunk" count="1" grid="-1, 0" />
+        <ingredient name="trunk" count="1" grid="0, 0" />
+        <ingredient name="trunk" count="1" grid="1, 0" />
+    </recipe>
+
+    <recipe name="venisonStew" count="4">
+        <ingredient name="bottledWater" count="1" grid="0, -2" />
+        <ingredient name="potato" count="1" grid="0, -1" />
+        <ingredient name="venison" count="5" grid="0, 0" />
+        <ingredient name="bowl" count="1" grid="0, 1" />
+    </recipe>
+
+    <recipe name="wedgeAwning1" count="1">
+        <ingredient name="Awning1" count="1" grid="0, -1" />
+        <ingredient name="Awning1" count="1" grid="0, 0" />
+        <ingredient name="Awning1" count="1" grid="1, 0" />
+    </recipe>
+
+    <recipe name="wedgeCabinShingles" count="6">
+        <ingredient name="shinglesWood" count="1" grid="0, -1" />
+        <ingredient name="shinglesWood" count="1" grid="0, 0" />
+        <ingredient name="shinglesWood" count="1" grid="1, 0" />
+    </recipe>
+
+    <recipe name="windowPaned01" count="4">
+        <ingredient name="stick" count="1" grid="-1, -1" />
+        <ingredient name="stick" count="1" grid="0, -1" />
+        <ingredient name="stick" count="1" grid="1, -1" />
+        <ingredient name="stick" count="1" grid="-1, 0" />
+        <ingredient name="glass" count="1" grid="0, 0" />
+        <ingredient name="stick" count="1" grid="1, 0" />
+        <ingredient name="stick" count="1" grid="-1, 1" />
+        <ingredient name="stick" count="1" grid="0, 1" />
+        <ingredient name="stick" count="1" grid="1, 1" />
+    </recipe>
+
+    <recipe name="woodFenceOldFarm" count="4">
+        <ingredient name="thinPlanks" count="1" grid="-1, -2" />
+        <ingredient name="thinPlanks" count="1" grid="0, -2" />
+        <ingredient name="thinPlanks" count="1" grid="1, -2" />
+        <ingredient name="thinPlanks" count="1" grid="-1, 0" />
+        <ingredient name="thinPlanks" count="1" grid="0, 0" />
+        <ingredient name="thinPlanks" count="1" grid="1, 0" />
+        <ingredient name="thinPlanks" count="1" grid="-1, 2" />
+        <ingredient name="thinPlanks" count="1" grid="0, 2" />
+        <ingredient name="thinPlanks" count="1" grid="1, 2" />
+    </recipe>
+
+    <recipe name="woodShinglesCorner" count="2">
+        <ingredient name="wedgeCabinShingles" count="1" grid="-1, -1" />
+        <ingredient name="wedgeCabinShingles" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="wrench" count="1">
+        <ingredient name="shortMetalPipe" count="1" grid="0, -2" />
+        <ingredient name="shortMetalPipe" count="1" grid="1, -2" />
+        <ingredient name="shortMetalPipe" count="1" grid="0, -1" />
+        <ingredient name="shortMetalPipe" count="1" grid="0, 0" />
+        <ingredient name="shortMetalPipe" count="1" grid="1, 0" />
+        <ingredient name="shortMetalPipe" count="1" grid="0, 1" />
+        <ingredient name="shortMetalPipe" count="1" grid="0, 2" />
+    </recipe>
+
+    <recipe name="yuccaFibers" count="1">
+        <ingredient name="brownGrassDiagonal" count="1" grid="0, 0" />
+    </recipe>
+
+    <recipe name="yuccaFibers" count="4">
+        <ingredient name="plantYucca" count="1" grid="0, 0" />
+    </recipe>
+
+</recipes>
