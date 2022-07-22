@@ -4,9 +4,9 @@ from PIL import Image
 
 path = "./alpha12.5/"
 
-itemIconsImage = Image.open(path + "bundle/ItemIcons.png")
+itemIconsImage = Image.open(path + "ItemIconsAssets/ItemIcons.png")
 
-with open(path + 'bundle/ItemIcons.txt') as file:
+with open(path + 'ItemIconsAssets/ItemIcons.txt') as file:
     w, h = file.readline().split('\t')
     h = int(h)
     w = int(w)
