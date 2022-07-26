@@ -2,9 +2,17 @@
 
 Collection of 7 Days to Die vanilla assets extracted from the `Data` and `7DaysToDie_Data` folders.
 
+Game versions from the latest to `alpha9.3` can be downloaded from Steam by modifying the `BETA` option.
+
+Game versions prior to `alpha9.3` can be found on [archive.org](https://archive.org/search.php?query=7+Days+To+Die+Alpha+Game+%28Spiel%29&sort=titleSorter).
+
+The `PRE-ALPHA` version of the game has not been found yet.
+
 ## Item Icons
 
 From the game version `alpha11.6` you can find all the icons in the `ItemIcons` folder. For previous versions only a "bundle" has been extracted containing all the icon in a single file `Items3DPreviewAtlas.png`.
+
+Item icons have been extracted using the tool [AssetStudio](https://github.com/Perfare/AssetStudio).
 
 ### Alpha20.5 preview
 
