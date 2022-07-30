@@ -2,7 +2,7 @@
 
 from PIL import Image
 
-path = "./alpha12.5/"
+path = "./alpha12/"
 
 itemIconsImage = Image.open(path + "ItemIconsAssets/ItemIcons.png")
 
