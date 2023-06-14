@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <contents>
+
+        <section name="Exploration" samples="1058400" source="Sounds/AudioSource_Exploration">
+            <layer name="Primary" num="15" contentType="ClipSet" clipAdapterType="ClipAdapter"/>
+            <layer name="PrimaryPairable1" num="6" contentType="ClipSet" clipAdapterType="ClipAdapter"/>
+            <layer name="PrimarySupporting" num="6" contentType="ClipSet" clipAdapterType="ClipAdapter"/>
+            <layer name="Secondary" num="18" contentType="ClipSet" clipAdapterType="ClipAdapter"/>
+            <layer name="LongEffects" num="7" contentType="ClipSet" clipAdapterType="ClipAdapter"/>
+        </section>
+
+        <section name="Suspense" samples="1058400" source="Sounds/AudioSource_Suspense">
+            <layer name="Primary" num="13" contentType="ClipSet" clipAdapterType="ClipAdapter"/>
+            <layer name="PrimarySupporting" num="5" contentType="ClipSet" clipAdapterType="ClipAdapter"/>
+            <layer name="Secondary" num="11" contentType="ClipSet" clipAdapterType="ClipAdapter"/>
+            <layer name="LongEffects" num="4" contentType="ClipSet" clipAdapterType="ClipAdapter" loopOnly=""/>
+        </section>
+
+        <section name="Combat" samples="1092542" source="Sounds/AudioSource_Combat">
+            <layer name="Primary" num="11" contentType="ClipSet" clipAdapterType="ClipAdapter"/>
+            <layer name="PrimarySupporting" num="15" contentType="ClipSet" clipAdapterType="ClipAdapter"/>
+            <layer name="Secondary" num="14" contentType="ClipSet" clipAdapterType="ClipAdapter"/>
+            <layer name="LongEffects" num="8" contentType="ClipSet" clipAdapterType="ClipAdapter" />
+            <layer name="ShortEffects" num="7" contentType="ClipSet" clipAdapterType="ClipAdapter" loopOnly="" />
+        </section>
+        
+        <section name="Bloodmoon" samples="838337" source="Sounds/AudioSource_Bloodmoon">
+            <layer name="Primary" num="12" contentType="BloodmoonClipSet" clipAdapterType="ClipPairAdapter" loopOnly=""/>
+            <layer name="PrimarySupporting" num="13" contentType="BloodmoonClipSet" clipAdapterType="ClipPairAdapter" loopOnly=""/>
+            <layer name="Secondary" num="12" contentType="BloodmoonClipSet" clipAdapterType="ClipPairAdapter" loopOnly=""/>
+            <layer name="LongEffects" num="12" contentType="BloodmoonClipSet" clipAdapterType="ClipPairAdapter" loopOnly=""/>
+        </section>
+        
+        <!--Singles-->
+
+        <content type="SingleClip" name="HomeDay" source ="Sounds/AudioSource_Home" section="HomeDay" path="@:Sounds/Music/HomeDay.wav"/>
+
+        <content type="SingleClip" name="HomeNight" source ="Sounds/AudioSource_Home" section="HomeNight" path="@:Sounds/Music/HomeNight.wav"/>
+
+        <content type="SingleClip" name="TraderBob" source ="Sounds/AudioSource_TraderTheme" section="TraderBob" path="@:Sounds/Music/TraderBob.wav"/>
+
+        <content type="SingleClip" name="TraderJoel" source ="Sounds/AudioSource_TraderTheme" section="TraderJoel" path="@:Sounds/Music/TraderJoel.wav"/>
+
+        <content type="SingleClip" name="TraderJen" source ="Sounds/AudioSource_TraderTheme" section="TraderJen" path="@:Sounds/Music/TraderJen.wav"/>
+
+        <content type="SingleClip" name="TraderHugh" source ="Sounds/AudioSource_TraderTheme" section="TraderHugh" path="@:Sounds/Music/TraderHugh.wav"/>
+
+        <content type="SingleClip" name="TraderRekt" source ="Sounds/AudioSource_TraderTheme" section="TraderRekt" path="@:Sounds/Music/TraderRekt.wav"/>
+
+    </contents>
+
+    <configurations>
+
+        <configuration type="FixedConfiguration" sections="Exploration">
+            <layer key="PrimaryPairable1" value="0, 1, 2, 2, 2, 2, 3"/>
+            <layer key="PrimaryPairable1" value="0, 0, 0, 0, 1, 2, 3"/>
+            <layer key="PrimarySupporting" value="1, 2, 2, 2, 2, 2, 3"/>
+            <layer key="Secondary" value="1, 2, 2, 2, 2, 2, 3"/>
+            <layer key="LongEffects" value="0, 1, 3, 0, 0, 0, 0"/>
+            <layer key="LongEffects" value="0, 0, 0, 0, 0, 1, 3"/>
+        </configuration>
+
+        <configuration type="FixedConfiguration" sections="Exploration">
+            <layer key="PrimaryPairable1" value="0, 1, 2, 2, 2, 2, 3"/>
+            <layer key="PrimaryPairable1" value="0, 0, 0, 0, 1, 2, 3"/>
+            <layer key="PrimarySupporting" value="1, 2, 2, 2, 2, 2, 3"/>
+            <layer key="Secondary" value="1, 2, 3, 0, 0, 0, 0"/>
+            <layer key="Secondary" value="0, 0, 0, 0, 1, 2, 3"/>
+            <layer key="LongEffects" value="0, 1, 3, 0, 0, 0, 0"/>
+            <layer key="LongEffects" value="0, 0, 0, 0, 0, 1, 3"/>
+        </configuration>
+
+        <configuration type="FixedConfiguration" sections="Exploration">
+            <layer key="Primary" value="1, 2, 2, 3, 0, 0, 0"/>
+            <layer key="PrimaryPairable1" value="0, 0, 0, 0, 1, 2, 3"/>
+            <layer key="PrimaryPairable1" value="0, 0, 0, 0, 1, 2, 3"/>
+            <layer key="PrimarySupporting" value="1, 2, 2, 2, 2, 2, 3"/>
+            <layer key="Secondary" value="1, 2, 2, 2, 2, 2, 3"/>
+            <layer key="LongEffects" value="0, 1, 3, 0, 0, 0, 0"/>
+            <layer key="LongEffects" value="0, 0, 0, 0, 0, 1, 3"/>
+        </configuration>
+
+        <configuration type="FixedConfiguration" sections="Exploration">
+            <layer key="Primary" value="1, 2, 3, 0, 0, 0, 0"/>
+            <layer key="PrimaryPairable1" value="0, 0, 0, 1, 2, 2, 3"/>
+            <layer key="PrimaryPairable1" value="0, 0, 0, 0, 1, 2, 3"/>
+            <layer key="PrimarySupporting" value="1, 2, 2, 2, 2, 2, 3"/>
+            <layer key="Secondary" value="1, 2, 2, 2, 2, 2, 3"/>
+            <layer key="LongEffects" value="0, 0, 1, 3, 0, 0, 0"/>
+            <layer key="LongEffects" value="0, 0, 0, 0, 0, 1, 3"/>
+        </configuration>
+
+        <configuration type="FixedConfiguration" sections="Exploration">
+            <layer key="Primary" value="0, 0, 0, 0, 1, 3, 0"/>
+            <layer key="PrimarySupporting" value="1, 2, 2, 2, 2, 2, 3"/>
+            <layer key="Secondary" value="1, 2, 2, 2, 2, 2, 3"/>
+            <layer key="LongEffects" value="0, 1, 3, 0, 0, 0, 0"/>
+        </configuration>
+
+        <configuration type="FixedConfiguration" sections="Exploration">
+            <layer key="PrimarySupporting" value="1, 2, 2, 2, 2, 2, 3"/>
+            <layer key="Secondary" value="1, 2, 2, 2, 2, 2, 3"/>
+            <layer key="LongEffects" value="0, 1, 3, 0, 0, 0, 0"/>
+        </configuration>
+
+        <configuration type="FixedConfiguration" sections="Exploration">
+            <layer key="Secondary" value="1, 2, 2, 2, 2, 2, 3"/>
+            <layer key="LongEffects" value="0, 1, 3, 0, 1, 3, 0"/>
+        </configuration>
+
+        <configuration type="FixedConfiguration" sections="Suspense">
+            <layer key="Primary" value="0, 0, 0, 0, 1, 3, 0"/>
+            <layer key="PrimarySupporting" value="1, 2, 2, 2, 2, 2, 3"/>
+            <layer key="Secondary" value="1, 2, 2, 2, 2, 2, 3"/>
+            <layer key="LongEffects" value="0, 2, 0, 2, 0, 0, 2"/>
+        </configuration>
+
+        <configuration type="FixedConfiguration" sections="Suspense">
+            <layer key="Primary" value="0, 0, 0, 0, 1, 3, 0"/>
+            <layer key="Secondary" value="1, 2, 2, 2, 2, 2, 3"/>
+            <layer key="LongEffects" value="0, 2, 2, 0, 0, 0, 0"/>
+        </configuration>
+
+        <configuration type="FixedConfiguration" sections="Suspense">
+            <layer key="Primary" value="0, 1, 2, 2, 2, 3, 0"/>
+            <layer key="Secondary" value="1, 2, 2, 2, 2, 2, 3"/>
+            <layer key="LongEffects" value="0, 2, 2, 0, 2, 2, 0"/>
+        </configuration>
+
+        <configuration type="FixedConfiguration" sections="Suspense">
+            <layer key="Secondary" value="1, 2, 2, 2, 2, 2, 3"/>
+            <layer key="LongEffects" value="0, 2, 2, 0, 2, 2, 0"/>
+        </configuration>
+
+        <configuration type="FixedConfiguration" sections="Combat">
+            <layer key="Primary" value="0, 0, 1, 2, 2, 3, 0, 0, 0, 0, 1, 2, 2, 3, 0"/>
+            <layer key="PrimarySupporting" value="1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2"/>
+            <layer key="Secondary" value="0, 1, 2, 2, 2, 3, 0, 0, 1, 2, 2, 2, 3, 0, 0"/>
+            <layer key="LongEffects" value="0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 2, 3, 0"/>
+            <layer key="ShortEffects" value="0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0"/>
+        </configuration>
+
+        <configuration type="BloodmoonConfiguration" sections="Bloodmoon">
+            <layer key="Primary" lo="0.8" hi="0.95"/>
+            <layer key="PrimarySupporting" lo="0.7" hi="0.85"/>
+            <layer key="Secondary" lo="0.75" hi="0.95"/>
+            <layer key="LongEffects" lo="0.90" hi="1.0"/>
+        </configuration>
+        
+    </configurations>
+</root>
