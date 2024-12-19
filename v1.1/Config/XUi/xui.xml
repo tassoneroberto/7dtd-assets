@@ -1,0 +1,431 @@
+<xui>
+	<ruleset name="default" scale="1.255" stackpanel_scale="1.05" ignore_missing_class="false">
+	
+		<window_group name="crafting" controller="XUiC_CraftingWindowGroup" open_backpack_on_open="true" defaultSelected="bp.content">
+			<window name="windowCraftingList"/>
+			<window name="craftingInfoPanel"/>
+			<window name="windowCraftingQueue"/>
+		</window_group>
+		
+		<window_group name="character" controller="XUiC_CharacterSheetWindowGroup" open_backpack_on_open="true" defaultSelected="bp.content">
+			<window name="CharacterFrameWindow"/>
+			<window name="buffInfoPanel"/>
+			<window name="ActiveBuffsWindow" />
+		</window_group>		
+		
+		<window_group name="workstation_campfire" controller="XUiC_WorkstationWindowGroup" open_backpack_on_open="true" close_compass_on_open="true" defaultSelected="bp.content">
+			<window name="windowCraftingList"/>
+			<window name="craftingInfoPanel"/>
+			<window name="windowCraftingQueue"/>
+			<window name="windowToolsCampfire" />
+			<window name="windowFuel" />
+			<window name="windowOutput" />
+			<window name="windowNonPagingHeader" />
+		</window_group>
+		
+		<window_group name="workstation_forge" controller="XUiC_WorkstationWindowGroup" open_backpack_on_open="true" close_compass_on_open="true" defaultSelected="bp.content">
+			<window name="windowCraftingList"/>
+			<window name="craftingInfoPanel"/>
+			<window name="windowCraftingQueue"/>
+			<window name="windowToolsForge" />
+			<window name="windowFuel" />
+			<window name="windowForgeInput" />
+			<window name="windowOutput" />
+			<window name="windowNonPagingHeader" />
+		</window_group>
+		
+		<window_group name="workstation_cementMixer" controller="XUiC_WorkstationWindowGroup" open_backpack_on_open="true" close_compass_on_open="true" defaultSelected="bp.content">
+			<window name="windowCraftingList"/>
+			<window name="craftingInfoPanel"/>
+			<window name="windowCraftingQueue"/>
+			<window name="windowOutput" />
+			<window name="windowNonPagingHeader" />
+		</window_group>		
+		
+		<window_group name="workstation_workbench" controller="XUiC_WorkstationWindowGroup" open_backpack_on_open="true" close_compass_on_open="true" defaultSelected="bp.content">
+			<window name="windowCraftingList"/>
+			<window name="craftingInfoPanel"/>
+			<window name="windowCraftingQueue"/>
+			<window name="windowOutput" />
+			<window name="windowNonPagingHeader" />
+			<!-- <window name="windowCombine" /> -->
+		</window_group>				
+
+		<window_group name="workstation_chemistryStation" controller="XUiC_WorkstationWindowGroup" open_backpack_on_open="true" close_compass_on_open="true" defaultSelected="bp.content">
+			<window name="windowCraftingList"/>
+			<window name="craftingInfoPanel"/>
+			<window name="windowCraftingQueue"/>
+			<window name="windowFuel" />
+			<window name="windowOutput" />
+			<window name="windowNonPagingHeader" />
+		</window_group>
+		
+		<window_group name="looting" left_panel_valign_top="false" controller="XUiC_LootWindowGroup" close_compass_on_open="true">
+			<window name="windowLooting"/>
+			<window name="windowNonPagingHeader" />
+		</window_group>
+		
+		<window_group name="dewcollector" left_panel_valign_top="false" controller="XUiC_DewCollectorWindowGroup" close_compass_on_open="true" defaultSelected="0">
+			<window name="windowDewCollector"/>
+			<window name="windowDewCollectorMods" />
+			<window name="windowNonPagingHeader" />
+		</window_group>
+		
+		<window_group name="creative" controller="XUiC_Creative2WindowGroup" open_backpack_on_open="true" defaultSelected="queue">
+			<window name="windowCreative2" />
+		</window_group>
+		
+		<!--#$-IGS BEGIN: Needed to disable input in new system -$#-->
+		<!-- Backpack can be set to be selected from other windows using name="bp.content" -->
+		<window_group name="backpack" actionSet="false">
+			<window name="itemInfoPanel"/>
+			<window name="emptyInfoPanel" />
+			<window name="windowBackpack"/>
+		</window_group>
+		
+		<window_group name="death">
+			<window name="windowDeathBar" anchor="CenterBottom" />
+		</window_group>
+		
+		<window_group name="dragAndDrop" actionSet="false">
+			<window name="dragAndDropItemStack" />
+		</window_group>
+		
+		<window_group name="compass" actionSet="false">
+			<window name="windowCompass" />
+			<window name="windowEntering" anchor="CenterTop" />
+			<window name="windowTargetBar" anchor="CenterTop" />
+			<window name="onScreenIcons" />
+		</window_group>
+		
+		<window_group name="toolTip" actionSet="false">
+			<window name="toolTip" />
+			<window name="popupMenu" />
+			<window name="toolTipPopups" />
+		</window_group>
+		
+		<window_group name="interactionPrompt" actionSet="false">
+			<window name="interactionPrompt" />
+		</window_group>
+		
+		<window_group name="focusedBlockHealth" actionSet="false">
+			<window name="focusedBlockHealth" />
+		</window_group>
+		
+		<window_group name="tipWindow" defaultSelected="btnContinue">
+			<window name="windowTip" />
+		</window_group>
+		
+		<window_group name="questOffer" defaultSelected="btnAccept">
+			<window name="windowQuestOffer" />
+		</window_group>
+		
+		<window_group name="questTurnIn" controller="XUiC_QuestTurnInWindowGroup" open_backpack_on_open="true" close_compass_on_open="true" defaultSelected="content">
+			<window name="windowQuestTurnInDescription" />
+			<window name="windowQuestTurnInRewards" />
+		</window_group>
+		
+		<window_group name="timer">
+			<window name="windowTimer"/>
+		</window_group>
+		
+		<window_group name="throwpower" actionSet="false">
+			<window name="windowThrow"/>
+		</window_group>
+		
+		<window_group name="toolbelt" actionSet="false">
+			<window name="windowToolbelt" anchor="CenterBottom" />
+			<window name="HUDLeftStatBars" anchor="LeftBottom" />
+			<window name="HUDRightStatBars" anchor="RightBottom" />
+			<window name="windowLocation" anchor="RightTop" />
+			<window name="windowQuestTracker" anchor="RightTop" />
+			<window name="windowRecipeTracker" anchor="RightTop" />
+			<window name="windowGroupBars" anchor="LeftTop" />
+		</window_group>
+		
+		<window_group name="twitch" actionSet="false">
+			<window name="windowTwitch" anchor="RightCenter" />
+		</window_group>
+		
+		<window_group name="vehicle" controller="XUiC_VehicleWindowGroup" open_backpack_on_open="true" close_compass_on_open="true" defaultSelected="content">
+			<window name="windowVehicle"/>
+			<window name="windowNonPagingHeader" />
+			<!-- <window name="windowVehicleStats" /> -->
+			<!-- <window name="windowVehicleStorage" /> -->
+		</window_group>
+		
+		<window_group name="vehicleStorage" controller="XUiC_VehicleStorageWindowGroup" open_backpack_on_open="true" close_compass_on_open="true" defaultSelected="queue">
+			<window name="windowNonPagingHeader" />
+			<window name="windowVehicleStorage" />
+		</window_group>
+		
+		<window_group name="windowpaging" actionSet="false" close_compass_on_open="true">
+			<window name="windowPagingHeader" anchor="CenterTop"/>
+		</window_group>
+
+    <window_group name="junkDrone" controller="XUiC_DroneWindowGroup" open_backpack_on_open="true" close_compass_on_open="true" defaultSelected="content">
+      <window name="windowNonPagingHeader" />
+      <window name="windowAssembleDrone" />
+    </window_group>
+
+		<window_group name="map" defaultSelected="mapView">
+			<window name="mapTrackingPopup" />			<!-- keep this on top -->			
+			<window name="mapAreaSetWaypoint" />		<!-- keep this on top -->
+			<window name="mapAreaChooseWaypoint" />		<!-- keep this on top -->
+			<window name="mapAreaEnterWaypointName" />	<!-- keep this on top -->
+			<window name="mapArea" />
+			<window name="mapTracking" />
+			<window name="mapInvites" />
+		</window_group>
+		
+		<window_group name="players" defaultSelected="playersList">
+			<window name="players" />
+		</window_group>
+		
+		<window_group name="assemble" controller="XUiC_AssembleWindowGroup" open_backpack_on_open="true" close_compass_on_open="true" defaultSelected="content">
+			<window name="windowAssemble" />
+			<window name="windowNonPagingHeader" />
+		</window_group>
+
+		<window_group name="radial" actionSet="keyboard" controller="Radial">
+			<window name="windowRadial"/>
+		</window_group>
+		
+		<window_group name="skills" controller="XUiC_SkillWindowGroup">
+			<window name="windowSkillList"/>
+			<window name="windowSkillAttributeInfo" />
+			<window name="windowSkillSkillInfo" />
+			<window name="windowSkillPerkInfo" />
+			<window name="windowSkillBookInfo" />
+			<window name="windowSkillCraftingInfo" />
+		</window_group>
+		
+		<window_group name="quests" controller="XUiC_QuestWindowGroup">
+			<window name="windowQuestList" />
+			<window name="windowQuestSharedList" />
+			<window name="windowQuestDescription" />
+			<window name="windowQuestObjectives" />
+			<window name="windowQuestRewards" />
+		</window_group>
+		
+		<window_group name="challenges" controller="XUiC_ChallengeWindowGroup">
+			<window name="windowChallengeList" />
+			<window name="windowChallengeEntryDescription" />
+		</window_group>
+		
+		<window_group name="twitchWindowpaging" actionSet="false" close_compass_on_open="true">
+			<window name="windowTwitchPagingHeader" anchor="CenterTop"/>
+		</window_group>
+		
+		<window_group name="twitchInfo" controller="XUiC_TwitchInfoWindowGroup" close_compass_on_open="true" defaultSelected="content">
+			<window name="windowTwitchInfoList" />
+			<window name="windowTwitchInfoDescription" />
+			<window name="windowTwitchInfoHowTo" />
+		</window_group>
+		
+		<!--#$-IGS BEGIN: Adding window to hold gampad callouts -$#-->
+		<window_group name="CalloutGroup"  actionSet="false">
+			<window name="GamepadCallouts" />
+		</window_group>
+		<!--*#$-IGS END.-$#-->
+
+		<window_group name="trader" controller="XUiC_TraderWindowGroup" open_backpack_on_open="true" close_compass_on_open="true">
+			<window name="windowTrader"/>
+			<window name="windowNonPagingHeader" />
+			<window name="serviceInfoPanel"/>
+		</window_group>
+		
+		<window_group name="dialog" controller="XUiC_DialogWindowGroup" close_compass_on_open="true">
+			<window name="windowRespondentName" />
+			<window name="windowStatement" />
+			<window name="windowResponses" />
+		</window_group>
+		
+		<window_group name="sign" defaultSelected="content">
+			<window name="windowSignEdit" />
+		</window_group>
+		
+		<window_group name="keypadEdit" defaultSelected="content">		
+			<window name="windowKeypadEdit" />
+		</window_group>
+
+		<window_group name="powersource" controller="XUiC_PowerSourceWindowGroup" open_backpack_on_open="true" close_compass_on_open="true" defaultSelected="content">
+			<window name="windowPowerSourceStats" />
+			<window name="windowPowerSourceSlots" />
+			<window name="windowNonPagingHeader" />
+		</window_group>
+		
+		<window_group name="powertrigger" controller="XUiC_PowerTriggerWindowGroup" open_backpack_on_open="true" close_compass_on_open="true" defaultSelected="content">
+			<window name="windowPowerTriggerOptions" />
+			<window name="windowPowerCameraControlPreview" />
+			<window name="windowNonPagingHeader" />
+		</window_group>
+		
+		<window_group name="powerrangedtrap" controller="XUiC_PowerRangedTrapWindowGroup" open_backpack_on_open="true" close_compass_on_open="true" defaultSelected="content">
+			<window name="windowPowerRangedTrapOptions" />
+			<window name="windowPowerTrapSlots" />
+			<window name="windowPowerCameraControlPreview" />
+			<window name="windowNonPagingHeader" />
+			
+		</window_group>
+		
+		<window_group name="powercamera" controller="XUiC_PowerCameraWindowGroup" actionSet="controller" close_compass_on_open="true" defaultSelected="content">
+			<window name="windowPowerCameraControl" />
+			<window name="windowNonPagingHeader" />
+		</window_group>
+		
+		<window_group name="powerspotlight" controller="XUiC_PoweredSpotlightWindowGroup" close_compass_on_open="true" defaultSelected="content">
+			<window name="windowPowerCameraControlPreview" />
+			<window name="windowNonPagingHeader" />
+		</window_group>
+
+		<window_group name="materials" close_compass_on_open="true" defaultSelected="searchControls">
+			<window name="windowMaterials" />
+			<window name="windowMaterialInfo" />
+			<window name="windowNonPagingHeader" />
+		</window_group>
+		
+		<window_group name="shapes" close_compass_on_open="true" defaultSelected="searchControls">
+			<window name="windowShapeBlocks" />
+			<window name="windowShapeInfo" />
+			<window name="windowShapeMaterial" />
+			<window name="windowNonPagingHeader" />
+		</window_group>
+
+		<window_group name="spawnMenu" defaultSelected="content">
+			<window name="spawnMenu" />
+		</window_group>
+		
+		<window_group name="gameEventMenu" defaultSelected="content">
+			<window name="gameEventMenu" />
+		</window_group>
+		
+		<window_group name="poiTeleportMenu" defaultSelected="content">
+			<window name="poiTeleportMenu" />
+		</window_group>
+		
+		<window_group name="ingameMenu">
+			<window name="ingameMenu" />
+		</window_group>
+		
+		<window_group name="exportPrefab" defaultSelected="content">
+			<window name="exportPrefab" />
+		</window_group>
+		
+		<window_group name="woPropsSleeperVolume" defaultSelected="content">
+			<window name="woPropsSleeperVolume" />
+		</window_group>
+		
+		<window_group name="woPropsPOIMarkers" defaultSelected="content">
+			<window name="woPropsPOIMarkers" />
+		</window_group>
+		
+		<window_group name="woPropsSleeperBlock" defaultSelected="content">
+			<window name="woPropsSleeperBlock" />
+		</window_group>
+		
+		<window_group name="saveDirtyPrefab" defaultSelected="btnCancel">
+			<window name="saveDirtyPrefab" />
+		</window_group>
+		
+		<window_group name="prefabPropertiesEditor" defaultSelected="content">
+			<window name="prefabPropertiesEditor" />
+		</window_group>
+		
+		<window_group name="prefabMarkers" defaultSelected="content">
+			<window name="prefabMarkers" />
+		</window_group>
+		
+		<window_group name="startPointEditor" defaultSelected="content">
+			<window name="startPointEditor" />
+		</window_group>
+		
+		<window_group name="editorPanelSelector">
+			<window name="editorPanelSelector" />
+			<window name="editorInfo" />
+		</window_group>
+		
+		<window_group name="ingameDebugMenu">
+			<window name="ingameDebugMenu" />
+		</window_group>
+		
+		<window_group name="levelTools" defaultSelected="buttons">
+			<window name="levelTools" />
+		</window_group>
+		
+		<window_group name="levelTools2" defaultSelected="content">
+			<window name="levelTools2" />
+		</window_group>
+		
+		<window_group name="levelTools3" defaultSelected="content">
+			<window name="levelTools3" />
+		</window_group>
+		
+		<window_group name="worldTools" defaultSelected="content">
+			<window name="worldTools" />
+		</window_group>
+		
+		<window_group name="prefabList" defaultSelected="content">
+			<window name="prefabList" />
+		</window_group>
+		
+		<window_group name="prefabeditorhelp" defaultSelected="buttons">
+			<window name="prefabeditorhelp" />
+		</window_group>
+		
+		<window_group name="serverjoinrulesdialog" defaultSelected="btnLeave">
+			<window name="serverjoinrulesdialog" />
+		</window_group>
+
+		<window_group name="lightProperties" defaultSelected="content">
+			<window name="lightProperties" />
+		</window_group>
+
+    <window_group name="doorProperties" defaultSelected="content">
+      <window name="doorProperties" />
+    </window_group>
+	
+		<window_group name="triggerProperties" defaultSelected="content">
+			<window name="triggerProperties" />
+		</window_group>
+
+		<window_group name="reportPlayer" defaultSelected="btnCancel">
+			<window name="reportPlayer" />
+		</window_group>
+
+		<window_group name="chatoutput" actionSet="false">
+			<window name="chatoutput" />
+		</window_group>
+		
+		<window_group name="chat" defaultSelected="input">		
+			<window name="chat" />
+		</window_group>
+		
+		<window_group name="messageBox" controller="XUiC_MessageBoxWindowGroup" defaultSelected="btnRight">
+			<window name="messageBox" />
+		</window_group>
+		
+		<window_group name="windowMultiplayerPrivilegesInGame" controller="XUiC_MultiplayerPrivilegeNotification">
+			<window name="windowMultiplayerPrivilegesInGame" />
+		</window_group>
+		
+		<window_group name="demo" defaultSelected="input">		
+			<window name="windowDemo" />
+		</window_group>
+
+		<window_group name="bugReportWindow" defaultSelected="txtDescription">
+			<window name="bugReport"/>
+		</window_group>
+
+		<window_group name="progress" actionSet="false">
+			<window name="progress" />
+		</window_group>
+
+<!-- Uncomment this window group and the according window in windows.xml and adapt the latter to your needs, it will show up whenever the user has the ingame menu (ESC) open -->
+<!--
+		<window_group name="serverinfowindow">
+			<window name="serverinfowindow" />
+		</window_group>
+-->
+	</ruleset>
+</xui>

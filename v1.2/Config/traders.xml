@@ -1,0 +1,1411 @@
+<traders buy_markup="3" sell_markdown="0.2" quality_mod="1,2" currency_item="casinoCoin" quest_tier_mod="0,0.05,0.1,0.15,0.2,0.25,0.3" >
+
+<!-- Table_of_Contents -->
+<!-- Search_Find_All_for *** -->
+
+<!-- *** NOTES: -->
+<!-- When adding items or blocks to the list, check if they have an "EconomicValue". -->
+<!-- Most world-decoration blocks like "cntSuitcase" or "airConditioner" do not have values set. -->
+
+<!-- quality_mod: Adjusts the price range of all items with a quality level. -->
+	<!-- Price of QL 1 item = item.EconomicValue * traders.quality_mod(low) -->
+	<!-- Price of QL 6 item = item.EconomicValue * traders.quality_mod(high) -->
+
+<!-- unique_only="true" : Rolls unique items. Can be applied to the node or element level. -->
+
+<!-- Trader Stage: Player Level * ( 1 + quest_tier_mod) -->
+<!-- quest_tier_mod: Adjusts the trader stage based on the quest tier the player is on at that particular trader location -->
+<!-- perkDaringAdventurer can also boost Trader Stage -->
+
+<!-- *** TRADER_STAGE_TEMPLATES -->
+	<!-- traderstage_template: Sets the min and/or max trader stage using the template that is assigned to each item/block in items.xml/blocks.xml -->
+	<traderstage_templates>
+	
+		<traderstage_template name="baseTier0"> <!-- Stone Tools|Pipe Weapons|Utility Tools -->
+			<entry min="1" max="999999" quality="0"/> <!-- Fallback for items without quality -->
+			<entry min="999999" max="999999" quality="1"/> <!-- Don't show Q1 items -->
+			<entry min="1" max="10" quality="2"/>
+			<entry min="5" max="15" quality="3"/>
+			<entry min="10" max="20" quality="4"/>
+			<entry min="15" max="20" quality="5"/>
+		</traderstage_template>
+		<traderstage_template name="baseTier1"> <!-- Iron Tools|T1 Weapons|T1 Explosives -->
+			<entry min="1" max="999999" quality="0"/> <!-- Fallback for items without quality -->
+			<entry min="15" max="40" quality="1"/>
+			<entry min="30" max="50" quality="2"/>
+			<entry min="40" max="60" quality="3"/>
+			<entry min="50" max="70" quality="4"/>
+			<entry min="60" max="70" quality="5"/>
+		</traderstage_template>
+		<traderstage_template name="baseTier2"> <!-- Steel Tools|T2 Weapons|T2 Explosives -->
+			<entry min="1" max="999999" quality="0"/> <!-- Fallback for items without quality -->
+			<entry min="50" max="999999" quality="1"/>
+			<entry min="50" max="999999" quality="2"/>
+			<entry min="50" max="999999" quality="3"/>
+			<entry min="50" max="999999" quality="4"/>
+			<entry min="50" max="999999" quality="5"/>
+		</traderstage_template>
+		<traderstage_template name="baseTier3"> <!-- Mech Tools|T3 Weapons -->
+			<entry min="1" max="999999" quality="0"/> <!-- Fallback for items without quality -->
+			<entry min="100" max="999999" quality="1"/>
+			<entry min="100" max="999999" quality="2"/>
+			<entry min="100" max="999999" quality="3"/>
+			<entry min="100" max="999999" quality="4"/>
+			<entry min="100" max="999999" quality="5"/>
+		</traderstage_template>
+
+		<!-- Custom 10,20,30-->
+		<traderstage_template name="midTier0"> <!-- Forge|Dew Gatherer -->
+			<entry min="10" max="999999" quality="0"/>
+		</traderstage_template>
+		<traderstage_template name="midTier1"> <!-- Workbench|Mixer|Concrete Mix|Vending Machine|Dew Tarp -->
+			<entry min="20" max="999999" quality="0"/>
+		</traderstage_template>
+		<traderstage_template name="midTier2"> <!-- Chem Station|Dew Filter -->
+			<entry min="30" max="999999" quality="0"/>
+		</traderstage_template>
+
+		<!-- 100/3 -->
+		<traderstage_template name="ammoTier1"> <!-- Brass|Buckshot|Darts -->
+			<entry min="1" max="999999" quality="0"/>
+		</traderstage_template>
+		<traderstage_template name="ammoTier2"> <!-- HP|Slug|HE -->
+			<entry min="25" max="999999" quality="0"/>
+		</traderstage_template>
+		<traderstage_template name="ammoTier3"> <!-- AP|Breach|Frag -->
+			<entry min="55" max="999999" quality="0"/>
+		</traderstage_template>
+
+		<!-- 75/5 -->
+		<traderstage_template name="arrowsTier0"> <!-- Stone -->
+			<entry min="1" max="999999" quality="0"/>
+		</traderstage_template>
+		<traderstage_template name="arrowsTier1"> <!-- Iron -->
+			<entry min="10" max="999999" quality="0"/>
+		</traderstage_template>
+		<traderstage_template name="arrowsTier2"> <!-- Steel -->
+			<entry min="25" max="999999" quality="0"/>
+		</traderstage_template>
+		<traderstage_template name="arrowsTier3"> <!-- Flaming -->
+			<entry min="40" max="999999" quality="0"/>
+		</traderstage_template>
+		<traderstage_template name="arrowsTier4"> <!-- Explosive -->
+			<entry min="55" max="999999" quality="0"/>
+		</traderstage_template>
+
+		<!-- 75/4 -->
+		<traderstage_template name="bowsTier0"> <!-- Primitive Bow -->
+			<entry min="999999" max="999999" quality="1"/> <!-- Don't show Q1 items -->
+			<entry min="1" max="10" quality="2"/>
+			<entry min="5" max="15" quality="3"/>
+			<entry min="10" max="25" quality="4"/>
+			<entry min="15" max="25" quality="5"/>
+		</traderstage_template>
+		<traderstage_template name="bowsTier1"> <!-- Wooden Bow -->
+			<entry min="15" max="25" quality="1"/>
+			<entry min="20" max="30" quality="2"/>
+			<entry min="25" max="35" quality="3"/>
+			<entry min="30" max="40" quality="4"/>
+			<entry min="35" max="50" quality="5"/>
+		</traderstage_template>
+		<traderstage_template name="bowsTier2"> <!-- Compound Bow, Iron Crossbow -->
+			<entry min="30" max="50" quality="1"/>
+			<entry min="40" max="60" quality="2"/>
+			<entry min="50" max="70" quality="3"/>
+			<entry min="60" max="999999" quality="4"/>
+			<entry min="70" max="999999" quality="5"/>
+		</traderstage_template>
+		<traderstage_template name="bowsTier3"> <!-- Compound Crossbow -->
+			<entry min="50" max="70" quality="1"/>
+			<entry min="60" max="80" quality="2"/>
+			<entry min="70" max="90" quality="3"/>
+			<entry min="80" max="999999" quality="4"/>
+			<entry min="90" max="999999" quality="5"/>
+		</traderstage_template>
+
+		<!-- 100/3 -->
+		<traderstage_template name="modsTier1">
+			<entry min="1" max="999999" quality="0"/>
+		</traderstage_template>
+		<traderstage_template name="modsTier2">
+			<entry min="25" max="999999" quality="0"/>
+		</traderstage_template>
+		<traderstage_template name="modsTier3">
+			<entry min="55" max="999999" quality="0"/>
+		</traderstage_template>
+
+		<!-- 100/3 -->
+		<traderstage_template name="electricTier1">
+			<entry min="1" max="999999" quality="0"/>
+		</traderstage_template>
+		<traderstage_template name="electricTier2">
+			<entry min="25" max="999999" quality="0"/>
+		</traderstage_template>
+		<traderstage_template name="electricTier3"> <!-- Solar Bank|Solar Cells|Blade Trap|Auto Turret -->
+			<entry min="55" max="999999" quality="0"/>
+			<entry min="45" max="999999" quality="1"/>
+			<entry min="55" max="999999" quality="2"/>
+			<entry min="65" max="999999" quality="3"/>
+			<entry min="75" max="999999" quality="4"/>
+			<entry min="85" max="999999" quality="5"/>
+			<entry min="95" max="999999" quality="6"/>
+		</traderstage_template>
+
+		<!-- 300/6 -->
+		<traderstage_template name="vehicleTier0"> <!-- Bicycle Parts -->
+			<entry min="1" max="50" quality="0"/>
+		</traderstage_template>
+		<traderstage_template name="vehicleTier1"> <!-- Bicycle Full - Minibike Parts -->
+			<entry min="25" max="75" quality="0"/>
+		</traderstage_template>
+		<traderstage_template name="vehicleTier2"> <!-- Minibike Full - Motorcycle Parts -->
+			<entry min="50" max="100" quality="0"/>
+		</traderstage_template>
+		<traderstage_template name="vehicleTier3"> <!-- Motorcycle Full - 4x4 Parts -->
+			<entry min="75" max="999999" quality="0"/>
+		</traderstage_template>
+		<traderstage_template name="vehicleTier4"> <!-- 4x4 Full - Gyro Parts -->
+			<entry min="100" max="999999" quality="0"/>
+		</traderstage_template>
+		<traderstage_template name="vehicleTier5"> <!-- Gyro Full -->
+			<entry min="150" max="999999" quality="0"/>
+		</traderstage_template>
+
+		
+		<traderstage_template name="armorTier1"> <!-- All Armor -->
+			<entry min="999999" max="999999" quality="0"/>
+			<entry min="1" max="50" quality="1"/>
+			<entry min="10" max="75" quality="2"/>
+			<entry min="25" max="999999" quality="3"/>
+			<entry min="50" max="999999" quality="4"/>
+			<entry min="75" max="999999" quality="5"/>
+		</traderstage_template>
+
+	</traderstage_templates>
+
+<!-- *** TRADER_ITEM_GROUPS -->
+
+	<trader_item_groups>
+
+<!-- *** MELEE_WEAPONS -->
+		<trader_item_group name="groupMeleeAll">
+		<!-- *** MELEE_T1 -->
+			<item name="meleeWpnBladeT1HuntingKnife" quality="1,5"/>
+			<item name="meleeWpnClubT1BaseballBat" quality="1,5"/>
+			<item name="meleeWpnSpearT1IronSpear" quality="1,5"/>
+			<item name="meleeWpnSledgeT1IronSledgehammer" quality="1,5"/>
+			<item name="meleeWpnKnucklesT1IronKnuckles" quality="1,5"/>
+		<!-- *** MELEE_T2 -->
+			<item name="meleeWpnBatonT2StunBaton" quality="1,5"/>
+		<!-- *** MELEE_T3 -->
+			<item name="meleeWpnBladeT3Machete" quality="1,5"/>
+			<item name="meleeWpnClubT3SteelClub" quality="1,5"/>
+			<item name="meleeWpnSpearT3SteelSpear" quality="1,5"/>
+			<item name="meleeWpnSledgeT3SteelSledgehammer" quality="1,5"/>
+			<item name="meleeWpnKnucklesT3SteelKnuckles" quality="1,5"/>
+		</trader_item_group>
+
+<!-- *** RANGED_WEAPONS -->
+		<trader_item_group name="groupRangedAll">
+		<!-- *** RANGED_WEAPONS_T0 -->
+			<item name="gunBowT0PrimitiveBow" quality="2,5"/>
+			<item name="gunHandgunT0PipePistol" quality="2,5"/>
+			<item name="gunShotgunT0PipeShotgun" quality="2,5"/>
+			<item name="gunRifleT0PipeRifle" quality="2,5"/>
+			<item name="gunMGT0PipeMachineGun" quality="2,5"/>
+		<!-- *** RANGED_WEAPONS_T1 -->
+			<item name="gunBowT1WoodenBow" quality="1,5"/>
+			<item name="gunHandgunT1Pistol" quality="1,5"/>
+			<item name="gunShotgunT1DoubleBarrel" quality="1,5"/>
+			<item name="gunRifleT1HuntingRifle" quality="1,5"/>
+			<item name="gunMGT1AK47" quality="1,5"/>
+			<item name="gunBotT1JunkSledge" quality="1,5"/>
+		<!-- *** RANGED_WEAPONS_T2 -->
+			<item name="gunBowT1IronCrossbow" quality="1,5"/>
+			<item name="gunBowT3CompoundBow" quality="1,5"/>
+			<item name="gunHandgunT2Magnum44" quality="1,5"/>
+			<item name="gunShotgunT2PumpShotgun" quality="1,5"/>
+			<item name="gunRifleT2LeverActionRifle" quality="1,5"/>
+			<item name="gunMGT2TacticalAR" quality="1,5"/>
+			<item name="gunBotT2JunkTurret" quality="1,5"/>
+		<!-- *** RANGED_WEAPONS_T3 -->
+			<item name="gunBowT3CompoundCrossbow" quality="1,5"/>
+			<item name="gunHandgunT3SMG5" quality="1,5"/>
+			<item name="gunMGT3M60" quality="1,5"/>
+			<item name="gunHandgunT2Magnum44" quality="1,5"/>
+			<item name="gunHandgunT3DesertVulture" quality="1,5"/>
+			<item name="gunShotgunT3AutoShotgun" quality="1,5"/>
+			<item name="gunRifleT3SniperRifle" quality="1,5"/>
+			<item name="gunExplosivesT3RocketLauncher" quality="1,5"/>
+			<item name="gunBotT3JunkDrone" quality="1,5"/>
+		</trader_item_group>
+		
+		<!-- *** WEAPON_PARTS -->
+		<trader_item_group name="weaponsGunParts">
+			<item name="gunHandgunT1PistolParts" count="1,5"/>
+			<item name="gunShotgunT1DoubleBarrelParts" count="1,5"/>
+			<item name="gunMGT1AK47Parts" count="1,5"/>
+			<item name="gunRifleT1HuntingRifleParts" count="1,5"/>
+			<item name="gunBowT1WoodenBowParts" count="1,5"/>
+			<item name="gunBotRoboticsParts" count="1,5"/>
+			<item name="gunExplosivesT3RocketLauncherParts" count="1,5"/>
+		</trader_item_group>
+
+<!-- *** AMMO -->
+		<trader_item_group name="ammoAll">
+			<item name="ammo9mmBulletBall" count="40,150"/>
+			<item name="ammo762mmBulletBall" count="20,100"/>
+			<item name="ammo44MagnumBulletBall" count="15,60" prob="0.5"/>
+			<item name="ammoShotgunShell" count="15,100"/>
+			<item name="ammoArrowStone" count="20,60"/>
+			<item name="ammoCrossbowBoltStone" count="20,60"/>
+			
+			<item name="ammo9mmBulletHP" count="40,150"/>
+			<item name="ammo762mmBulletHP" count="20,100"/>
+			<item name="ammo44MagnumBulletHP" count="15,60" prob="0.5"/>
+			<item name="ammoShotgunBreachingSlug" count="15,100"/>
+			<item name="ammoArrowIron" count="20,60"/>
+			<item name="ammoArrowFlaming" count="20,60"/>
+			<item name="ammoCrossbowBoltIron" count="20,60"/>
+			<item name="ammoCrossbowBoltFlaming" count="20,60"/>
+			
+			<item name="ammo9mmBulletAP" count="40,150"/>
+			<item name="ammo762mmBulletAP" count="20,100"/>
+			<item name="ammo44MagnumBulletAP" count="15,60" prob="0.5"/>
+			<item name="ammoShotgunSlug" count="6,25" prob="0.2"/>
+			<item name="ammoRocketHE" count="1,4"/>
+			<item name="ammoRocketFrag" count="1,4"/>
+			<item name="ammoArrowSteelAP" count="20,60"/>
+			<item name="ammoArrowExploding" count="20,60"/>
+			<item name="ammoCrossbowBoltSteelAP" count="20,60"/>
+			<item name="ammoCrossbowBoltExploding" count="20,60"/>
+		</trader_item_group>
+
+		<trader_item_group name="ammoArrowsBolts">
+			<item name="ammoArrowStone" count="20,60"/>
+			<item name="ammoCrossbowBoltStone" count="20,60"/>
+			<item name="ammoArrowIron" count="20,60"/>
+			<item name="ammoCrossbowBoltIron" count="20,60"/>
+			<item name="ammoArrowSteelAP" count="20,60"/>
+			<item name="ammoCrossbowBoltSteelAP" count="20,60"/>
+			<item name="ammoArrowFlaming" count="20,60"/>
+			<item name="ammoCrossbowBoltFlaming" count="20,60"/>
+			<item name="ammoArrowExploding" count="20,60"/>
+			<item name="ammoCrossbowBoltExploding" count="20,60"/>
+		</trader_item_group>
+
+		<trader_item_group name="ammoBrass">
+			<item name="ammo9mmBulletBall" count="40,150"/>
+			<item name="ammo762mmBulletBall" count="20,100"/>
+			<item name="ammo44MagnumBulletBall" count="15,60" prob="0.5"/>
+			<item name="ammoShotgunShell" count="15,100"/>
+			<item name="ammoShotgunBreachingSlug" count="15,100"/>
+			<item name="ammoShotgunSlug" count="6,25" prob="0.2"/>
+		</trader_item_group>
+
+		<trader_item_group name="ammoHP">
+			<item name="ammo9mmBulletHP" count="40,150"/>
+			<item name="ammo762mmBulletHP" count="20,100"/>
+			<item name="ammo44MagnumBulletHP" count="15,60" prob="0.5"/>
+			<item name="ammoRocketHE" count="1,4"/>
+		</trader_item_group>
+
+		<trader_item_group name="ammoAP">
+			<item name="ammo9mmBulletAP" count="40,150"/>
+			<item name="ammo762mmBulletAP" count="20,100"/>
+			<item name="ammo44MagnumBulletAP" count="15,60" prob="0.5"/>
+			<item name="ammoRocketFrag" count="1,4"/>
+		</trader_item_group>
+
+		<!-- *** THROWN_AMMO -->
+		<trader_item_group name="thrownAmmo">
+			<item name="thrownAmmoPipeBomb" count="5,20"/>
+			<item name="thrownGrenadeContact" count="5,20"/>
+			<item name="thrownGrenade" count="5,20"/>
+			<item name="thrownTimedCharge" count="5,20"/>
+			<item name="thrownDynamite" count="5,20"/>
+			<item name="thrownAmmoMolotovCocktail" count="5,20"/>
+		</trader_item_group>
+
+		<!-- *** AMMO_SUPPLIES -->
+		<trader_item_group name="ammoSupplies">
+			<item name="resourceBulletCasing" count="20,200"/> <!-- 5 -->
+			<item name="resourceBulletTip" count="20,200"/> <!-- 5 -->
+			<item name="resourceBuckshot" count="20,200"/> <!-- 5 -->
+			<item name="resourceGunPowder" count="20,200"/> <!-- 10 -->
+			<item name="resourcePaper" count="20,200"/> <!-- 10 -->
+			<item name="resourceArrowHeadIron" count="20,200" prob="0.05"/> <!-- 5 -->
+			<item name="resourceArrowHeadSteelAP" count="5,25" prob="0.05"/> <!-- 5 -->
+			<item name="resourceFeather" count="20,200"/> <!-- 5 -->
+		</trader_item_group>
+
+		<trader_item_group name="groupAllAmmo">
+			<item group="ammoArrowsBolts" count="1,2"/>
+			<item group="ammoBrass" count="2,4"/>
+			<item group="ammoHP" count="2,4"/>
+			<item group="ammoAP" count="2,4"/>
+		</trader_item_group>
+
+<!-- *** MODS -->
+		<trader_item_group name="groupMeleeMods">
+		<!-- *** T1_MELEE_MODS -->
+			<item name="modMeleeSerratedBlade"/>
+			<item name="modMeleeStructuralBrace"/>
+			<item name="modMeleeWeightedHead"/>
+			<item name="modMeleeGraveDigger"/>
+			<item name="modMeleeWoodSplitter"/>
+			<item name="modFuelTankSmall"/>
+		<!-- *** T2_MELEE_MODS -->
+			<item name="modMeleeClubBurningShaft"/>
+			<item name="modMeleeClubBarbedWire"/>
+			<item name="modMeleeFortifyingGrip"/>
+			<item name="modMeleeBunkerBuster"/>
+			<item name="modFuelTankLarge"/>
+		<!-- *** T3_MELEE_MODS -->
+			<item name="modMeleeClubMetalSpikes"/>
+			<item name="modMeleeErgonomicGrip"/>
+			<item name="modMeleeTemperedBlade"/>
+			<item name="modMeleeIronBreaker"/>
+			<item name="modGunMeleeRadRemover"/>
+		</trader_item_group>
+		
+		<trader_item_group name="groupRangedMods">
+		<!-- *** T1_RANGED_MODS-->
+			<item name="modGunChoke"/>
+			<item name="modGunDuckbill"/>
+			<item name="modGunBipod"/>
+			<item name="modGunFlashlight"/>
+			<item name="modGunForegrip"/>
+			<item name="modGunMagazineExtender"/>
+			<item name="modGunMeleeTheHunter"/>
+			<item name="modGunMuzzleBrake"/>
+			<item name="modGunScopeSmall"/>
+			<item name="modShotgunSawedOffBarrel"/>
+			<item name="modGunTriggerGroupSemi"/>
+		<!-- *** T2_RANGED_MODS -->
+			<item name="modGunBarrelExtender"/>
+			<item name="modGunCrippleEm"/>
+			<item name="modGunLaserSight"/>
+			<item name="modGunReflexSight"/>
+			<item name="modGunRetractingStock"/>
+			<item name="modGunScopeMedium"/>
+			<item name="modGunSoundSuppressorSilencer"/>
+			<item name="modGunTriggerGroupBurst3"/>
+		<!-- *** T3_RANGED_MODS -->
+			<item name="modGunBowPolymerString"/>
+			<item name="modGunScopeLarge"/>
+			<item name="modGunTriggerGroupAutomatic"/>
+		</trader_item_group>
+			
+		<trader_item_group name="groupArmorMods">
+		<!-- *** T1_ARMOR_MODS -->
+			<item name="modArmorHelmetLight"/>
+			<item name="modArmorInsulatedLiner"/>
+			<item name="modArmorCoolingMesh"/>
+			<item name="modArmorPlatingBasic"/>
+			<item name="modArmorStoragePocket"/>
+			<item name="modArmorImprovedFittings"/>
+			<item name="modArmorPerception"/>
+			<item name="modArmorStrength"/>
+			<item name="modArmorFortitude"/>
+			<item name="modArmorAgility"/>
+			<item name="modArmorIntellect"/>
+			<item name="modArmorTreasureHunter"/>
+		<!-- *** T2_ARMOR_MODS -->
+			<item name="modArmorWaterPurifier"/>
+			<item name="modArmorImpactBracing"/>
+			<item name="modArmorPlatingReinforced"/>
+			<item name="modArmorMuffledConnectors"/>
+			<item name="modArmorDoubleStoragePocket"/>
+			<item name="modArmorCustomizedFittings"/>
+			<item name="modArmorCigar"/>
+		<!-- *** T3_ARMOR_MODS -->
+			<item name="modArmorBandolier"/>
+			<item name="modArmorTripleStoragePocket"/>
+			<item name="modArmorAdvancedMuffledConnectors"/>
+			<item name="modArmorNightVision"/>
+		</trader_item_group>
+		
+		<trader_item_group name="groupModsAll">
+			<item group="groupMeleeMods"/>
+			<item group="groupRangedMods"/>
+			<item group="groupArmorMods"/>
+		</trader_item_group>
+
+		<!-- *** Dyes -->
+		<trader_item_group name="groupDyeMods">
+			<item name="modDyeBrown"/>
+			<item name="modDyeRed"/>
+			<item name="modDyeOrange"/>
+			<item name="modDyeYellow"/>
+			<item name="modDyeGreen"/>
+			<item name="modDyeBlue"/>
+			<item name="modDyePurple"/>
+			<item name="modDyePink"/>
+			<item name="modDyeBlack"/>
+		</trader_item_group>
+
+<!-- *** LIGHT_ARMORS -->
+		<trader_item_group name="groupArmorLight">
+			<!-- <item name="armorPrimitiveHelmet" quality="1,5"/> -->
+			<!-- <item name="armorPrimitiveOutfit" quality="1,5"/> -->
+			<!-- <item name="armorPrimitiveGloves" quality="1,5"/> -->
+			<!-- <item name="armorPrimitiveBoots" quality="1,5"/> -->
+			<item name="armorLumberjackHelmet" quality="1,5"/>
+			<item name="armorLumberjackOutfit" quality="1,5"/>
+			<item name="armorLumberjackGloves" quality="1,5"/>
+			<item name="armorLumberjackBoots" quality="1,5"/>
+			<item name="armorPreacherHelmet" quality="1,5"/>
+			<item name="armorPreacherOutfit" quality="1,5"/>
+			<item name="armorPreacherGloves" quality="1,5"/>
+			<item name="armorPreacherBoots" quality="1,5"/>
+			<item name="armorRogueHelmet" quality="1,5"/>
+			<item name="armorRogueOutfit" quality="1,5"/>
+			<item name="armorRogueGloves" quality="1,5"/>
+			<item name="armorRogueBoots" quality="1,5"/>
+			<item name="armorAthleticHelmet" quality="1,5"/>
+			<item name="armorAthleticOutfit" quality="1,5"/>
+			<item name="armorAthleticGloves" quality="1,5"/>
+			<item name="armorAthleticBoots" quality="1,5"/>
+			<item name="armorEnforcerHelmet" quality="1,5"/>
+			<item name="armorEnforcerOutfit" quality="1,5"/>
+			<item name="armorEnforcerGloves" quality="1,5"/>
+			<item name="armorEnforcerBoots" quality="1,5"/>
+		</trader_item_group>
+
+<!-- *** LIGHT_ARMORS -->
+		<trader_item_group name="groupArmorMedium">
+			<item name="armorFarmerHelmet" quality="1,5"/>
+			<item name="armorFarmerOutfit" quality="1,5"/>
+			<item name="armorFarmerGloves" quality="1,5"/>
+			<item name="armorFarmerBoots" quality="1,5"/>
+			<item name="armorBikerHelmet" quality="1,5"/>
+			<item name="armorBikerOutfit" quality="1,5"/>
+			<item name="armorBikerGloves" quality="1,5"/>
+			<item name="armorBikerBoots" quality="1,5"/>
+			<item name="armorScavengerHelmet" quality="1,5"/>
+			<item name="armorScavengerOutfit" quality="1,5"/>
+			<item name="armorScavengerGloves" quality="1,5"/>
+			<item name="armorScavengerBoots" quality="1,5"/>
+			<item name="armorRangerHelmet" quality="1,5"/>
+			<item name="armorRangerOutfit" quality="1,5"/>
+			<item name="armorRangerGloves" quality="1,5"/>
+			<item name="armorRangerBoots" quality="1,5"/>
+			<item name="armorCommandoHelmet" quality="1,5"/>
+			<item name="armorCommandoOutfit" quality="1,5"/>
+			<item name="armorCommandoGloves" quality="1,5"/>
+			<item name="armorCommandoBoots" quality="1,5"/>
+			<item name="armorAssassinHelmet" quality="1,5"/>
+			<item name="armorAssassinOutfit" quality="1,5"/>
+			<item name="armorAssassinGloves" quality="1,5"/>
+			<item name="armorAssassinBoots" quality="1,5"/>
+		</trader_item_group>
+
+<!-- *** HEAVY_ARMORS-->
+		<trader_item_group name="groupArmorHeavy">
+			<item name="armorMinerHelmet" quality="1,5"/>
+			<item name="armorMinerOutfit" quality="1,5"/>
+			<item name="armorMinerGloves" quality="1,5"/>
+			<item name="armorMinerBoots" quality="1,5"/>
+			<item name="armorNomadHelmet" quality="1,5"/>
+			<item name="armorNomadOutfit" quality="1,5"/>
+			<item name="armorNomadGloves" quality="1,5"/>
+			<item name="armorNomadBoots" quality="1,5"/>
+			<item name="armorNerdHelmet" quality="1,5"/>
+			<item name="armorNerdOutfit" quality="1,5"/>
+			<item name="armorNerdGloves" quality="1,5"/>
+			<item name="armorNerdBoots" quality="1,5"/>
+			<item name="armorRaiderHelmet" quality="1,5"/>
+			<item name="armorRaiderOutfit" quality="1,5"/>
+			<item name="armorRaiderGloves" quality="1,5"/>
+			<item name="armorRaiderBoots" quality="1,5"/>
+		</trader_item_group>
+
+<!-- *** BOOKS -->
+		<trader_item_group name="perkBooks">
+			<item name="bookRangersArrowRecovery"/>
+			<item name="bookRangersCripplingShot"/>
+			<item name="bookRangersKnockdown"/>
+			<item name="bookRangersFlamingArrows"/>
+			<item name="bookRangersAPAmmo"/>
+			<item name="bookRangersExplodingBolts"/>
+			<item name="bookRangersForestGuide"/>
+			<item name="bookArtOfMiningLuckyStrike"/>
+			<item name="bookArtOfMiningDiamondTools"/>
+			<item name="bookArtOfMiningCoffee"/>
+			<item name="bookArtOfMiningBlackStrap"/>
+			<item name="bookArtOfMiningPallets"/>
+			<item name="bookArtOfMiningAvalanche"/>
+			<item name="bookArtOfMiningDamage"/>
+			<item name="bookAutoWeaponsDamage"/>
+			<item name="bookAutoWeaponsRagdoll"/>
+			<item name="bookAutoWeaponsMaintenance"/>
+			<item name="bookAutoWeaponsRecoil"/>
+			<item name="bookAutoWeaponsDrumMag"/>
+			<item name="bookAutoWeaponsUncontrolledBurst"/>
+			<item name="bookAutoWeaponsMachineGuns"/>
+			<item name="bookBatterUpFoulBalls"/>
+			<item name="bookBatterUpBigHits"/>
+			<item name="bookBatterUpStealingBases"/>
+			<item name="bookBatterUpKnockdown"/>
+			<item name="bookBatterUpSlowPitch"/>
+			<item name="bookBatterUpMaintenance"/>
+			<item name="bookBatterUpMetalChain"/>
+			<item name="bookEnforcerAPAmmo"/>
+			<item name="bookEnforcerApparel"/>
+			<item name="bookEnforcerCriminalPursuit"/>
+			<item name="bookEnforcerHPAmmo"/>
+			<item name="bookEnforcerDamage"/>
+			<item name="bookEnforcerIntimidation"/>
+			<item name="bookEnforcerPunks"/>
+			<item name="bookFiremansAlmanacSpeed"/>
+			<item name="bookFiremansAlmanacAxes"/>
+			<item name="bookFiremansAlmanacEquipment"/>
+			<item name="bookFiremansAlmanacPrevention"/>
+			<item name="bookFiremansAlmanacHarvest"/>
+			<item name="bookFiremansAlmanacHeat"/>
+			<item name="bookFiremansAlmanacMolotov"/>
+			<item name="bookGreatHeistAdrenalineFall"/>
+			<item name="bookGreatHeistGoldRush"/>
+			<item name="bookGreatHeistClaimed"/>
+			<item name="bookGreatHeistGems"/>
+			<item name="bookGreatHeistMotionDetection"/>
+			<item name="bookGreatHeistSafes"/>
+			<item name="bookGreatHeistSprintSneak"/>
+			<item name="bookHuntingJournalBears"/>
+			<item name="bookHuntingJournalCoyotes"/>
+			<item name="bookHuntingJournalDeer"/>
+			<item name="bookHuntingJournalMountainLions"/>
+			<item name="bookHuntingJournalVultures"/>
+			<item name="bookHuntingJournalWolves"/>
+			<item name="bookHuntingJournalSelfDefense"/>
+			<item name="bookLuckyLooterAmmunition"/>
+			<item name="bookLuckyLooterBooks"/>
+			<item name="bookLuckyLooterBrass"/>
+			<item name="bookLuckyLooterDukes"/>
+			<item name="bookLuckyLooterFood"/>
+			<item name="bookLuckyLooterLead"/>
+			<item name="bookLuckyLooterMedical"/>
+			<item name="bookNightStalkerArchery"/>
+			<item name="bookNightStalkerBlades"/>
+			<item name="bookNightStalkerSilentNight"/>
+			<item name="bookNightStalkerSlumberParty"/>
+			<item name="bookNightStalkerStealthDamage"/>
+			<item name="bookNightStalkerThiefAdrenaline"/>
+			<item name="bookNightStalkerTwilightThief"/>
+			<item name="bookPistolPeteAPAmmo"/>
+			<item name="bookPistolPeteDamage"/>
+			<item name="bookPistolPeteHPAmmo"/>
+			<item name="bookPistolPeteMaintenance"/>
+			<item name="bookPistolPeteSteadyHand"/>
+			<item name="bookPistolPeteSwissKnees"/>
+			<item name="bookPistolPeteTakeAim"/>
+			<item name="bookShotgunMessiahBreachingSlugs"/>
+			<item name="bookShotgunMessiahDamage"/>
+			<item name="bookShotgunMessiahLimbShot"/>
+			<item name="bookShotgunMessiahMaintenance"/>
+			<item name="bookShotgunMessiahMagazine"/>
+			<item name="bookShotgunMessiahPartyStarter"/>
+			<item name="bookShotgunMessiahSlugs"/>
+			<item name="bookSniperAPAmmo"/>
+			<item name="bookSniperControlledBreathing"/>
+			<item name="bookSniperCripplingShot"/>
+			<item name="bookSniperDamage"/>
+			<item name="bookSniperHeadShot"/>
+			<item name="bookSniperReload"/>
+			<item name="bookSniperHPAmmo"/>
+			<item name="bookUrbanCombatAdrenalineRush"/>
+			<item name="bookUrbanCombatCigar"/>
+			<item name="bookUrbanCombatRoomClearing"/>
+			<item name="bookUrbanCombatJumping"/>
+			<item name="bookUrbanCombatLandMines"/>
+			<item name="bookUrbanCombatLanding"/>
+			<item name="bookUrbanCombatSneaking"/>
+			<item name="bookWasteTreasuresAcid"/>
+			<item name="bookWasteTreasuresCloth"/>
+			<item name="bookWasteTreasuresCoffins"/>
+			<item name="bookWasteTreasuresDoors"/>
+			<item name="bookWasteTreasuresHoney"/>
+			<item name="bookWasteTreasuresSinks"/>
+			<item name="bookWasteTreasuresWater"/>
+			<item name="bookBarBrawling1BasicMoves"/>
+			<item name="bookBarBrawling2DropABomb"/>
+			<item name="bookBarBrawling3KillerInstinct"/>
+			<item name="bookBarBrawling4FinishingMoves"/>
+			<item name="bookBarBrawling5AdrenalineHealing"/>
+			<item name="bookBarBrawling6RageMode"/>
+			<item name="bookBarBrawling7BoozedUp"/>
+			<item name="bookSpearHunter1Damage"/>
+			<item name="bookSpearHunter2Maintenance"/>
+			<item name="bookSpearHunter3Bleed"/>
+			<item name="bookSpearHunter4KillMove"/>
+			<item name="bookSpearHunter5RapidStrike"/>
+			<item name="bookSpearHunter6PenetratingShaft"/>
+			<item name="bookSpearHunter7QuickStrike"/>
+			<item name="bookTechJunkie1Damage"/>
+			<item name="bookTechJunkie2Maintenance"/>
+			<item name="bookTechJunkie3APAmmo"/>
+			<item name="bookTechJunkie4Shells"/>
+			<item name="bookTechJunkie5Repulsor"/>
+			<item name="bookTechJunkie6BatonCharge"/>
+			<item name="bookTechJunkie7Hydraulics"/>
+		</trader_item_group>
+
+		<trader_item_group name="skillMagazines">
+			<item name="harvestingToolsSkillMagazine" count="1,3"/>
+			<item name="repairToolsSkillMagazine" count="1,3"/>
+			<item name="salvageToolsSkillMagazine" count="1,3"/>
+			<item name="sledgehammersSkillMagazine" count="1,3"/>
+			<item name="workstationSkillMagazine" count="1,3"/>
+			<item name="bowsSkillMagazine" count="1,3"/>
+			<item name="spearsSkillMagazine" count="1,3"/>
+			<item name="bladesSkillMagazine" count="1,3"/>
+			<item name="clubsSkillMagazine" count="1,3"/>
+			<item name="handgunsSkillMagazine" count="1,3"/>
+			<item name="shotgunsSkillMagazine" count="1,3"/>
+			<item name="riflesSkillMagazine" count="1,3"/>
+			<item name="machineGunsSkillMagazine" count="1,3"/>
+			<item name="explosivesSkillMagazine" count="1,3"/>
+			<item name="armorSkillMagazine" count="1,3"/>
+			<item name="medicalSkillMagazine" count="1,3"/>
+			<item name="knucklesSkillMagazine" count="1,3"/>
+			<item name="foodSkillMagazine" count="1,3"/>
+			<item name="seedSkillMagazine" count="1,3"/>
+			<item name="roboticsSkillMagazine" count="1,3"/>
+			<item name="vehiclesSkillMagazine" count="1,3"/>
+			<item name="electricianSkillMagazine" count="1,3"/>
+			<item name="trapsSkillMagazine" count="1,3"/>
+		</trader_item_group>
+
+<!-- *** SCHEMATICS -->
+		<trader_item_group name="schematicsModsCommon">
+			<item name="modArmorHelmetLightSchematic"/>
+			<item name="modArmorBandolierSchematic"/>
+			<item name="modArmorInsulatedLinerSchematic"/>
+			<item name="modArmorCoolingMeshSchematic"/>
+			<item name="modArmorPlatingBasicSchematic"/>
+			<item name="modArmorImprovedFittingsSchematic"/>
+			<item name="modArmorStoragePocketSchematic"/>
+			<item name="modArmorDoubleStoragePocketSchematic"/>
+			<item name="modArmorMuffledConnectorsSchematic"/>
+			<item name="modGunBarrelExtenderSchematic"/>
+			<item name="modGunMuzzleBrakeSchematic"/>
+			<item name="modGunFlashlightSchematic"/>
+			<item name="modGunScopeSmallSchematic"/>
+			<item name="modGunScopeMediumSchematic"/>
+			<item name="modGunReflexSightSchematic"/>
+			<item name="modGunTriggerGroupSemiSchematic"/>
+			<item name="modGunBipodSchematic"/>
+			<item name="modGunForegripSchematic"/>
+			<item name="modGunRetractingStockSchematic"/>
+			<item name="modGunDuckbillSchematic"/>
+			<item name="modGunChokeSchematic"/>
+			<item name="modGunMagazineExtenderSchematic"/>
+			<item name="modShotgunSawedOffBarrelSchematic"/>
+			<item name="modGunCrippleEmSchematic"/>
+			<item name="modGunBowArrowRestSchematic"/>
+			<item name="modGunBowPolymerStringSchematic"/>
+			<item name="modMeleeTemperedBladeSchematic"/>
+			<item name="modMeleeSerratedBladeSchematic"/>
+			<item name="modMeleeWeightedHeadSchematic"/>
+			<item name="modMeleeStructuralBraceSchematic"/>
+			<item name="modMeleeErgonomicGripSchematic"/>
+			<item name="modMeleeFortifyingGripSchematic"/>
+			<item name="modMeleeClubBarbedWireSchematic"/>
+			<item name="modMeleeClubMetalSpikesSchematic"/>
+			<item name="modMeleeClubBurningShaftSchematic"/>
+			<item name="modMeleeGraveDiggerSchematic"/>
+			<item name="modMeleeWoodSplitterSchematic"/>
+			<item name="modFuelTankSmallSchematic"/>
+			<item name="modFuelTankLargeSchematic"/>
+			<item name="modGunMeleeTheHunterSchematic"/>
+		</trader_item_group>
+
+		<trader_item_group name="schematicsVehiclesMods">
+			<item name="modVehicleFuelSaverSchematic"/>
+			<item name="modVehicleOffRoadHeadlightsSchematic"/>
+			<item name="modVehicleSuperChargerSchematic"/>
+			<item name="modVehicleExpandedSeatSchematic"/>
+			<item name="modVehicleReserveFuelTankSchematic"/>
+			<item name="modVehiclePlowSchematic"/>
+			<item name="modVehicleArmorSchematic"/>
+		</trader_item_group>
+
+		<trader_item_group name="commonBooks">
+			<item group="perkBooks" prob="120"/>
+			<item group="schematicsModsCommon" prob="70"/>
+			<item group="schematicsVehiclesMods" prob="10"/>
+		</trader_item_group>
+
+		<trader_item_group name="rareBooks">
+			<item name="modRoboticDroneCargoModSchematic"/>
+			<item name="modRoboticDroneMedicModSchematic"/>
+			<item name="modRoboticDroneHeadlampModSchematic"/>
+			<item name="modRoboticDroneArmorPlatingModSchematic"/>
+			<item name="modRoboticDroneMoraleBoosterModSchematic"/>
+		</trader_item_group>
+
+		<trader_item_group name="books">
+			<item group="perkBooks" prob="1"/>
+			<item group="rareBooks" prob="0.3"/>
+			<item group="commonBooks"/>
+		</trader_item_group>
+
+<!-- *** MEDICAL -->
+		<trader_item_group name="rareMedicine">
+			<item name="medicalFirstAidKit"/>
+			<item name="toolBeaker"/>
+			<item name="drugAntibiotics"/>
+			<item name="drugFortBites"/>
+			<item name="drugRecog"/>
+			<item name="drugSteroids"/>
+			<item name="drinkJarGrandpasMoonshine"/>
+			<item name="drinkJarGrandpasAwesomeSauce"/>
+			<item name="drinkJarGrandpasLearningElixir"/>
+		</trader_item_group>
+
+		<trader_item_group name="medicine">
+			<item name="drugPainkillers"/>
+			<item name="medicalFirstAidBandage" count="1,4"/>
+			<item name="medicalBandage"/>
+			<item name="medicalBloodBag" count="2,4"/>
+			<item name="drugVitamins"/>
+			<item name="medicalSplint"/>
+			<item group="rareMedicine"/>
+		</trader_item_group>
+
+<!-- *** FOOD -->
+		<!-- *** SEEDS -->
+		<trader_item_group name="seeds">
+			<item name="plantedPotato1"/>
+			<item name="plantedCoffee1"/>
+			<item name="plantedCorn1"/>
+			<item name="plantedBlueberry1"/>
+			<item name="plantedCotton1"/>
+			<item name="plantedGoldenrod1"/>
+			<item name="plantedAloe1"/>
+			<item name="plantedMushroom1"/>
+			<item name="plantedYucca1"/>
+			<item name="plantedHop1"/>
+			<item name="plantedChrysanthemum1"/>
+			<item name="plantedPumpkin1"/>
+		</trader_item_group>
+
+		<!-- *** CANNED_FOOD -->
+		<trader_item_group name="cannedfood">
+			<item name="foodCanBeef"/>
+			<item name="foodCanCatfood"/>
+			<item name="foodCanChicken"/>
+			<item name="foodCanChili"/>
+			<item name="foodCanDogfood"/>
+			<item name="foodCanSham"/>
+			<item name="foodCanLamb"/>
+			<item name="foodCanMiso"/>
+			<item name="foodCanPasta"/>
+			<item name="foodCanPeas"/>
+			<item name="foodCanSalmon"/>
+			<item name="foodCanSoup"/>
+			<item name="foodCanStock"/>
+			<item name="foodCanTuna"/>
+			<item name="foodCanPears"/>
+		</trader_item_group>
+		
+		<!-- *** CANDY -->
+		<trader_item_group name="foodCandy">
+			<item name="drugAtomJunkies"/>
+			<item name="drugCovertCats"/>
+			<item name="drugEyeKandy"/>
+			<item name="drugHackers"/>
+			<item name="drugHealthBar"/>
+			<item name="drugJailBreakers"/>
+			<item name="drugNerdTats"/>
+			<item name="drugOhShitzDrops"/>
+			<item name="drugRockBusters"/>
+			<item name="drugSkullCrushers"/>
+			<item name="drugSugarButts"/>
+		</trader_item_group>
+
+		<!-- *** RAW_INGREDIENTS -->
+		<trader_item_group name="foodSupplies">
+			<item name="foodEgg" count="2,8"/>
+			<item name="foodRawMeat" count="10,40"/>
+			<item name="foodCropCorn" count="4,20"/>
+			<item name="foodCropPotato" count="4,18"/>
+			<item name="foodCropBlueberries" count="5,20"/>
+			<item name="foodCornMeal" count="5,20"/>
+			<item name="foodCropMushrooms" count="4,8"/>
+			<item name="foodHoney" count="1,2"/>
+		</trader_item_group>
+
+		<!-- *** PREPARED_FOOD -->
+		<trader_item_group name="preparedFood">
+			<item name="foodBlueberryPie" count="1,2"/>
+			<item name="foodMeatStew" count="1,2"/>
+			<item name="foodCornBread" count="1,2"/>
+			<item name="foodCharredMeat" count="1,2"/>
+			<item name="foodGrilledMeat" count="1,2"/>
+			<item name="foodBoiledMeat" count="1,2"/>
+			<item name="foodEggBoiled" count="1,2"/>
+			<item name="foodBakedPotato" count="1,2"/>
+			<item name="foodBaconAndEggs" count="1,2"/>
+			<item name="foodVegetableStew" count="1,2"/>
+			<item name="foodFishTacos" count="1,2"/>
+			<item name="foodHoboStew" count="1,2"/>
+			<item name="foodShamChowder" count="1,2"/>
+			<item name="foodSteakAndPotato" count="1,2"/>
+			<item name="foodChiliDog" count="1,2"/>
+		</trader_item_group>
+
+		<!-- *** PREPARED_DRINKS -->
+		<trader_item_group name="groupDrinks">
+			<item name="drinkJarYuccaJuice" count="1,2"/>
+			<item name="drinkJarBoiledWater" count="1,2"/>
+			<item name="drinkJarGoldenRodTea" count="1,2"/>
+			<item name="drinkJarRedTea" count="1,2"/>
+			<item name="drinkJarCoffee" count="1,2"/>
+			<item name="drinkJarBeer" count="1,2"/>
+			<item name="drinkYuccaJuiceSmoothie" count="1,2"/>
+		</trader_item_group>
+
+		<!-- *** SPECIAL_DRINKS -->
+		<trader_item_group name="groupDrinksSpecial">
+			<item name="drinkJarBlackStrapCoffee" count="1,2"/>
+			<item name="drinkCanMegaCrush" count="1,2"/>
+			<item name="drinkJarGrandpasMoonshine" count="1,2"/>
+			<item name="drinkJarGrandpasLearningElixir" count="1,2"/>
+			<item name="drinkJarGrandpasAwesomeSauce" count="1,2"/>
+		</trader_item_group>
+
+		<!-- *** FOOD_ALL -->
+		<trader_item_group name="groupFoodAll">
+			<item group="cannedfood" count="1"/>
+			<item group="foodSupplies" count="1"/>
+			<item group="preparedFood" count="1"/>
+			<item group="groupDrinks" count="1"/>
+		</trader_item_group>
+		
+		<!-- *** FOOD_VENDING -->
+		<trader_item_group name="foodVending" >
+			<item group="cannedfood"/>
+		</trader_item_group>
+
+		<!-- *** DRINK_VENDING -->
+		<trader_item_group name="drinkVending" >
+			<item group="groupDrinks"/>
+		</trader_item_group>
+
+		<!-- *** DRINK_SPECIAL_VENDING -->
+		<trader_item_group name="drinkSpecialVending" >
+			<item group="groupDrinksSpecial"/>
+		</trader_item_group>
+
+		<!-- *** CONSTRUCTION_SUPPLIES -->
+		<trader_item_group name="constructionSupplies">
+			<item name="resourceCement" count="50,500"/>
+			<item name="resourceCobblestones" count="50,500"/>
+			<item name="resourceConcreteMix" count="100,500"/>
+			<item name="resourceNail" count="10,100"/>
+		</trader_item_group>
+
+		<!-- *** GENERAL_RESOURCES -->
+		<trader_item_group name="generalResources">
+			<item name="resourceWood" count="50,1000"/>
+			<item name="resourceCrushedSand" count="50,500"/>
+			<item name="resourcePotassiumNitratePowder" count="20,60"/>
+			<item name="resourceCoal" count="20,60"/>
+			<item name="resourceScrapLead" count="5,90"/>
+			<item name="resourceScrapBrass" count="30,80"/>
+			<item name="resourceScrapIron" count="25,250"/>
+			<item name="resourceForgedIron" count="5,50"/>
+			<item name="resourceForgedSteel" count="5,50"/>
+			<item name="resourceMetalPipe" count="5,20"/>
+			<item name="resourceOilShale" count="20,60"/>
+			<item name="resourceOil" count="3,10"/>
+			<item name="resourceGlue" count="5,15"/>
+			<item name="resourceDuctTape" count="10,30"/>
+			<item name="resourceCloth" count="5,100"/>
+			<item name="resourceLeather" count="5,25"/>
+			<item name="resourceScrapPolymers" count="30,150"/>
+			<item name="resourceGunPowder" count="3,30"/>
+			<item name="resourceAcid" count="1" prob="0.6"/>
+			<item name="resourceAnimalFat" count="5,40"/>
+			<item name="resourceHeadlight" count="5,20" prob="0.6"/>
+			<item name="resourceSpring" count="5,30"/>
+			<item name="resourceElectricParts" count="15,50" prob="0.7"/>
+			<item name="resourceMechanicalParts" count="15,80" prob="0.8"/>
+			<item name="resourceLockPick" count="1,10"/>
+			<item name="candle" count="5,20"/>
+			<item name="bucketEmpty" prob="0.6"/>
+		</trader_item_group>
+
+		<trader_item_group name="rareTools" count="1">
+			<item name="meleeToolAllSteelParts" count="1,3"/>
+			<item name="meleeToolPickT2SteelPickaxe" quality="1,5"/>
+			<item name="meleeToolShovelT2SteelShovel" quality="1,5"/>
+			<item name="meleeToolPickT3Auger" quality="1,5"/>
+			<item name="meleeToolAxeT2SteelAxe" quality="1,5"/>
+			<item name="meleeToolAxeT3Chainsaw" quality="1,5"/>
+			<item name="meleeToolRepairT3Nailgun"/>
+			<item name="meleeToolSalvageT2Ratchet" quality="1,5"/>
+			<item name="meleeToolSalvageT3ImpactDriver" quality="1,5"/>
+			<item name="meleeWpnSledgeT3SteelSledgehammer" quality="1,5"/>
+			<item name="toolForgeCrucible"/>
+			<item name="smallEngine"/>
+		</trader_item_group>
+
+		<trader_item_group name="tools" count="1">
+			<item name="meleeToolRepairT0StoneAxe" quality="2,5"/>
+			<item name="meleeToolPickT1IronPickaxe" quality="1,5"/>
+			<item name="meleeToolShovelT0StoneShovel" quality="2,5"/>
+			<item name="meleeToolShovelT1IronShovel" quality="1,5"/>
+			<item name="meleeToolAxeT1IronFireaxe" quality="1,5"/>
+			<item name="meleeWpnSledgeT1IronSledgehammer" quality="1,5"/>
+			<item name="meleeToolRepairT1ClawHammer" quality="1,5"/>
+			<item name="meleeToolSalvageT1Wrench" prob="0.8" quality="1,5"/>
+			<item name="resourceRepairKit" count="1,4"/>
+			<item name="toolAnvil" prob="0.2"/>
+			<item name="toolBellows" prob="0.2"/>
+			<item name="resourceForgedIron" count="5,50"/>
+			<item name="resourceForgedSteel" count="5,50"/>
+			<item name="meleeToolPaintTool" prob="0.2"/>
+			<item name="meleeToolWireTool" prob="0.2"/>
+		</trader_item_group>
+
+<!-- *** VEHICLES -->
+		<trader_item_group name="groupVehicles" count="1">
+			<item name="vehicleWheels"/>
+			<item name="smallEngine"/>
+		<!-- *** BICYCLE -->
+			<item name="vehicleBicycleChassis"/>
+			<item name="vehicleBicycleHandlebars"/>
+			<item name="vehicleBicyclePlaceable"/>
+		<!-- *** MINIBIKE -->
+			<item name="vehicleMinibikeChassis"/>
+			<item name="vehicleMinibikeHandlebars"/>
+			<item name="vehicleMinibikePlaceable"/>
+		<!-- *** MOTORCYCLE -->
+			<item name="vehicleMotorcycleChassis"/>
+			<item name="vehicleMotorcycleHandlebars"/>
+			<item name="vehicleMotorcyclePlaceable"/>
+		<!-- *** 4x4 -->
+			<item name="vehicleTruck4x4Chassis"/>
+			<item name="vehicleTruck4x4Accessories"/>
+			<item name="vehicleTruck4x4Placeable"/>
+		<!-- *** GYRO -->
+			<item name="vehicleGyroCopterChassis"/>
+			<item name="vehicleGyroCopterAccessories"/>
+			<item name="vehicleGyrocopterPlaceable"/>
+		</trader_item_group>
+
+<!-- *** BLOCKS -->
+		<!-- *** WORK_SATIONS -->
+		<trader_item_group name="workstations" count="1">
+			<item name="forge"/>
+			<item name="workbench"/>
+			<item name="cementMixer"/>
+			<item name="chemistryStation"/>
+		</trader_item_group>
+
+		<trader_item_group name="decorativeBlinds" count="all">
+			<item name="miniblindTopSheet" count="10,15"/>
+			<item name="miniblindBottomSheet" count="10,15"/>
+		</trader_item_group>
+
+		<!-- *** DECO_BLOCKS -->
+		<trader_item_group name="decorativeBlocks" count="1">
+			<item group="decorativeBlinds"/>
+			<item name="airConditioner" count="2,3"/>
+			<item name="appliancesVariantHelper" count="2,3"/>
+			<item name="cntCashRegister_Player"/>
+			<item name="cntCoolerVariantHelper"/>
+			<item name="cntFileCabinetBlockVariantHelper"/>
+			<item name="sinkKitchen" count="2,4"/>
+			<item name="pictureVariantHelper" count="2,3"/>
+			<item name="cntWaterCoolerFull"/>
+			<item name="pipeLargeBlockVariantHelper" count="20,30"/>
+			<item name="pipeSmallBlockVariantHelper" count="20,30"/>
+			<item name="treeAzalea" count="8,15"/>
+			<item name="barStoolVariantHelper" count="4,8"/>
+			<item name="sinksToiletsBlockVariantHelper" count="4,8"/>
+			<item name="toiletsBlockVariantHelper" count="4,8"/>
+		</trader_item_group>
+
+		<!-- *** LANDMINES -->
+		<trader_item_group name="landMines" count="1">
+			<item name="mineCandyTin" count="1,6"/>
+			<item name="mineHubcap" count="1,5"/>
+			<item name="mineAirFilter" count="1,4"/>
+		</trader_item_group>
+
+<!-- *** ELECTRICAL_SYSTEM -->
+		<trader_item_group name="traderElectrical" count="1">
+		<!-- *** POWER_PRODUCTION -->
+			<item name="resourceElectricParts" count="15,35" prob="0.5"/>
+			<item name="generatorbank" count="1" prob="1"/>
+			<item name="batterybank" count="1" prob="0.7"/>
+			<item name="solarbank" count="1" prob="0.7"/>
+		<!-- *** ACTIVATION -->
+			<item name="switch" count="3,9" prob="1.0"/>
+			<item name="tripwirepost" count="1,5" prob="1.0"/>
+			<item name="pressureplate" count="1,5" prob="1.0"/>
+			<item name="motionsensor" count="1,2" prob="1.0"/>
+		<!-- *** RELAYS -->
+			<item name="electricwirerelay" count="5,15" prob="1.0"/>
+			<item name="electrictimerrelay" count="1,3" prob="1.0"/>
+		<!-- *** LIGHTS_MISC -->
+			<item name="lanternDecorLightBlockVariantHelper" count="1" prob="1.0"/>
+			<item name="lanternOldBlockVariantHelper" count="5" prob="1.0"/>
+			<item name="ceilingLight01_player" count="1,6" prob="1.0"/>
+			<item name="spotlightPlayer" count="1,2" prob="1.0"/>
+			<item name="speaker" count="1,2" prob="1.0"/>
+		<!-- *** TRAPS -->
+			<item name="electricfencepost" count="2,6" prob="1.0"/>
+			<item name="ammoDartIron" count="15,70" prob="1.0"/>
+			<item name="dartTrap" count="1,2" prob="1.0"/>
+			<item name="bladeTrap" count="1,3" prob="0.8"/>
+			<item name="autoTurret" count="1,2" prob="0.5"/>
+			<item name="shotgunTurret" count="1,2" prob="0.7"/>
+		</trader_item_group>
+		
+		<trader_item_group name="traderSolarCells" count="1">
+			<item name="solarCell" quality="1"/>
+			<item name="solarCell" quality="2"/>
+			<item name="solarCell" quality="3"/>
+			<item name="solarCell" quality="4"/>
+			<item name="solarCell" quality="5"/>
+			<item name="solarCell" quality="6"/>
+		</trader_item_group>
+
+<!-- *** TRADER_ALWAYS -->
+		<trader_item_group name="traderAlways" count="all">
+			<item group="groupAllAmmo" count="2,4"/>
+			<item name="resourcePotassiumNitratePowder" count="2,5"/>
+			<item name="resourceGunPowder" count="25,25"/>
+			<item group="ammoSupplies" count="2"/>
+			<item name="ammoGasCan" count="5000,10000"/>
+			<item group="thrownAmmo" count="2"/>
+			<item name="drinkJarBoiledWater" count="2,4"/>
+			<item group="groupFoodAll" count="1,3"/>
+			<item name="drinkJarGrandpasForgettingElixir" count="1"/>
+			<item name="cntVendingMachine" count="1"/>
+			<item group="groupDyeMods" count="5"/>
+			<item name="medicalBandage" count="3,5"/>
+			<item name="medicalSplint" count="3,5"/>
+		</trader_item_group>
+
+<!-- *** TRADER_GENERAL -->
+		<trader_item_group name="traderGeneral" count="1">
+			<item group="groupAllAmmo" count="2,4" prob="2"/>
+			<item name="resourcePaint" count="1,12"/>
+			<item group="weaponsGunParts" count="1" prob=".4"/>
+			<item name="armorParts" count="3,5"/>
+			<item name="resourceSewingKit" count="3,5"/>
+			<item name="meleeToolFlashlight02"/>
+			<item group="books" count="2,3" prob="1"/>
+			<item group="ammoSupplies" count="1,3"/>
+			<item group="seeds" count="1,4"/>
+			<item group="cannedfood" count="1,2"/>
+			<item group="foodSupplies" count="2,5"/>
+			<item group="preparedFood" count="1,2"/>
+			<item group="groupDrinks" count="1"/>
+			<item group="landMines" count="1" prob="0.5"/>
+			<item group="constructionSupplies" count="1,3" prob="0.8"/>
+			<item group="rareTools" count="1"/>
+			<item group="rareMedicine" count="1" prob="0.3"/>
+			<item group="medicine" count="1,2" prob="1"/>
+			<item name="drugAntibiotics" count="1,3" prob="0.5"/>
+			<item group="workstations" count="1"/>
+			<item group="groupVehicles" count="1,2"/>
+		</trader_item_group>
+
+<!-- Test group used to verify trader resets -->
+		<trader_item_group name="traderTest" count="1">
+			<item name="TEST_ITEM_00" count="5"/>
+			<item name="TEST_ITEM_01" count="5"/>
+			<item name="TEST_ITEM_02" count="5"/>
+			<item name="TEST_ITEM_03" count="5"/>
+			<item name="TEST_ITEM_04" count="5"/>
+			<item name="TEST_ITEM_05" count="5"/>
+			<item name="TEST_ITEM_06" count="5"/>
+			<item name="TEST_ITEM_07" count="5"/>
+			<item name="TEST_ITEM_08" count="5"/>
+			<item name="TEST_ITEM_09" count="5"/>
+		</trader_item_group>
+
+	</trader_item_groups>
+
+<!-- XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX -->
+
+<!-- *** TRADER JOEL ID:1 SPECIALTY: CLOTHES AND ARMOR -->
+	<trader_info id="1" reset_interval="3" open_time="4:05" close_time="21:50">
+		
+		<!-- *** SPECIALTY -->
+		<trader_items count="all">
+			<item group="groupArmorMods" unique_only="true" count="4,6"/>
+			<item group="groupArmorLight" unique_only="true" count="8"/>
+			<item group="groupArmorMedium" unique_only="true" count="8"/>
+			<item group="groupArmorHeavy" unique_only="true" count="8"/>
+			<item name="armorParts" count="3,5"/>
+			<item name="resourceSewingKit" count="3,5"/>
+			<item group="skillMagazines" unique_only="true" count="7"/>
+			<item group="books" unique_only="true" count="3,4"/>
+			<item group="tools" unique_only="true" count="10"/>
+			<item name="toolDewGatherer" count="1,3"/>
+			<item name="toolDewTarp" count="1,3"/>
+			<item name="toolDewFilter" count="1,3"/>
+			<item name="toolCookingPot" count="1,3"/>
+			<item name="toolCookingGrill" count="1,3"/>
+			<item group="groupDyeMods" count="5"/>
+		</trader_items>
+		
+		<!-- *** GENERAL -->
+		<trader_items count="all">
+			<item group="traderAlways"/>
+			<item group="traderGeneral" count="4,8"/>
+			<item group="groupModsAll" count="7,10"/>
+			<item group="generalResources" count="5,8"/>
+			<item group="tools" unique_only="true" count="10"/>
+			<item group="rareTools" unique_only="true" count="2,3"/>
+			<item group="groupMeleeAll" count="5,7"/>
+			<item group="groupRangedAll" count="5,7"/>
+			<item group="weaponsGunParts" count="2,4"/>
+			<item group="traderElectrical" unique_only="true" count="5,10"/>
+			<item group="traderSolarCells" count="2,4"/>
+			<item group="constructionSupplies" count="2,4"/>
+			<item group="decorativeBlocks" unique_only="true" count="6,10"/>
+		</trader_items>
+	</trader_info>
+	
+<!-- *** TRADER BOB ID:6 SPECIALTY: TOOLS AND VEHICLES -->
+	<trader_info id="6" reset_interval="3" open_time="4:05" close_time="21:50">
+		<!-- *** SPECIALTY -->
+		<trader_items count="all">
+			<item group="groupVehicles" unique_only="true" count="2"/>
+			<item group="groupMeleeMods" unique_only="true" count="1,2"/>
+			<item group="tools" unique_only="true" count="10"/>
+			<item group="rareTools" unique_only="true" count="2,3"/>
+			<item group="traderElectrical" unique_only="true" count="8,15"/>
+			<item group="traderSolarCells" count="2,4"/>
+			<item group="skillMagazines" unique_only="true" count="7"/>
+			<item group="books" unique_only="true" count="3,4"/>
+			<item name="toolDewGatherer" count="1,3"/>
+			<item name="toolDewTarp" count="1,3"/>
+			<item name="toolDewFilter" count="1,3"/>
+			<item name="toolCookingPot" count="1,3"/>
+			<item name="toolCookingGrill" count="1,3"/>
+		</trader_items>
+		
+		<!-- *** GENERAL -->
+		<trader_items count="all">
+			<item group="traderAlways"/>
+			<item group="traderGeneral" count="4,10"/>
+			<item group="groupModsAll" count="7,10"/>
+			<item group="tools" unique_only="true" count="10"/>
+			<item group="generalResources" count="5,8"/>
+			<item group="traderElectrical" unique_only="true" count="2,5"/>
+			<item group="traderSolarCells" count="2,4"/>
+			<item group="groupMeleeAll" count="5,7"/>
+			<item group="groupRangedAll" count="5,7"/>
+			<item group="weaponsGunParts" count="2,4"/>
+			<item name="armorParts" count="1,2"/>
+			<item name="resourceSewingKit" count="1,2"/>
+			<item group="groupArmorLight" unique_only="true" count="6"/>
+			<item group="groupArmorMedium" unique_only="true" count="6"/>
+			<item group="groupArmorHeavy" unique_only="true" count="6"/>
+			<item group="constructionSupplies" count="2,4"/>
+			<item group="decorativeBlocks" unique_only="true" count="6,10"/>
+		</trader_items>
+	</trader_info>
+
+<!-- *** TRADER JEN ID:2 SPECIALTY: MEDICAL AND BOOKS -->
+	<trader_info id="2" reset_interval="3" open_time="4:05" close_time="21:50">
+		<!-- *** SPECIALTY -->
+		<trader_items count="all">
+			<item name="resourceCropAloeLeaf" count="2,5"/>
+			<item name="medicalAloeCream" count="2,5"/>
+			<item group="medicine"  unique_only="true" count="4,6"/>
+			<item group="rareMedicine" count="2,4"/>
+			<item group="skillMagazines" unique_only="true" count="7"/>
+			<item group="commonBooks" unique_only="true" count="2,3"/>
+			<item group="rareBooks" count="1,2"/>
+			<item group="perkBooks" count="1,2"/>
+			<item group="tools" unique_only="true" count="10"/>
+			<item name="toolDewGatherer" count="1,3"/>
+			<item name="toolDewTarp" count="1,3"/>
+			<item name="toolDewFilter" count="1,3"/>
+			<item name="toolCookingPot" count="1,3"/>
+			<item name="toolCookingGrill" count="1,3"/>
+		</trader_items>
+		
+		<!-- *** GENERAL -->
+		<trader_items count="all">
+			<item group="traderAlways"/>
+			<item group="traderGeneral" count="4,8"/>
+			<item group="generalResources" count="5,8"/>
+			<item group="groupModsAll" count="7,10"/>
+			<item group="tools" unique_only="true" count="10"/>
+			<item group="rareTools" unique_only="true" count="2,3"/>
+			<item group="groupMeleeAll" count="5,7"/>
+			<item group="groupRangedAll" count="5,7"/>
+			<item group="weaponsGunParts" count="2,4"/>
+			<item name="armorParts" count="1,2"/>
+			<item name="resourceSewingKit" count="1,2"/>
+			<item group="traderElectrical" unique_only="true" count="5,10"/>
+			<item group="traderSolarCells" count="2,4"/>
+			<item group="groupArmorLight" unique_only="true" count="6"/>
+			<item group="groupArmorMedium" unique_only="true" count="6"/>
+			<item group="groupArmorHeavy" unique_only="true" count="6"/>
+			<item group="constructionSupplies" count="2,4"/>
+			<item group="decorativeBlocks" unique_only="true" count="6,10"/>
+		</trader_items>
+	</trader_info>
+
+<!-- *** TRADER HUGH ID:7 SPECIALTY: GUNS & AMMO -->
+	<trader_info id="7" reset_interval="3" open_time="4:05" close_time="21:50">
+		
+		<!-- *** SPECIALTY -->
+		<trader_items count="all">
+			<item group="groupAllAmmo" unique_only="true" count="2,4"/>
+			<item group="ammoSupplies" count="2,3"/>
+			<item group="groupRangedAll" unique_only="true" count="5,7"/>
+			<item group="groupMeleeAll" unique_only="true" count="5,7"/>
+			<item group="weaponsGunParts" unique_only="true" count="2,4"/>
+			<item group="groupRangedMods" count="1,2"/>
+			<item group="tools" unique_only="true" count="10"/>
+			<item group="skillMagazines" unique_only="true" count="7"/>
+			<item group="books" unique_only="true" count="3,4"/>
+			<item name="toolDewGatherer" count="1,3"/>
+			<item name="toolDewTarp" count="1,3"/>
+			<item name="toolDewFilter" count="1,3"/>
+			<item name="toolCookingPot" count="1,3"/>
+			<item name="toolCookingGrill" count="1,3"/>
+		</trader_items>
+		
+		<!-- *** GENERAL -->
+		<trader_items count="all">
+			<item group="traderAlways"/>
+			<item group="traderGeneral" count="4,8"/>
+			<item group="generalResources" count="5,8"/>
+			<item group="groupModsAll" count="7,10"/>
+			<item group="groupMeleeAll" count="5,7"/>
+			<item group="groupRangedAll" count="5,7"/>
+			<item group="weaponsGunParts" count="2,4"/>
+			<item name="armorParts" count="1,2"/>
+			<item name="resourceSewingKit" count="1,2"/>
+			<item group="tools" unique_only="true" count="10"/>
+			<item group="rareTools" unique_only="true" count="2,3"/>
+			<item group="traderElectrical" unique_only="true" count="5,10"/>
+			<item group="traderSolarCells" count="2,4"/>
+			<item group="groupArmorLight" unique_only="true" count="6"/>
+			<item group="groupArmorMedium" unique_only="true" count="6"/>
+			<item group="groupArmorHeavy" unique_only="true" count="6"/>
+			<item group="constructionSupplies" count="2,4"/>
+			<item group="decorativeBlocks" unique_only="true" count="6,10"/>
+		</trader_items>
+	</trader_info>
+
+<!-- *** TRADER REKT ID:8 SPECIALTY: FOOD & FARMING -->
+	<trader_info id="8" reset_interval="3" open_time="4:05" close_time="21:50">
+		<!-- *** SPECIALTY -->
+		<trader_items count="all">
+			<item group="seeds" unique_only="true" count="2,5" />
+			<item group="cannedfood" count="3,6"/>
+			<item group="foodSupplies" count="2,5"/>
+			<item group="groupFoodAll" count="1,3"/>
+			<item group="tools" unique_only="true" count="10"/>
+			<item group="skillMagazines" unique_only="true" count="7"/>
+			<item group="books" unique_only="true" count="3,4"/>
+			<item name="toolDewGatherer" count="1,3"/>
+			<item name="toolDewTarp" count="1,3"/>
+			<item name="toolDewFilter" count="1,3"/>
+			<item name="toolCookingPot" count="1,3"/>
+			<item name="toolCookingGrill" count="1,3"/>
+		</trader_items>
+		
+		<!-- *** GENERAL -->
+		<trader_items count="all">
+			<item group="traderAlways"/>
+			<item group="traderGeneral" count="4,8"/>
+			<item group="generalResources" count="5,8"/>
+			<item group="groupModsAll" count="7,10"/>
+			<item group="tools" count="10"/>
+			<item group="rareTools" count="2,3"/>
+			<item group="groupMeleeAll" count="5,7"/>
+			<item group="groupRangedAll" count="5,7"/>
+			<item group="weaponsGunParts" count="2,4"/>
+			<item name="armorParts" count="1,2"/>
+			<item name="resourceSewingKit" count="1,2"/>
+			<item group="traderElectrical" unique_only="true" count="5,10"/>
+			<item group="traderSolarCells" count="2,4"/>
+			<item group="groupArmorLight" unique_only="true" count="6"/>
+			<item group="groupArmorMedium" unique_only="true" count="6"/>
+			<item group="groupArmorHeavy" unique_only="true" count="6"/>
+			<item group="constructionSupplies" count="2,4"/>
+			<item group="decorativeBlocks" unique_only="true" count="6,10"/>
+		</trader_items>
+	</trader_info>
+
+<!-- *** PLAYER OWNED VENDING MACHINES ID:3-->
+	<trader_info id="3" reset_interval="-1" override_buy_markup="1.0" override_sell_markup="1.0" allow_sell="false" player_owned="true"/>
+
+<!-- *** POI DRINK VENDING MACHINES ID:4 -->
+	<trader_info id="4" reset_interval="1" override_buy_markup="3" allow_sell="false" >
+		<trader_items>
+			<item group="drinkVending" count="4,8"/>
+			<item group="drinkSpecialVending" count="4,8"/>
+		</trader_items>
+	</trader_info>
+
+<!-- *** POI FOOD/CANDY VENDING MACHINES ID:10 -->
+	<trader_info id="10" reset_interval="1" override_buy_markup="3" allow_sell="false" >
+		<trader_items>
+			<item group="foodVending" count="4,8"/>
+			<item group="foodCandy" count="4,8"/>
+		</trader_items>
+	</trader_info>
+
+<!-- *** RENTED VENDING MACHINES ID:5 -->
+	<trader_info id="5" reset_interval="-1" override_buy_markup="1.0" override_sell_markup="1.0" allow_sell="false" rentable="true" rent_cost="2500" rent_time="30"/>
+
+
+<!-- *** PLAY_TEST_TRADER ID:9 -->
+	<trader_info id="9" reset_interval="3" open_time="4:05" close_time="21:50">
+	
+	<!-- Copy of trader Joel, but can be used for testing other item lists in a play test session -->
+	
+		<!-- *** SPECIALTY -->
+		<trader_items count="all">
+			<item group="groupArmorLight" unique_only="true" count="6"/>
+			<item group="groupArmorMedium" unique_only="true" count="6"/>
+			<item group="groupArmorHeavy" unique_only="true" count="6"/>
+			<item group="groupModsAll" count="7,10"/>
+			<item group="skillMagazines" unique_only="true" count="7"/>
+			<item group="books" unique_only="true" count="3,4"/>
+			<item name="toolDewGatherer" count="1,3"/>
+			<item name="toolDewTarp" count="1,3"/>
+			<item name="toolDewFilter" count="1,3"/>
+			<item name="toolCookingPot" count="1,3"/>
+			<item name="toolCookingGrill" count="1,3"/>
+		</trader_items>
+
+		<trader_items count="all">
+			<item group="traderAlways"/>
+			<item group="traderGeneral" count="4,8"/>
+			<item group="generalResources" count="5,8"/>
+			<item group="groupModsAll" count="7,10"/>
+			<item group="tools" unique_only="true" count="7"/>
+			<item group="groupMeleeAll" count="5,7"/>
+			<item group="groupRangedAll" count="5,7"/>
+			<item group="weaponsGunParts" count="2,4"/>
+			<item name="armorParts" count="1,2"/>
+			<item name="resourceSewingKit" count="1,2"/>
+			<item group="traderElectrical" unique_only="true" count="5,10"/>
+			<item group="traderSolarCells" count="2,4"/>
+			<item group="groupArmorLight" unique_only="true" count="6"/>
+			<item group="groupArmorMedium" unique_only="true" count="6"/>
+			<item group="groupArmorHeavy" unique_only="true" count="6"/>
+			<item group="constructionSupplies" count="2,4"/>
+			<item group="decorativeBlocks" unique_only="true" count="6,10"/>
+		</trader_items>
+	</trader_info>
+</traders>

@@ -1,0 +1,164 @@
+<controls>
+	<pager depth="3" pos="0,0" width="100" height="32"
+			show_max_page="false" separator="/" primary_pager="true" contents_parent="">
+		<rect name="${name}" depth="${depth}" pos="${pos}" disableautobackground="true" controller="Paging" visible="{paging_visible}" show_max_page="${show_max_page}" separator="${separator}" primary_pager="${primary_pager}" contents_parent="${contents_parent}"> <!-- default size: 100x32 -->
+			<button depth="4" name="pageDown" style="icon30px, press" width="${height-2}" height="${height-2}" pos="${Round(height/2, 0)},${Round(-height/2, 0)}" enabled="{# int(pagenumber) &gt; 1}" sprite="ui_game_symbol_arrow_left" disabledcolor="[lightGrey]" pivot="center" sound="[paging_click]" use_selection_box="false" />
+			<rect depth="4" pos="${height},${Round(-height/2, 0)}">
+				<sprite name="background" style="icon30px" width="${width-2*height}" height="${height-2}" pivot="left" color="[black]" type="sliced" />
+				<label depth="5" text="{#showmaxpage ? pagenumber + separator + maxpagenumber : pagenumber}" width="${width-2*height}" height="${height-2}" font_size="${height-4}" pivot="left" justify="center" />
+			</rect>
+			<button depth="4" name="pageUp"   style="icon30px, press" width="${height-2}" height="${height-2}" pos="${Round(width - height/2, 0)},${Round(-height/2, 0)}" enabled="{# int(pagenumber) &lt; int(maxpagenumber)}" sprite="ui_game_symbol_arrow_right" disabledcolor="[lightGrey]" pivot="center" sound="[paging_click]" use_selection_box="false"/>
+		</rect>
+	</pager>
+
+	<slider>
+		<rect depth="1" controller="Slider" height="24">
+			<label depth="1" pos="0, -6"  width="128" height="24" text="{name}"/>
+			<rect pos="34,-1">
+				<sprite name="bar" controller="SliderBar" depth="1" pos="100, -5" color="[mediumGrey]" width="200" height="20" type="sliced" style="press, scroll" />
+				<sprite depth="2" pos="100, -5" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" width="200" height="20" foregroundlayer="true"/>		
+				<sprite name="thumb" controller="SliderThumb" depth="2" pos="200, -15" color="[lightGrey]" width="16" height="30" style="press, hover, drag, scroll" pivot="center">
+					<sprite depth="2" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" width="16" height="30" pivot="center"/>
+				</sprite>
+				<label depth="1" pos="312, -6" width="40" height="24" text="{value}" justify="center"/>
+			</rect>
+		</rect>
+	</slider>
+
+	<togglebutton depth="3" pos="0,0" width="200" height="32"
+			enabled_font_color="[labelColor]" disabled_font_color="[disabledLabelColor]" visible="true" tooltip_key="" caption="" caption_key="" font_size="28" parse_actions="false">
+		<rect name="${name}" depth="${depth}" pos="${pos}" width="${width}" height="${height}" enabled_font_color="${enabled_font_color}" disabled_font_color="${disabled_font_color}" controller="ToggleButton" visible="${visible}">
+			<button name="clickable" sprite="menu_empty" defaultcolor="[mediumGrey]" disabledcolor="[darkGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0" tooltip_key="${tooltip_key}" />
+			<sprite depth="1" name="border" sprite="menu_empty2px" color="[black]" type="sliced" fillcenter="false" />	
+			<sprite depth="2" name="tickbox" width="${height-6}" height="${height-6}" pos="7,-4" color="[darkGrey]" sprite="Highlight - Shadowed" type="sliced" />
+			<sprite depth="3" name="tickmark" width="${height-12}" height="${height-12}" pos="10,-7" color="[iconColor]" sprite="ui_game_symbol_check" visible="{value}" />
+			<label depth="2" name="btnLabel" width="${width-height-8}" height="${height-2}" pos="${6+height},${Round(-height/2,0)}" justify="left" text="${caption}" text_key="${caption_key}" effect="outline" pivot="left" font_size="${font_size}" parse_actions="${parse_actions}" />
+		</rect>
+	</togglebutton>
+
+	<simplebutton depth="3" pos="0,0" width="200" height="32"
+			enabled_font_color="[labelColor]" disabled_font_color="[disabledLabelColor]" visible="true" enabled="true" bordersprite="menu_empty2px" bordercolor="[black]" pivot="left"
+			defaultsprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" selectedsprite="ui_game_select_row" selectedcolor="[mediumGrey]"
+			foregroundlayer="true" tooltip_key="" disabled_tooltip_key="" sound="[default_click]" justify="center" caption="" caption_key="" font_size="28" upper_case="false" parse_actions="false" >
+		<rect name="${name}" depth="${depth}" pos="${pos}" width="${width}" height="${height}" enabled_font_color="${enabled_font_color}" disabled_font_color="${disabled_font_color}" controller="SimpleButton" visible="${visible}" button_enabled="${enabled}">
+			<sprite depth="1" name="border" sprite="${bordersprite}" pos="0,${Round(-height/2,0)}" color="${bordercolor}" type="sliced" fillcenter="false" foregroundlayer="true" pivot="${pivot}" />	
+			<button name="clickable" pos="0,${Round(-height/2,0)}" sprite="${defaultsprite}" defaultcolor="${defaultcolor}" disabledcolor="[darkGrey]" hoversprite="${hoversprite}" hovercolor="${hovercolor}" selectedsprite="${selectedsprite}" selectedcolor="${selectedcolor}" foregroundlayer="${foregroundlayer}" type="sliced" hoverscale="1.0" pivot="${pivot}" tooltip_key="${tooltip_key}" disabled_tooltip_key="${disabled_tooltip_key}" sound_play_on_hover="[default_hover]" sound="${sound}" /> 
+			<label depth="2" name="btnLabel" width="${width}" height="${height-2}" pos="0,${Round(-height/2,0)}" justify="${justify}" text="${caption}" text_key="${caption_key}" effect="outline" pivot="${pivot}" font_size="${font_size}" upper_case="${upper_case}" parse_actions="${parse_actions}" />
+		</rect>
+	</simplebutton>
+
+	<textfield depth="3" pos="0,0" width="200" height="32"
+			value="" active_text_color="[labelColor]" caret_color="[labelColor]" selection_color="[mediumGrey_half_alpha]" 
+			character_limit="0" validation="none" backgroundcolor="[black]" on_hover="false" on_scroll="false" virtual_keyboard_prompt=""
+			pivot="topleft" visible="true" on_return="submit" tooltip_key="" search_field="false" password_field="false" clear_button="false" focus_on_open="false" clear_on_open="false" close_group_on_tab="false" open_vk_on_open="false"
+			foregroundlayer="false" justify="center" overflow="ShrinkContent" max_line_count="0" font_face="ReferenceFont" crispness="Never">
+		<panel name="${name}" depth="${depth}" controller="TextInput" pos="${pos}" width="${password_field? width-height-10 : width}" height="${height}" value="${value}"
+			active_text_color="${active_text_color}" caret_color="${caret_color}" selection_color="${selection_color}" 
+			character_limit="${character_limit}" validation="${validation}" backgroundcolor="${backgroundcolor}" style="press, select" on_hover="${on_hover}" on_scroll="${on_scroll}" snapCursor="true" virtual_keyboard_prompt="${virtual_keyboard_prompt}"
+			disableautobackground="true" pivot="${pivot}" visible="${visible}" on_return="${on_return}" tooltip_key="${tooltip_key}"
+			search_field="${search_field}" password_field="${password_field}" clear_button="${clear_button}" focus_on_open="${focus_on_open}" clear_on_open="${clear_on_open}" close_group_on_tab="${close_group_on_tab}" open_vk_on_open="${open_vk_on_open}">
+			<sprite depth="0" name="background" color="${backgroundcolor}" type="sliced" pivot="${pivot}" foregroundlayer="${foregroundlayer}" width="${password_field ? width-height-10 : width}"/>
+			<label depth="1" name="text" justify="${justify}" font_size="${Defined(font_size) ? font_size : height}" pivot="${pivot}" overflow="${overflow}" max_line_count="${max_line_count}" font_face="${font_face}" crispness="${crispness}" width="${width - (password_field ? 10+height : 0) - (clear_button ? 6+min(height,36) : 0)}"/>
+			<button name="btnShowPassword" pos="${Round(width-height/2-5,0)},-${Round(height/2,0)}" width="${height-2}" height="${height-2}" sprite="ui_game_symbol_stealth" defaultcolor="180,180,180" hovercolor="[white]" selectedcolor="[selectedColor]" foregroundlayer="true" type="simple" hoverscale="1.1" pivot="center" tooltip_key="xuiShowPassword" selected="{showpassword}" visible="{passwordfield}" />
+			<button name="btnClearInput" pos="${password_field ? width-height-Round(min(height,36)/2,0)-12 : width-Round(min(height,36)/2,0)-3},-${Round(height/2,0)}" width="${4+min(height,36)}" height="${min(height,36)-4}" pivot="center" sprite="ui_game_symbol_clear_textfield" hoverscale="1.1" tooltip_key="xuiClearTextInput" visible="{clearbutton}" />
+		</panel>
+	</textfield>
+
+	<combobox depth="3" pos="0,0" width="200" height="30"
+			value_min="@DEF" value_max="@DEF" value_wrap="@DEF" value_increment="@DEF" scroll_by_increment="false" values="@DEF" reverse_list="@DEF" localization_prefix="" localization_key_caseinsensitive="false" format_string=""
+			enabled_color="[white]" disabled_color="[lightGrey]" bg_color="[black]" enabled_fill_color="[white]" disabled_fill_color="[lightGrey]" visible="true" segmented_fill="false" segment_height="15" segment_count="10" segment_spacing="10"
+			tooltip_key="" foregroundlayer="false" index_markers="false" gamepad_selectable="true" gamepad_decrease="" gamepad_increase="" gamepad_callout_size_increase="0" >
+
+		<rect name="${name}" controller="${type}" depth="${depth}" pos="${pos}" width="${width}" height="${height}"
+				value_min="${value_min}" value_max="${value_max}" value_wrap="${value_wrap}" value_increment="${value_increment}" scroll_by_increment="${scroll_by_increment}" values="${values}" reverse_list="${reverse_list}" localization_prefix="${localization_prefix}" localization_key_caseinsensitive="${localization_key_caseinsensitive}" format_string="${format_string}"
+				enabled_color="${enabled_color}" disabled_color="${disabled_color}" bg_color="${bg_color}" enabled_fill_color="${enabled_fill_color}" disabled_fill_color="${disabled_fill_color}" visible="${visible}" segmented_fill="${segmented_fill}" segment_spacing="${segment_spacing}"
+				pivot="left" index_markers="${index_markers}" gamepad_decrease="${gamepad_decrease}" gamepad_increase="${gamepad_increase}" >
+
+			<button name="back"        depth="${1+depth}" style="icon30px, press, hover" pos="${height/2},${-height/2}" width="${height}" height="${height}" pivot="center" sprite="ui_game_symbol_arrow_menu" disabledcolor="[disabledColor]" sound="[paging_click]" tooltip_key="${tooltip_key}" gamepad_selectable="false" enabled="{can_backward}" visible="{# !hascontrollershortcuts or !is_controller_input}" />
+			<gamepad_icon name="gamepadIconBack" depth="${1+depth}" pos="${height/2-gamepad_callout_size_increase/2},${-height/2}" width="${0+height+gamepad_callout_size_increase}" height="${0+height+gamepad_callout_size_increase}" pivot="center" visible="{# hascontrollershortcuts and is_controller_input}" color="{# can_backward ? '255,255,255' : '160,160,160'}" action="${gamepad_decrease}" />
+
+			<rect name="regularFill" pos="${2+height},0" width="${width-height*2-4}" height="${height}" force_hide="${ segmented_fill }">
+				<sprite name="background"  depth="${1+depth}" pivot="topleft" color="{bgcolor}" type="sliced" foregroundlayer="${foregroundlayer}" />
+				<filledsprite name="fill"  depth="${2+depth}" pivot="topleft" color="{fillcolor}" fill="{fillvalue}" filldirection="horizontal" visible="{isnumber}" foregroundlayer="true" />
+			</rect>
+			<rect name="segmentedFill" pos="${2+height},${-height/2+Round(segment_height/2,0)}" width="${width-height*2-4}" height="${segment_height}" force_hide="${ !segmented_fill }" repeat_content="true" repeat_count="${segmented_fill ? segment_count : 1}">
+				<rect pos="${repeat_i * 25},0">
+					<sprite name="bg"  depth="${1+depth}" width="20" pivot="topleft" color="{bgcolor}" type="sliced" foregroundlayer="${foregroundlayer}" />
+					<filledsprite name="fillSegment"  depth="${2+depth}" width="20" pivot="topleft" color="{fillcolor}" fill="{# segment_fill_${repeat_i}}" filldirection="horizontal" visible="{isnumber}" foregroundlayer="true" />
+				</rect>
+			</rect>
+
+			<label name="currentValue" depth="${3+depth}" pos="${2+height},${-height/2}" width="${width-height*2-4}" height="${height-2}" pivot="left" text="{valuetext}" font_size="${Defined(font_size) ? font_size : height-4}" justify="center" color="{valuecolor}" effect="outline" effect_color="[black]" effect_distance="1,1" />
+
+			<button name="forward"     depth="${1+depth}" style="icon30px, press, hover" pos="${width-height/2},${-height/2}" width="${height}" height="${height}" pivot="center" sprite="ui_game_symbol_arrow_menu" disabledcolor="[disabledColor]" sound="[paging_click]" tooltip_key="${tooltip_key}" flip="Horizontally" gamepad_selectable="false" enabled="{can_forward}" visible="{# !hascontrollershortcuts or !is_controller_input}" />
+			<gamepad_icon name="gamepadIconForward" depth="${1+depth}" pos="${width-height/2+gamepad_callout_size_increase/2},${-height/2}" width="${0+height+gamepad_callout_size_increase}" height="${0+height+gamepad_callout_size_increase}" pivot="center" visible="{# hascontrollershortcuts and is_controller_input}" color="{# can_forward ? '255,255,255' : '160,160,160'}" action="${gamepad_increase}" />
+
+			<panel name="directvalue" style="press, scroll, hover, drag" pos="${2+height},0" width="${width-height*2-4}" height="${height}" pivot="topleft" disableautobackground="true" tooltip_key="${tooltip_key}" gamepad_selectable="${gamepad_selectable}"/>
+			
+			<rect name="indexMarkers"  pos="${2+height},${-height+5}" width="${width-height*2-4}" height="5" visible="{usesmarkers}" active_color="[white]" inactive_color="[darkGrey]" repeat_content="true" repeat_count="${index_markers ? 20 : 1}">
+				<sprite depth="${2+depth}" width="20" pivot="topleft" color="[white]" type="sliced" foregroundlayer="true" />
+			</rect>
+		</rect>
+	</combobox>
+
+	<dropdown_entry>
+		<rect height="${height}" width="${width}" style="press, hover, scroll" sound="[recipe_click]" controller="DropDown+Entry">
+			<sprite depth="2" name="background" color="[darkGrey]" type="sliced" />
+			<label depth="4" name="Name" pos="0,${Round(-height/2,0)}" text="{name}" font_size="${height}" color="{textcolor}" justify="left" pivot="left" />
+		</rect>
+	</dropdown_entry>
+
+	<dropdownbox name="dropdownbox" depth="3" pos="0,0" width="200" height="32"
+			dropdown_size="10" dropdown_lineheight="26" dropdown_textcolor="[white]" dropdown_hovercolor="[tan]" sortentries="true" clearonopen="false"
+			backgroundcolor="[black]"
+			>
+		<rect name="${name}" depth="${depth}" pos="${pos}" width="${width}" height="${height}" controller="DropDown"
+				createuiwidget="true"
+				thumbareasize="${dropdown_size*dropdown_lineheight-64}" dropdown_textcolor="${dropdown_textcolor}" dropdown_hovercolor="${dropdown_hovercolor}"
+				sortentries="${sortentries}" clearonopen="${clearonopen}">
+
+			<rect depth="4" name="inputBox">
+				<sprite depth="1" name="background" color="${backgroundcolor}" type="sliced" globalopacity="false" />
+
+				<textfield name="input" depth="2" pos="0,${-height/2}" width="${width-height}" height="${height}" pivot="Left" backgroundcolor="${backgroundcolor}" />
+				<button depth="2" name="btnDropdown" style="icon30px" pos="${width-height/2},${-height/2}" width="${height-2}" height="${height-2}" sprite="ui_game_symbol_drop" flip="{flip_dropdownbutton}" pivot="center" />
+			</rect>
+			
+			<panel depth="8" name="dropdown" createuipanel="true" disableautobackground="true" on_scroll="true" pos="0,${Defined(dropdown_above) and dropdown_above ? ( dropdown_size*dropdown_lineheight+4 ) : -height}" width="${width}" height="${dropdown_size*dropdown_lineheight+4}" visible="{dropdown_open}">
+				<sprite depth="4" name="border" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" />
+				<sprite depth="0" name="backgroundMain" sprite="menu_empty3px" color="[darkGrey]" type="sliced" fillcenter="true" />
+
+				<grid name="list" depth="2" rows="${dropdown_size}" cols="1" pos="4,-2" height="${dropdown_size*dropdown_lineheight}" cell_width="${width-8-30}" cell_height="${dropdown_lineheight}" repeat_content="true" arrangement="vertical" >
+					<dropdown_entry width="${width-8-30}" height="${dropdown_lineheight}" />
+				</grid>
+
+				<panel name="scrollbar" pos="${width-30-2},0" width="30" height="${dropdown_size*dropdown_lineheight+4}" disableautobackground="true">
+					<button depth="4" name="pageDown" style="icon30px, press" pos="14,-17" sprite="ui_game_symbol_arrow_left" pivot="center" sound="[paging_click]" rotation="-90" />
+					<rect name="thumbArea" pos="1,-32" width="26" height="${dropdown_size*dropdown_lineheight-64}">
+						<sprite depth="8" name="thumb" sprite="menu_empty3px" color="[lightGrey]" type="sliced" fillcenter="true" height="{thumb_size}" pos="0,-{thumb_position}" pivot="topleft" globalopacity="false" update_position="true" />
+					</rect>
+					<button depth="4" name="pageUp" style="icon30px, press" pos="14,${-dropdown_size*dropdown_lineheight-4+17}" sprite="ui_game_symbol_arrow_right" pivot="center" sound="[paging_click]" rotation="-90" />
+				</panel>
+			</panel>
+		</rect>
+	</dropdownbox>
+
+	<color_picker>
+		<rect controller="ColorPicker">
+			<sprite depth="2" name="selectedColor" pos="212,0" style="icon30px" type="sliced"/>
+			<texture depth="2" name="svPicker" pos="6,0" width="200" height="200" on_drag="true" on_press="true">
+				<sprite depth="2" name="selectedColorSVPointer" pos="0,0" style="icon30px" width="21" height="21" type="sliced" pivot="center" sprite="ui_game_symbol_map_cursor"/>
+			</texture>
+			<texture depth="2" name="hPicker" pos="212,-33" width="30" height="167" on_drag="true" on_press="true" gamepad_selectable="false"/>
+		</rect>
+	</color_picker>
+
+	<popup_menu_item use_selection_box="false">
+		<rect height="43" style="press, hover" disabled_font_color="148,148,148,255" controller="PopupMenuItem" sound="[craft_click]" sound_play_on_hover="[default_hover]">
+			<sprite name="background" depth="0" type="sliced" color="64,64,64,255" />
+			<sprite depth="10" style="icon32px" pos="8,-3" sprite="{menuicon}" color="{statuscolor}" />
+			<label name="lblText" depth="10" pos="50,-8" height="28" text="{menutext}" font_size="22" color="{statuscolor}" justify="left" />
+		</rect>
+	</popup_menu_item>
+
+</controls>
