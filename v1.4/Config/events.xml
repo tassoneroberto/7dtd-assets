@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Supported attributes:
+- name
+	Required, name of the event used in other places
+- base_date
+	Used as base for start_offset and end_offset. Has to be in the format "MM/dd" (two digits month, slash, two digits day) or one of the supported holiday names.
+- start_offset
+	Relative to base_date, 0 being the base_date itself. Given in days. Can be negative.
+- end_offset
+	Relative to base_date, 0 being the base_date itself. Given in days. Can be negative.
+- start_date
+	Has to be in the format "MM/dd" (two digits month, slash, two digits day).
+- end_date
+	Has to be in the format "MM/dd" (two digits month, slash, two digits day).
+- duration
+	Amount of days this event lasts. Must be at least 1.
+
+
+Supported holiday names:
+- easter (Easter sunday)
+- advent (First sunday of advent)
+- thanksgiving
+
+
+Events always need a start and end date.
+
+The start can be defined either by giving an exact date (start_date) or by specifying a base_date and optionally giving a start_offset. The start is inclusive.
+Examples:
+	- start_date="01/01"
+		Start at new year
+	- base_date="easter" start_offset="-2"
+		Start at good friday (friday before easter sunday)
+
+The end can be defined again either by giving an exact date (end_date), specifying a base_date and a required end_offset or by defining the length of the event in days (duration). The resulting end date must be at least one day after the start - the event will always last from 00:00 on start until 00:00 of end.
+Examples (extending from start examples):
+	- end_date="01/02"
+		Last until the end of new year
+	- base_date="easter" end_offset="2"
+		Last until the end of easter monday
+	- duration="4"
+		Last 4 days, in the easter example this would be the same as the above example
+
+
+-->
+<events>
+	<event name="easter" base_date="easter" start_offset="-2" end_offset="2" /> <!-- easter friday through easter monday -->
+	<event name="christmas" start_date="12/25" end_date="01/02" /> <!-- 1st Christmas day through new year -->
+	<event name="halloween" start_date="10/31" duration="7" /> <!-- One week -->
+	<event name="thanksgiving" base_date="thanksgiving" start_offset="-4" duration="8" /> <!-- week of thanksgiving from sunday before through sunday after -->
+	<!-- <event name="testtoday" start_date="01/28" duration="1" /> -->
+</events>

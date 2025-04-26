@@ -1,0 +1,996 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Table_of_Contents -->
+<!-- Search_Find_All_for *** -->
+
+<challenges default_reward="challenge_reward_default" default_reward_text_key="challenge_reward_100xp">
+
+	<challenge_category name="Basics" title_key="xuiBasics" icon="ui_game_symbol_challenge_category1"/>
+	<challenge_category name="Advanced" title_key="xuiGameSettingsAdvanced" icon="ui_game_symbol_challenge_category2"/>
+	<challenge_category name="Twitch" title_key="TwitchInfo_Header" icon="ui_game_symbol_challenge_category_twitch" show_type="twitch"/>
+
+	<!-- *** CHALLENGE_REWARDS_PAGE_01 -->
+	<challenge_group category="Basics" name="Basics" title_key="challengeGroupBasics"
+	reward_text_key="challengeRewardBonusTraderQuest" reward_event="challenge_group_reward_basics" link_challenges="true"/>
+
+	<challenge_group category="Basics" name="Homesteading" title_key="challengeGroupHomesteading"
+	reward_text_key="challengeRewardBonusHomesteadingReward" reward_event="challenge_group_reward_homesteading" link_challenges="true" hidden_by="Basics"/>
+
+	<challenge_group category="Basics" name="AdvancedSurvival" title_key="challengeGroupAdvancedSurvival"
+	reward_text_key="challengeRewardBonusSurvivalReward" reward_event="challenge_group_reward_advanced_survival" link_challenges="true" hidden_by="Basics"/>
+
+	<challenge_group category="Basics" name="Workstations" title_key="challengeGroupCrafting"
+	reward_text_key="challengeRewardBonusCraftingReward" reward_event="challenge_group_reward_crafting" hidden_by="Basics"/>
+
+	<challenge_group category="Basics" name="Traders" title_key="challengeGroupTradersQuests"
+	reward_text_key="challengeRewardBonusTradersReward" reward_event="challenge_group_reward_trader_quests" hidden_by="Basics"/>
+
+	<challenge_group category="Basics" name="Harvesting" title_key="challengeGroupHarvesting"
+	reward_text_key="challengeRewardBonusHarvestingReward" reward_event="challenge_group_reward_harvesting" hidden_by="Basics"/>
+
+	<!-- *** CHALLENGE_REWARDS_PAGE_02 -->
+	<challenge_group category="Advanced" name="Gatherer" title_key="challengeGroupGatherer"
+	reward_text_key="challengeRewardBonusGathererReward" reward_event="challenge_group_reward_gatherer" hidden_by="Basics"/>
+
+	<challenge_group category="Advanced" name="Farmer" title_key="challengeGroupFarmer"
+	reward_text_key="challengeRewardBonusFarmerReward" reward_event="challenge_group_reward_farmer" hidden_by="Basics"/>
+
+	<challenge_group category="Advanced" name="Healer" title_key="challengeGroupHealer"
+	reward_text_key="challengeRewardBonusHealerReward" reward_event="challenge_group_reward_healer" hidden_by="Basics"/>
+
+	<challenge_group category="Advanced" name="Survivor" title_key="challengeGroupSurvivor"
+	reward_text_key="challengeRewardBonusSurvivorReward" reward_event="challenge_group_reward_survivor" hidden_by="Basics"/>
+
+	<challenge_group category="Advanced" name="Hunter" title_key="challengeGroupHunter"
+	reward_text_key="challengeRewardBonusHunterReward" reward_event="challenge_group_reward_hunter" hidden_by="Basics"/>
+
+	<challenge_group category="Advanced" name="Zombies" title_key="challengeGroupZombieSlayer"
+	reward_text_key="challengeRewardBonusSlayerReward" reward_event="challenge_group_reward_zombie_slayer" hidden_by="Basics"/>
+
+	<!-- *** CHALLENGE_REWARDS_PAGE_03 -->
+	<challenge_group category="Twitch" name="LearnTwitch" title_key="challengeGroupLearnTwitch" reward_text_key="challengeRewardBonusPimpPoints" link_challenges="true">
+		<effect_group>
+			<passive_effect name="TwitchViewerPointRate" operation="base_add" value="2"/>
+		</effect_group>
+	</challenge_group>
+	<challenge_group category="Twitch" name="Twitch" title_key="challengeGroupTwitchSurvivor" reward_text_key="challengeRewardBonusPimpPot">
+		<effect_group>
+			<passive_effect name="TwitchAddPimpPot" operation="perc_add" value=".5"/>
+		</effect_group>
+	</challenge_group>
+	
+	<challenge_group category="Twitch" name="Silly" title_key="challengeGroupTwitchSilly" reward_text_key="Coming Soon" />
+
+	<!-- <challenge_group category="Twitch" name="Daily" title="Daily" reward_text="" is_random="true" day_reset="1"> -->
+		<!-- <challenge_count tags="kills" count="5"/> -->
+		<!-- <challenge_count tags="craft" count="5"/> -->
+	<!-- </challenge_group> -->
+
+	<!-- *** Basics -->
+	<challenge name="redeemChallenge" title_key="challengeRedeemChallenge" icon="ui_game_symbol_challenge_basics_tutorial_challenge" group="Basics"
+		prerequisite_hint="challengeRedeemChallengeHint1" hint="challengeRedeemChallengeHint2"
+		short_description_key="challengeRedeemChallengeShort" description_key="challengeRedeemChallengeDesc" redeem_always="true">
+		<objective type="ChallengeComplete" challenge="redeemChallenge" count="1" is_redeemed="true"/>
+	</challenge>
+
+	<challenge name="gatherResources" title_key="challengeGatherResources" icon="ui_game_symbol_challenge_basics_gather_resources" group="Basics" hint="challengeGatherResourcesHint1"
+		short_description_key="challengeGatherResourcesShort" description_key="challengeGatherResourcesDesc">
+		<objective type="Gather" item="resourceYuccaFibers" count="10"/>
+		<objective type="Gather" item="resourceWood" count="10"/>
+		<objective type="Gather" item="resourceRockSmall" count="5"/>
+	</challenge>
+
+	<challenge name="craftStoneAxe" title_key="challengeCraftStoneAxe" icon="ui_game_symbol_challenge_basics_craft_tools" group="Basics"
+		hint="challengeCraftStoneAxeHint1"
+		short_description_key="challengeCraftStoneAxeShort" description_key="challengeCraftStoneAxeDesc">
+		<objective type="Craft" item="meleeToolRepairT0StoneAxe"/>
+	</challenge>
+
+	<challenge name="gatherResourcesStoneAxe" title_key="challengeGatherResourcesStoneAxe" icon="ui_game_symbol_challenge_basics_stone_axe_harvest" group="Basics"
+		prerequisite_hint="challengeGatherResourcesStoneAxeHint1" hint="challengeGatherResourcesStoneAxeHint2"
+		short_description_key="challengeGatherResourcesStoneAxeShort" description_key="challengeGatherResourcesStoneAxeDesc">
+		<objective type="Harvest" held="meleeToolRepairT0StoneAxe" required_held="true" item="resourceWood" count="10" override_tracker_index="quest_wood_trees" track_distance="20"/>
+		<objective type="Harvest" held="meleeToolRepairT0StoneAxe" required_held="true" item="resourceRockSmall" count="5" override_tracker_index="quest_stone_boulder" track_distance="40"/>
+	</challenge>
+
+	<challenge name="craftClothes" title_key="challengeCraftClothes" icon="ui_game_symbol_challenge_basics_craft_clothing" group="Basics"
+		hint="challengeCraftClothesHint1"
+		short_description_key="challengeCraftClothesShort" description_key="challengeCraftClothesDesc">
+		<objective type="Craft" item="armorPrimitiveOutfit"/>
+	</challenge>
+
+	<challenge name="wearClothes" title_key="challengeWearClothes" icon="ui_game_symbol_challenge_basics_wear_clothing" group="Basics"
+		hint="challengeWearClothesHint1"
+		short_description_key="challengeWearClothesShort" description_key="challengeWearClothesDesc">
+		<objective type="Wear" item="armorPrimitiveOutfit"/>
+	</challenge>
+
+	<challenge name="craftWoodClub" title_key="challengeCraftWoodClub" icon="ui_game_symbol_challenge_basics_craft_club" group="Basics"
+		hint="challengeCraftWoodClubHint1"
+		short_description_key="challengeCraftWoodClubShort" description_key="challengeCraftWoodClubDesc">
+		<objective type="Craft" item="meleeWpnClubT0WoodenClub"/>
+	</challenge>
+
+	<challenge name="craftBow" title_key="challengeCraftBow" icon="ui_game_symbol_challenge_basics_craft_bow" group="Basics"
+		hint="challengeCraftBowHint1"
+		short_description_key="challengeCraftBowShort" description_key="challengeCraftBowDesc">
+		<objective type="Craft" item="gunBowT0PrimitiveBow"/>
+	</challenge>
+
+	<challenge name="craftArrows" title_key="challengeCraftArrows" icon="ui_game_symbol_challenge_basics_craft_arrows" group="Basics"
+		hint="challengeCraftArrowsHint1"
+		short_description_key="challengeCraftArrowsShort" description_key="challengeCraftArrowsDesc">
+		<objective type="Craft" item="ammoArrowStone" count="1"/>
+	</challenge>
+
+	<challenge name="groupCompleteChallenge" title_key="challengeGroupComplete" icon="ui_game_symbol_challenge_basics_redeem_rewards" group="Basics"
+		prerequisite_hint="challengeGroupCompleteHint1" hint="challengeGroupCompleteHint2"
+		short_description_key="challengeGroupCompleteShort" description_key="challengeGroupCompleteDesc" redeem_always="false">
+		<objective type="ChallengeComplete" challenge="Basics" is_redeemed="true" is_group="true"/>
+	</challenge>
+
+	<!-- *** Homesteading -->
+	<challenge name="craftLandclaim" title_key="challengeCraftLandclaim" icon="ui_game_symbol_challenge_homesteading_place_land_claim" group="Homesteading"
+	short_description_key="challengeCraftLandclaimShort" description_key="challengeCraftLandclaimDesc">
+		<objective type="BlockPlace" block="keystoneBlock" count="1"/>
+	</challenge>
+
+	<challenge name="craftBedroll" title_key="challengeCraftBedroll" icon="ui_game_symbol_challenge_homesteading_place_bedroll" group="Homesteading"
+	prerequisite_hint="challengeCraftBedrollHint1" hint="challengeCraftBedrollHint2"
+	short_description_key="challengeCraftBedrollShort" description_key="challengeCraftBedrollDesc">
+		<objective type="BlockPlace" block="bedrollBlockVariantHelper" count="1"/>
+	</challenge>
+
+	<challenge name="craftFrameHelpers" title_key="challengeCraftBuildingBlocks" icon="ui_game_symbol_challenge_homesteading_craft_building_block" group="Homesteading"
+	hint="challengeCraftBuildingBlocksHint1"
+	short_description_key="challengeCraftBuildingBlocksShort" description_key="challengeCraftBuildingBlocksDesc">
+		<objective type="Craft" item="frameShapes:VariantHelper" count="1"/>
+	</challenge>
+
+	<challenge name="placeFrameHelpers" title_key="challengePlaceBuildingBlocks" icon="ui_game_symbol_challenge_homesteading_place_building_block" group="Homesteading"
+	prerequisite_hint="challengePlaceBuildingBlocksHint1" hint="challengePlaceBuildingBlocksHint2"
+	short_description_key="challengePlaceBuildingBlocksShort" description_key="challengePlaceBuildingBlocksDesc">
+		<objective type="BlockPlace" block="frameShapes:VariantHelper" count="1"/>
+	</challenge>
+
+	<challenge name="upgradeFrameHelpers" title_key="challengeUpgradeBlocks" icon="ui_game_symbol_challenge_homesteading_upgrade_block" group="Homesteading"
+	prerequisite_hint="challengeUpgradeBlocksHint1" hint="challengeUpgradeBlocksHint2"
+	short_description_key="challengeUpgradeBlocksShort" description_key="challengeUpgradeBlocksDesc">
+		<objective type="BlockUpgrade" block="frameShapes:VariantHelper" count="1" held="meleeToolRepairT0StoneAxe" needed_resource="resourceWood" needed_resource_count="8"/>
+	</challenge>
+
+	<challenge name="placeDoor" title_key="challengePlaceDoor" icon="ui_game_symbol_challenge_homesteading_place_door" group="Homesteading"
+	short_description_key="challengePlaceDoorShort" description_key="challengePlaceDoorDesc">
+		<objective type="BlockPlace" block="oldWoodDoor" count="1"/>
+	</challenge>
+
+	<challenge name="placeStorageContainer" title_key="challengePlaceStorageContainer" icon="ui_game_symbol_challenge_homesteading_place_storage" group="Homesteading"
+	short_description_key="challengePlaceStorageContainerShort" description_key="challengePlaceStorageContainerDesc">
+		<objective type="BlockPlace" block="cntWoodWritableCrate" count="1"/>
+	</challenge>
+
+	<challenge name="placeTorch" title_key="challengePlaceTorch" icon="ui_game_symbol_challenge_homesteading_place_torch" group="Homesteading"
+	short_description_key="challengePlaceTorchShort" description_key="challengePlaceTorchDesc">
+		<objective type="BlockPlace" alternate_item="meleeToolTorch" block="wallTorchLightPlayer" count="1"/>
+	</challenge>
+
+	<challenge name="placeSpikeTraps" title_key="challengePlaceSpikeTrap" icon="ui_game_symbol_challenge_homesteading_place_spikes" group="Homesteading"
+	short_description_key="challengePlaceSpikeTrapShort" description_key="challengePlaceSpikeTrapDesc">
+		<objective type="BlockPlace" block="trapSpikesWoodDmg0" count="1"/>
+	</challenge>
+
+	<challenge name="upgradeToCobblestone" title_key="challengeUpgradeToCobblestone" icon="ui_game_symbol_challenge_homesteading_upgrade_cobble" group="Homesteading"
+	short_description_key="challengeUpgradeToCobblestoneShort" description_key="challengeUpgradeToCobblestoneDesc">
+		<objective type="BlockUpgrade" block="woodShapes:VariantHelper" count="1" held="meleeToolRepairT0StoneAxe"
+			needed_resource="resourceCobblestones" needed_resource_count="10"/>
+	</challenge>
+
+	<!-- *** Advanced -->
+	<challenge name="spendSkillPoint" title_key="challengeSpendSkillPoint" icon="ui_game_symbol_skills" group="AdvancedSurvival"
+	short_description_key="challengeSpendSkillPointShort" description_key="challengeSpendSkillPointDesc" 
+	reward_text_key="challenge_reward_500xp" reward_event="challenge_reward_500">
+		<objective type="SpendSkillPoint" count="1"/>
+	</challenge>
+
+	<challenge name="huntAnimals" title_key="challengeHuntAnimals"  icon="ui_game_symbol_challenge_adv_survival_kill_animals" group="AdvancedSurvival"
+	short_description_key="challengeHuntAnimalsShort" description_key="challengeHuntAnimalsDesc"
+	reward_text_key="challenge_reward_500xp" reward_event="challenge_reward_500">
+		<objective type="KillByTag" entity_tags="animal" target_name_key="xuiAnimals" count="2"/>
+	</challenge>
+
+	<challenge name="harvestAnimals" title_key="challengeHarvestAnimals"  icon="ui_game_symbol_challenge_adv_survival_harvest_meat" group="AdvancedSurvival"
+	short_description_key="challengeHarvestAnimalsShort" description_key="challengeHarvestAnimalsDesc"
+	reward_text_key="challenge_reward_500xp" reward_event="challenge_reward_500">
+		<objective type="Harvest" held="meleeWpnBladeT0BoneKnife" required_held="true" item="foodRawMeat" is_block="false" count="10"/>
+	</challenge>
+
+	<challenge name="placeCampfire" title_key="challengePlaceCampfire" icon="ui_game_symbol_challenge_adv_survival_place_campfire" group="AdvancedSurvival"
+	prerequisite_hint="challengePlaceCampfireHint1" hint="challengePlaceCampfireHint2"
+	short_description_key="challengePlaceCampfireShort" description_key="challengePlaceCampfireDesc"
+	reward_text_key="challenge_reward_500xp" reward_event="challenge_reward_500">
+		<objective type="BlockPlace" block="campfire" count="1"/>
+	</challenge>
+
+	<challenge name="craftCharredMeat" title_key="challengeCraftCharredMeat" icon="ui_game_symbol_campfire" group="AdvancedSurvival"
+		short_description_key="challengeCraftCharredMeatShort" description_key="challengeCraftCharredMeatDesc"
+		reward_text_key="challenge_reward_500xp" reward_event="challenge_reward_500">
+		<objective type="Craft" item="foodCharredMeat" count="2"/>
+	</challenge>
+
+	<challenge name="eatCharredMeat" title_key="challengeEatCharredMeat" icon="ui_game_symbol_fork" group="AdvancedSurvival"
+		short_description_key="challengeEatCharredMeatShort" description_key="challengeEatCharredMeatDesc"
+		reward_text_key="challenge_reward_500xp" reward_event="challenge_reward_500">
+		<objective type="UseItem" item="foodCharredMeat" count="2"/>
+	</challenge>
+
+	<challenge name="drinkWaterSource" title_key="challengeDrinkWaterSource" icon="ui_game_symbol_thirst" group="AdvancedSurvival"
+		short_description_key="challengeDrinkWaterSourceShort" description_key="challengeDrinkWaterSourceDesc"
+		reward_text_key="challenge_reward_500xp" reward_event="challenge_reward_500">
+		<objective type="ChallengeStatAwarded" challenge_stat="drinkwater" count="1" stat_text_key="challengeStatDrinkWaterFromLake"/>
+	</challenge>
+
+	<challenge name="placeDewCollector" title_key="challengePlaceDewCollector" icon="ui_game_symbol_water" group="AdvancedSurvival"
+	short_description_key="challengePlaceDewCollectorShort" description_key="challengePlaceDewCollectorDesc"
+	reward_text_key="challenge_reward_500xp" reward_event="challenge_reward_500">
+		<objective type="BlockPlace" block="cntDewCollector" count="1"/>
+	</challenge>
+
+	<challenge name="killZombies" title_key="challengeKillZombies" icon="ui_game_symbol_challenge_adv_survival_kill_zombies" group="AdvancedSurvival"
+	short_description_key="challengeKillZombiesShort" description_key="challengeKillZombiesDesc"
+	reward_text_key="challenge_reward_500xp" reward_event="challenge_reward_500">
+		<objective type="KillByTag" entity_tags="zombie" target_name_key="xuiZombies" count="5"/>
+	</challenge>
+
+	<!-- <challenge name="questStarterClear" title_key="challengeCompleteClearQuest" icon="ui_game_symbol_quest" group="AdvancedSurvival" > -->
+		<!-- <objective type="QuestComplete" quest_tag="clear" count="1"/> -->
+	<!-- </challenge> -->
+
+	<challenge name="craftFarmPlot" title_key="challengeCraftFarmPlot" icon="ui_game_symbol_crops" group="AdvancedSurvival"
+	hint="challengeCraftFarmPlotHint1" short_description_key="challengeCraftFarmPlotShort" description_key="challengeCraftFarmPlotDesc"
+	reward_text_key="challenge_reward_500xp" reward_event="challenge_reward_500">
+		<objective type="BlockPlace" block="farmPlotBlockVariantHelper" count="1"/>
+	</challenge>
+
+
+	<!-- *** Workstations -->
+	<challenge name="readMagazines" title_key="challengeReadMagazines" icon="ui_game_symbol_challenge_crafting_read_magazine" group="Workstations"
+	hint="challengeReadMagazinesHint1"
+	short_description_key="challengeReadMagazinesShort" description_key="challengeReadMagazinesDesc"
+	reward_text_key="challenge_reward_500xp" reward_event="challenge_reward_500">
+		<objective type="UseItem" item_tags="csm" override_text_key="xuiMagazine" count="1"/>
+	</challenge>
+
+	<challenge name="scrapItems" title_key="challengeScrapItems" icon="ui_game_symbol_scrap" group="Workstations"
+	short_description_key="challengeScrapItemsShort" description_key="challengeScrapItemsDesc"
+	reward_text_key="challenge_reward_500xp" reward_event="challenge_reward_500">
+		<objective type="Scrap" count="5"/>
+	</challenge>
+
+	<challenge name="placeForge" title_key="challengePlaceForge" icon="ui_game_symbol_forge" group="Workstations"
+	short_description_key="challengePlaceForgeShort" description_key="challengePlaceForgeDesc"
+	reward_text_key="challenge_reward_1000xp" reward_event="challenge_reward_1000">
+		<objective type="BlockPlace" block="forge" count="1"/>
+	</challenge>
+
+	<challenge name="craftForgedIron" title_key="challengeCraftForgedIron" icon="ui_game_symbol_hammer" group="Workstations"
+		short_description_key="challengeCraftForgedIronShort" description_key="challengeCraftForgedIronDesc"
+		reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
+		<objective type="Craft" item="resourceForgedIron" count="100" show_requirements="false"/>
+	</challenge>
+
+	<challenge name="placeWorkbench" title_key="challengePlaceWorkbench" icon="ui_game_symbol_workbench" group="Workstations"
+		short_description_key="challengePlaceWorkbenchShort" description_key="challengePlaceWorkbenchDesc"
+		reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
+		<objective type="BlockPlace" block="workbench" count="1"/>
+	</challenge>
+
+	<challenge name="craftPipeBomb" title_key="challengeCraftPipeBomb" icon="ui_game_symbol_hammer" group="Workstations"
+		short_description_key="challengeCraftPipeBombShort" description_key="challengeCraftPipeBombDesc"
+		reward_text_key="challenge_reward_2500xp" reward_event="challenge_reward_2500">
+		<objective type="Craft" item="thrownAmmoPipeBomb" count="20"/>
+	</challenge>
+
+	<challenge name="placeCementMixer" title_key="challengePlaceCementMixer" icon="ui_game_symbol_cement" group="Workstations"
+		short_description_key="challengePlaceCementMixerShort" description_key="challengePlaceCementMixerDesc"
+		reward_text_key="challenge_reward_2500xp" reward_event="challenge_reward_2500">
+		<objective type="BlockPlace" block="cementMixer" count="1"/>
+	</challenge>
+
+	<challenge name="craftConcreteMix" title_key="challengeCraftConcreteMix" icon="ui_game_symbol_hammer" group="Workstations"
+		short_description_key="challengeCraftConcreteMixShort" description_key="challengeCraftConcreteMixDesc"
+		reward_text_key="challenge_reward_2500xp" reward_event="challenge_reward_2500">
+		<objective type="Craft" item="resourceConcreteMix" count="100"/>
+	</challenge>
+
+	<challenge name="placeChemistryStation" title_key="challengePlaceChemistryStation" icon="ui_game_symbol_chemistry" group="Workstations"
+		short_description_key="challengePlaceChemistryStationShort" description_key="challengePlaceChemistryStationDesc"
+		reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+		<objective type="BlockPlace" block="chemistryStation" count="1"/>
+	</challenge>
+
+	<challenge name="craftGasCan" title_key="challengeCraftGasCan" icon="ui_game_symbol_hammer" group="Workstations"
+		short_description_key="challengeCraftGasCanShort" description_key="challengeCraftGasCanDesc"
+		reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+		<objective type="Craft" item="ammoGasCan" count="100"/>
+	</challenge>
+
+	<!-- *** Traders / Quests -->
+	<challenge name="meetRekt" title_key="challengeMeetRekt" icon="ui_game_symbol_map_trader" group="Traders"
+		short_description_key="challengeMeetRektShort" description_key="challengeMeetRektDesc"
+		reward_text_key="challenge_reward_500xp" reward_event="challenge_reward_500">
+		<objective type="MeetTrader" trader_name="npcTraderRekt"/>
+	</challenge>
+
+	<challenge name="meetJen" title_key="challengeMeetJen" icon="ui_game_symbol_map_trader" group="Traders"
+		short_description_key="challengeMeetJenShort" description_key="challengeMeetJenDesc"
+		reward_text_key="challenge_reward_1000xp" reward_event="challenge_reward_1000">
+		<objective type="MeetTrader" trader_name="npcTraderJen"/>
+	</challenge>
+
+	<challenge name="meetBob" title_key="challengeMeetBob" icon="ui_game_symbol_map_trader" group="Traders"
+		short_description_key="challengeMeetBobShort" description_key="challengeMeetBobDesc"
+		reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
+		<objective type="MeetTrader" trader_name="npcTraderBob"/>
+	</challenge>
+
+	<challenge name="meetHugh" title_key="challengeMeetHugh" icon="ui_game_symbol_map_trader" group="Traders"
+		short_description_key="challengeMeetHughShort" description_key="challengeMeetHughDesc"
+		reward_text_key="challenge_reward_2500xp" reward_event="challenge_reward_2500">
+		<objective type="MeetTrader" trader_name="npcTraderHugh"/>
+	</challenge>
+
+	<challenge name="meetJoel" title_key="challengeMeetJoel" icon="ui_game_symbol_map_trader" group="Traders"
+		short_description_key="challengeMeetJoelShort" description_key="challengeMeetJoelDesc"
+		reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+		<objective type="MeetTrader" trader_name="npcTraderJoel"/>
+	</challenge>
+
+	<challenge name="purchaseItems" title_key="challengePurchaseItemsJoel" icon="ui_game_symbol_barter" group="Traders"
+		short_description_key="challengePurchaseItemsJoelShort" description_key="challengePurchaseItemsJoelDesc"
+		reward_text_key="challenge_reward_1000xp" reward_event="challenge_reward_1000">
+		<objective type="Trader" is_buy="true" count="5"/>
+	</challenge>
+
+	<challenge name="sellItems" title_key="challengeSellItemsJoel" icon="ui_game_symbol_barter" group="Traders"
+		short_description_key="challengeSellItemsJoelShort" description_key="challengeSellItemsJoelDesc"
+		reward_text_key="challenge_reward_1000xp" reward_event="challenge_reward_1000">
+		<objective type="Trader" is_buy="false" count="5"/>
+	</challenge>
+
+	<challenge name="questComplete" title_key="challengeQuestComplete" icon="ui_game_symbol_quest" group="Traders"
+		short_description_key="challengeQuestCompleteShort" description_key="challengeQuestCompleteDesc"
+		reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
+		<objective type="QuestComplete" count="2"/>
+	</challenge>
+
+	<challenge name="questTierComplete" title_key="challengeQuestTierComplete" icon="ui_game_symbol_quest" group="Traders"
+		short_description_key="challengeQuestTierCompleteShort" description_key="challengeQuestTierCompleteDesc"
+		reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+		<objective type="QuestComplete" quest_tag="tiercomplete" quest_text_key="challengeTargetTierCompleteQuest" count="1"/>
+	</challenge>
+
+	<challenge name="questTraderToTraderComplete" title_key="challengeQuestTraderToTraderComplete" icon="ui_game_symbol_quest" group="Traders"
+		short_description_key="challengeQuestTraderToTraderCompleteShort" description_key="challengeQuestTraderToTraderCompleteDesc"
+		reward_text_key="challenge_reward_1000xp" reward_event="challenge_reward_1000">
+		<objective type="QuestComplete" quest_tag="nexttrader" quest_text_key="quest_next_trader" count="1"/>
+	</challenge>
+
+	<!-- *** Harvesting -->
+	<challenge name="harvestHoney" title_key="challengeHarvestHoney" icon="ui_game_symbol_challenge_harvesting_honey" group="Harvesting"
+		short_description_key="challengeHarvestHoneyShort" description_key="challengeHarvestHoneyDesc"
+		reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
+		<objective type="Harvest" item="foodHoney" count="5" block_tag="challenge_stump" override_tracker_index="challenge_stump" track_distance="50"/>
+	</challenge>
+
+	<challenge name="harvestCobblestone" title_key="challengeHarvestCobblestone" icon="ui_game_symbol_challenge_harvesting_cobblestone" group="Harvesting"
+		short_description_key="challengeHarvestCobblestoneShort" description_key="challengeHarvestCobblestoneDesc"
+		reward_text_key="challenge_reward_500xp" reward_event="challenge_reward_500">
+		<objective type="Harvest" item="resourceCobblestones" count="10" block_tag="challenge_pallet" override_tracker_index="challenge_pallet" track_distance="50"/>
+	</challenge>
+
+	<challenge name="harvestPipes" title_key="challengeHarvestPipes" icon="ui_game_symbol_challenge_harvesting_pipes" group="Harvesting"
+		short_description_key="challengeHarvestPipesShort" description_key="challengeHarvestPipesDesc"
+		reward_text_key="challenge_reward_500xp" reward_event="challenge_reward_500">
+		<objective type="Harvest" item="resourceMetalPipe" count="10" block_tag="challenge_sinks" override_tracker_index="challenge_sinks" track_distance="15"/>
+	</challenge>
+
+	<challenge name="harvestPolymers" title_key="challengeHarvestPolymers" icon="ui_game_symbol_challenge_harvesting_polymers" group="Harvesting"
+		short_description_key="challengeHarvestPolymersShort" description_key="challengeHarvestPolymersDesc"
+		reward_text_key="challenge_reward_500xp" reward_event="challenge_reward_500">
+		<objective type="Harvest" item="resourceScrapPolymers" count="50" block_tag="challenge_polymers" override_tracker_index="challenge_polymers" track_distance="15"/>
+	</challenge>
+
+	<challenge name="harvestLeather" title_key="challengeHarvestLeather" icon="ui_game_symbol_challenge_harvesting_leather" group="Harvesting"
+		short_description_key="challengeHarvestLeatherShort" description_key="challengeHarvestLeatherDesc"
+		reward_text_key="challenge_reward_1000xp" reward_event="challenge_reward_1000">
+		<objective type="Harvest" item="resourceLeather" count="10" block_tag="challenge_leather" override_tracker_index="challenge_leather" track_distance="50"/>
+	</challenge>
+
+	<challenge name="harvestRottingFlesh" title_key="challengeHarvestRottingFlesh" icon="ui_game_symbol_challenge_harvesting_rotting_meat" group="Harvesting"
+		short_description_key="challengeHarvestRottingFleshShort" description_key="challengeHarvestRottingFleshDesc"
+		reward_text_key="challenge_reward_500xp" reward_event="challenge_reward_500">
+		<objective type="Harvest" item="foodRottingFlesh" count="10" block_tag="challenge_gore" override_tracker_index="challenge_gore" track_distance="50"/>
+	</challenge>
+
+	<challenge name="harvestCarParts" title_key="challengeHarvestCarParts" icon="ui_game_symbol_challenge_harvesting_wrench_cars" group="Harvesting"
+		short_description_key="challengeHarvestCarPartsShort" description_key="challengeHarvestCarPartsDesc"
+		reward_text_key="challenge_reward_2500xp" reward_event="challenge_reward_2500">
+		<objective type="Harvest" item="smallEngine" count="3" block_tag="challenge_cars" override_tracker_index="challenge_cars" track_distance="50"/>
+		<objective type="Harvest" item="carBattery" count="3" block_tag="challenge_cars" override_tracker_index="challenge_cars" track_distance="50"/>
+		<objective type="Harvest" item="resourceRadiator" count="4" block_tag="challenge_cars" override_tracker_index="challenge_cars" track_distance="50"/>
+	</challenge>
+
+	<challenge name="harvestMechanicalParts" title_key="challengeHarvestMechanicalParts" icon="ui_game_symbol_challenge_harvesting_mechanical_parts" group="Harvesting"
+		short_description_key="challengeHarvestMechanicalPartsShort" description_key="challengeHarvestMechanicalPartsDesc"
+		reward_text_key="challenge_reward_2500xp" reward_event="challenge_reward_2500">
+		<objective type="Harvest" item="resourceMechanicalParts" count="10" block_tag="challenge_mech_parts" override_tracker_index="challenge_mech_parts" track_distance="50"/>
+	</challenge>
+
+	<challenge name="harvestForgedSteel" title_key="challengeHarvestForgedSteel" icon="ui_game_symbol_challenge_harvesting_wrench_vending_machine" group="Harvesting"
+		short_description_key="challengeHarvestForgedSteelShort" description_key="challengeHarvestForgedSteelDesc"
+		reward_text_key="challenge_reward_2500xp" reward_event="challenge_reward_2500">
+		<objective type="Harvest" item="resourceForgedSteel" count="10" block_tag="challenge_steel" override_tracker_index="challenge_steel" track_distance="50"/>
+	</challenge>
+
+	<challenge name="harvestElectricParts" title_key="challengeHarvestElectricParts" icon="ui_game_symbol_challenge_harvesting_electrical_parts" group="Harvesting"
+		short_description_key="challengeHarvestElectricPartsShort" description_key="challengeHarvestElectricPartsDesc"
+		reward_text_key="challenge_reward_2500xp" reward_event="challenge_reward_2500">
+		<objective type="Harvest" item="resourceElectricParts" count="10" block_tag="challenge_elec_parts" override_tracker_index="POILight" track_distance="15"/>
+	</challenge>
+
+	<!-- *** Gatherer -->
+	<challenge name="gathererWood" title_key="challengeGathererWood" icon="ui_game_symbol_wood" group="Gatherer"
+		short_description_key="challengeGathererWoodShort" description_key="challengeGathererWoodDesc"
+		reward_text_key="challenge_reward_1000xp" reward_event="challenge_reward_1000">
+		<objective type="Harvest" item="resourceWood" count="2000"/>
+	</challenge>
+
+	<challenge name="gathererClay" title_key="challengeGathererClay" icon="ui_game_symbol_mining" group="Gatherer"
+		short_description_key="challengeGathererClayShort" description_key="challengeGathererClayDesc"
+		reward_text_key="challenge_reward_1000xp" reward_event="challenge_reward_1000">
+		<objective type="Harvest" item="resourceClayLump" count="1000"/>
+	</challenge>
+
+	<challenge name="gathererSand" title_key="challengeGathererSand" icon="ui_game_symbol_mining" group="Gatherer"
+		short_description_key="challengeGathererSandShort" description_key="challengeGathererSandDesc"
+		reward_text_key="challenge_reward_1000xp" reward_event="challenge_reward_1000">
+		<objective type="Harvest" item="resourceCrushedSand" count="1000"/>
+	</challenge>
+
+	<challenge name="gathererStone" title_key="challengeGathererStone" icon="ui_game_symbol_mining" group="Gatherer"
+	short_description_key="challengeGathererStoneShort" description_key="challengeGathererStoneDesc"
+	reward_text_key="challenge_reward_1000xp" reward_event="challenge_reward_1000">
+		<objective type="Harvest" item="resourceRockSmall" count="2000" disable_tracking="true"/>
+	</challenge>
+
+	<challenge name="gathererIron" title_key="challengeGathererIron" icon="ui_game_symbol_mining" group="Gatherer"
+	short_description_key="challengeGathererIronShort" description_key="challengeGathererIronDesc"
+	reward_text_key="challenge_reward_1000xp" reward_event="challenge_reward_1000">
+		<objective type="Harvest" item="resourceScrapIron" count="1000" block_tag="ore"/>
+	</challenge>
+
+	<challenge name="gathererLead" title_key="challengeGathererLead" icon="ui_game_symbol_mining" group="Gatherer"
+	short_description_key="challengeGathererLeadShort" description_key="challengeGathererLeadDesc"
+	reward_text_key="challenge_reward_1000xp" reward_event="challenge_reward_1000">
+		<objective type="Harvest" item="resourceScrapLead" count="1000" block_tag="ore"/>
+	</challenge>
+
+	<challenge name="gathererCoal" title_key="challengeGathererCoal" icon="ui_game_symbol_mining" group="Gatherer"
+	short_description_key="challengeGathererCoalShort" description_key="challengeGathererCoalDesc"
+	reward_text_key="challenge_reward_1000xp" reward_event="challenge_reward_1000">
+		<objective type="Harvest" item="resourceCoal" count="1000" block_tag="ore"/>
+	</challenge>
+
+	<challenge name="gathererPotassium" title_key="challengeGathererPotassium" icon="ui_game_symbol_mining" group="Gatherer"
+	short_description_key="challengeGathererPotassiumShort" description_key="challengeGathererPotassiumDesc"
+	reward_text_key="challenge_reward_1000xp" reward_event="challenge_reward_1000">
+		<objective type="Harvest" item="resourcePotassiumNitratePowder" count="1000" block_tag="ore"/>
+	</challenge>
+
+	<challenge name="gathererOilShale" title_key="challengeGathererOilShale" icon="ui_game_symbol_mining" group="Gatherer"
+	short_description_key="challengeGathererOilShaleShort" description_key="challengeGathererOilShaleDesc"
+	reward_text_key="challenge_reward_1000xp" reward_event="challenge_reward_1000">
+		<objective type="Harvest" item="resourceOilShale" count="1000" block_tag="ore"/>
+	</challenge>
+
+	<challenge name="gathererPrecious" title_key="challengeGathererPrecious" icon="ui_game_symbol_mining" group="Gatherer"
+	short_description_key="challengeGathererPreciousShort" description_key="challengeGathererPreciousDesc"
+	reward_text_key="challenge_reward_10000xp" reward_event="challenge_reward_10000">
+		<objective type="Harvest" item="resourceSilverNugget" count="50" block_tag="ore"/>
+		<objective type="Harvest" item="resourceGoldNugget" count="50" block_tag="ore"/>
+		<objective type="Harvest" item="resourceRawDiamond" count="50" block_tag="ore"/>
+	</challenge>
+
+	<!-- *** Farming -->
+	<challenge name="farmingGoldenrod" title_key="challengeFarmingGoldenrod" icon="ui_game_symbol_crops" group="Farmer"
+	short_description_key="challengeFarmingGoldenrodShort" description_key="challengeFarmingGoldenrodDesc"
+	reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
+		<objective type="Harvest" item="resourceCropGoldenrodPlant" count="50" block_tag="challenge_farming"/>
+	</challenge>
+
+	<challenge name="farmingChrysanthemum" title_key="challengeFarmingChrysanthemum" icon="ui_game_symbol_crops" group="Farmer"
+	short_description_key="challengeFarmingChrysanthemumShort" description_key="challengeFarmingChrysanthemumDesc"
+	reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
+		<objective type="Harvest" item="resourceCropChrysanthemumPlant" count="50" block_tag="challenge_farming"/>
+	</challenge>
+
+	<challenge name="farmingCoffeeBeans" title_key="challengeFarmingCoffeeBeans" icon="ui_game_symbol_crops" group="Farmer"
+	short_description_key="challengeFarmingCoffeeBeansShort" description_key="challengeFarmingCoffeeBeansDesc"
+	reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
+		<objective type="Harvest" item="resourceCropCoffeeBeans" count="50" block_tag="challenge_farming"/>
+	</challenge>
+
+	<challenge name="farmingYucca" title_key="challengeFarmingYucca" icon="ui_game_symbol_crops" group="Farmer"
+	short_description_key="challengeFarmingYuccaShort" description_key="challengeFarmingYuccaDesc"
+	reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
+		<objective type="Harvest" item="foodCropYuccaFruit" count="50" block_tag="challenge_farming"/>
+	</challenge>
+
+	<challenge name="farmingAloeLeaf" title_key="challengeFarmingAloeLeaf" icon="ui_game_symbol_crops" group="Farmer"
+	short_description_key="challengeFarmingAloeLeafShort" description_key="challengeFarmingAloeLeafDesc"
+	reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
+		<objective type="Harvest" item="resourceCropAloeLeaf" count="50" block_tag="challenge_farming"/>
+	</challenge>
+
+	<challenge name="farmingBlueberry" title_key="challengeFarmingBlueberry" icon="ui_game_symbol_crops" group="Farmer"
+	short_description_key="challengeFarmingBlueberryShort" description_key="challengeFarmingBlueberryDesc"
+	reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
+		<objective type="Harvest" item="foodCropBlueberries" count="50" block_tag="challenge_farming"/>
+	</challenge>
+
+	<challenge name="farmingHops" title_key="challengeFarmingHops" icon="ui_game_symbol_crops" group="Farmer"
+	short_description_key="challengeFarmingHopsShort" description_key="challengeFarmingHopsDesc"
+	reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
+		<objective type="Harvest" item="resourceCropHopsFlower" count="50" block_tag="challenge_farming"/>
+	</challenge>
+
+	<challenge name="farmingPumpkin" title_key="challengeFarmingPumpkin" icon="ui_game_symbol_crops" group="Farmer"
+	short_description_key="challengeFarmingPumpkinShort" description_key="challengeFarmingPumpkinDesc"
+	reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
+		<objective type="Harvest" item="foodCropPumpkin" count="50" block_tag="challenge_farming"/>
+	</challenge>
+
+	<challenge name="farmingCorn" title_key="challengeFarmingCorn" icon="ui_game_symbol_crops" group="Farmer"
+	short_description_key="challengeFarmingCornShort" description_key="challengeFarmingCornDesc"
+	reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
+		<objective type="Harvest" item="foodCropCorn" count="50" block_tag="challenge_farming"/>
+	</challenge>
+
+	<challenge name="farmingPotato" title_key="challengeFarmingPotato" icon="ui_game_symbol_crops" group="Farmer"
+	short_description_key="challengeFarmingPotatoShort" description_key="challengeFarmingPotatoDesc"
+	reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
+		<objective type="Harvest" item="foodCropPotato" count="50" block_tag="challenge_farming"/>
+	</challenge>
+
+	<!-- *** Healer -->
+	<challenge name="craftSplint" title_key="challengeCraftSplint" icon="ui_game_symbol_hammer" group="Healer"
+	short_description_key="challengeCraftSplintShort" description_key="challengeCraftSplintDesc"
+	reward_text_key="challenge_reward_1000xp" reward_event="challenge_reward_1000">
+		<objective type="Craft" item="medicalSplint" count="10"/>
+	</challenge>
+
+	<challenge name="craftFirstAidBandage" title_key="challengeCraftFirstAidBandage" icon="ui_game_symbol_hammer" group="Healer"
+	short_description_key="challengeCraftFirstAidBandageShort" description_key="challengeCraftFirstAidBandageDesc"
+	reward_text_key="challenge_reward_1000xp" reward_event="challenge_reward_1000">
+		<objective type="Craft" item="medicalFirstAidBandage" count="10"/>
+	</challenge>
+
+	<challenge name="healerBleeding" title_key="challengeHealerBleeding" icon="ui_game_symbol_medical" group="Healer"
+	short_description_key="challengeHealerBleedingShort" description_key="challengeHealerBleedingDesc"
+	reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
+		<objective type="CureDebuff" debuff="buffInjuryBleeding" item="medicalBandage,medicalFirstAidBandage,medicalFirstAidKit,resourceSewingKit" count="25"/>
+	</challenge>
+
+	<challenge name="healerInfection" title_key="challengeHealerInfection" icon="ui_game_symbol_medical" group="Healer"
+	short_description_key="challengeHealerInfectionShort" description_key="challengeHealerInfectionDesc"
+	reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+		<objective type="CureDebuff" debuff="buffInfection01Untreated,buffInfection02Untreated,buffInfection03Untreated,buffInfection04"
+		item="foodHoney,drugHerbalAntibiotics,drugAntibiotics" count="10"/>
+	</challenge>
+
+	<challenge name="healerDysentery" title_key="challengeHealerDysentery" icon="ui_game_symbol_medical" group="Healer"
+	short_description_key="challengeHealerDysenteryShort" description_key="challengeHealerDysenteryDesc"
+	reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+		<objective type="CureDebuff" debuff="buffDysenteryMain" item="drinkJarGoldenRodTea,drinkJarPureMineralWater" count="10"/>
+	</challenge>
+
+	<challenge name="healerBrokenLeg" title_key="challengeHealerBrokenLeg" icon="ui_game_symbol_medical" group="Healer"
+	short_description_key="challengeHealerBrokenLegShort" description_key="challengeHealerBrokenLegDesc"
+	reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+		<objective type="CureDebuff" debuff="buffLegBroken" item="medicalSplint,medicalPlasterCast" count="10"/>
+	</challenge>
+
+	<challenge name="healerBrokenArm" title_key="challengeHealerBrokenArm" icon="ui_game_symbol_medical" group="Healer"
+	short_description_key="challengeHealerBrokenArmShort" description_key="challengeHealerBrokenArmDesc"
+	reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+		<objective type="CureDebuff" debuff="buffArmBroken" item="medicalSplint,medicalPlasterCast" count="10"/>
+	</challenge>
+
+	<challenge name="healerConcussion" title_key="challengeHealerConcussion" icon="ui_game_symbol_medical" group="Healer"
+	short_description_key="challengeHealerConcussionShort" description_key="challengeHealerConcussionDesc"
+	reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+		<objective type="CureDebuff" debuff="buffInjuryConcussion" item="drugPainkillers" count="10"/>
+	</challenge>
+
+	<challenge name="healerFatigued" title_key="challengeHealerFatigued" icon="ui_game_symbol_medical" group="Healer"
+	short_description_key="challengeHealerFatiguedShort" description_key="challengeHealerFatiguedDesc"
+	reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+		<objective type="CureDebuff" debuff="buffFatigued" item="drugVitamins" count="10"/>
+	</challenge>
+
+	<challenge name="healerLaceration" title_key="challengeHealerLaceration" icon="ui_game_symbol_medical" group="Healer"
+	short_description_key="challengeHealerLacerationShort" description_key="challengeHealerLacerationDesc"
+	reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+		<objective type="CureDebuff" debuff="buffLaceration" item="medicalFirstAidKit,resourceSewingKit" count="10"/>
+	</challenge>
+
+	<!-- *** Survivor -->
+	<challenge name="enterBurntForest" title_key="challengeEnterBurntForest" icon="ui_game_symbol_hot" group="Survivor"
+	short_description_key="challengeEnterBurntForestShort" description_key="challengeEnterBurntForestDesc"
+	reward_text_key="challenge_reward_1000xp" reward_event="challenge_reward_1000">
+		<objective type="EnterBiome" biome="burnt_forest"/>
+	</challenge>
+
+	<challenge name="enterDesert" title_key="challengeEnterDesert" icon="ui_game_symbol_hot" group="Survivor"
+	short_description_key="challengeEnterDesertShort" description_key="challengeEnterDesertDesc"
+	reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
+		<objective type="EnterBiome" biome="desert"/>
+	</challenge>
+
+	<challenge name="enterSnow" title_key="challengeEnterSnow" icon="ui_game_symbol_cold" group="Survivor"
+	short_description_key="challengeEnterSnowShort" description_key="challengeEnterSnowDesc"
+	reward_text_key="challenge_reward_2500xp" reward_event="challenge_reward_2500">
+		<objective type="EnterBiome" biome="snow"/>
+	</challenge>
+
+	<challenge name="enterWasteland" title_key="challengeEnterWasteland" icon="ui_game_symbol_radiation" group="Survivor"
+	short_description_key="challengeEnterWastelandShort" description_key="challengeEnterWastelandDesc"
+	reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+		<objective type="EnterBiome" biome="wasteland"/>
+	</challenge>
+
+	<challenge name="survivorShort" title_key="challengeSurvivorShort" icon="ui_game_symbol_clock" group="Survivor"
+	short_description_key="challengeSurvivorShortShort" description_key="challengeSurvivorShortDesc"
+	reward_text_key="challenge_reward_2500xp" reward_event="challenge_reward_2500">
+		<objective type="Survive" count="420"/>
+	</challenge>
+
+	<challenge name="survivorMedium" title_key="challengeSurvivorMedium" icon="ui_game_symbol_clock" group="Survivor"
+	short_description_key="challengeSurvivorMediumShort" description_key="challengeSurvivorMediumDesc"
+	reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+	 <objective type="Survive" count="840"/>
+	</challenge>
+
+	<challenge name="survivorLong" title_key="challengeSurvivorLong" icon="ui_game_symbol_clock" group="Survivor"
+	short_description_key="challengeSurvivorLongShort" description_key="challengeSurvivorLongDesc"
+	reward_text_key="challenge_reward_10000xp" reward_event="challenge_reward_10000">
+		<objective type="Survive" count="1260"/>
+	</challenge>
+
+	<challenge name="bloodmoonSurvive1" title_key="challengeBloodMoonSurvive1" icon="ui_game_symbol_skull" group="Survivor"
+	short_description_key="challengeBloodMoonSurvive1Short" description_key="challengeBloodMoonSurvive1Desc"
+	reward_text_key="challenge_reward_2000xp" reward_event="challenge_reward_2000">
+		<objective type="Bloodmoon"/>
+	</challenge>
+
+	<challenge name="bloodmoonSurvive5" title_key="challengeBloodMoonSurvive5" icon="ui_game_symbol_skull" group="Survivor"
+	short_description_key="challengeBloodMoonSurvive5Short" description_key="challengeBloodMoonSurvive5Desc"
+	reward_text_key="challenge_reward_5000xp" reward_event="challenge_reward_5000">
+		<objective type="Bloodmoon" count="5"/>
+	</challenge>
+
+	<challenge name="bloodmoonSurvive10" title_key="challengeBloodMoonSurvive10" icon="ui_game_symbol_skull" group="Survivor"
+	short_description_key="challengeBloodMoonSurvive10Short" description_key="challengeBloodMoonSurvive10Desc"
+	reward_text_key="challenge_reward_10000xp" reward_event="challenge_reward_10000">
+		<objective type="Bloodmoon" count="10"/>
+	</challenge>
+
+	<!-- *** Hunter -->
+	<challenge name="killRabbits" title_key="challengeKillRabbits" icon="ui_game_symbol_tracking_rabbit" group="Hunter"
+	short_description_key="challengeKillRabbitsShort" description_key="challengeKillRabbitsDesc"
+	reward_text_key="challengeKillRewardReading" reward_event="reward_rabbit_hunter">
+		<objective type="Kill" entity_names="animalRabbit" count="50"/>
+	</challenge>
+
+	<challenge name="killChickens" title_key="challengeKillChickens" icon="ui_game_symbol_tracking_chicken" group="Hunter"
+	short_description_key="challengeKillChickensShort" description_key="challengeKillChickensDesc"
+	reward_text_key="challengeKillRewardReading" reward_event="reward_chicken_hunter">
+		<objective type="Kill" entity_names="animalChicken" count="50"/>
+	</challenge>
+
+	<challenge name="killCoyotes" title_key="challengeKillCoyotes" icon="ui_game_symbol_tracking_wolf" group="Hunter"
+	short_description_key="challengeKillCoyotesShort" description_key="challengeKillCoyotesDesc"
+	reward_text_key="challengeKillRewardReading" reward_event="reward_coyote_hunter">
+		<objective type="Kill" entity_names="animalCoyote" count="50"/>
+	</challenge>
+
+	<challenge name="killDeer" title_key="challengeKillDeer" icon="ui_game_symbol_tracking_deer" group="Hunter"
+	short_description_key="challengeKillDeerShort" description_key="challengeKillDeerDesc"
+	reward_text_key="challengeKillRewardReading" reward_event="reward_deer_hunter">
+		<objective type="Kill" entity_names="animalDoe,animalStag" count="50"/>
+	</challenge>
+
+	<challenge name="killSnakes" title_key="challengeKillSnakes" icon="ui_game_symbol_tracking_snake" group="Hunter"
+	short_description_key="challengeKillSnakesShort" description_key="challengeKillSnakesDesc"
+	reward_text_key="challengeKillRewardReading" reward_event="reward_snake_hunter">
+		<objective type="Kill" entity_names="animalSnake" count="50"/>
+	</challenge>
+
+	<challenge name="killBoars" title_key="challengeKillBoars" icon="ui_game_symbol_tracking_pig" group="Hunter"
+	short_description_key="challengeKillBoarsShort" description_key="challengeKillBoarsDesc"
+	reward_text_key="challengeKillRewardReading" reward_event="reward_boar_hunter">
+		<objective type="Kill" entity_names="animalBoar,animalBossGrace" count="50"/>
+	</challenge>
+
+	<challenge name="killWolves" title_key="challengeKillWolves" icon="ui_game_symbol_tracking_wolf" group="Hunter"
+	short_description_key="challengeKillWolvesShort" description_key="challengeKillWolvesDesc"
+	reward_text_key="challengeKillRewardReading" reward_event="reward_wolf_hunter">
+		<objective type="Kill" entity_names="animalWolf,animalDirewolf" count="50"/>
+	</challenge>
+
+	<challenge name="killMountainLion" title_key="challengeKillMountainLions" icon="ui_game_symbol_tracking_mountain_lion" group="Hunter"
+	short_description_key="challengeKillMountainLionsShort" description_key="challengeKillMountainLionsDesc"
+	reward_text_key="challengeKillRewardReading" reward_event="reward_lion_hunter">
+		<objective type="Kill" entity_names="animalMountainLion" count="50"/>
+	</challenge>
+
+	<challenge name="killBears" title_key="challengeKillBears" icon="ui_game_symbol_tracking_bear" group="Hunter"
+	short_description_key="challengeKillBearsShort" description_key="challengeKillBearsDesc"
+	reward_text_key="challengeKillRewardReading" reward_event="reward_bear_hunter">
+		<objective type="Kill" entity_names="animalBear,animalBearSmall,animalZombieBear" count="50"/>
+	</challenge>
+
+	<challenge name="killAnyAnimal" title_key="challengeHuntAnimals" icon="ui_game_symbol_animal_tracker" group="Hunter"
+	short_description_key="challengeHuntAnimalsShort" description_key="challengeHuntAnimalsDesc"
+	reward_text_key="challengeKillRewardReading" reward_event="reward_any_animal_hunter">
+		<objective type="KillByTag" entity_tags="animal" target_name_key="xuiAnimals" count="500"/>
+	</challenge>
+
+	<!-- *** Zombies -->
+	<challenge name="killAnyZombies" title_key="challengeKillAnyZombies" icon="ui_game_symbol_zombie" group="Zombies"
+	short_description_key="challengeKillAnyZombiesShort" description_key="challengeKillAnyZombiesDesc"
+	reward_text_key="challengeKillRewardRegAmmo" reward_event="reward_any_zombie_slayer">
+		<objective type="KillByTag" entity_tags="zombie" target_name_key="xuiZombies" count="500"/>
+	</challenge>
+
+	<challenge name="killVultures" title_key="challengeKillVultures" icon="ui_game_symbol_zombie" group="Zombies"
+	short_description_key="challengeKillVulturesShort" description_key="challengeKillVulturesDesc"
+	reward_text_key="challengeKillRewardRegAmmo" reward_event="reward_vulture_zombie_slayer">
+		<objective type="Kill" entity_names="animalZombieVulture,animalZombieVultureRadiated" count="50"/>
+	</challenge>
+
+	<challenge name="killLumberjack" title_key="challengeKillLumberjacks" icon="ui_game_symbol_zombie" group="Zombies"
+	short_description_key="challengeKillLumberjacksShort" description_key="challengeKillLumberjacksDesc"
+	reward_text_key="challengeKillRewardExplosives" reward_event="reward_lumberjack_zombie_slayer">
+		<objective type="Kill" entity_names="zombieLumberjack,zombieLumberjackFeral,zombieLumberjackRadiated" count="50"/>
+	</challenge>
+
+	<challenge name="killSpider" title_key="challengeKillSpiderZombies" icon="ui_game_symbol_zombie" group="Zombies"
+	short_description_key="challengeKillSpiderZombiesShort" description_key="challengeKillSpiderZombiesDesc"
+	reward_text_key="challengeKillRewardMods" reward_event="reward_spider_zombie_slayer">
+		<objective type="Kill" entity_names="zombieSpider,zombieSpiderFeral,zombieSpiderRadiated" count="50"/>
+	</challenge>
+
+	<challenge name="killBigMama" title_key="challengeKillBigMama" icon="ui_game_symbol_zombie" group="Zombies"
+	short_description_key="challengeKillBigMamaShort" description_key="challengeKillBigMamaDesc"
+	reward_text_key="challengeKillRewardMods" reward_event="reward_bigmama_zombie_slayer">
+		<objective type="Kill" entity_names="zombieFemaleFat,zombieFemaleFatFeral,zombieFemaleFatRadiated" count="50"/>
+	</challenge>
+
+	<challenge name="killTourist" title_key="challengeKillTouristZombies" icon="ui_game_symbol_zombie" group="Zombies"
+	short_description_key="challengeKillTouristZombiesShort" description_key="challengeKillTouristZombiesDesc"
+	reward_text_key="challengeKillRewardMods" reward_event="reward_tourist_zombie_slayer">
+		<objective type="Kill" entity_names="zombieFatHawaiian,zombieFatHawaiianFeral,zombieFatHawaiianRadiated,zombieBowler,zombieBowlerFeral,zombieBowlerRadiated" count="50"/>
+	</challenge>
+
+	<challenge name="killMutated" title_key="challengeKillMutated" icon="ui_game_symbol_zombie" group="Zombies"
+	short_description_key="challengeKillMutatedShort" description_key="challengeKillMutatedDesc"
+	reward_text_key="challengeKillRewardMods" reward_event="reward_mutated_zombie_slayer">
+		<objective type="Kill" entity_names="zombieMutated,zombieMutatedFeral,zombieMutatedRadiated" count="50"/>
+	</challenge>
+
+	<challenge name="killCop" title_key="challengeKillCops" icon="ui_game_symbol_zombie" group="Zombies"
+	short_description_key="challengeKillCopsShort" description_key="challengeKillCopsDesc"
+	reward_text_key="challengeKillRewardRareItems" reward_event="reward_cop_zombie_slayer">
+		<objective type="Kill" entity_names="zombieFatCop,zombieFatCopFeral,zombieFatCopRadiated" count="50"/>
+	</challenge>
+
+	<challenge name="killWights" title_key="challengeKillWights" icon="ui_game_symbol_zombie" group="Zombies"
+	short_description_key="challengeKillWightsShort" description_key="challengeKillWightsDesc"
+	reward_text_key="challengeKillRewardLegendary" reward_event="reward_wight_zombie_slayer">
+		<objective type="Kill" entity_names="zombieWightFeral,zombieWightRadiated" count="50"/>
+	</challenge>
+
+	<challenge name="killDemolitions" title_key="challengeKillDemolitions" icon="ui_game_symbol_zombie" group="Zombies"
+	short_description_key="challengeKillDemolitionsShort" description_key="challengeKillDemolitionsDesc"
+	reward_text_key="challengeKillRewardLegendary" reward_event="reward_demolition_zombie_slayer">
+		<objective type="Kill" entity_names="zombieDemolition" count="50"/>
+	</challenge>
+
+	<!-- *** LearnTwitch -->
+	<challenge name="learnTwitchEnabled" title_key="challengeLearnTwitchEnabled" icon="ui_game_symbol_twitch_actions" group="LearnTwitch"
+	short_description_key="challengeLearnTwitchEnabledShort" description_key="challengeLearnTwitchEnabledDesc">
+		<objective type="Twitch" objective_type="Enabled" count="1"/>
+	</challenge>
+
+	<challenge name="learnTwitchEnableExtras" title_key="challengeLearnTwitchEnableExtras" icon="ui_game_symbol_twitch_extra_actions" group="LearnTwitch"
+	short_description_key="challengeLearnTwitchEnableExtrasShort" description_key="challengeLearnTwitchEnableExtrasDesc">
+		<objective type="Twitch" objective_type="EnableExtras" count="5"/>
+	</challenge>
+
+	<challenge name="learnTwitchGoodActions" title_key="challengeLearnTwitchGoodActions" icon="ui_game_symbol_twitch_buffs" group="LearnTwitch"
+	short_description_key="challengeLearnTwitchGoodActionsShort" description_key="challengeLearnTwitchGoodActionsDesc">
+		<objective type="Twitch" objective_type="GoodAction" count="5"/>
+	</challenge>
+
+	<challenge name="learnTwitchBadActions" title_key="challengeLearnTwitchBadActions" icon="ui_game_symbol_twitch_debuffs" group="LearnTwitch"
+	short_description_key="challengeLearnTwitchBadActionsShort" description_key="challengeLearnTwitchBadActionsDesc">
+		<objective type="Twitch" objective_type="BadAction" count="5"/>
+	</challenge>
+
+	<challenge name="learnTwitchHelperRewards" title_key="challengeLearnTwitchHelperRewards" icon="ui_game_symbol_twitch_best_helper" group="LearnTwitch"
+	short_description_key="challengeLearnTwitchHelperRewardsShort" description_key="challengeLearnTwitchHelperRewardsDesc">
+		<objective type="Twitch" objective_type="HelperReward" count="5"/>
+	</challenge>
+
+	<challenge name="learnTwitchChannelPointRedeems" title_key="challengeLearnTwitchChannelPointRedeems" icon="ui_game_symbol_twitch_custom_actions" group="LearnTwitch"
+	short_description_key="challengeLearnTwitchChannelPointRedeemsShort" description_key="challengeLearnTwitchChannelPointRedeemsDesc">
+		<objective type="Twitch" objective_type="ChannelPointRedeems" count="5"/>
+	</challenge>
+
+	<challenge name="learnTwitchVoting" title_key="challengeLearnTwitchVotesComplete" icon="ui_game_symbol_twitch_vote" group="LearnTwitch"
+	short_description_key="challengeLearnTwitchVotesCompleteShort" description_key="challengeLearnTwitchVotesCompleteDesc">
+		<objective type="Twitch" objective_type="VoteComplete" count="5"/>
+	</challenge>
+
+	<challenge name="learnTwitchPimpPot" title_key="challengeLearnTwitchPimpPot" icon="ui_game_symbol_twitch_top_killer" group="LearnTwitch"
+	short_description_key="challengeLearnTwitchPimpPotShort" description_key="challengeLearnTwitchPimpPotDesc">
+		<objective type="Twitch" objective_type="PimpPot" count="1"/>
+	</challenge>
+
+	<challenge name="learnTwitchBitPot" title_key="challengeLearnTwitchBitPot" icon="ui_game_symbol_twitch_bits" group="LearnTwitch"
+	short_description_key="challengeLearnTwitchBitPotShort" description_key="challengeLearnTwitchBitPotDesc">
+		<objective type="Twitch" objective_type="BitPot" count="1"/>
+	</challenge>
+
+	<challenge name="learnBossHordes" title_key="challengeLearnBossHordes" icon="ui_game_symbol_twitch_shield_enemies" group="LearnTwitch"
+	short_description_key="challengeLearnBossHordesShort" description_key="challengeLearnBossHordesDesc">
+		<objective type="Twitch" objective_type="DefeatBossHorde" count="2"/>
+	</challenge>
+
+	<!-- *** Twitch -->
+	<challenge name="twitchKillSpawnedZombies" title_key="challengeKillSpawnedZombies" icon="ui_game_symbol_zombie" group="Twitch"
+	short_description_key="challengeKillSpawnedZombiesShort" description_key="challengeKillSpawnedZombiesDesc">
+		<objective type="KillByTag" entity_tags="zombie" target_name_key="challengeKillTargetSpawnedZombies" is_twitch_spawn="true" count="50"/>
+	</challenge>
+
+	<challenge name="twitchKillSpawnedAnimals" title_key="challengeKillSpawnedAnimals" icon="ui_game_symbol_zombie" group="Twitch"
+	short_description_key="challengeKillSpawnedAnimalsShort" description_key="challengeKillSpawnedAnimalsDesc">
+		<objective type="KillByTag" entity_tags="animal" target_name_key="challengeKillTargetSpawnedAnimals" is_twitch_spawn="true" count="50"/>
+	</challenge>
+
+	<challenge name="twitchKillZombiesWithSlow" title_key="challengeKillZombiesWithSlow" icon="ui_game_symbol_twitch_slow" group="Twitch"
+	short_description_key="challengeKillZombiesWithSlowShort" description_key="challengeKillZombiesWithSlowDesc">
+		<objective type="KillByTag" entity_tags="zombie" target_name_key="challengeKillTargetSlowZombies" killer_has_bufftag="twitch_slow" count="50"/>
+	</challenge>
+
+	<challenge name="twitchKillZombiesWithWeakenedCombat" title_key="challengeKillZombiesWithWeakenedCombat" icon="ui_game_symbol_twitch_weaken_melee" group="Twitch"
+	short_description_key="challengeKillZombiesWithWeakenedCombatShort" description_key="challengeKillZombiesWithWeakenedCombatDesc">
+		<objective type="KillByTag" entity_tags="zombie" target_name_key="challengeKillTargetWeakCombat" killer_has_bufftag="twitch_weak" count="50"/>
+	</challenge>
+
+	<challenge name="twitchKillZombiesWithAntileech" title_key="challengeKillZombiesWithAntileech" icon="ui_game_symbol_twitch_anti_leech" group="Twitch"
+	short_description_key="challengeKillZombiesWithAntileechShort" description_key="challengeKillZombiesWithAntileechDesc">
+		<objective type="KillByTag" entity_tags="zombie" target_name_key="challengeKillTargetAntileechZombies" killer_has_bufftag="twitch_antileech" count="50"/>
+	</challenge>
+
+	<challenge name="twitchKillZombiesWithKeepMoving" title_key="challengeKillZombiesWithKeepMoving" icon="ui_game_symbol_twitch_keep_moving" group="Twitch"
+	short_description_key="challengeKillZombiesWithKeepMovingShort" description_key="challengeKillZombiesWithKeepMovingDesc">
+		<objective type="KillByTag" entity_tags="zombie" target_name_key="challengeKillTargetKeepMovingZombies" killer_has_bufftag="twitch_keepmoving" count="50"/>
+	</challenge>
+
+	<challenge name="twitchKillZombiesWithConfuse" title_key="challengeKillZombiesWithConfuse" icon="ui_game_symbol_twitch_confused_controls" group="Twitch"
+	short_description_key="challengeKillZombiesWithConfuseShort" description_key="challengeKillZombiesWithConfuseDesc">
+		<objective type="KillByTag" entity_tags="zombie" target_name_key="challengeKillTargetConfuseZombies" killer_has_bufftag="twitch_confuse" count="50"/>
+	</challenge>
+
+	<challenge name="twitchKillZombiesWithDeafen" title_key="challengeKillZombiesWithDeafen" icon="ui_game_symbol_twitch_deafen" group="Twitch"
+	short_description_key="challengeKillZombiesWithDeafenShort" description_key="challengeKillZombiesWithDeafenDesc">
+		<objective type="KillByTag" entity_tags="zombie" target_name_key="challengeKillTargetDeafenZombies" killer_has_bufftag="twitch_deafen" count="50"/>
+	</challenge>
+
+	<challenge name="twitchKillZombiesWithDontMiss" title_key="challengeKillZombiesWithDontMiss" icon="ui_game_symbol_twitch_dont_miss" group="Twitch"
+	short_description_key="challengeKillZombiesWithDontMissShort" description_key="challengeKillZombiesWithDontMissDesc">
+		<objective type="KillByTag" entity_tags="zombie" target_name_key="challengeKillTargetDontMiss" killer_has_bufftag="twitch_dontmiss" count="50"/>
+	</challenge>
+
+	<challenge name="twitchKillZombiesWithHeadshotOnly" title_key="challengeKillZombiesWithHeadshotOnly" icon="ui_game_symbol_twitch_headshot" group="Twitch"
+	short_description_key="challengeKillZombiesWithHeadshotOnlyShort" description_key="challengeKillZombiesWithHeadshotOnlyDesc">
+		<objective type="KillByTag" entity_tags="zombie" target_name_key="challengeKillTargetHeadshotOnly" killer_has_bufftag="twitch_headshotonly" count="50"/>
+	</challenge>
+
+	<!-- <challenge name="learnTwitchExtrasUsed" title="Enable Extras" icon="ui_game_symbol_twitch_extra_actions" group="Twitch"> -->
+		<!-- <objective type="ChallengeStatAwarded" challenge_stat="extraused" count="5" stat_text="Extras Used:"/> -->
+	<!-- </challenge> -->
+
+	<!-- *** Silly -->
+	<challenge name="twitchKillBigHeadZombies" title_key="challengeKillBigHeadZombies" icon="ui_game_symbol_twitch_big_head" group="Silly"
+	short_description_key="challengeKillBigHeadZombiesShort" description_key="challengeKillBigHeadZombiesDesc">
+		<objective type="KillByTag" entity_tags="zombie" target_name_key="challengeKillTargetBigHeadZombies" killed_has_bufftag="twitch_bighead" count="50"/>
+	</challenge>
+
+	<challenge name="twitchKillBucketHeadZombies" title_key="challengeKillBucketHeadZombies" icon="ui_game_symbol_twitch_buckethead" group="Silly"
+	short_description_key="challengeKillBucketHeadZombiesShort" description_key="challengeKillBucketHeadZombiesDesc">
+		<objective type="KillByTag" entity_tags="zombie" target_name_key="challengeKillTargetBucketHeadZombies" killer_has_bufftag="twitch_buckethead" count="50"/>
+	</challenge>
+
+	<challenge name="twitchKillTinyZombies" title_key="challengeKillTinyZombies" icon="ui_game_symbol_twitch_small_zombies" group="Silly"
+	short_description_key="challengeKillTinyZombiesShort" description_key="challengeKillTinyZombiesDesc">
+		<objective type="KillByTag" entity_tags="zombie" target_name_key="challengeKillTargetTinyZombies" killed_has_bufftag="twitch_tiny" count="50"/>
+	</challenge>
+
+	<challenge name="twitchKillZombiesWithCelebrate" title_key="challengeKillZombiesWithCelebrate" icon="ui_game_symbol_twitch_celebrate" group="Silly"
+	short_description_key="challengeKillZombiesWithCelebrateShort" description_key="challengeKillZombiesWithCelebrateDesc">
+		<objective type="KillByTag" entity_tags="zombie" target_name_key="challengeKillTargetCelebrateZombies" killer_has_bufftag="twitch_celebrate" count="50"/>
+	</challenge>
+
+	<challenge name="twitchKillZombiesWithSillySounds" title_key="challengeKillZombiesWithSillySounds" icon="ui_game_symbol_twitch_sound_effects" group="Silly"
+	short_description_key="challengeKillZombiesWithSillySoundsShort" description_key="challengeKillZombiesWithSillySoundsDesc">
+		<objective type="KillByTag" entity_tags="zombie" target_name_key="challengeKillTargetSillySoundsZombies" killer_has_bufftag="twitch_sillysounds" count="50"/>
+	</challenge>
+
+	<challenge name="twitchKillDancingZombies" title_key="challengeKillDancingZombies" icon="ui_game_symbol_twitch_dancing" group="Silly"
+	short_description_key="challengeKillDancingZombiesShort" description_key="challengeKillDancingZombiesDesc">
+		<objective type="KillByTag" entity_tags="zombie" target_name_key="challengeKillTargetDancingZombies" killer_has_bufftag="twitch_dance" count="50"/>
+	</challenge>
+
+	<challenge name="twitchHomerunDerby" title_key="challengeTwitchHomerunDerby" icon="ui_game_symbol_twitch_homerun_derby" group="Silly"
+		short_description_key="challengeTwitchHomerunDerbyShort" description_key="challengeTwitchHomerunDerbyDesc">
+		<objective type="ChallengeStatAwarded" challenge_stat="homerunderby" count="5" stat_text_key="challengeStatHomerunDerby"/>
+	</challenge>
+
+	<!-- <challenge name="sillyCompleteHomerunDerby" title="Homerun Derby" icon="ui_game_symbol_twitch_homerun_derby" group="Silly"> -->
+		<!-- <objective type="ChallengeStatAwarded" challenge_stat="homerunderby" count="1" stat_text="Homerun Derby Complete:"/> -->
+	<!-- </challenge> -->
+
+	<!-- Weekly -->
+	<!-- <challenge name="killLumberjackSnow" title="Lumberjacks in the Snow" icon="ui_game_symbol_zombie" group="Weekly" tags="kills" > -->
+		<!-- <objective type="Kill" entity_names="zombieLumberjack,zombieLumberjackFeral,zombieLumberjackRadiated" biome="snow" count="10"/> -->
+	<!-- </challenge> -->
+
+	<!-- <challenge name="killVulturesDesert" title="Vultures in Desert" icon="ui_game_symbol_zombie" group="Weekly" tags="kills" > -->
+		<!-- <objective type="Kill" entity_names="animalZombieVulture,animalZombieVultureRadiated" biome="desert" count="10"/> -->
+	<!-- </challenge> -->
+
+	<!-- <challenge name="killPartyGirlForest" title="Party Girls in the Forest" icon="ui_game_symbol_zombie" group="Weekly" tags="kills" > -->
+		<!-- <objective type="Kill" entity_names="zombiePartyGirl,zombiePartyGirlFeral,zombiePartyGirlRadiated" count="10" biome="pine_forest"/> -->
+	<!-- </challenge> -->
+
+	<!-- <challenge name="killBearsForest" title="Bears in the Snow" icon="ui_game_symbol_tracking_bear" group="Weekly" tags="kills" > -->
+		<!-- <objective type="Kill" entity_names="animalBear,animalBearSmall,animalZombieBear" count="10" biome="snow"/> -->
+	<!-- </challenge> -->
+
+	<!-- <challenge name="killNurseForest" title="Nurse in the Forest" icon="ui_game_symbol_zombie" group="Weekly" tags="kills" > -->
+		<!-- <objective type="Kill" entity_names="zombieNurse,zombieNurseFeral,zombieNurseRadiated" count="10" biome="pine_forest"/> -->
+	<!-- </challenge> -->
+
+	<!-- <challenge name="craftDuctTapeWeekly" title="Craft Duct Tape" icon="ui_game_symbol_hammer" group="Weekly" tags="craft" > -->
+		<!-- <objective type="Craft" item="resourceDuctTape" count="20"/> -->
+	<!-- </challenge> -->
+
+	<!-- <challenge name="craftArrowsWeekly" title="Craft Arrows" icon="ui_game_symbol_hammer" group="Weekly" tags="craft" > -->
+		<!-- <objective type="Craft" item="ammoArrowStone,ammoArrowIron,ammoArrowSteelAP,ammoArrowFlaming,ammoArrowExploding" count="20"/> -->
+	<!-- </challenge> -->
+
+	<!-- <challenge name="craftCobblestonesWeekly" title="Craft Cobblestones" icon="ui_game_symbol_hammer" group="Weekly" tags="craft" > -->
+		<!-- <objective type="Craft" item="resourceCobblestones" count="20"/> -->
+	<!-- </challenge> -->
+
+	<!-- <challenge name="craftGlueWeekly" title="Craft Glue" icon="ui_game_symbol_hammer" group="Weekly" tags="craft" > -->
+		<!-- <objective type="Craft" item="resourceGlue" count="20"/> -->
+	<!-- </challenge> -->
+
+	<!-- <challenge name="craftRepairKitsWeekly" title="Craft Repair Kits" icon="ui_game_symbol_hammer" group="Weekly" tags="craft" > -->
+		<!-- <objective type="Craft" item="resourceRepairKit" count="20"/> -->
+	<!-- </challenge> -->
+</challenges>

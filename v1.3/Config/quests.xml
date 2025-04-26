@@ -1,0 +1,3037 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Table_of_Contents -->
+<!-- Search_Find_All_for *** -->
+
+<!--
+	Quest format description:
+
+	Example: <quest id="quest_BasicSurvival1" name_key="Basic Survival 1/8" subtitle_key="Craft a Stone Axe" description_key="blah" icon="ui_game_symbol_hammer" >
+		id..................ID used for the quest
+		name_key............localization key for the quest used when displayed in the quest list
+		subtitle_key........localization key for the sub name used when displayed in the quest details and tracker
+		description_key.....localization key for the description displayed in the description window
+		offer_key...........localization key for the offer window description
+		icon................icon shown in the quest list and on the tracker
+		category_key........localization key for the category type (quest,challenge)
+
+	Alternative settings for custom quest creation:
+		name................quest name without localization
+		subtitle............sub name without localization
+		description.........description without localization
+		offer...............offer without localization
+		group_name..........quest chain name without localization
+		category............category type without localization
+		
+	Quest Objectives:
+		Add subtasks to quests using objectives. E.g. Fetch 5 plant fibers and craft some pants:
+		<objective type="FetchKeep" id="resourceYuccaFibers" value="5" phase="1"/>
+		<objective type="Craft" item="apparelPlantFiberPants" phase="2" count="1">
+		
+		type="FetchKeep" : Type refers to the objective task e.g. Craft, BlockActivate, EntityKill
+		id, item : Depending on the Objective type, these attributes specify which item is related to the task
+		value, count : Depending on type, these refer to the amount of items related to the task
+		phase : Specify which objectives are in which phases i.e all phase 1 objectives must be complete before revealing phase 2
+	
+	Quest rewards:
+		<reward type="LootItem" id="groupQuestWeapons" value="1" ischosen="true" isfixed="true"/>
+		<reward type="LootItem" id="groupQuestTools" value="2" ischosen="true"/>
+
+		isfixed="true" : This reward is always picked (top of the list), not randomly. Other rewards are shuffled.
+		ischosen="true" : this reward is available for selection by the player, number of picks depend on the passive
+	
+	Quest Actions:
+		Add actions to quests, which fire when the quest starts, or when a phase is reached
+		<action type="GameEvent" event="spawn_chicken" delay="3" phase="2">
+		
+		type="GameEvent" : Type refers to the action which is fired e.g. SpawnEnemy, UnlockPOI
+		value : The primary value passed to the quest, other parameters are generally passed through properties
+		delay : The time to wait before the action is fired in seconds
+		phase : Specify which phase the action will fire on, see Quest Objectives
+		
+	Related passives:
+		<passive_effect name="QuestRewardOptionCount" operation="base_add" level="1,2,3,4,5" value="1,2,3,3,3"/>
+		<passive_effect name="QuestBonusItemReward" operation="perc_add" level="4,5" value="0.25,0.25"/>
+		<passive_effect name="QuestRewardChoiceCount" operation="base_add" level="5" value="1"/>
+-->
+
+<quests max_quest_tier="6" quests_per_tier="10">
+
+<!-- *** BASIC_QUESTS -->
+
+	<!-- White River Citizen 1 - Journey to Settlement -->
+	<quest id="quest_whiteRiverCitizen1">
+		<property name="group_name_key" value="quest_WhiteRiverCitizen"/>
+		<property name="name_key" value="quest_WhiteRiverCitizen1"/>
+		<property name="subtitle_key" value="quest_WhiteRiverCitizen1_subtitle"/>
+		<property name="description_key" value="quest_WhiteRiverCitizen1_description"/>
+		<property name="icon" value="ui_game_symbol_map_trader"/>
+		<property name="category_key" value="quest"/>
+		<property name="add_to_tier_complete" value="false"/>
+		<property name="shareable" value="false"/>
+		<property name="quest_hints" value="quest_whiteRiverCitizen1_hint1,quest_whiteRiverCitizen1_hint2"/>
+		
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_white_river_completion"/>
+
+		
+		<action type="ShowMessageWindow">
+			<property name="message" value="quest_WhiteRiverCitizen1_description"/>
+			<property name="title" value="quest_WhiteRiverCitizen1_description_title"/>
+			<property name="delay" value="3"/>
+		</action>
+		<objective type="Goto" id="trader" value="5" phase="1">
+			<property name="biome_filter_type" value="OnlyBiome"/>
+			<property name="biome_filter" value="pine_forest"/>
+			<!-- <property name="biome_filter_type" value="ExcludeBiome"/> -->
+			<!-- <property name="biome_filter" value="wasteland"/> -->
+			<property name="nav_object" value="go_to_trader"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="return_to_trader"/>
+			<property name="use_closest" value="true"/>
+		</objective>
+		
+		<action type="TrackChallenge">
+			<property name="challenge" value="craftlandclaim" />
+			<property name="on_complete" value="true"/>
+			<property name="delay" value="1"/>
+		</action>
+
+		<reward type="Exp" value="500"/>
+		<reward type="Item" id="meleeToolShovelT0StoneShovel" ischosen="true" value="1"/>
+	</quest>
+	
+<!-- *** CHALLENGES_PAGE_01 -->
+	<quest id="challengegroup_reward_homesteading">
+		<property name="name_key" value="homesteading_name" param1="name"/>
+		<property name="subtitle_key" value="homesteading_subtitle" param1="subtitle"/>
+		<property name="description_key" value="homesteading_desc" param1="description"/>
+		<property name="icon" value="ui_game_symbol_challenge"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="challenge"/>
+		<property name="add_to_tier_complete" value="false"/>
+		<property name="difficulty_tier" value="0" param1="difficulty"/>
+		<property name="allow_remove" value="false" />
+		<property name="reward_choices_count" value="5"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="homesteading_completion" param1="completion"/>
+
+		<objective type="ReturnToNPC">
+			<property name="phase" value="1"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="1"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="1000"/>
+		
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" value="1"/>
+	</quest>
+	
+	<quest id="challengegroup_reward_advanced_survival" template="challengegroup_reward_homesteading">
+		<variable name="name" value="advanced_survival_name"/>
+		<variable name="subtitle" value="advanced_survival_subtitle"/>
+		<variable name="description" value="advanced_survival_desc"/>
+		<property name="completion_key" value="advanced_survival_completion"/>
+		
+		<reward type="Exp" value="1000"/>
+	
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" value="1"/>
+	</quest>
+
+	<quest id="challengegroup_reward_crafting" template="challengegroup_reward_homesteading">
+		<variable name="name" value="crafting_name"/>
+		<variable name="subtitle" value="crafting_subtitle"/>
+		<variable name="description" value="crafting_desc"/>
+		<property name="completion_key" value="crafting_completion"/>
+		
+		<reward type="Exp" value="1000"/>
+	
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" value="1"/>
+	</quest>
+
+	<quest id="challengegroup_reward_trader_quests" template="challengegroup_reward_homesteading">
+		<variable name="name" value="trader_quests_name"/>
+		<variable name="subtitle" value="trader_quests_subtitle"/>
+		<variable name="description" value="trader_quests_desc"/>
+		<property name="completion_key" value="trader_quests_completion"/>
+		
+		<reward type="Exp" value="1000"/>
+	
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" value="1"/>
+	</quest>
+
+	<quest id="challengegroup_reward_harvesting" template="challengegroup_reward_homesteading">
+		<variable name="name" value="harvesting_name"/>
+		<variable name="subtitle" value="harvesting_subtitle"/>
+		<variable name="description" value="harvesting_desc"/>
+		<property name="completion_key" value="harvesting_completion"/>
+		
+		<reward type="Exp" value="1000"/>
+	
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" value="1"/>
+	</quest>
+
+<!-- *** CHALLENGES_PAGE_02 -->
+	<quest id="challengegroup_reward_gatherer" template="challengegroup_reward_homesteading">
+		<variable name="name" value="gatherer_name"/>
+		<variable name="subtitle" value="gatherer_subtitle"/>
+		<variable name="description" value="gatherer_desc"/>
+		<property name="completion_key" value="gatherer_completion"/>
+		
+		<reward type="Exp" value="1000"/>
+	
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" value="1"/>
+	</quest>
+
+	<quest id="challengegroup_reward_farmer" template="challengegroup_reward_homesteading">
+		<variable name="name" value="farmer_name"/>
+		<variable name="subtitle" value="farmer_subtitle"/>
+		<variable name="description" value="farmer_desc"/>
+		<property name="completion_key" value="farmer_completion"/>
+		
+		<reward type="Exp" value="1000"/>
+	
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" value="1"/>
+	</quest>
+
+	<quest id="challengegroup_reward_healer" template="challengegroup_reward_homesteading">
+		<variable name="name" value="healer_name"/>
+		<variable name="subtitle" value="healer_subtitle"/>
+		<variable name="description" value="healer_desc"/>
+		<property name="completion_key" value="healer_completion"/>
+		
+		<reward type="Exp" value="1000"/>
+	
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" value="1"/>
+	</quest>
+
+	<quest id="challengegroup_reward_survivor" template="challengegroup_reward_homesteading">
+		<variable name="name" value="survivor_name"/>
+		<variable name="subtitle" value="survivor_subtitle"/>
+		<variable name="description" value="survivor_desc"/>
+		<property name="completion_key" value="survivor_completion"/>
+		
+		<reward type="Exp" value="1000"/>
+	
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" value="1"/>
+	</quest>
+
+
+<!-- *** ANIMAL_HUNTER_REWARDS -->
+	<quest id="challengegroup_reward_hunter" template="challengegroup_reward_homesteading">
+		<variable name="name" value="hunter_name"/>
+		<variable name="subtitle" value="hunter_subtitle"/>
+		<variable name="description" value="hunter_desc"/>
+		<property name="completion_key" value="hunter_completion"/>
+		
+		<reward type="Exp" value="10000"/>
+		<reward type="Item" id="ammoBundleArrowIron" ischosen="true" isfixed="true" value="5"/>
+		<reward type="Item" id="ammoBundle9mmBulletBall" ischosen="true" isfixed="true" value="5"/>
+		<reward type="Item" id="ammoBundleShotgunShell" ischosen="true" isfixed="true" value="5"/>
+		<reward type="Item" id="ammoBundle762mmBulletBall" ischosen="true" isfixed="true" value="5"/>
+		<reward type="Item" id="ammoBundleJunkTurretRegular" ischosen="true" isfixed="true" value="5"/>
+	</quest>
+
+<!-- Kill_Rabbits_Challenge_Reward -->
+	<quest id="quest_reward_rabbit_hunter" template="challengegroup_reward_homesteading">
+		<variable name="name" value="hunter_name_rabbit"/>
+		<variable name="subtitle" value="hunter_subtitle_rabbit"/>
+		<variable name="description" value="hunter_desc"/>
+		<variable name="completion" value="hunter_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" isfixed="true" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" isfixed="true" value="1"/>
+	</quest>
+
+<!-- Kill_Chickens_Challenge_Reward -->
+	<quest id="quest_reward_chicken_hunter" template="challengegroup_reward_homesteading">
+		<variable name="name" value="hunter_name_chicken"/>
+		<variable name="subtitle" value="hunter_subtitle_chicken"/>
+		<variable name="description" value="hunter_desc"/>
+		<variable name="completion" value="hunter_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" isfixed="true" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" isfixed="true" value="1"/>
+	</quest>
+
+<!-- Kill_Coyotes_Challenge_Reward -->
+	<quest id="quest_reward_coyote_hunter" template="challengegroup_reward_homesteading">
+		<variable name="name" value="hunter_name_coyote"/>
+		<variable name="subtitle" value="hunter_subtitle_coyote"/>
+		<variable name="description" value="hunter_desc"/>
+		<variable name="completion" value="hunter_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="Item" id="bookHuntingJournalCoyotes" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" isfixed="true" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" isfixed="true" value="1"/>
+	</quest>
+
+<!-- Kill_Deer_Challenge_Reward -->
+	<quest id="quest_reward_deer_hunter" template="challengegroup_reward_homesteading">
+		<variable name="name" value="hunter_name_deer"/>
+		<variable name="subtitle" value="hunter_subtitle_deer"/>
+		<variable name="description" value="hunter_desc"/>
+		<variable name="completion" value="hunter_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="Item" id="bookHuntingJournalDeer" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" isfixed="true" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" isfixed="true" value="1"/>
+	</quest>
+
+<!-- Kill_Snakes_Challenge_Reward -->
+	<quest id="quest_reward_snake_hunter" template="challengegroup_reward_homesteading">
+		<variable name="name" value="hunter_name_snake"/>
+		<variable name="subtitle" value="hunter_subtitle_snake"/>
+		<variable name="description" value="hunter_desc"/>
+		<variable name="completion" value="hunter_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" isfixed="true" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" isfixed="true" value="1"/>
+	</quest>
+
+<!-- Kill_Boar_Challenge_Reward -->
+	<quest id="quest_reward_boar_hunter" template="challengegroup_reward_homesteading">
+		<variable name="name" value="hunter_name_boar"/>
+		<variable name="subtitle" value="hunter_subtitle_boar"/>
+		<variable name="description" value="hunter_desc"/>
+		<variable name="completion" value="hunter_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" isfixed="true" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" isfixed="true" value="1"/>
+	</quest>
+
+<!-- Kill_Wolves_Challenge_Reward -->
+	<quest id="quest_reward_wolf_hunter" template="challengegroup_reward_homesteading">
+		<variable name="name" value="hunter_name_wolf"/>
+		<variable name="subtitle" value="hunter_subtitle_wolf"/>
+		<variable name="description" value="hunter_desc"/>
+		<variable name="completion" value="hunter_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="Item" id="bookHuntingJournalWolves" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" isfixed="true" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" isfixed="true" value="1"/>
+	</quest>
+
+<!-- Kill_Lions_Challenge_Reward -->
+	<quest id="quest_reward_lion_hunter" template="challengegroup_reward_homesteading">
+		<variable name="name" value="hunter_name_lion"/>
+		<variable name="subtitle" value="hunter_subtitle_lion"/>
+		<variable name="description" value="hunter_desc"/>
+		<variable name="completion" value="hunter_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="Item" id="bookHuntingJournalMountainLions" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" isfixed="true" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" isfixed="true" value="1"/>
+	</quest>
+
+<!-- Kill_Bear_Challenge_Reward -->
+	<quest id="quest_reward_bear_hunter" template="challengegroup_reward_homesteading">
+		<variable name="name" value="hunter_name_bear"/>
+		<variable name="subtitle" value="hunter_subtitle_bear"/>
+		<variable name="description" value="hunter_desc"/>
+		<variable name="completion" value="hunter_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="Item" id="bookHuntingJournalBears" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" isfixed="true" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" isfixed="true" value="1"/>
+	</quest>
+
+<!-- Kill_Any_Animal_Challenge_Reward -->
+	<quest id="quest_reward_any_animal_hunter" template="challengegroup_reward_homesteading">
+		<variable name="name" value="hunter_name_any_animal"/>
+		<variable name="subtitle" value="hunter_subtitle_any_animal"/>
+		<variable name="description" value="hunter_desc"/>
+		<variable name="completion" value="hunter_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardReading if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupChallengeRewardSkillMagazinesAll" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="schematicsModsAndGeneralCommon" isfixed="true" ischosen="true" value="1"/>
+		<reward type="LootItem" id="perkBooks" ischosen="true" isfixed="true" value="1"/>
+	</quest>
+
+
+<!-- *** ZOMBIE_SLAYER_REWARDS -->
+	<quest id="challengegroup_reward_zombie_slayer" template="challengegroup_reward_homesteading">
+		<variable name="name" value="zombie_slayer_name"/>
+		<variable name="subtitle" value="zombie_slayer_subtitle"/>
+		<variable name="description" value="zombie_slayer_desc"/>
+		<property name="completion_key" value="zombie_slayer_completion"/>
+		
+		<reward type="Exp" value="10000"/>
+		<reward type="Item" id="ammoBundleArrowSteelAP" ischosen="true" isfixed="true" value="5"/>
+		<reward type="Item" id="ammoBundle9mmBulletAP" ischosen="true" isfixed="true" value="5"/>
+		<reward type="Item" id="ammoBundleShotgunSlug" ischosen="true" isfixed="true" value="5"/>
+		<reward type="Item" id="ammoBundle762mmBulletAP" ischosen="true" isfixed="true" value="5"/>
+		<reward type="Item" id="ammoBundleJunkTurretAP" ischosen="true" isfixed="true" value="5"/>
+	</quest>
+
+<!-- Kill_Any_Zombies_Challenge_Reward -->
+	<quest id="quest_reward_any_zombie_slayer" template="challengegroup_reward_homesteading">
+		<variable name="name" value="zombie_slayer_name_any_zombies"/>
+		<variable name="subtitle" value="zombie_slayer_subtitle_any_zombies"/>
+		<variable name="description" value="zombie_slayer_desc"/>
+		<variable name="completion" value="zombie_slayer_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardRegAmmo if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="Item" id="ammoArrowIron" ischosen="true" isfixed="true" value="150"/>
+		<reward type="Item" id="ammo9mmBulletBall" ischosen="true" isfixed="true" value="300"/>
+		<reward type="Item" id="ammoShotgunShell" ischosen="true" isfixed="true" value="150"/>
+		<reward type="Item" id="ammo762mmBulletBall" ischosen="true" isfixed="true" value="150"/>
+		<reward type="Item" id="ammoJunkTurretRegular" ischosen="true" isfixed="true" value="1000"/>
+	</quest>
+
+<!-- Kill_Vulture_Challenge_Reward -->
+	<quest id="quest_reward_vulture_zombie_slayer" template="challengegroup_reward_homesteading">
+		<variable name="name" value="zombie_slayer_name_vulture"/>
+		<variable name="subtitle" value="zombie_slayer_subtitle_vulture"/>
+		<variable name="description" value="zombie_slayer_desc"/>
+		<variable name="completion" value="zombie_slayer_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardRegAmmo if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="Item" id="ammoArrowSteelAP" ischosen="true" isfixed="true" value="150"/>
+		<reward type="Item" id="ammo9mmBulletAP" ischosen="true" isfixed="true" value="300"/>
+		<reward type="Item" id="ammoShotgunSlug" ischosen="true" isfixed="true" value="150"/>
+		<reward type="Item" id="ammo762mmBulletAP" ischosen="true" isfixed="true" value="150"/>
+		<reward type="Item" id="ammoJunkTurretAP" ischosen="true" isfixed="true" value="1000"/>
+	</quest>
+
+<!-- Kill_Lumberjack_Challenge_Reward -->
+	<quest id="quest_reward_lumberjack_zombie_slayer" template="challengegroup_reward_homesteading">
+		<variable name="name" value="zombie_slayer_name_lumberjack"/>
+		<variable name="subtitle" value="zombie_slayer_subtitle_lumberjack"/>
+		<variable name="description" value="zombie_slayer_desc"/>
+		<variable name="completion" value="zombie_slayer_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardExplosives if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="Item" id="thrownAmmoMolotovCocktail" ischosen="true" isfixed="true" value="20"/>
+		<reward type="Item" id="thrownGrenade" ischosen="true" isfixed="true" value="25"/>
+		<reward type="Item" id="thrownGrenadeContact" ischosen="true" isfixed="true" value="25"/>
+		<reward type="Item" id="thrownTimedCharge" ischosen="true" isfixed="true" value="10"/>
+		<reward type="Item" id="mineAirFilter" ischosen="true" isfixed="true" value="10"/>
+	</quest>
+
+<!-- Kill_Spider_Challenge_Reward -->
+	<quest id="quest_reward_spider_zombie_slayer" template="challengegroup_reward_homesteading">
+		<variable name="name" value="zombie_slayer_name_spider"/>
+		<variable name="subtitle" value="zombie_slayer_subtitle_spider"/>
+		<variable name="description" value="zombie_slayer_desc"/>
+		<variable name="completion" value="zombie_slayer_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardMods if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="Item" id="modArmorCigar" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modArmorHelmetLight" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modArmorBandolier" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modArmorTripleStoragePocket" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modArmorImpactBracing" ischosen="true" isfixed="true" value="1"/>
+	</quest>
+
+<!-- Kill_Big_Mama_Challenge_Reward -->
+	<quest id="quest_reward_bigmama_zombie_slayer" template="challengegroup_reward_homesteading">
+		<variable name="name" value="zombie_slayer_name_big_mama"/>
+		<variable name="subtitle" value="zombie_slayer_subtitle_big_mama"/>
+		<variable name="description" value="zombie_slayer_desc"/>
+		<variable name="completion" value="zombie_slayer_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardMods if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="Item" id="modGunCrippleEm" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modGunSoundSuppressorSilencer" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modGunShotgunTubeExtenderMagazine" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modGunDrumMagazineExtender" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modGunMeleeRadRemover" ischosen="true" isfixed="true" value="1"/>
+	</quest>
+
+<!-- Kill_Tourist_Challenge_Reward -->
+	<quest id="quest_reward_tourist_zombie_slayer" template="challengegroup_reward_homesteading">
+		<variable name="name" value="zombie_slayer_name_tourist"/>
+		<variable name="subtitle" value="zombie_slayer_subtitle_tourist"/>
+		<variable name="description" value="zombie_slayer_desc"/>
+		<variable name="completion" value="zombie_slayer_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardMods if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="Item" id="modArmorStealthBoots" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modArmorWaterPurifier" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modArmorQuadStoragePocket" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modArmorTreasureHunter" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modArmorNightVision" ischosen="true" isfixed="true" value="1"/>
+	</quest>
+
+<!-- Kill_Mutated_Challenge_Reward -->
+	<quest id="quest_reward_mutated_zombie_slayer" template="challengegroup_reward_homesteading">
+		<variable name="name" value="zombie_slayer_name_mutated"/>
+		<variable name="subtitle" value="zombie_slayer_subtitle_mutated"/>
+		<variable name="description" value="zombie_slayer_desc"/>
+		<variable name="completion" value="zombie_slayer_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardMods if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="Item" id="modArmorPerception" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modArmorStrength" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modArmorFortitude" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modArmorAgility" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="modArmorIntellect" ischosen="true" isfixed="true" value="1"/>
+	</quest>
+
+<!-- Kill_Cop_Challenge_Reward -->
+	<quest id="quest_reward_cop_zombie_slayer" template="challengegroup_reward_homesteading">
+		<variable name="name" value="zombie_slayer_name_cop"/>
+		<variable name="subtitle" value="zombie_slayer_subtitle_cop"/>
+		<variable name="description" value="zombie_slayer_desc"/>
+		<variable name="completion" value="zombie_slayer_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardRareItems if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="Item" id="toolDewFilter" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="plantedGraceCorn1Schematic" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="solarCell" ischosen="true" isfixed="true" value="3"/>
+		<reward type="Item" id="toolForgeCrucible" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="resourceLegendaryParts" ischosen="true" isfixed="true" value="4"/>
+	</quest>
+
+<!-- Kill_Wight_Challenge_Reward -->
+	<quest id="quest_reward_wight_zombie_slayer" template="challengegroup_reward_homesteading">
+		<variable name="name" value="zombie_slayer_name_wight"/>
+		<variable name="subtitle" value="zombie_slayer_subtitle_wight"/>
+		<variable name="description" value="zombie_slayer_desc"/>
+		<variable name="completion" value="zombie_slayer_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardLegendary if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="Item" id="questRewardLegendarySteelSpearCraftingBundle" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="questRewardLegendarySteelClubCraftingBundle" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="questRewardLegendarySteelKnuckleCraftingBundle" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="questRewardLegendaryMacheteCraftingBundle" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="questRewardLegendaryBatonCraftingBundle" ischosen="true" isfixed="true" value="1"/>
+	</quest>
+
+<!-- Kill_Demolition_Challenge_Reward -->
+	<quest id="quest_reward_demolition_zombie_slayer" template="challengegroup_reward_homesteading">
+		<variable name="name" value="zombie_slayer_name_demolition"/>
+		<variable name="subtitle" value="zombie_slayer_subtitle_demolition"/>
+		<variable name="description" value="zombie_slayer_desc"/>
+		<variable name="completion" value="zombie_slayer_completion"/>
+		<!-- Challenge Rewards are localized. Update challengeKillRewardLegendary if this list is changed. -->
+		<reward type="Exp" value="10000"/>
+		<reward type="Item" id="questRewardLegendaryRifleCraftingBundle" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="questRewardLegendaryShotgunCraftingBundle" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="questRewardLegendaryMachineGunCraftingBundle" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="questRewardLegendaryHandgunCraftingBundle" ischosen="true" isfixed="true" value="1"/>
+		<reward type="Item" id="questRewardLegendaryRoboticsCraftingBundle" ischosen="true" isfixed="true" value="1"/>
+	</quest>
+
+<!-- *** CHALLENGES_PAGE_03 -->
+
+		<!-- TWITCH_CHALLENGES_HERE -->
+
+
+
+
+<!-- *** TREASURE_MAP_QUESTS -->
+	<quest id="treasure_taylor">
+		<property name="name_key" value="treasure_taylor" param1="name"/>
+		<property name="subtitle_key" value="treasure_taylor" param1="name"/>
+		<property name="description_key" value="treasure_taylor_offer" param1="offer"/>
+		<property name="icon" value="ui_game_symbol_map"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="treasure"/>
+		<property name="offer_key" value="treasure_taylor_offer" param1="offer"/>
+		<property name="add_to_tier_complete" value="false"/>
+		<property name="shareable" value="false"/>
+
+		<objective type="TreasureChest">
+			<property name="block" value="cntBuriedLootStashChest"/>
+			<property name="alt_block" value="cntBuriedLootStashChestInsecure"/>
+			<property name="distance" value="500-1250"/>
+			<property name="default_radius" value="9"/>
+			<property name="nav_object" value="treasure"/>
+			<property name="direct_nav_object" value="treasure_direct"/>
+			<property name="blocks_per_reduction" value="10"/>
+				<!-- Perk/item can reduce this by 8. Change perk/item to a % based effect if a blocks_per_reduction less than 10 that is desired. -->
+			<property name="radius_reduction_sound" value="ui_radius_shrink"/>
+			<property name="explosion_event" value="quest_treasure_explosion_horde"/>
+		</objective>
+	</quest>
+	
+	<quest id="treasure_nickole" template="treasure_taylor">
+		<variable name="name" value="treasure_nickole"/>
+		<variable name="offer" value="treasure_nickole_offer"/>
+	</quest>
+	
+	<quest id="treasure_stephan" template="treasure_taylor">
+		<variable name="name" value="treasure_stephan"/>
+		<variable name="offer" value="treasure_stephan_offer"/>
+	</quest>
+	
+	<quest id="treasure_jennifer" template="treasure_taylor">
+		<variable name="name" value="treasure_jennifer"/>
+		<variable name="offer" value="treasure_jennifer_offer"/>
+	</quest>
+	
+	<quest id="treasure_claude" template="treasure_taylor">
+		<variable name="name" value="treasure_claude"/>
+		<variable name="offer" value="treasure_claude_offer"/>
+	</quest>
+
+	<quest id="treasure_sarah" template="treasure_taylor">
+		<variable name="name" value="treasure_sarah"/>
+		<variable name="offer" value="treasure_sarah_offer"/>
+	</quest>
+	
+	<quest id="treasure_raphael" template="treasure_taylor">
+		<variable name="name" value="treasure_raphael"/>
+		<variable name="offer" value="treasure_raphael_offer"/>
+	</quest>
+
+<!-- *** FETCH_QUESTS -->
+	<quest id="tier1_fetch">
+		<property name="name_key" value="quest_tier1_fetch" param1="name"/>
+		<property name="subtitle_key" value="quest_fetch_subtitle"/>
+		<property name="description_key" value="quest_fetch_description"/>
+		<property name="icon" value="ui_game_symbol_quest"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="quest"/>
+		<property name="difficulty_tier" value="1" param1="difficulty"/>
+		<property name="offer_key" value="quest_tier1_fetch_offer" param1="offer"/>
+		<property name="statement_key" value="quest_fetch_statement"/>
+		<property name="response_key" value="quest_fetch_response"/>
+		<property name="login_rally_reset" value="true"/>
+		<property name="reward_choices_count" value="5"/>
+		<property name="extra_tags" value="" param1="extra_tags"/>
+		<property name="shareable" value="true"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_fetch_completion"/>
+
+		<objective type="RandomPOIGoto">
+			<property name="phase" value="1"/>
+			<property name="biome_filter_type" value="SameBiome" param1="biome_filter_type"/>
+			<property name="biome_filter" value="" param1="biome_filter"/>
+			<property name="nav_object" value="quest"/>
+		</objective>
+
+		<objective type="RallyPoint">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally"/>
+		</objective>
+
+		<objective type="FetchFromContainer">
+			<property name="phase" value="3"/>
+			<property name="quest_item_ID" value="1"/>
+			<property name="item_count" value="1"/>
+			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="nav_object" value="fetch_container"/>
+		</objective>
+
+		<objective type="POIStayWithin">
+			<property name="phase" value="3"/>
+			<property name="radius" value="25"/>
+		</objective>
+		
+		<action type="UnlockPOI" >
+			<property name="phase" value="4"/>
+		</action>
+
+		<objective type="ReturnToNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="2500"/>
+		<reward type="Item" id="casinoCoin" value="100"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,groupQuestT1SkillMagazineBundle" ischosen="true" value="1"/>
+	</quest>
+
+	<quest id="tier2_fetch" template="tier1_fetch">
+		<variable name="name" value="quest_tier2_fetch"/>
+		<variable name="offer" value="quest_tier2_fetch_offer"/>
+		<variable name="difficulty" value="2"/>
+		<variable name="extra_tags" value=""/>
+		<variable name="biome_filter_type" value="SameBiome"/>
+		<variable name="biome_filter" value=""/>
+
+		<reward type="Exp" value="3750"/>
+		<reward type="Item" id="casinoCoin" value="200"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,seedsNoFlowers" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,groupQuestT1SkillMagazineBundle" ischosen="true"/>
+	</quest>
+
+	<quest id="tier3_fetch" template="tier1_fetch">
+		<variable name="name" value="quest_tier3_fetch"/>
+		<variable name="offer" value="quest_tier3_fetch_offer"/>
+		<variable name="difficulty" value="3"/>
+		<variable name="extra_tags" value=""/>
+		<variable name="biome_filter_type" value="SameBiome"/>
+		<variable name="biome_filter" value=""/>
+		
+		<reward type="Exp" value="5000"/>
+		<reward type="Item" id="casinoCoin" value="300"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,seedsNoFlowers,groupQuestSteel01" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true"/>
+	</quest>
+
+	<quest id="tier4_fetch" template="tier1_fetch">
+		<variable name="name" value="quest_tier4_fetch"/>
+		<variable name="offer" value="quest_tier4_fetch_offer"/>
+		<variable name="difficulty" value="4"/>
+		<variable name="extra_tags" value=""/>
+		<variable name="biome_filter_type" value="AnyBiome"/>
+		<variable name="biome_filter" value=""/>
+		
+		<reward type="Exp" value="6250"/>
+		<reward type="Item" id="casinoCoin" value="500"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestSteel01" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true"/>
+	</quest>
+
+	<quest id="tier5_fetch" template="tier1_fetch">
+		<variable name="name" value="quest_tier5_fetch"/>
+		<variable name="offer" value="quest_tier5_fetch_offer"/>
+		<variable name="difficulty" value="5"/>
+		<variable name="extra_tags" value=""/>
+		<variable name="biome_filter_type" value="AnyBiome"/>
+		<variable name="biome_filter" value=""/>
+		
+		<reward type="Exp" value="12500"/>
+		<reward type="Item" id="casinoCoin" value="1000"/>
+
+		<reward type="LootItem" id="groupQuestArmorResources" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestGas,groupQuestSteel02" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true"/>
+	</quest>
+
+	<quest id="tier6_fetch" template="tier1_fetch">
+		<variable name="name" value="quest_tier6_fetch"/>
+		<variable name="offer" value="quest_tier6_fetch_offer"/>
+		<variable name="difficulty" value="6"/>
+		<variable name="extra_tags" value=""/>
+		<variable name="biome_filter_type" value="AnyBiome"/>
+		<variable name="biome_filter" value=""/>
+		
+		<reward type="Exp" value="20000"/>
+		<reward type="Item" id="casinoCoin" value="3000"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestGas,groupQuestSteel02" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true"/>
+	</quest>
+
+<!-- *** CLEAR_QUESTS -->
+	<quest id="tier1_clear">
+		<property name="name_key" value="quest_tier1_clear" param1="name"/>
+		<property name="subtitle_key" value="quest_clear_subtitle"/>
+		<property name="description_key" value="quest_clear_description"/>
+		<property name="icon" value="ui_game_symbol_quest"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="quest"/>
+		<property name="offer_key" value="quest_tier1_clear_offer" param1="offer"/>
+		<property name="difficulty_tier" value="1" param1="difficulty"/>
+		<property name="statement_key" value="quest_clear_statement"/>
+		<property name="response_key" value="quest_clear_response"/>
+		<property name="login_rally_reset" value="true"/>
+		<property name="reward_choices_count" value="5"/>
+		<property name="extra_tags" value="" param1="extra_tags"/>
+		<property name="shareable" value="true"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_clear_completion"/>
+
+		<objective type="RandomPOIGoto">
+			<property name="phase" value="1"/>
+			<property name="biome_filter_type" value="SameBiome" param1="biome_filter_type"/>
+			<property name="biome_filter" value="" param1="biome_filter"/>
+			<property name="nav_object" value="quest"/>
+			<property name="poi_tier" value="-1" param1="poi_tier"/>
+		</objective>
+
+		<objective type="RallyPoint">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally"/>
+		</objective>
+
+		<objective type="ClearSleepers">
+			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
+		</objective>
+
+		<objective type="POIStayWithin">
+			<property name="phase" value="3"/>
+			<property name="radius" value="25"/>
+		</objective>
+
+		<action type="UnlockPOI" >
+			<property name="phase" value="4"/>
+		</action>
+
+		<objective type="ReturnToNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="3000"/>
+		<reward type="Item" id="casinoCoin" value="400"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,groupQuestT1SkillMagazineBundle" ischosen="true" value="1"/>
+	</quest>
+
+	<quest id="tier2_clear" template="tier1_clear">
+		<variable name="name" value="quest_tier2_clear"/>
+		<variable name="offer" value="quest_tier2_clear_offer"/>
+		<variable name="difficulty" value="2"/>
+		<variable name="extra_tags" value=""/>
+		<variable name="biome_filter_type" value="SameBiome"/>
+		<variable name="biome_filter" value=""/>
+		
+		<reward type="Exp" value="4500"/>
+		<reward type="Item" id="casinoCoin" value="500"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,seedsNoFlowers" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,groupQuestT1SkillMagazineBundle" ischosen="true"/>
+	</quest>
+	
+	<quest id="tier3_clear" template="tier1_clear">
+		<variable name="name" value="quest_tier3_clear"/>
+		<variable name="offer" value="quest_tier3_clear_offer"/>
+		<variable name="difficulty" value="3"/>
+		<variable name="extra_tags" value=""/>
+		<variable name="biome_filter_type" value="SameBiome"/>
+		<variable name="biome_filter" value=""/>
+		
+		<reward type="Exp" value="6000"/>
+		<reward type="Item" id="casinoCoin" value="800"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,seedsNoFlowers,groupQuestSteel01" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true"/>
+	</quest>
+	
+	<quest id="tier4_clear" template="tier1_clear">
+		<variable name="name" value="quest_tier4_clear"/>
+		<variable name="offer" value="quest_tier4_clear_offer"/>
+		<variable name="difficulty" value="4"/>
+		<variable name="extra_tags" value=""/>
+		<variable name="biome_filter_type" value="AnyBiome"/>
+		<variable name="biome_filter" value=""/>
+		
+		<reward type="Exp" value="7500"/>
+		<reward type="Item" id="casinoCoin" value="1000"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestSteel01" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true"/>
+	</quest>
+	
+	<quest id="tier5_clear" template="tier1_clear">
+		<variable name="name" value="quest_tier5_clear"/>
+		<variable name="offer" value="quest_tier5_clear_offer"/>
+		<variable name="difficulty" value="5"/>
+		<variable name="extra_tags" value=""/>
+		<variable name="biome_filter_type" value="AnyBiome"/>
+		<variable name="biome_filter" value=""/>
+		
+		<reward type="Exp" value="15000"/>
+		<reward type="Item" id="casinoCoin" value="2000"/>
+
+		<reward type="LootItem" id="groupQuestArmorResources" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestGas,groupQuestSteel02" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true"/>
+	</quest>
+	
+	<quest id="tier6_clear" template="tier1_clear">
+		<variable name="name" value="quest_tier6_clear"/>
+		<variable name="offer" value="quest_tier6_clear_offer"/>
+		<variable name="difficulty" value="6"/>
+		<variable name="extra_tags" value=""/>
+		<variable name="biome_filter_type" value="AnyBiome"/>
+		<variable name="biome_filter" value=""/>
+		
+		<reward type="Exp" value="24000"/>
+		<reward type="Item" id="casinoCoin" value="4000"/>
+
+		<reward type="Item" id="resourceLegendaryParts" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestGas,groupQuestSteel02" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true"/>
+	</quest>
+
+<!-- *** INFESTED_QUESTS -->
+	<quest id="tier2_clear_infested">
+		<property name="name_key" value="quest_tier2_infested_clear" param1="name"/>
+		<property name="subtitle_key" value="quest_infestation_subtitle"/>
+		<property name="description_key" value="quest_tier2_infested_clear_offer"/>
+		<property name="icon" value="ui_game_symbol_quest"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="quest"/>
+		<property name="offer_key" value="quest_tier2_infested_clear_offer" param1="offer"/>
+		<property name="difficulty_tier" value="2" param1="difficulty"/>
+		<property name="statement_key" value="quest_infestation_statement"/>
+		<property name="response_key" value="quest_infestation_response"/>
+		<property name="login_rally_reset" value="true"/>
+		<property name="reward_choices_count" value="5"/>
+		<property name="extra_tags" value="infested" param1="extra_tags"/>
+		<property name="shareable" value="true"/>
+		<property name="spawn_multiplier" value="2" param1="spawn_multiplier"/>
+		<property name="gamestage_mod" value=".6" param1="gamestage_mod"/>
+		<property name="gamestage_bonus" value="30" param1="gamestage_bonus"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_clear_completion"/>
+
+		<objective type="RandomPOIGoto">
+			<property name="phase" value="1"/>
+			<property name="biome_filter_type" value="SameBiome" param1="biome_filter_type"/>
+			<property name="biome_filter" value="" param1="biome_filter"/>
+			<property name="nav_object" value="quest"/>
+			<property name="poi_tier" value="1" param1="poi_tier"/>
+		</objective>
+
+		<objective type="RallyPoint">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally"/>
+		</objective>
+
+		<objective type="ClearSleepers">
+			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
+		</objective>
+
+		<objective type="POIStayWithin">
+			<property name="phase" value="3"/>
+			<property name="radius" value="25"/>
+		</objective>
+
+		<action type="UnlockPOI" >
+			<property name="phase" value="4"/>
+		</action>
+
+		<objective type="ReturnToNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="5625"/>
+		<reward type="Item" id="casinoCoin" value="1000"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>
+	</quest>
+	
+	<quest id="tier3_clear_infested" template="tier2_clear_infested">
+		<variable name="name" value="quest_tier3_infested_clear"/>
+		<variable name="offer" value="quest_tier3_infested_clear_offer"/>
+		<variable name="difficulty" value="3"/>
+		<variable name="extra_tags" value="infested"/>
+		<variable name="poi_tier" value="2"/>
+		<variable name="spawn_multiplier" value="2"/>
+		<variable name="gamestage_mod" value=".6"/>
+		<variable name="gamestage_bonus" value="30"/>
+		
+		<reward type="Exp" value="7500"/>
+		<reward type="Item" id="casinoCoin" value="2000"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestResourcesT1" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true" value="3"/>
+	</quest>
+	
+	<quest id="tier4_clear_infested" template="tier2_clear_infested">
+		<variable name="name" value="quest_tier4_infested_clear"/>
+		<variable name="offer" value="quest_tier4_infested_clear_offer"/>
+		<variable name="difficulty" value="4"/>
+		<variable name="extra_tags" value="infested"/>
+		<variable name="poi_tier" value="3"/>
+		<variable name="spawn_multiplier" value="1.5"/>
+		<variable name="gamestage_mod" value=".6"/>
+		<variable name="gamestage_bonus" value="30"/>
+		<variable name="biome_filter_type" value="AnyBiome"/>
+		
+		<reward type="Exp" value="9375"/>
+		<reward type="Item" id="casinoCoin" value="3000"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestResourcesT1" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true" value="4"/>
+	</quest>
+	
+	<quest id="tier5_clear_infested" template="tier2_clear_infested">
+		<variable name="name" value="quest_tier5_infested_clear"/>
+		<variable name="offer" value="quest_tier5_infested_clear_offer"/>
+		<variable name="difficulty" value="5"/>
+		<variable name="extra_tags" value="infested"/>
+		<variable name="poi_tier" value="4"/>
+		<variable name="spawn_multiplier" value="1.5"/>
+		<variable name="gamestage_mod" value=".6"/>
+		<variable name="gamestage_bonus" value="30"/>
+		<variable name="biome_filter_type" value="AnyBiome"/>
+		
+		<reward type="Exp" value="18750"/>
+		<reward type="Item" id="casinoCoin" value="4000"/>
+
+		<reward type="LootItem" id="groupQuestArmorResources" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestGas" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true" value="5"/>
+	</quest>
+
+	<quest id="tier6_clear_infested" template="tier2_clear_infested">
+		<variable name="name" value="quest_tier6_infested_clear"/>
+		<variable name="offer" value="quest_tier5_infested_clear_offer"/>
+		<variable name="difficulty" value="6"/>
+		<variable name="extra_tags" value="infested"/>
+		<variable name="poi_tier" value="5"/>
+		<variable name="spawn_multiplier" value="1.5"/>
+		<variable name="gamestage_mod" value=".6"/>
+		<variable name="gamestage_bonus" value="30"/>
+		<variable name="biome_filter_type" value="AnyBiome"/>
+		
+		<reward type="Exp" value="30000"/>
+		<reward type="Item" id="casinoCoin" value="6000"/>
+
+		<reward type="Item" id="resourceLegendaryParts" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestGas" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true" value="6"/>
+	</quest>
+
+<!-- *** RESTORE_POWER_QUESTS -->
+	<quest id="tier2_restore_power">
+		<property name="name_key" value="quest_tier2_restore_power" param1="name"/>
+		<property name="subtitle_key" value="quest_restore_power_subtitle"/>
+		<property name="description_key" value="quest_restore_power_description"/>
+		<property name="icon" value="ui_game_symbol_quest"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="quest"/>
+		<property name="difficulty_tier" value="2" param1="difficulty"/>
+		<property name="offer_key" value="quest_tier2_restore_power_offer" param1="offer"/>
+		<property name="statement_key" value="quest_restore_power_statement"/>
+		<property name="response_key" value="quest_restore_power_response"/>
+		<property name="reward_choices_count" value="5"/>
+		<property name="extra_tags" value="" param1="extra_tags"/>
+		<property name="shareable" value="true"/>
+
+		<property name="login_rally_reset" value="true"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_restore_power_completion"/>
+
+		<objective type="RandomPOIGoto">
+			<property name="phase" value="1"/>
+			<property name="biome_filter_type" value="SameBiome" param1="biome_filter_type"/>
+			<property name="biome_filter" value="" param1="biome_filter"/>
+			<property name="nav_object" value="quest"/>
+		</objective>
+
+		<objective type="RallyPoint">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally"/>
+			<property name="allowed_start_hour" value="22"/>
+			<property name="allowed_end_hour" value="1"/>
+		</objective>
+
+		<objective type="ClearSleepers">
+			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
+		</objective>
+
+		<objective type="POIBlockActivate" >
+			<property name="phase" value="3"/>
+			<property name="block_index" value="QuestRestorePower"/>
+			<property name="nav_object" value="restore_power"/>
+
+			<property name="complete_event" value="quest_poi_lights_on"/>
+		</objective>
+
+		<objective type="POIStayWithin">
+			<property name="phase" value="3"/>
+			<property name="radius" value="25"/>
+		</objective>
+
+		<action type="UnlockPOI" >
+			<property name="phase" value="4"/>
+		</action>
+
+		<objective type="ReturnToNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="5060"/>
+		<reward type="Item" id="casinoCoin" value="800"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>
+	</quest>
+	
+	<quest id="tier3_restore_power" template="tier2_restore_power">
+		<variable name="name" value="quest_tier3_restore_power"/>
+		<variable name="offer" value="quest_tier3_restore_power_offer"/>
+		<variable name="difficulty" value="3"/>
+		<variable name="extra_tags" value=""/>
+		
+		<reward type="Exp" value="6750"/>
+		<reward type="Item" id="casinoCoin" value="1500"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true" value="3"/>
+	</quest>
+
+	<quest id="tier4_restore_power" template="tier2_restore_power">
+		<variable name="name" value="quest_tier4_restore_power"/>
+		<variable name="offer" value="quest_tier4_restore_power_offer"/>
+		<variable name="difficulty" value="4"/>
+		<variable name="extra_tags" value=""/>
+		<variable name="biome_filter_type" value="AnyBiome"/>
+		
+		<reward type="Exp" value="8400"/>
+		<reward type="Item" id="casinoCoin" value="2000"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestGas" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true" value="4"/>
+	</quest>
+
+<!-- *** FETCH_AND_CLEAR_QUESTS -->
+	<quest id="tier2_fetch_clear">
+		<property name="name_key" value="quest_tier2_fetch_clear" param1="name"/>
+		<property name="subtitle_key" value="quest_fetch_clear_subtitle"/>
+		<property name="description_key" value="quest_fetch_clear_description"/>
+		<property name="icon" value="ui_game_symbol_quest"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="quest"/>
+		<property name="difficulty_tier" value="2" param1="difficulty"/>
+		<property name="offer_key" value="quest_tier2_fetch_clear_offer" param1="offer"/>
+		<property name="statement_key" value="quest_fetch_clear_statement"/>
+		<property name="response_key" value="quest_fetch_clear_response"/>
+		<property name="login_rally_reset" value="true"/>
+		<property name="reward_choices_count" value="5"/>
+		<property name="extra_tags" value="" param1="extra_tags"/>
+		<property name="shareable" value="true"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_fetch_clear_completion"/>
+
+		<objective type="RandomPOIGoto">
+			<property name="phase" value="1"/>
+			<property name="biome_filter_type" value="SameBiome" param1="biome_filter_type"/>
+			<property name="biome_filter" value="" param1="biome_filter"/>
+			<property name="nav_object" value="quest"/>
+		</objective>
+
+		<objective type="RallyPoint">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally"/>
+		</objective>
+
+		<objective type="ClearSleepers">
+			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
+		</objective>
+
+		<objective type="FetchFromContainer">
+			<property name="phase" value="3"/>
+			<property name="quest_item_ID" value="1"/>
+			<property name="item_count" value="1"/>
+			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="nav_object" value="fetch_container"/>
+		</objective>
+
+		<objective type="POIStayWithin">
+			<property name="phase" value="3"/>
+			<property name="radius" value="25"/>
+		</objective>
+
+		<action type="UnlockPOI" >
+			<property name="phase" value="4"/>
+		</action>
+
+		<objective type="ReturnToNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="5060"/>
+		<reward type="Item" id="casinoCoin" value="700"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>
+	</quest>
+	
+	<quest id="tier3_fetch_clear" template="tier2_fetch_clear">
+		<variable name="name" value="quest_tier3_fetch_clear"/>
+		<variable name="offer" value="quest_tier3_fetch_clear_offer"/>
+		<variable name="difficulty" value="3"/>
+		<variable name="extra_tags" value=""/>
+		<variable name="biome_filter_type" value="AnyBiome"/>
+		
+		<reward type="Exp" value="6750"/>
+		<reward type="Item" id="casinoCoin" value="1000"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true" value="3"/>
+	</quest>
+	
+	<quest id="tier4_fetch_clear" template="tier2_fetch_clear">
+		<variable name="name" value="quest_tier4_fetch_clear"/>
+		<variable name="offer" value="quest_tier4_fetch_clear_offer"/>
+		<variable name="difficulty" value="4"/>
+		<variable name="extra_tags" value=""/>
+		<variable name="biome_filter_type" value="AnyBiome"/>
+		
+		<reward type="Exp" value="8400"/>
+		<reward type="Item" id="casinoCoin" value="1500"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestResourcesT1" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true" value="4"/>
+	</quest>
+	
+	<quest id="tier5_fetch_clear" template="tier2_fetch_clear">
+		<variable name="name" value="quest_tier5_fetch_clear"/>
+		<variable name="offer" value="quest_tier5_fetch_clear_offer"/>
+		<variable name="difficulty" value="5"/>
+		<variable name="extra_tags" value=""/>
+		<variable name="biome_filter_type" value="AnyBiome"/>
+		
+		<reward type="Exp" value="16900"/>
+		<reward type="Item" id="casinoCoin" value="2000"/>
+
+		<reward type="LootItem" id="groupQuestArmorResources" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestGas" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true" value="5"/>
+	</quest>
+
+	<quest id="tier6_fetch_clear" template="tier2_fetch_clear">
+		<variable name="name" value="quest_tier6_fetch_clear"/>
+		<variable name="offer" value="quest_tier6_fetch_clear_offer"/>
+		<variable name="difficulty" value="6"/>
+		<variable name="extra_tags" value=""/>
+		<variable name="biome_filter_type" value="AnyBiome"/>
+		
+		<reward type="Exp" value="27000"/>
+		<reward type="Item" id="casinoCoin" value="5000"/>
+
+		<reward type="Item" id="resourceLegendaryParts" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestGas" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true" value="6"/>
+	</quest>
+
+<!-- *** BURIED_SUPPLIES_QUESTS -->
+	<quest id="intro_buried_supplies">
+		<property name="name_key" value="quest_intro_buried_supplies" param1="name"/>
+		<property name="subtitle_key" value="quest_buried_supplies_subtitle"/>
+		<property name="description_key" value="quest_buried_supplies_description"/>
+		<property name="icon" value="ui_game_symbol_treasure"/>
+		<property name="repeatable" value="false"/>
+		<property name="category_key" value="quest"/>
+		<property name="offer_key" value="quest_intro_buried_supplies_offer" param1="offer"/>
+		<property name="difficulty_tier" value="1" param1="difficulty"/>
+		<property name="statement_key" value="quest_buried_supplies_statement"/>
+		<property name="response_key" value="quest_intro_buried_supplies_response"/>
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_buried_supplies_completion"/>
+		<property name="shareable" value="false"/>
+		<property name="reward_choices_count" value="5"/>
+		<property name="single_quest" value="true"/>
+		<property name="always_allow" value="true"/>
+		<property name="unique_key" value="introquest"/>
+		<property name="quest_type" value="special"/>
+
+		<objective type="RandomGotoNPC" phase="1">
+			<property name="completion_distance" value="20"/>
+			<property name="distance" value="100-500"/>
+			<property name="nav_object" value="quest"/>
+			<property name="biome_filter_type" value="SameBiome"/>
+		</objective>
+
+		<objective type="RallyPoint">
+			<property name="start_mode" value="Create"/>
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally"/>
+			
+			<property name="activate_event" value="quest_treasure_replace_road"/>
+		</objective>
+
+		<objective type="StayWithin">
+			<property name="phase" value="3"/>
+			<property name="radius" value="25"/>
+		</objective>
+
+		<objective type="TreasureChest">
+			<property name="phase" value="3"/>
+			<property name="block" value="cntIntroBuriedFoodChest" param1="container"/>
+			<property name="default_radius" value="3" param1="radius"/>
+			<property name="container_type" value="Supplies"/>
+			<property name="nav_object" value="treasure"/>
+			<property name="direct_nav_object" value="treasure_direct"/>
+			<property name="blocks_per_reduction" value="5"/>
+			<property name="radius_reduction_sound" value="ui_radius_shrink"/>
+			<property name="use_nearby" value="true"/>
+			<property name="explosion_event" value="quest_treasure_explosion_horde"/>
+		</objective>
+
+		<objective type="FetchFromTreasure">
+			<property name="phase" value="3"/>
+			<property name="block" value="cntIntroBuriedFoodChest" param1="container"/>
+			<property name="quest_item_ID" value="1"/>
+			<property name="item_count" value="1"/>
+		</objective>
+
+		<action type="SpawnGSEnemy">
+			<property name="gamestage_list" value="SleeperGSList"/>
+			<property name="count" value="1-2" param1="finish_spawn_count"/>
+			<property name="phase" value="4"/>
+		</action>
+
+		<objective type="ReturnToNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+		
+		<!-- <action type="ShowMessageWindow"> -->
+			<!-- <property name="message" value="You did good kid! Way to go. I can give you more work once you finish your Homesteading challenges."/> -->
+			<!-- <property name="title" value="Intro quest completed!"/> -->
+			<!-- <property name="delay" value="0.1"/> -->
+			<!-- <property name="on_complete" value="true"/> -->
+		<!-- </action> -->
+		
+		<action type="SetCVar">
+			<property name="cvar" value="IntroComplete" />
+			<property name="value" value="1" />
+			<property name="on_complete" value="true"/>
+		</action>
+
+		<reward type="Exp" value="500"/>
+
+		<reward type="Item" id="questRewardPipePistolBundle" ischosen="true" value="1"/>
+		<reward type="Item" id="questRewardPipeShotgunBundle" ischosen="true" value="1"/>
+		<reward type="Item" id="questRewardPipeRifleBundle" ischosen="true" value="1"/>
+		<reward type="Item" id="questRewardPipeMachineGunBundle" ischosen="true" value="1"/>
+		<reward type="Item" id="questRewardPipeBatonBundle" ischosen="true" value="1"/>
+	</quest>
+
+	<quest id="tier1_buried_supplies">
+		<property name="name_key" value="quest_tier1_buried_supplies" param1="name"/>
+		<property name="subtitle_key" value="quest_buried_supplies_subtitle"/>
+		<property name="description_key" value="quest_buried_supplies_description"/>
+		<property name="icon" value="ui_game_symbol_treasure"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="quest"/>
+		<property name="offer_key" value="quest_tier1_buried_supplies_offer" param1="offer"/>
+		<property name="difficulty_tier" value="1" param1="difficulty"/>
+		<property name="statement_key" value="quest_buried_supplies_statement"/>
+		<property name="response_key" value="quest_buried_supplies_response"/>
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_buried_supplies_completion"/>
+		<property name="shareable" value="true"/>
+		<property name="reward_choices_count" value="5"/>
+
+		<objective type="RandomGotoNPC" phase="1">
+			<property name="completion_distance" value="20"/>
+			<property name="distance" value="350-600"/>
+			<property name="nav_object" value="quest"/>
+		</objective>
+
+		<objective type="RallyPoint">
+			<property name="start_mode" value="Create"/>
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally"/>
+			
+			<property name="activate_event" value="quest_treasure_replace_road"/>
+		</objective>
+
+		<objective type="StayWithin">
+			<property name="phase" value="3"/>
+			<property name="radius" value="25"/>
+		</objective>
+
+		<objective type="TreasureChest">
+			<property name="phase" value="3"/>
+			<property name="block" value="cntBuriedFoodStashChest" param1="container"/>
+			<property name="default_radius" value="5" param1="radius"/>
+			<property name="container_type" value="Supplies"/>
+			<property name="nav_object" value="treasure"/>
+			<property name="direct_nav_object" value="treasure_direct"/>
+			<property name="blocks_per_reduction" value="10"/>
+			<property name="radius_reduction_sound" value="ui_radius_shrink"/>
+			<property name="use_nearby" value="true"/>
+			<property name="explosion_event" value="quest_treasure_explosion_horde"/>
+		</objective>
+
+		<event type="TreasureRadiusReduction">
+			<property name="chance" value="0.25" param1="spawn_chance"/>
+			<action type="SpawnGSEnemy">
+				<property name="gamestage_list" value="SleeperGSList"/>
+				<property name="count" value="1-3" param1="spawn_count"/>
+			</action>
+		</event>
+
+		<objective type="FetchFromTreasure">
+			<property name="phase" value="3"/>
+			<property name="block" value="cntBuriedFoodStashChest" param1="container"/>
+			<property name="quest_item_ID" value="1"/>
+			<property name="item_count" value="1"/>
+		</objective>
+
+		<action type="SpawnGSEnemy">
+			<property name="gamestage_list" value="SleeperGSList"/>
+			<property name="count" value="3-5" param1="finish_spawn_count"/>
+			<property name="phase" value="4"/>
+		</action>
+
+		<objective type="ReturnToNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="2500"/>
+		<reward type="Item" id="casinoCoin" value="250"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>
+	</quest>
+	
+	<quest id="tier2_buried_supplies" template="tier1_buried_supplies">
+		<variable name="name" value="quest_tier2_buried_supplies"/>
+		<variable name="offer" value="quest_tier1_buried_supplies_offer"/>
+		<variable name="difficulty" value="2"/>
+		<variable name="radius" value="7"/>
+		<variable name="spawn_chance" value="0.5"/>
+		<variable name="spawn_count" value="2-4"/>
+		<variable name="finish_spawn_count" value="5-7"/>
+		<variable name="container" value="cntBuriedWeaponChest"/>
+		
+		<reward type="Exp" value="2500"/>
+		<reward type="Item" id="casinoCoin" value="500"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,groupQuestT1SkillMagazineBundle" ischosen="true" value="3"/>
+	</quest>
+	
+	<quest id="tier3_buried_supplies" template="tier1_buried_supplies">
+		<variable name="name" value="quest_tier3_buried_supplies"/>
+		<variable name="offer" value="quest_tier1_buried_supplies_offer"/>
+		<variable name="difficulty" value="3"/>
+		<variable name="radius" value="9"/>
+		<variable name="spawn_chance" value="0.75"/>
+		<variable name="spawn_count" value="3-5"/>
+		<variable name="finish_spawn_count" value="5-7"/>
+		<variable name="container" value="cntBuriedWeaponChest"/>
+		
+		<reward type="Exp" value="2500"/>
+		<reward type="Item" id="casinoCoin" value="1000"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true" value="3"/>
+	</quest>
+
+<!-- *** TEST_QUESTS -->
+
+	<quest id="test_sleepers">
+		<property name="name_key" value="test quest"/>
+		<property name="subtitle_key" value="Test Sleepers"/>
+		<property name="description_key" value="This is a sleepers test quest for dev purposes"/>
+		<property name="icon" value="ui_game_symbol_quest"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="quest"/>
+		<property name="difficulty_tier" value="1"/>
+		<property name="offer_key" value="Test the clear sleepers objective."/>
+		<property name="statement_key" value="Clear all the sleepers in the POI."/>
+		<property name="response_key" value="Test - Clear Sleepers"/>
+		<property name="login_rally_reset" value="true"/>
+		<property name="reward_choices_count" value="5"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="WELL I'LL BE DANGED. YOU REALLY MANAGED TO PULL THROUGH IN A PINCH. I NEVER THOUGHT I'D SEE THIS PISTOL AGAIN. GOOD WORK, SON. HERE'S WHAT I OWE YA."/>
+
+		<objective type="ClosestPOIGoto">
+			<property name="distance" value="10"/>
+			<property name="phase" value="1"/>
+		</objective>
+
+		<objective type="RallyPoint">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally"/>
+		</objective>
+
+		<objective type="ClearSleepers">
+			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
+		</objective>
+
+		<objective type="POIStayWithin">
+			<property name="phase" value="3"/>
+			<property name="radius" value="25"/>
+		</objective>
+
+		<action type="UnlockPOI">
+			<property name="phase" value="4"/>
+		</action>
+
+		<objective type="ReturnToNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="2500"/>
+		<reward type="Item" id="casinoCoin" value="350"/>
+		
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>
+	</quest>
+	
+	<quest id="test_sleepers_infested">
+		<property name="name_key" value="test quest"/>
+		<property name="subtitle_key" value="Test Infested Sleepers"/>
+		<property name="description_key" value="This is a infested sleepers test quest for dev purposes"/>
+		<property name="icon" value="ui_game_symbol_quest"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="quest"/>
+		<property name="difficulty_tier" value="1"/>
+		<property name="offer_key" value="Test the clear infested sleepers objective."/>
+		<property name="statement_key" value="Clear all the infested sleepers in the POI."/>
+		<property name="response_key" value="Test - Infested Clear Sleepers"/>
+		<property name="login_rally_reset" value="true"/>
+		<property name="reward_choices_count" value="5"/>
+		<property name="extra_tags" value="infested"/>
+		<property name="spawn_multiplier" value="2" param1="spawn_multiplier"/>
+		<property name="gamestage_mod" value=".6"/>
+		<property name="gamestage_bonus" value="30"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="WELL I'LL BE DANGED. YOU REALLY MANAGED TO PULL THROUGH IN A PINCH. I NEVER THOUGHT I'D SEE THIS PISTOL AGAIN. GOOD WORK, SON. HERE'S WHAT I OWE YA."/>
+
+		<objective type="ClosestPOIGoto">
+			<property name="distance" value="10"/>
+			<property name="phase" value="1"/>
+		</objective>
+
+		<objective type="RallyPoint">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally"/>
+		</objective>
+
+		<objective type="ClearSleepers">
+			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
+		</objective>
+
+		<objective type="POIStayWithin">
+			<property name="phase" value="3"/>
+			<property name="radius" value="25"/>
+		</objective>
+		
+		<action type="UnlockPOI" >
+			<property name="phase" value="4"/>
+		</action>
+
+		<objective type="ReturnToNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="2500"/>
+		<reward type="Item" id="casinoCoin" value="350"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>
+	</quest>
+	
+	<quest id="test_fetch">
+		<property name="name_key" value="test quest"/>
+		<property name="subtitle_key" value="Test Fetch"/>
+		<property name="description_key" value="This is a fetch test quest for dev purposes"/>
+		<property name="icon" value="ui_game_symbol_quest"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="quest"/>
+		<property name="difficulty_tier" value="1"/>
+		<property name="offer_key" value="Test the fetch objective."/>
+		<property name="statement_key" value="Find the test fetch item in the POI."/>
+		<property name="response_key" value="Test - Fetch"/>
+		<property name="login_rally_reset" value="true"/>
+		<property name="reward_choices_count" value="5"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="WELL I'LL BE DANGED. YOU REALLY MANAGED TO PULL THROUGH IN A PINCH. I NEVER THOUGHT I'D SEE THIS PISTOL AGAIN. GOOD WORK, SON. HERE'S WHAT I OWE YA."/>
+
+		<objective type="ClosestPOIGoto">
+			<property name="distance" value="10"/>
+			<property name="phase" value="1"/>
+		</objective>
+
+		<objective type="RallyPoint">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally"/>
+		</objective>
+
+		<objective type="FetchFromContainer">
+			<property name="phase" value="3"/>
+			<property name="quest_item_ID" value="1"/>
+			<property name="item_count" value="1"/>
+			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="nav_object" value="fetch_container"/>
+		</objective>
+
+		<objective type="POIStayWithin">
+			<property name="phase" value="3"/>
+			<property name="radius" value="25"/>
+		</objective>
+		
+		<action type="UnlockPOI" >
+			<property name="phase" value="4"/>
+		</action>
+
+		<objective type="ReturnToNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="2500"/>
+		<reward type="Item" id="casinoCoin" value="350"/>
+		
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>
+	</quest>
+
+	<quest id="test_fetchsleep">
+		<property name="name_key" value="test quest"/>
+		<property name="subtitle_key" value="Test Fetch Sleep"/>
+		<property name="description_key" value="This is a fetch/sleeper test quest for dev purposes."/>
+		<property name="icon" value="ui_game_symbol_quest"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="quest"/>
+		<property name="difficulty_tier" value="1"/>
+		<property name="offer_key" value="Test the fetch + sleepers objective."/>
+		<property name="statement_key" value="Clear the sleepers and find the test fetch item in the POI."/>
+		<property name="response_key" value="Test - Fetch + Sleepers"/>
+		<property name="login_rally_reset" value="true"/>
+		<property name="reward_choices_count" value="5"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="WELL I'LL BE DANGED. YOU REALLY MANAGED TO PULL THROUGH IN A PINCH. I NEVER THOUGHT I'D SEE THIS PISTOL AGAIN. GOOD WORK, SON. HERE'S WHAT I OWE YA."/>
+
+		<objective type="ClosestPOIGoto">
+			<property name="distance" value="10"/>
+			<property name="phase" value="1"/>
+		</objective>
+
+		<objective type="RallyPoint">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally"/>
+		</objective>
+
+		<objective type="ClearSleepers">
+			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
+		</objective>
+
+		<objective type="FetchFromContainer">
+			<property name="phase" value="3"/>
+			<property name="quest_item_ID" value="1"/>
+			<property name="item_count" value="1"/>
+			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="nav_object" value="fetch_container"/>
+		</objective>
+
+		<objective type="POIStayWithin">
+			<property name="phase" value="3"/>
+			<property name="radius" value="25"/>
+		</objective>
+		
+		<action type="UnlockPOI" >
+			<property name="phase" value="4"/>
+		</action>
+
+		<objective type="ReturnToNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="2500"/>
+		<reward type="Item" id="casinoCoin" value="350"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>
+	</quest>
+
+<quest id="test_fetchinfested">
+		<property name="name_key" value="test quest"/>
+		<property name="subtitle_key" value="Test Infested Sleepers and Fetch"/>
+		<property name="description_key" value="This is a infested sleepers and fetch test quest for dev purposes"/>
+		<property name="icon" value="ui_game_symbol_quest"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="quest"/>
+		<property name="difficulty_tier" value="1"/>
+		<property name="offer_key" value="Clear the infestation and find the supplies."/>
+		<property name="statement_key" value="Clear the infested and find the supplies."/>
+		<property name="response_key" value="Test - Infested Clear and Fetch"/>
+		<property name="login_rally_reset" value="true"/>
+		<property name="reward_choices_count" value="5"/>
+		<property name="extra_tags" value="infested"/>
+		<property name="spawn_multiplier" value="2" param1="spawn_multiplier"/>
+		<property name="gamestage_mod" value=".6"/>
+		<property name="gamestage_bonus" value="30"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="WELL SLAP MY GRANDMA'S GRITS! YOU DONE WENT AND FOUGHT OFF THAT INFESTATION LIKE A BULLDOG WITH A BONE! KEEP ON TRUCKIN', PARTNER! HERE'S WHAT I OWE YA."/>
+
+		<objective type="ClosestPOIGoto">
+			<property name="distance" value="10"/>
+			<property name="phase" value="1"/>
+		</objective>
+
+		<objective type="RallyPoint">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally"/>
+		</objective>
+
+		<objective type="ClearSleepers">
+			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
+		</objective>
+
+		<objective type="FetchFromContainer">
+			<property name="phase" value="3"/>
+			<property name="quest_item_ID" value="1"/>
+			<property name="item_count" value="1"/>
+			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="nav_object" value="fetch_container"/>
+		</objective>
+		<objective type="POIStayWithin">
+			<property name="phase" value="3"/>
+			<property name="radius" value="25"/>
+		</objective>
+		
+		<action type="UnlockPOI" >
+			<property name="phase" value="4"/>
+		</action>
+
+		<objective type="ReturnToNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="2500"/>
+		<reward type="Item" id="casinoCoin" value="350"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>
+	</quest>
+
+	<quest id="test_hiddensleep">
+		<property name="name_key" value="test quest"/>
+		<property name="subtitle_key" value="Test Hidden Sleep"/>
+		<property name="description_key" value="This is a Hidden/sleeper test quest for dev purposes."/>
+		<property name="icon" value="ui_game_symbol_quest"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="quest"/>
+		<property name="difficulty_tier" value="1"/>
+		<property name="offer_key" value="Test the Hidden + sleepers objective."/>
+		<property name="statement_key" value="Clear the sleepers and find the test hidden item in the POI."/>
+		<property name="response_key" value="Test - Hidden + Sleepers"/>
+		<property name="login_rally_reset" value="true"/>
+		<property name="reward_choices_count" value="5"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="WELL I'LL BE DANGED. YOU REALLY MANAGED TO PULL THROUGH IN A PINCH. I NEVER THOUGHT I'D SEE THIS PISTOL AGAIN. GOOD WORK, SON. HERE'S WHAT I OWE YA."/>
+
+		<objective type="ClosestPOIGoto">
+			<property name="distance" value="10"/>
+			<property name="phase" value="1"/>
+		</objective>
+
+		<objective type="RallyPoint">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally"/>
+		</objective>
+
+		<objective type="ClearSleepers">
+			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
+		</objective>
+
+		<objective type="FetchFromContainer">
+			<property name="phase" value="3"/>
+			<property name="quest_item_ID" value="1"/>
+			<property name="item_count" value="1"/>
+			<property name="default_container" value="cntFetchQuestSatchel"/>
+			<property name="fetch_mode" value="Hidden"/>
+		</objective>
+
+		<objective type="POIStayWithin">
+			<property name="phase" value="3"/>
+			<property name="radius" value="25"/>
+		</objective>
+
+		<objective type="ReturnToNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="2500"/>
+		<reward type="Item" id="casinoCoin" value="350"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>
+	</quest>
+
+	<quest id="test_restorepower">
+		<property name="name_key" value="test quest"/>
+		<property name="subtitle_key" value="Test Restore Power [[DECEA3]Night Only[-]]"/>
+		<property name="description_key" value="This is a Restore Power test quest for dev purposes."/>
+		<property name="icon" value="ui_game_symbol_quest"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="quest"/>
+		<property name="difficulty_tier" value="1"/>
+		<property name="offer_key" value="Test the Restore Power objective."/>
+		<property name="statement_key" value="Clear the sleepers and repair the power generators in the POI."/>
+		<property name="response_key" value="Test - Power Restore [[DECEA3]Night Only[-]]"/>
+		<property name="login_rally_reset" value="true"/>
+		<property name="reward_choices_count" value="5"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="WELL I'LL BE DANGED. YOU REALLY MANAGED TO PULL THROUGH IN A PINCH. I NEVER THOUGHT I'D SEE THIS PISTOL AGAIN. GOOD WORK, SON. HERE'S WHAT I OWE YA."/>
+
+		<objective type="ClosestPOIGoto">
+			<property name="distance" value="10"/>
+			<property name="phase" value="1"/>
+		</objective>
+
+		<objective type="RallyPoint">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="rally"/>
+			<property name="allowed_start_hour" value="22"/>
+			<property name="allowed_end_hour" value="1"/>
+
+			<property name="complete_event" value="quest_poi_lights_off"/>
+		</objective>
+
+		<objective type="ClearSleepers">
+			<property name="phase" value="3"/>
+			<property name="nav_object" value="sleeper_volume"/>
+		</objective>
+
+		<objective type="POIBlockActivate" >
+			<property name="phase" value="3"/>
+			<property name="block_index" value="QuestRestorePower"/>
+			<property name="nav_object" value="restore_power"/>
+
+			<property name="complete_event" value="quest_poi_lights_on"/>
+		</objective>
+
+		<objective type="POIStayWithin">
+			<property name="phase" value="3"/>
+			<property name="radius" value="25"/>
+		</objective>
+
+		<objective type="ReturnToNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="4"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="2500"/>
+		<reward type="Item" id="casinoCoin" value="350"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>
+	</quest>
+
+	<quest id="test_turnin">
+		<property name="name_key" value="Turn In Quest"/>
+		<property name="subtitle_key" value="Talk to Trader"/>
+		<property name="description_key" value=""/>
+		<property name="icon" value="ui_game_symbol_zombie"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="quest"/>
+		<property name="offer_key" value="Test Turn in"/>
+		<property name="difficulty_tier" value="5"/>
+		<property name="reward_choices_count" value="5"/>
+		
+		<property name="completiontype" value="TurnIn"/>
+		<property name="statement_key" value="Those cheerleader zombies need to be stopped."/>
+		<property name="response_key" value="I could look into the zombie cheerleaders."/>
+		<property name="login_rally_reset" value="true"/>
+		<property name="completion_key" value="WELL I'LL BE DANGED. YOU REALLY MANAGED TO PULL THROUGH IN A PINCH. I NEVER THOUGHT I'D SEE THIS PISTOL AGAIN. GOOD WORK, SON. HERE'S WHAT I OWE YA."/>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="1"/>
+		</objective>
+
+		<!-- <reward type="Skill" id="Influence" value="1000000"/> -->
+		<reward type="Exp" value="2500"/>
+
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" isfixed="true" value="2"/>
+		<reward type="LootItem" id="groupQuestArmor,groupQuestMedical" ischosen="true" isfixed="true" value="2"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestSchematics,groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestSteel01" ischosen="true"/>
+	</quest>
+
+	<quest id="test_turnin2">
+		<property name="name_key" value="Turn In Quest"/>
+		<property name="subtitle_key" value="Talk to Trader"/>
+		<property name="description_key" value="This is the reward"/>
+		<property name="icon" value="ui_game_symbol_zombie"/>
+		<property name="repeatable" value="false"/>
+		<property name="category_key" value="reward"/>
+		<property name="reward_choices_count" value="5"/>
+		<property name="login_rally_reset" value="true"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="THANK YOU SURVIVOR FOR FINISHING SOME OF THOSE TASKS FOR ME. HERE IS A REWARD FOR ALL YOUR HARD WORK. CHECK BACK TOMORROW AND I WILL HAVE SOME HARDER JOBS FOR YOU THAT SHOULD BE MORE REWARDING."/>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="1"/>
+		</objective>
+
+		<reward type="Item" id="casinoCoin" value="200"/>
+
+		<reward type="LootItem" id="groupQuestWeapons" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupQuestArmor" ischosen="true" isfixed="true" value="6"/>
+		<reward type="LootItem" id="groupQuestTools" ischosen="true" isfixed="true" value="3"/>
+		<reward type="LootItem" id="groupQuestSchematics,groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestSteel01" ischosen="true"/>
+		<reward type="SkillPoints" value="5" ischosen="true"/>
+	</quest>
+
+	<quest id="tier2_nexttrader">
+		<property name="group_name_key" value="quest_next_trader"/>
+		<property name="name_key" value="quest_next_trader"/>
+		<property name="subtitle_key" value="quest_next_trader_subtitle"/>
+		<property name="description_key" value="quest_next_trader_description"/>
+		<property name="icon" value="ui_game_symbol_map_trader"/>
+		<property name="category_key" value="quest"/>
+		<property name="shareable" value="false"/>
+		<property name="repeatable" value="false"/>
+		<property name="difficulty_tier" value="2" param1="difficulty"/>
+		<property name="extra_tags" value="nexttrader"/>
+		<property name="reward_choices_count" value="5"/>
+
+		<property name="unique_key" value="traderquest"/>
+
+		<property name="offer_key" value="quest_next_trader_offer"/>
+		<property name="statement_key" value="quest_next_trader_statement"/>
+		<property name="response_key" value="quest_next_trader_response"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_next_trader_completion"/>
+
+		<property name="return_to_quest_giver" value="false"/>
+		<property name="add_to_tier_complete" value="false"/>
+
+		<property name="quest_type" value="special"/>
+
+		<objective type="Goto" value="5" phase="1">
+			<property name="location_tag" value="TraderJen" param1="trader_tag" />
+			<property name="location_name" value="trader_jen" />
+			<property name="nav_object" value="go_to_trader"/>
+			<property name="biome_filter_type" value="AnyBiome" param1="biome_filter_type"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="500"/>
+		
+		<reward type="LootItem" id="groupQuestFood" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>
+		
+	</quest>
+	
+	<quest id="tier3_nexttrader">
+		<property name="group_name_key" value="quest_next_trader"/>
+		<property name="name_key" value="quest_next_trader"/>
+		<property name="subtitle_key" value="quest_next_trader_subtitle"/>
+		<property name="description_key" value="quest_next_trader_description"/>
+		<property name="icon" value="ui_game_symbol_map_trader"/>
+		<property name="category_key" value="quest"/>
+		<property name="shareable" value="false"/>
+		<property name="repeatable" value="false"/>
+		<property name="difficulty_tier" value="3" param1="difficulty"/>
+		<property name="extra_tags" value="nexttrader"/>
+		<property name="reward_choices_count" value="5"/>
+
+		<property name="unique_key" value="traderquest"/>
+
+		<property name="offer_key" value="quest_next_trader_offer"/>
+		<property name="statement_key" value="quest_next_trader_statement"/>
+		<property name="response_key" value="quest_next_trader_response"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_next_trader_completion"/>
+
+		<property name="return_to_quest_giver" value="false"/>
+		<property name="add_to_tier_complete" value="false"/>
+
+		<property name="quest_type" value="special"/>
+
+		<objective type="Goto" value="5" phase="1">
+			<property name="location_tag" value="TraderBob" param1="trader_tag" />
+			<property name="location_name" value="trader_bob" />
+			<property name="nav_object" value="go_to_trader"/>
+			<property name="biome_filter_type" value="AnyBiome" param1="biome_filter_type"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="500"/>
+		
+		<reward type="LootItem" id="groupQuestFood" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>
+		
+	</quest>
+	
+	<quest id="tier4_nexttrader">
+		<property name="group_name_key" value="quest_next_trader"/>
+		<property name="name_key" value="quest_next_trader"/>
+		<property name="subtitle_key" value="quest_next_trader_subtitle"/>
+		<property name="description_key" value="quest_next_trader_description"/>
+		<property name="icon" value="ui_game_symbol_map_trader"/>
+		<property name="category_key" value="quest"/>
+		<property name="shareable" value="false"/>
+		<property name="repeatable" value="false"/>
+		<property name="difficulty_tier" value="4" param1="difficulty"/>
+		<property name="extra_tags" value="nexttrader"/>
+		<property name="reward_choices_count" value="5"/>
+
+		<property name="unique_key" value="traderquest"/>
+
+		<property name="offer_key" value="quest_next_trader_offer"/>
+		<property name="statement_key" value="quest_next_trader_statement"/>
+		<property name="response_key" value="quest_next_trader_response"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_next_trader_completion"/>
+
+		<property name="return_to_quest_giver" value="false"/>
+		<property name="add_to_tier_complete" value="false"/>
+
+		<property name="quest_type" value="special"/>
+
+		<objective type="Goto" value="5" phase="1">
+			<property name="location_tag" value="TraderHugh" param1="trader_tag" />
+			<property name="location_name" value="trader_hugh" />
+			<property name="nav_object" value="go_to_trader"/>
+			<property name="biome_filter_type" value="AnyBiome" param1="biome_filter_type"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="500"/>
+		
+		<reward type="LootItem" id="groupQuestFood" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>
+		
+	</quest>
+
+	<quest id="tier5_nexttrader">
+		<property name="group_name_key" value="quest_next_trader"/>
+		<property name="name_key" value="quest_next_trader"/>
+		<property name="subtitle_key" value="quest_next_trader_subtitle"/>
+		<property name="description_key" value="quest_next_trader_description"/>
+		<property name="icon" value="ui_game_symbol_map_trader"/>
+		<property name="category_key" value="quest"/>
+		<property name="shareable" value="false"/>
+		<property name="repeatable" value="false"/>
+		<property name="difficulty_tier" value="5" param1="difficulty"/>
+		<property name="extra_tags" value="nexttrader"/>
+		<property name="reward_choices_count" value="5"/>
+
+		<property name="unique_key" value="traderquest"/>
+
+		<property name="offer_key" value="quest_next_trader_offer"/>
+		<property name="statement_key" value="quest_next_trader_statement"/>
+		<property name="response_key" value="quest_next_trader_response"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_next_trader_completion"/>
+
+		<property name="return_to_quest_giver" value="false"/>
+		<property name="add_to_tier_complete" value="false"/>
+
+		<property name="quest_type" value="special"/>
+
+		<objective type="Goto" value="5" phase="1">
+			<property name="location_tag" value="TraderJoel" param1="trader_tag" />
+			<property name="location_name" value="trader_joel" />
+			<property name="nav_object" value="go_to_trader"/>
+			<property name="biome_filter_type" value="AnyBiome" param1="biome_filter_type"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="500"/>
+		
+		<reward type="LootItem" id="groupQuestFood" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>
+		
+	</quest>
+
+	<quest id="test_nexttrader">
+		<property name="group_name_key" value="quest_next_trader"/>
+		<property name="name_key" value="quest_next_trader"/>
+		<property name="subtitle_key" value="quest_next_trader_subtitle"/>
+		<property name="description_key" value="quest_next_trader_description"/>
+		<property name="icon" value="ui_game_symbol_map_trader"/>
+		<property name="category_key" value="quest"/>
+		<property name="shareable" value="false"/>
+		<property name="repeatable" value="true"/>
+		<property name="difficulty_tier" value="1"/>
+		<property name="extra_tags" value="nexttrader"/>
+		<property name="reward_choices_count" value="5"/>
+
+		<property name="unique_key" value="traderquest"/>
+
+		<property name="offer_key" value="quest_next_trader_offer"/>
+		<property name="statement_key" value="quest_next_trader_statement"/>
+		<property name="response_key" value="quest_next_trader_response"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="return_to_quest_giver" value="false"/>
+		<property name="quest_type" value="special"/>
+
+		<objective type="Goto" value="5" phase="1">
+			<property name="location_tag" value="TraderJen" param1="trader_tag" />
+			<property name="location_name" value="trader_jen" />
+			<property name="nav_object" value="go_to_trader"/>
+			<property name="biome_filter_type" value="AnyBiome" param1="biome_filter_type"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="2"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="500"/>
+		
+		<reward type="LootItem" id="groupQuestFood" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestT1SkillMagazineBundle" ischosen="true" value="2"/>
+		
+	</quest>
+
+<!-- *** QUEST_COMPLETE_REWARDS -->
+	<quest id="quest_tier1complete">
+		<property name="name_key" value="quest_tier1_complete"/>
+		<property name="subtitle_key" value="quest_tier1_complete"/>
+		<property name="description_key" value="quest_tier1_complete_description"/>
+		<property name="icon" value="ui_game_symbol_loot_sack"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="reward"/>
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_tier_complete_completion"/>
+		<property name="reward_choices_count" value="5"/>
+		<property name="extra_tags" value="tiercomplete"/>
+
+		<reward type="Item" id="casinoCoin" value="2000"/>
+
+		<reward type="LootItem" id="groupQuestBicycle" ischosen="true" isfixed="true" value="2"/>
+		<reward type="Item" id="toolDewGatherer" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupQuestcasinoCoinT1" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestHelmetLightSchematic" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestForge" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestFarmPlotsT1" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestAmmoCraftingBundle" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestWoodShapes" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestWrench" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestT2Food" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestT1Books" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestT1Traps" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestT1MeleeMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestT1RangedMods" ischosen="true" value="2"/>
+	</quest>
+
+	<quest id="quest_tier2complete">
+		<property name="name_key" value="quest_tier2_complete"/>
+		<property name="subtitle_key" value="quest_tier2_complete"/>
+		<property name="description_key" value="quest_tier2_complete_description"/>
+		<property name="icon" value="ui_game_symbol_loot_sack"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="reward"/>
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_tier_complete_completion"/>
+		<property name="reward_choices_count" value="5"/>
+		<property name="extra_tags" value="tiercomplete"/>
+
+		<reward type="Item" id="casinoCoin" value="2000"/>
+
+		<reward type="LootItem" id="groupQuestMinibikeParts" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestcasinoCoinT2" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMiningHelmet" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestFarmPlotsT2" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestWorkbench" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestNailgun" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestT2Traps" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestForgedIron" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestLockPicks" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestT3Food" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestCobblestoneShapes" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestT2MeleeMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestT2RangedMods" ischosen="true" value="3"/>
+	</quest>
+
+	<quest id="quest_tier3complete">
+		<property name="name_key" value="quest_tier3_complete"/>
+		<property name="subtitle_key" value="quest_tier3_complete"/>
+		<property name="description_key" value="quest_tier3_complete_description"/>
+		<property name="icon" value="ui_game_symbol_loot_sack"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="reward"/>
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_tier_complete_completion"/>
+		<property name="reward_choices_count" value="5"/>
+		<property name="extra_tags" value="tiercomplete"/>
+
+		<reward type="Item" id="casinoCoin" value="2000"/>
+
+		<reward type="LootItem" id="groupQuestMotorcycleParts" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestcasinoCoinT3" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestNightVisionGoggles" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestFarmPlotsT3" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestDartTrap" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestSecuritySystem" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestGeneratorBank" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMeleeCrafting" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestRangedCrafting" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestTimedCharges" ischosen="true" value="4"/>
+		<reward type="Item" id="toolBeaker" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestT3MeleeMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestT3RangedMods" ischosen="true" value="4"/>
+	</quest>
+
+	<quest id="quest_tier4complete">
+		<property name="name_key" value="quest_tier4_complete"/>
+		<property name="subtitle_key" value="quest_tier4_complete"/>
+		<property name="description_key" value="quest_tier4_complete_description"/>
+		<property name="icon" value="ui_game_symbol_loot_sack"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="reward"/>
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_tier_complete_completion"/>
+		<property name="reward_choices_count" value="5"/>
+		<property name="extra_tags" value="tiercomplete"/>
+
+		<reward type="Item" id="casinoCoin" value="2000"/>
+
+		<reward type="LootItem" id="groupQuest4x4Parts" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestcasinoCoinT4" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestBatteryBank" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMeleeCrafting" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestRangedCrafting" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestConcreteShapes" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestBladeTrap" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestT4Food" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestT3MeleeMods" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestT3RangedMods" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestTimedCharges" ischosen="true" value="5"/>
+		<reward type="Item" id="toolBeaker" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestChemistryStation" ischosen="true" value="5"/>
+	</quest>
+
+	<quest id="quest_tier5complete">
+		<property name="name_key" value="quest_tier5_complete"/>
+		<property name="subtitle_key" value="quest_tier5_complete"/>
+		<property name="description_key" value="quest_tier5_complete_description"/>
+		<property name="icon" value="ui_game_symbol_loot_sack"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="reward"/>
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_tier5_complete_completion"/>
+		<property name="reward_choices_count" value="5"/>
+		<property name="extra_tags" value="tiercomplete"/>
+
+		<reward type="Item" id="casinoCoin" value="2000"/>
+
+		<reward type="LootItem" id="groupQuestArmorResources" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestGyrocopterParts" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestcasinoCoinT5" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestSolarBank" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestShotgunTurret" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestAutoTurret" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestForgedSteel" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestMeleeCrafting" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestRangedCrafting" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestSteelShapes" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestT3MeleeMods" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestT3RangedMods" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestAmmoCraftingBundle" ischosen="true" value="6"/>
+	</quest>
+
+	<quest id="quest_tier6complete">
+		<property name="name_key" value="quest_tier6_complete"/>
+		<property name="subtitle_key" value="quest_tier6_complete"/>
+		<property name="description_key" value="quest_tier6_complete_description"/>
+		<property name="icon" value="ui_game_symbol_loot_sack"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="reward"/>
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="quest_tier6_complete_completion"/>
+		<property name="reward_choices_count" value="5"/>
+		<property name="extra_tags" value="tiercomplete"/>
+
+		<reward type="Item" id="casinoCoin" value="2000"/>
+
+		<reward type="Item" id="resourceLegendaryParts" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupQuestGyrocopterParts" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestcasinoCoinT5" ischosen="true" value="7"/>
+		<reward type="LootItem" id="groupQuestSolarBank" ischosen="true" value="7"/>
+		<reward type="LootItem" id="groupQuestShotgunTurret" ischosen="true" value="7"/>
+		<reward type="LootItem" id="groupQuestAutoTurret" ischosen="true" value="7"/>
+		<reward type="LootItem" id="groupQuestForgedSteel" ischosen="true" value="7"/>
+		<reward type="LootItem" id="groupQuestAmmo" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestLegendaryMeleeCrafting" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestLegendaryRangedCrafting" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestSteelShapes" ischosen="true" value="7"/>
+		<reward type="LootItem" id="groupQuestT3MeleeMods" ischosen="true" value="7"/>
+		<reward type="LootItem" id="groupQuestT3RangedMods" ischosen="true" value="7"/>
+		<reward type="LootItem" id="groupQuestAmmoCraftingBundle" ischosen="true" value="7"/>
+	</quest>
+
+<!-- *** ADMIN_TEST_QUESTS -->
+	<quest id="tier1_test_turnin">
+		<property name="name_key" value="T1 Quest Turn In" param1="name"/>
+		<property name="subtitle_key" value="T1 Quest Turn In" param1="subtitle"/>
+		<property name="description_key" value="This is a test quest for dev purposes"/>
+		<property name="icon" value="ui_game_symbol_quest"/>
+		<property name="repeatable" value="true"/>
+		<property name="category_key" value="quest"/>
+		<property name="difficulty_tier" value="1" param1="difficulty"/>
+		<property name="offer_key" value="Hit accept and talk to any trader for a T1 quest reward." param1="offer"/>
+		<property name="statement_key" value="Easy Money!"/>
+		<property name="response_key" value="Quest Turn In"/>
+		<property name="reward_choices_count" value="5"/>
+
+		<property name="completiontype" value="TurnIn"/>
+		<property name="completion_key" value="WELL I'LL BE DANGED. HERE'S WHAT I OWE YA."/>
+
+		<objective type="ReturnToNPC">
+			<property name="phase" value="1"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<objective type="InteractWithNPC">
+			<property name="phase" value="1"/>
+			<property name="nav_object" value="return_to_trader"/>
+		</objective>
+
+		<reward type="Exp" value="2500"/>
+		<reward type="Item" id="casinoCoin" value="100"/>
+		
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,groupQuestT1SkillMagazineBundle" ischosen="true" value="1"/>
+	</quest>
+
+	<quest id="tier2_test_turnin" template="tier1_test_turnin">
+		<variable name="name" value="T2 Quest Turn In"/>
+		<variable name="subtitle" value="T2 Quest Turn In"/>
+		<variable name="offer" value="Hit accept and talk to any trader for a T2 quest reward."/>
+		<variable name="difficulty" value="2"/>
+		
+		<reward type="Exp" value="3750"/>
+		<reward type="Item" id="casinoCoin" value="200"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,seedsNoFlowers" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,groupQuestT1SkillMagazineBundle" ischosen="true"/>
+	</quest>
+
+	<quest id="tier3_test_turnin" template="tier1_test_turnin">
+		<variable name="name" value="T3 Quest Turn In"/>
+		<variable name="subtitle" value="T3 Quest Turn In"/>
+		<variable name="offer" value="Hit accept and talk to any trader for a T3 quest reward."/>
+		<variable name="difficulty" value="3"/>
+		
+		<reward type="Exp" value="5000"/>
+		<reward type="Item" id="casinoCoin" value="300"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="2"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestResourcesT0,seedsNoFlowers,groupQuestSteel01" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true"/>
+	</quest>
+
+	<quest id="tier4_test_turnin" template="tier1_test_turnin">
+		<variable name="name" value="T4 Quest Turn In"/>
+		<variable name="subtitle" value="T4 Quest Turn In"/>
+		<variable name="offer" value="Hit accept and talk to any trader for a T4 quest reward."/>
+		<variable name="difficulty" value="4"/>
+		
+		<reward type="Exp" value="6250"/>
+		<reward type="Item" id="casinoCoin" value="500"/>
+
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="3"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestSteel01" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true"/>
+	</quest>
+
+	<quest id="tier5_test_turnin" template="tier1_test_turnin">
+		<variable name="name" value="T5 Quest Turn In"/>
+		<variable name="subtitle" value="T5 Quest Turn In"/>
+		<variable name="offer" value="Hit accept and talk to any trader for a T5 quest reward."/>
+		<variable name="difficulty" value="5"/>
+		
+		<reward type="Exp" value="12500"/>
+		<reward type="Item" id="casinoCoin" value="1000"/>
+
+		<reward type="LootItem" id="groupQuestArmorResources" ischosen="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="4"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestGas,groupQuestSteel02" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true"/>
+	</quest>
+
+	<quest id="tier6_test_turnin" template="tier1_test_turnin">
+		<variable name="name" value="T6 Quest Turn In"/>
+		<variable name="subtitle" value="T6 Quest Turn In"/>
+		<variable name="offer" value="Hit accept and talk to any trader for a T6 quest reward."/>
+		<variable name="difficulty" value="6"/>
+		
+		<reward type="Exp" value="20000"/>
+		<reward type="Item" id="casinoCoin" value="3000"/>
+
+		<reward type="Item" id="resourceLegendaryParts" ischosen="true" isfixed="true" value="1"/>
+		<reward type="LootItem" id="groupQuestFood,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="5"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestMedical,groupQuestAmmo,groupQuestSchematics,groupQuestMods" ischosen="true" value="6"/>
+		<reward type="LootItem" id="groupQuestGas,groupQuestSteel02" ischosen="true"/>
+		<reward type="LootItem" id="groupQuestResourcesT1,groupQuestT1SkillMagazineBundle" ischosen="true"/>
+	</quest>
+
+<!-- *** QUEST_LISTS -->
+	<quest_list id="test_quests">
+		<quest id="test_sleepers"/>
+		<quest id="test_fetch"/>
+		<quest id="test_fetchsleep"/>
+		<quest id="test_fetchinfested"/>
+		<quest id="test_hiddensleep"/>
+		<quest id="test_restorepower"/>
+		<quest id="test_sleepers_infested"/>
+		<!-- <quest id="test_defense"/> -->
+	</quest_list>
+
+	<quest_list id="trader_rekt_quests">
+		<!-- Tier 1 -->
+		<quest id="intro_buried_supplies" end="0"/>
+		<quest id="tier1_clear" />
+		<quest id="tier1_fetch" />
+		<quest id="tier1_buried_supplies" />
+		<!-- <quest id="tier1_defense"/> -->
+
+		<!-- Tier 2 -->
+		<quest id="tier2_clear"/>
+		<quest id="tier2_clear_infested"/>
+		<quest id="tier2_fetch"/>
+		<quest id="tier2_fetch_clear"/>
+		<quest id="tier2_restore_power"/>
+		<quest id="tier2_buried_supplies"/>
+		<!-- <quest id="tier2_defense"/> -->
+
+		<!-- Tier 3 -->
+		<quest id="tier3_clear"/>
+		<quest id="tier3_clear_infested"/>
+		<quest id="tier3_fetch"/>
+		<quest id="tier3_fetch_clear"/>
+		<quest id="tier3_restore_power"/>
+		<quest id="tier3_buried_supplies"/>
+		<!-- <quest id="tier3_defense"/> -->
+
+		<!-- Tier 4 -->
+		<quest id="tier4_clear"/>
+		<quest id="tier4_clear_infested"/>
+		<quest id="tier4_restore_power"/>
+		<quest id="tier4_fetch_clear"/>
+
+		<!-- Tier 5 -->
+		<quest id="tier5_clear"/>
+		<quest id="tier5_clear_infested"/>
+		
+		<quest id="tier5_fetch_clear"/>
+
+		<!-- Tier 6 -->
+		<quest id="tier6_clear_infested"/>
+		<!-- <quest id="tier6_clear"/> -->
+		<!-- <quest id="tier6_fetch"/> -->
+		<!-- <quest id="tier6_fetch_clear"/> -->
+
+		<!-- Special Quests -->
+		<quest id="tier2_nexttrader"/>
+	</quest_list>
+	
+	<quest_list id="trader_jen_quests">
+		<!-- Tier 1 -->
+		<quest id="intro_buried_supplies" end="0"/>
+		<quest id="tier1_clear" />
+		<quest id="tier1_fetch" />
+		<quest id="tier1_buried_supplies" />
+		<!-- <quest id="tier1_defense"/> -->
+
+		<!-- Tier 2 -->
+		<quest id="tier2_clear"/>
+		<quest id="tier2_clear_infested"/>
+		<quest id="tier2_fetch"/>
+		<quest id="tier2_fetch_clear"/>
+		<quest id="tier2_restore_power"/>
+		<quest id="tier2_buried_supplies"/>
+		<!-- <quest id="tier2_defense"/> -->
+
+		<!-- Tier 3 -->
+		<quest id="tier3_clear"/>
+		<quest id="tier3_clear_infested"/>
+		<quest id="tier3_fetch"/>
+		<quest id="tier3_fetch_clear"/>
+		<quest id="tier3_restore_power"/>
+		<quest id="tier3_buried_supplies"/>
+		<!-- <quest id="tier3_defense"/> -->
+
+		<!-- Tier 4 -->
+		<quest id="tier4_clear"/>
+		<quest id="tier4_clear_infested"/>
+		<quest id="tier4_restore_power"/>
+		<quest id="tier4_fetch_clear"/>
+
+		<!-- Tier 5 -->
+		<quest id="tier5_clear"/>
+		<quest id="tier5_clear_infested"/>
+		
+		<quest id="tier5_fetch_clear"/>
+
+		<!-- Tier 6 -->
+		<quest id="tier6_clear_infested"/>
+		<!-- <quest id="tier6_clear"/> -->
+		<!-- <quest id="tier6_fetch"/> -->
+		<!-- <quest id="tier6_fetch_clear"/> -->
+
+		<!-- Special Quests -->
+		<quest id="tier3_nexttrader"/>
+	</quest_list>
+	
+	<quest_list id="trader_bob_quests">
+		<!-- Tier 1 -->
+		<quest id="intro_buried_supplies" end="0"/>
+		<quest id="tier1_clear" />
+		<quest id="tier1_fetch" />
+		<quest id="tier1_buried_supplies" />
+		<!-- <quest id="tier1_defense"/> -->
+
+		<!-- Tier 2 -->
+		<quest id="tier2_clear"/>
+		<quest id="tier2_clear_infested"/>
+		<quest id="tier2_fetch"/>
+		<quest id="tier2_fetch_clear"/>
+		<quest id="tier2_restore_power"/>
+		<quest id="tier2_buried_supplies"/>
+		<!-- <quest id="tier2_defense"/> -->
+
+		<!-- Tier 3 -->
+		<quest id="tier3_clear"/>
+		<quest id="tier3_clear_infested"/>
+		<quest id="tier3_fetch"/>
+		<quest id="tier3_fetch_clear"/>
+		<quest id="tier3_restore_power"/>
+		<quest id="tier3_buried_supplies"/>
+		<!-- <quest id="tier3_defense"/> -->
+
+		<!-- Tier 4 -->
+		<quest id="tier4_clear"/>
+		<quest id="tier4_clear_infested"/>
+		<quest id="tier4_restore_power"/>
+		<quest id="tier4_fetch_clear"/>
+
+		<!-- Tier 5 -->
+		<quest id="tier5_clear"/>
+		<quest id="tier5_clear_infested"/>
+		
+		<quest id="tier5_fetch_clear"/>
+
+		<!-- Tier 6 -->
+		<quest id="tier6_clear_infested"/>
+		<!-- <quest id="tier6_clear"/> -->
+		<!-- <quest id="tier6_fetch"/> -->
+		<!-- <quest id="tier6_fetch_clear"/> -->
+
+		<!-- Special Quests -->
+		<quest id="tier4_nexttrader"/>
+	</quest_list>
+	
+	<quest_list id="trader_hugh_quests">
+		<!-- Tier 1 -->
+		<quest id="intro_buried_supplies" end="0"/>
+		<quest id="tier1_clear" />
+		<quest id="tier1_fetch" />
+		<quest id="tier1_buried_supplies" />
+		<!-- <quest id="tier1_defense"/> -->
+
+		<!-- Tier 2 -->
+		<quest id="tier2_clear"/>
+		<quest id="tier2_clear_infested"/>
+		<quest id="tier2_fetch"/>
+		<quest id="tier2_fetch_clear"/>
+		<quest id="tier2_restore_power"/>
+		<quest id="tier2_buried_supplies"/>
+		<!-- <quest id="tier2_defense"/> -->
+
+		<!-- Tier 3 -->
+		<quest id="tier3_clear"/>
+		<quest id="tier3_clear_infested"/>
+		<quest id="tier3_fetch"/>
+		<quest id="tier3_fetch_clear"/>
+		<quest id="tier3_restore_power"/>
+		<quest id="tier3_buried_supplies"/>
+		<!-- <quest id="tier3_defense"/> -->
+
+		<!-- Tier 4 -->
+		<quest id="tier4_clear"/>
+		<quest id="tier4_clear_infested"/>
+		<quest id="tier4_restore_power"/>
+		<quest id="tier4_fetch_clear"/>
+
+		<!-- Tier 5 -->
+		<quest id="tier5_clear"/>
+		<quest id="tier5_clear_infested"/>
+		
+		<quest id="tier5_fetch_clear"/>
+
+		<!-- Tier 6 -->
+		<quest id="tier6_clear_infested"/>
+		<!-- <quest id="tier6_clear"/> -->
+		<!-- <quest id="tier6_fetch"/> -->
+		<!-- <quest id="tier6_fetch_clear"/> -->
+
+		<!-- Special Quests -->
+		<quest id="tier5_nexttrader"/>
+	</quest_list>
+	
+	<quest_list id="trader_joel_quests">
+		<!-- Tier 1 -->
+		<quest id="intro_buried_supplies" end="0"/>
+		<quest id="tier1_clear" />
+		<quest id="tier1_fetch" />
+		<quest id="tier1_buried_supplies" />
+		<!-- <quest id="tier1_defense"/> -->
+
+		<!-- Tier 2 -->
+		<quest id="tier2_clear"/>
+		<quest id="tier2_clear_infested"/>
+		<quest id="tier2_fetch"/>
+		<quest id="tier2_fetch_clear"/>
+		<quest id="tier2_restore_power"/>
+		<quest id="tier2_buried_supplies"/>
+		<!-- <quest id="tier2_defense"/> -->
+
+		<!-- Tier 3 -->
+		<quest id="tier3_clear"/>
+		<quest id="tier3_clear_infested"/>
+		<quest id="tier3_fetch"/>
+		<quest id="tier3_fetch_clear"/>
+		<quest id="tier3_restore_power"/>
+		<quest id="tier3_buried_supplies"/>
+		<!-- <quest id="tier3_defense"/> -->
+
+		<!-- Tier 4 -->
+		<quest id="tier4_clear"/>
+		<quest id="tier4_clear_infested"/>
+		<quest id="tier4_restore_power"/>
+		<quest id="tier4_fetch_clear"/>
+
+		<!-- Tier 5 -->
+		<quest id="tier5_clear"/>
+		<quest id="tier5_clear_infested"/>
+		
+		<quest id="tier5_fetch_clear"/>
+
+		<!-- Tier 6 -->
+		<quest id="tier6_clear_infested"/>
+		<!-- <quest id="tier6_clear"/> -->
+		<!-- <quest id="tier6_fetch"/> -->
+		<!-- <quest id="tier6_fetch_clear"/> -->
+
+		<!-- Special Quests -->
+	</quest_list>
+
+	<quest_items max_count="100">
+		<quest_item id="1" name="questWhiteRiverSupplies" description_key="questSuppliesGroupDesc" icon="questWhiteRiverSupplies" icon_color="255,255,255"/>
+		<quest_item id="2" name="questCassadoreSupplies" description_key="questSuppliesGroupDesc" icon="questCassadoreSupplies" icon_color="255,255,255"/>
+	</quest_items>
+
+	<quest_tier_rewards>
+		<quest_tier_reward tier="2">
+			<reward type="Quest" id="quest_tier1complete"/>
+		</quest_tier_reward>
+
+		<quest_tier_reward tier="3">
+			<reward type="Quest" id="quest_tier2complete"/>
+		</quest_tier_reward>
+
+		<quest_tier_reward tier="4">
+			<reward type="Quest" id="quest_tier3complete"/>
+		</quest_tier_reward>
+
+		<quest_tier_reward tier="5">
+			<reward type="Quest" id="quest_tier4complete"/>
+		</quest_tier_reward>
+
+		<quest_tier_reward tier="6">
+			<reward type="Quest" id="quest_tier5complete"/>
+		</quest_tier_reward>
+
+		<quest_tier_reward tier="7">
+			<reward type="Quest" id="quest_tier6complete"/>
+		</quest_tier_reward>
+	</quest_tier_rewards>
+	
+</quests>

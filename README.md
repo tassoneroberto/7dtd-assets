@@ -14,20 +14,20 @@ From the game version `alpha11` you can find all the icons in the `ItemIcons` fo
 
 Item icons have been extracted using the tool [AssetStudio](https://github.com/Perfare/AssetStudio).
 
-### Alpha21 preview
+### v1.4 preview
 
-![icon1](alpha21/ItemIcons/meleeToolPickT3Auger.png)
-![icon2](alpha21/ItemIcons/meleeToolAxeT3Chainsaw.png)
-![icon3](alpha21/ItemIcons/gunExplosivesT3RocketLauncher.png)
-![icon4](alpha21/ItemIcons/meleeToolRepairT3Nailgun.png)
-![icon5](alpha21/ItemIcons/gunMGT3M60.png)
-![icon6](alpha21/ItemIcons/cntDewCollector.png)
-![icon7](alpha21/ItemIcons/workbench.png)
-![icon8](alpha21/ItemIcons/modGunMeleeNiCdBattery.png)
-![icon9](alpha21/ItemIcons/vehicleRaft.png)
-![icon10](alpha21/ItemIcons/vaultHatch01.png)
-![icon11](alpha21/ItemIcons/modGunMeleeFlammableOil.png)
-![icon12](alpha21/ItemIcons/gunBotT3JunkDrone.png)
+![icon1](v1.4/ItemIcons/meleeToolPickT3Auger.png)
+![icon2](v1.4/ItemIcons/meleeToolAxeT3Chainsaw.png)
+![icon3](v1.4/ItemIcons/gunExplosivesT3RocketLauncher.png)
+![icon4](v1.4/ItemIcons/meleeToolRepairT3Nailgun.png)
+![icon5](v1.4/ItemIcons/gunMGT3M60.png)
+![icon6](v1.4/ItemIcons/cntDewCollector.png)
+![icon7](v1.4/ItemIcons/workbench.png)
+![icon8](v1.4/ItemIcons/modGunMeleeNiCdBattery.png)
+![icon9](v1.4/ItemIcons/vehicleRaft.png)
+![icon10](v1.4/ItemIcons/vaultHatch01.png)
+![icon11](v1.4/ItemIcons/modGunMeleeFlammableOil.png)
+![icon12](v1.4/ItemIcons/gunBotT3JunkDrone.png)
 
 ### Alpha10.4 preview
 
