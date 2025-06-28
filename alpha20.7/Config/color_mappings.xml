@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    The Color mappings here define how door colors are assigned from the door editor and from store block values for door blocks.
+    
+    To add a new color option in the editor, simply copy and paste a color element from below. 
+    Make sure to give it a unique id between 1 and 255.
+    The id is assigned to the blockvalue and will tell the engine which color to assign
+    The name is what will be displayed for the door editor in the 'Preset' Combobox
+    The value is just the hex for the color.
+    
+    The value field can be modified to change the color of any door using its associated id across all POIs.
+    
+    DON'T CHANGE OR REMOVE THE DEFAULT ELEMENT AS THIS WILL BREAK DOOR COLORS AND THE DOOR EDITOR
+-->
+
+<root>
+    <color name="Default" id="0" value="#ffffff" />
+    <color name="Red" id="1" value="#ff0000" />
+    <color name="Green" id="2" value="#00ff00" />
+    <color name="Blue" id="3" value="#0000ff" />
+	<color name="Yellow" id="4" value="#ffff00" />
+	<color name="Brown" id="5" value="#996633" />
+</root>

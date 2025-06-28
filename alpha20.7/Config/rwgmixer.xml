@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rwgmixer>
+	<!-- default generation values will go here -->
+	<world name="tiny">
+		<property name="world_size" value="0,5000"/>
+		<property name="border_step_distance" value="64"/>
+
+		<property class="mountains">
+			<property name="scale" value="1,2"/>
+			<property name="cluster_iterations" value="2"/>
+			<property name="cluster_range" value="800"/>
+			<property name="use_biome_mask" value="true"/>
+		</property>
+		
+		<property class="desert_mountains">
+			<property name="scale" value="1,2"/>
+			<property name="cluster_iterations" value="2"/>
+			<property name="cluster_range" value="800"/>
+			<property name="use_biome_mask" value="true"/>
+			<property name="biome_mask_min" value="0.1"/>
+		</property>
+		
+		<property class="hills">
+			<property name="scale" value="1,2"/>
+			<property name="cluster_iterations" value="3"/>
+			<property name="cluster_range" value="900"/>
+			<property name="use_biome_mask" value="false"/>
+		</property>
+		
+		<property class="plains">
+			<property name="scale" value="2,3"/>
+			<property name="cluster_iterations" value="0"/>
+			<property name="cluster_range" value="450"/>
+			<property name="use_biome_mask" value="false"/>
+		</property>
+		
+		<property class="lakes">
+			<property name="scale" value="1,1.5"/>
+			<property name="few" value="3"/>
+			<property name="default" value="5"/>
+			<property name="many" value="8"/>
+		</property>
+		
+		<property class="rivers">
+			<property name="scale" value="1,1.5"/>
+			<property name="few" value="3"/>
+			<property name="default" value="4"/>
+			<property name="many" value="7"/>
+		</property>
+		
+		<property class="craters">
+			<property name="scale" value="1,1.5"/>
+			<property name="few" value="1"/>
+			<property name="default" value="2"/>
+			<property name="many" value="3"/>
+		</property>
+		
+		<property class="canyons">
+			<property name="scale" value="1,1.5"/>
+			<property name="few" value="2"/>
+			<property name="default" value="3"/>
+			<property name="many" value="5"/>
+		</property>
+		
+		<property class="border">
+			<property name="scale" value="0.5,0.75"/>
+		</property>
+
+		<property class="oldwest">
+			<property name="few" value="2"/>
+			<property name="default" value="2"/>
+			<property name="many" value="3"/>
+			
+			<property name="mintiles" value="2"/>
+			<property name="maxtiles" value="3"/>
+		</property>
+		
+		<property class="countrytown">
+			<property name="few" value="1"/>
+			<property name="default" value="2"/>
+			<property name="many" value="3"/>
+			
+			<property name="mintiles" value="6"/>
+			<property name="maxtiles" value="8"/>
+		</property>
+		
+		<property class="town">
+			<property name="few" value="0"/>
+			<property name="default" value="1"/>
+			<property name="many" value="2"/>
+			
+			<property name="mintiles" value="6"/>
+			<property name="maxtiles" value="8"/>
+		</property>
+		
+		<property class="city">
+			<property name="few" value="0"/>
+			<property name="default" value="1"/>
+			<property name="many" value="2"/>
+			
+			<property name="mintiles" value="8"/>
+			<property name="maxtiles" value="10"/>
+		</property>
+		
+		<property class="wilderness">
+			<property name="few" value="100"/>
+			<property name="default" value="150"/>
+			<property name="many" value="200"/>
+		</property>
+	</world>
+	
+	<world name="small">
+		<property name="world_size" value="5000,7000"/>
+		<property name="border_step_distance" value="256"/>
+
+		<property class="mountains">
+			<property name="scale" value="1,2"/>
+			<property name="cluster_iterations" value="2"/>
+			<property name="cluster_range" value="800"/>
+			<property name="use_biome_mask" value="true"/>
+		</property>
+		
+		<property class="desert_mountains">
+			<property name="scale" value="1,2"/>
+			<property name="cluster_iterations" value="2"/>
+			<property name="cluster_range" value="800"/>
+			<property name="use_biome_mask" value="true"/>
+			<property name="biome_mask_min" value="0.1"/>
+		</property>
+		
+		<property class="hills">
+			<property name="scale" value="1,2"/>
+			<property name="cluster_iterations" value="3"/>
+			<property name="cluster_range" value="900"/>
+			<property name="use_biome_mask" value="false"/>
+		</property>
+		
+		<property class="plains">
+			<property name="scale" value="2,3"/>
+			<property name="cluster_iterations" value="0"/>
+			<property name="cluster_range" value="450"/>
+			<property name="use_biome_mask" value="false"/>
+		</property>
+		
+		<property class="lakes">
+			<property name="scale" value="1,1.5"/>
+			<property name="few" value="3"/>
+			<property name="default" value="5"/>
+			<property name="many" value="8"/>
+		</property>
+		
+		<property class="rivers">
+			<property name="scale" value="1,1.5"/>
+			<property name="few" value="3"/>
+			<property name="default" value="4"/>
+			<property name="many" value="7"/>
+		</property>
+		
+		<property class="craters">
+			<property name="scale" value="1,1.5"/>
+			<property name="few" value="1"/>
+			<property name="default" value="2"/>
+			<property name="many" value="3"/>
+		</property>
+		
+		<property class="canyons">
+			<property name="scale" value="1,1.5"/>
+			<property name="few" value="2"/>
+			<property name="default" value="3"/>
+			<property name="many" value="5"/>
+		</property>
+		
+		<property class="border">
+			<property name="scale" value="1,2"/>
+		</property>
+
+		<property class="oldwest">
+			<property name="few" value="2"/>
+			<property name="default" value="2"/>
+			<property name="many" value="3"/>
+			
+			<property name="mintiles" value="2"/>
+			<property name="maxtiles" value="3"/>
+		</property>
+		
+		<property class="countrytown">
+			<property name="few" value="4"/>
+			<property name="default" value="4"/>
+			<property name="many" value="5"/>
+			
+			<property name="mintiles" value="6"/>
+			<property name="maxtiles" value="8"/>
+		</property>
+		
+		<property class="town">
+			<property name="few" value="1"/>
+			<property name="default" value="2"/>
+			<property name="many" value="3"/>
+			
+			<property name="mintiles" value="6"/>
+			<property name="maxtiles" value="8"/>
+		</property>
+		
+		<property class="city">
+			<property name="few" value="1"/>
+			<property name="default" value="2"/>
+			<property name="many" value="3"/>
+			
+			<property name="mintiles" value="14"/>
+			<property name="maxtiles" value="18"/>
+		</property>
+		
+		<property class="wilderness">
+			<property name="few" value="200"/>
+			<property name="default" value="250"/>
+			<property name="many" value="300"/>
+		</property>
+	</world>
+	
+	<world name="medium">
+		<property name="world_size" value="7000,10000"/>
+		<property name="border_step_distance" value="256"/>
+	
+		<property class="mountains">
+			<property name="scale" value="1,2.5"/>
+			<property name="cluster_iterations" value="4"/>
+			<property name="cluster_range" value="800"/>
+			<property name="use_biome_mask" value="true"/>
+		</property>
+		
+		<property class="desert_mountains">
+			<property name="scale" value="1,1.5"/>
+			<property name="cluster_iterations" value="4"/>
+			<property name="cluster_range" value="600"/>
+			<property name="use_biome_mask" value="true"/>
+			<property name="biome_mask_min" value="0.1"/>
+		</property>
+		
+		<property class="hills">
+			<property name="scale" value="1,2.5"/>
+			<property name="cluster_iterations" value="4"/>
+			<property name="cluster_range" value="800"/>
+			<property name="use_biome_mask" value="false"/>
+		</property>
+		
+		<property class="plains">
+			<property name="scale" value="2,3"/>
+			<property name="cluster_iterations" value="0"/>
+			<property name="cluster_range" value="450"/>
+			<property name="use_biome_mask" value="false"/>
+		</property>
+		
+		<property class="lakes">
+			<property name="scale" value="1,2.5"/>
+			<property name="few" value="2"/>
+			<property name="default" value="3"/>
+			<property name="many" value="5"/>
+		</property>
+		
+		<property class="rivers">
+			<property name="scale" value="1,2.5"/>
+			<property name="few" value="3"/>
+			<property name="default" value="6"/>
+			<property name="many" value="8"/>
+		</property>
+		
+		<property class="craters">
+			<property name="scale" value="1,2.5"/>
+			<property name="few" value="1"/>
+			<property name="default" value="2"/>
+			<property name="many" value="3"/>
+		</property>
+		
+		<property class="canyons">
+			<property name="scale" value="1,2.5"/>
+			<property name="few" value="2"/>
+			<property name="default" value="3"/>
+			<property name="many" value="5"/>
+		</property>
+		
+		<property class="border">
+			<property name="scale" value="1.5,3.5"/>
+		</property>
+		
+		<property class="oldwest">
+			<property name="few" value="2"/>
+			<property name="default" value="3"/>
+			<property name="many" value="4"/>
+			
+			<property name="mintiles" value="1"/>
+			<property name="maxtiles" value="2"/>
+		</property>
+		
+		<property class="countrytown">
+			<property name="few" value="4"/>
+			<property name="default" value="5"/>
+			<property name="many" value="6"/>
+			
+			<property name="mintiles" value="6"/>
+			<property name="maxtiles" value="8"/>
+		</property>
+		
+		<property class="town">
+			<property name="few" value="1"/>
+			<property name="default" value="2"/>
+			<property name="many" value="3"/>
+			
+			<property name="mintiles" value="6"/>
+			<property name="maxtiles" value="8"/>
+		</property>
+		
+		<property class="city">
+			<property name="few" value="2"/>
+			<property name="default" value="3"/>
+			<property name="many" value="4"/>
+			
+			<property name="mintiles" value="14"/>
+			<property name="maxtiles" value="18"/>
+		</property>
+		
+		<property class="wilderness">
+			<property name="few" value="250"/>
+			<property name="default" value="300"/>
+			<property name="many" value="350"/>
+		</property>
+	</world>
+	
+	<world name="large">
+		<property name="world_size" value="10000,16000"/>
+		<property name="border_step_distance" value="256"/>
+	
+		<property class="mountains">
+			<property name="scale" value="1,2.5"/>
+			<property name="cluster_iterations" value="4"/>
+			<property name="cluster_range" value="800"/>
+			<property name="use_biome_mask" value="true"/>
+		</property>
+		
+		<property class="desert_mountains">
+			<property name="scale" value="1,2"/>
+			<property name="cluster_iterations" value="4"/>
+			<property name="cluster_range" value="800"/>
+			<property name="use_biome_mask" value="true"/>
+			<property name="biome_mask_min" value="0.25"/>
+		</property>
+		
+		<property class="hills">
+			<property name="scale" value="1,2.5"/>
+			<property name="cluster_iterations" value="4"/>
+			<property name="cluster_range" value="800"/>
+			<property name="use_biome_mask" value="false"/>
+		</property>
+		
+		<property class="plains">
+			<property name="scale" value="2,3"/>
+			<property name="cluster_iterations" value="0"/>
+			<property name="cluster_range" value="450"/>
+			<property name="use_biome_mask" value="false"/>
+		</property>
+		
+		<property class="lakes">
+			<property name="scale" value="1,2.5"/>
+			<property name="few" value="2"/>
+			<property name="default" value="3"/>
+			<property name="many" value="5"/>
+		</property>
+		
+		<property class="rivers">
+			<property name="scale" value="1,2.5"/>
+			<property name="few" value="2"/>
+			<property name="default" value="5"/>
+			<property name="many" value="10"/>
+		</property>
+		
+		<property class="craters">
+			<property name="scale" value="1,2.5"/>
+			<property name="few" value="2"/>
+			<property name="default" value="3"/>
+			<property name="many" value="5"/>
+		</property>
+		
+		<property class="canyons">
+			<property name="scale" value="1,2.5"/>
+			<property name="few" value="2"/>
+			<property name="default" value="3"/>
+			<property name="many" value="5"/>
+		</property>
+		
+		<property class="water_border">
+			<property name="scale" value="1.5,3.5"/>
+		</property>
+		
+		<property class="oldwest">
+			<property name="few" value="3"/>
+			<property name="default" value="4"/>
+			<property name="many" value="5"/>
+			
+			<property name="mintiles" value="2"/>
+			<property name="maxtiles" value="3"/>
+		</property>
+		
+		<property class="countrytown">
+			<property name="few" value="5"/>
+			<property name="default" value="6"/>
+			<property name="many" value="7"/>
+			
+			<property name="mintiles" value="6"/>
+			<property name="maxtiles" value="8"/>
+		</property>
+		
+		<property class="town">
+			<property name="few" value="2"/>
+			<property name="default" value="3"/>
+			<property name="many" value="4"/>
+			
+			<property name="mintiles" value="6"/>
+			<property name="maxtiles" value="8"/>
+		</property>
+		
+		<property class="city">
+			<property name="few" value="2"/>
+			<property name="default" value="3"/>
+			<property name="many" value="4"/>
+			
+			<property name="mintiles" value="14"/>
+			<property name="maxtiles" value="18"/>
+		</property>
+		
+		<property class="wilderness">
+			<property name="few" value="300"/>
+			<property name="default" value="350"/>
+			<property name="many" value="400"/>
+		</property>
+	</world>
+	
+	
+	<township name="oldwest">
+		<property name="spawn_trader" value="false"/>
+	</township>
+	
+	<township name="countrytown">
+	</township>
+	
+	<township name="town">
+		<property name="outskirt_district" value="rural"/>
+	</township>
+	
+	<township name="city">
+		<property name="outskirt_district" value="rural"/>
+	</township>
+	
+	
+	<district name="wilderness">
+		<property name="district_required_township" value="wilderness"/>
+		<property name="district_preview_color" value="0.25,0.25,0.25"/>
+		
+		<property name="poi_required_tags_all" value="wilderness"/>
+	</district>
+	
+	<district name="commercial">
+		<property name="district_spawn_weight" value="0.4"/>
+		<property name="district_required_township" value="city,town"/>
+		<property name="district_preview_color" value="0.25,0.25,1"/>
+		
+		<property name="poi_required_tags_all" value="commercial"/>
+	</district>
+	
+	<district name="downtown">
+		<property name="district_spawn_weight" value="0.4"/>
+		<property name="district_required_township" value="city"/>
+		<property name="district_preview_color" value="0.5,0.5,0.5"/>
+		
+		<property name="poi_required_tags_all" value="downtown"/>
+	</district>
+	
+	<district name="industrial">
+		<property name="district_spawn_weight" value="0.2"/>
+		<property name="district_required_township" value="city,town"/>
+		<property name="district_preview_color" value="0.5,0.5,0.1"/>
+		
+		<property name="poi_required_tags_all" value="industrial"/>
+	</district>
+	
+	<district name="residential">
+		<property name="district_spawn_weight" value="0.5"/>
+		<property name="district_required_township" value="city,town"/>
+		<property name="district_preview_color" value="0.1,0.5,0.1"/>
+		
+		<property name="poi_required_tags_all" value="residential"/>
+	</district>
+	
+	<district name="countrytown">
+		<property name="district_spawn_weight" value="0.5"/>
+		<property name="district_required_township" value="countrytown"/>
+		<property name="district_preview_color" value="0,0.5,0"/>
+		
+		<property name="poi_required_tags_all" value="countrytown"/>
+	</district>
+	
+	<district name="countryresidential">
+		<property name="district_spawn_weight" value="1"/>
+		<property name="district_required_township" value="countrytown"/>
+		<property name="district_preview_color" value="0,0.5,0"/>
+		
+		<property name="poi_required_tags_all" value="countryresidential"/>
+	</district>
+	
+	<district name="rural">
+		<property name="district_spawn_weight" value="0"/>
+		<property name="district_required_township" value="city,town"/>
+		<property name="district_preview_color" value="0,0.5,0"/>
+		<property name="spawn_custom_size_prefabs" value="true"/>
+		<property name="poi_required_tags_all" value="rural"/>
+	</district>
+	
+	<district name="oldwest">
+		<property name="district_spawn_weight" value="1"/>
+		<property name="district_required_township" value="oldwest"/>
+		<property name="district_preview_color" value="0.5,0.5,0.1"/>
+		
+		<property name="poi_required_tags_all" value="oldwest"/>
+	</district>
+	
+	<district name="gateway">
+		<property name="district_spawn_weight" value="0"/>
+		<property name="district_preview_color" value="0,0.5,0"/>
+		<property name="spawn_custom_size_prefabs" value="true"/>
+		<property name="poi_required_tags_all" value="gateway"/>
+	</district>
+	
+	<streettile name="rwg_tile_downtown_intersection_02">
+		<property name="maxtiles" value="1"/>
+		<property name="mintiles" value="1"/>
+		<property name="maxdensity" value="120"/>
+	</streettile>
+</rwgmixer>

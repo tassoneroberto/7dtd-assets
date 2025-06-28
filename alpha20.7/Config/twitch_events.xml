@@ -1,0 +1,95 @@
+<twitch_events>
+
+	<!-- Bit Events
+			
+		event_title - The title that shows in chat when the event fires.
+		event_name - The game event that is activated.
+		sp_add_amount - The amount of special points added when this is activated. (Bits already add SP by default based on number of bits.)
+		pp_add_amount - The amount of pimp points added when this is activated. (Bits already add SP by default based on number of bits.)
+		start_amount - The minimum amount to start the event.
+		end_amount - The maximum amount to start the event.
+		safe_allowed - If it's allowed to be used in safe zone, if not it queues.
+		cooldown_allowed - If it's allowed to be used during cooldown, if not it queues.
+		vote_allowed - If it's allowed to be used during vote event, if not it queues.
+		pimp_pot_add - Adds the amount to the pimp pot.
+
+	-->
+
+	<!-- <bit_event event_title="Demo Bits" event_name="spawn_demo" start_amount="200" end_amount="999"  -->
+		<!-- safe_allowed="false" cooldown_allowed="false" vote_allowed="false" pimp_pot_add="10" /> -->
+	<!-- <bit_event event_title="Grace Bits" event_name="spawn_grace" start_amount="1000"  -->
+		<!-- safe_allowed="false" cooldown_allowed="false" vote_allowed="false" pimp_pot_add="20" /> -->
+
+	<!-- Sub Events
+		
+		event_title - The title that shows in chat when the event fires.
+		event_name - The game event that is activated.
+		sp_add_amount - The amount of special points added when this is activated. (Subs already add SP by default based on number of subs.)
+		pp_add_amount - The amount of pimp points added when this is activated. (Subs already add SP by default based on number of subs.)
+		start_amount - The minimum amount of months you've been subbed to start the event.
+		end_amount - The maximum amount of months you've been subbed to start the event.
+		safe_allowed - If it's allowed to be used in safe zone, if not it queues.
+		cooldown_allowed - If it's allowed to be used during cooldown, if not it queues.
+		vote_allowed - If it's allowed to be used during vote event, if not it queues.
+		pimp_pot_add - Adds the amount to the pimp pot.
+		
+	-->
+
+	<!-- <sub_event event_title="Wolf Sub" event_name="spawn_wolf" start_amount="0"  -->
+			<!-- safe_allowed="false" cooldown_allowed="false" vote_allowed="false" pimp_pot_add="3" /> -->
+
+	<!-- Gift Sub Events
+		
+		event_title - The title that shows in chat when the event fires.
+		event_name - The game event that is activated.
+		sp_add_amount - The amount of special points added when this is activated. (Gift Subs already add SP by default based on number of subs.)
+		pp_add_amount - The amount of pimp points added when this is activated. (Gift Subs already add SP by default based on number of subs.)
+		start_amount - The minimum amount of subs gifted to start the event.
+		end_amount - The maximum amount of subs gifted to start the event.
+		safe_allowed - If it's allowed to be used in safe zone, if not it queues.
+		cooldown_allowed - If it's allowed to be used during cooldown, if not it queues.
+		vote_allowed - If it's allowed to be used during vote event, if not it queues.
+		pimp_pot_add - Adds the amount to the pimp pot.
+		
+	-->
+
+	<!-- <gift_sub_event event_title="Bear Gift Sub" event_name="spawn_bear" start_amount="1"  -->
+		<!-- safe_allowed="false" cooldown_allowed="false" vote_allowed="false" /> -->
+
+	<!-- Channel Point Events
+		
+		channel_point_title - The title of the channel point redemption.
+		event_title - The title that shows in chat when the event fires.
+		event_name - The game event that is activated.
+		sp_add_amount - The amount of special points added when this is activated.
+		pp_add_amount - The amount of pimp points added when this is activated.
+		safe_allowed - If it's allowed to be used in safe zone, if not it queues.
+		cooldown_allowed - If it's allowed to be used during cooldown, if not it queues.
+		vote_allowed - If it's allowed to be used during vote event, if not it queues.
+		pimp_pot_add - Adds the amount to the pimp pot.
+		
+	-->
+
+	<!-- <channel_point_event channel_point_title="Redeem PP" event_title="Channel Point PP" pp_add_amount="1000" /> -->
+	<!-- <channel_point_event channel_point_title="Vulture" event_title="Channel Point Vulture" event_name="spawn_vulture"  -->
+		<!-- safe_allowed="false" cooldown_allowed="false" vote_allowed="false" pimp_pot_add="3" /> -->
+			
+	<!-- Raid Events
+		
+		event_title - The title that shows in chat when the event fires.
+		event_name - The game event that is activated.
+		start_amount - The minimum amount of viewers to start the event.
+		end_amount - The maximum amount of viewers to start the event.
+		sp_add_amount - The amount of special points added when this is activated.
+		pp_add_amount - The amount of pimp points added when this is activated.
+		safe_allowed - If it's allowed to be used in safe zone, if not it queues.
+		cooldown_allowed - If it's allowed to be used during cooldown, if not it queues.
+		vote_allowed - If it's allowed to be used during vote event, if not it queues.
+		pimp_pot_add - Adds the amount to the pimp pot.
+
+	-->
+
+	<!-- <raid_event event_title="Cop Raid" event_name="spawn_cop" start_amount="5"  -->
+		<!-- safe_allowed="false" cooldown_allowed="false" vote_allowed="false" pimp_pot_add="1000" sp_add_amount="1000" /> -->
+	
+</twitch_events>
