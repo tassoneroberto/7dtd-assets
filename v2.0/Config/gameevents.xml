@@ -98,7 +98,7 @@
 			<property name="remove_bedroll" value="true" />
 			<property name="remove_quests" value="true" />
 			<property name="remove_challenges" value="true" />
-			<property name="remove_backpack" value="true" />
+			<property name="remove_backpack" value="false" />
 			<property name="reset_stats" value="true" />
 		</action>
 	</action_sequence>
@@ -1114,6 +1114,31 @@
 			<!-- <property name="sound" value="caralarm1_dying"/> -->
 			<!-- <property name="phase" value="1"/> -->
 		<!-- </action> -->
+	</action_sequence>
+
+	<!-- *** BLOCK_TREE_STUMP_BEES -->
+	<!-- Use on the tree stumps -->
+	<action_sequence name="block_tree_stump_bees">
+		<property name="action_type" value="Game"/>
+		<property name="target_type" value="Block"/>
+		<property name="allow_while_dead" value="true"/>
+		<requirement class="RandomRoll">
+			<property name="min_max" value="0,100"/>
+			<property name="operation" value="LTE"/>
+			<property name="value" value="10"/>
+		</requirement>
+		<action class="SpawnEntity">
+			<property name="entity_names" value="animalInsectSwarm"/>
+			<property name="single_choice" value="true"/>
+			<property name="spawn_count" value="1"/>
+			<property name="phase" value="0"/>
+			<property name="add_to_group" value="zombies"/>
+			<property name="safe_spawn" value="true"/>
+			<property name="min_distance" value="2"/>
+			<property name="max_distance" value="3"/>
+			<property name="spawn_type" value="Position"/>
+			<property name="is_aggressive" value="true"/>
+		</action>
 	</action_sequence>
 
 	<!-- *** ZOMBIE_SPAWN_BLOCK -->

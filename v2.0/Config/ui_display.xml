@@ -306,6 +306,12 @@
 			<display_entry name="dNoiseMultiplier" title_key="statNoiseReduction" display_type="Percent" display_leading_plus="true"/>
 		</item_display_info>
 
+		<item_display_info display_type="modNoiseStaminaReduction" display_group="groupAttire" >
+			<display_entry name="dStaminaChangeOT" title_key="statStaminaChangeOT" display_type="Decimal2" display_leading_plus="true"/>
+			<!-- <display_entry name="Mobility" title_key="statMobility" display_type="Percent" show_inverted="true" negative_preferred="false"/> -->
+			<display_entry name="dNoiseMultiplier" title_key="statNoiseIncrease" display_type="Percent" show_inverted="false" negative_preferred="true"/>
+		</item_display_info>
+
 		<!-- <item_display_info display_type="modTempResist" display_group="modAttire"> -->
 			<!-- <display_entry name="HypothermalResist" display_type="Decimal1" title_key="statHypothermalResist" display_leading_plus="true"/> -->
 			<!-- <display_entry name="HyperthermalResist" display_type="Decimal1" title_key="statHyperthermalResist" display_leading_plus="true"/> -->
@@ -338,17 +344,6 @@
 		</item_display_info>
 
 		<item_display_info display_type="armorMedium" display_group="groupAttire" >
-			<display_entry name="PhysicalDamageResist" display_type="Decimal1" title_key="statPhysicalDamageResistMedium"/>
-			<display_entry name="ElementalDamageResist" display_type="Decimal1" title_key="statExplosionResistance" tags="heat,electrical"/>
-			<!-- <display_entry name="BuffResistance" title_key="statBuffResistance" display_type="Percent" tags="critResistDisplay" show_inverted="false"/> -->
-			<display_entry name="dStaminaChangeOT" title_key="statStaminaChangeOT" display_type="Decimal2"/>
-			<display_entry name="Mobility" title_key="statMobility" display_type="Percent" show_inverted="true" negative_preferred="false"/>
-			<display_entry name="dNoiseMultiplier" title_key="statNoiseIncrease" display_type="Percent" show_inverted="false" negative_preferred="true"/>
-			<display_entry name="DegradationMax" title_key="statDegradationMax" tags="mediumArmorDeg,admin"/>
-		</item_display_info>
-
-		<!-- Used for armorMilitaryStealthBoots. To be moved to a mod. -->
-		<item_display_info display_type="armorMediumStealth" display_group="groupAttire" >
 			<display_entry name="PhysicalDamageResist" display_type="Decimal1" title_key="statPhysicalDamageResistMedium"/>
 			<display_entry name="ElementalDamageResist" display_type="Decimal1" title_key="statExplosionResistance" tags="heat,electrical"/>
 			<!-- <display_entry name="BuffResistance" title_key="statBuffResistance" display_type="Percent" tags="critResistDisplay" show_inverted="false"/> -->

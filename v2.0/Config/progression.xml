@@ -1798,7 +1798,6 @@
 		<requirement name="!HasBuff" buff="buffTwitchBurn"/>
 		<requirement name="!HasBuff" buff="buffTwitchShocked"/>
 		<requirement name="!HasBuff" buff="buffTwitchRadiation"/>
-		<requirement name="!IsAttachedToEntity"/>
 		<requirement name="RandomRoll" seed_type="Random" min_max="0,100" operation="LTE" value="25"/>
 			<triggered_effect trigger="onOtherAttackedSelf" action="PlaySound" sound="twitch_bucket_hit" play_at_self="true"/>
 			<triggered_effect trigger="onOtherAttackedSelf" action="AddBuff" buff="buffPackMuleDisplay"/>
@@ -3315,14 +3314,10 @@
 		</effect_group>
 
 		<effect_group>
-			<!-- Clear perkIntellectMasteryPointChance if progression is reset -->
-			<triggered_effect trigger="onSelfProgressionUpdate" action="ModifyCVar" cvar="$perkIntellectMasteryPointChance" operation="set" value="0">
+			<!-- Clear CVars if progression is reset -->
+			<triggered_effect trigger="onSelfProgressionUpdate" action="RemoveCVar" cvar="$perkIntellectMasteryPointChance,$pointChanceFlag,$nerdOutfitSkillPointChance">
 				<requirement name="ProgressionLevel" progression_name="perkIntellectMastery" operation="LTE" value="0"/>
-			</triggered_effect>
-
-			<!-- Clear pointChanceFlag if progression is reset -->
-			<triggered_effect trigger="onSelfProgressionUpdate" action="ModifyCVar" cvar="$pointChanceFlag" operation="set" value="0">
-				<requirement name="ProgressionLevel" progression_name="perkIntellectMastery" operation="LTE" value="0"/>
+				<requirement name="CVarCompare" cvar="$perkIntellectMasteryPointChance" operation="GT" value="0"/>
 			</triggered_effect>
 		</effect_group>
 

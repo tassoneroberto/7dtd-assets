@@ -6290,8 +6290,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceMechanicalParts" count="1" tag="salvageHarvest"/>
 	<drop event="Harvest" name="resourceScrapIron" count="2,4" tag="salvageHarvest"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceCloth" count="4"/>
 	<drop event="Fall" count="0" stick_chance="0"/>
 	<property name="SortOrder1" value="B112"/>
@@ -6326,8 +6326,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<property name="StabilitySupport" value="false"/>
 	<drop event="Destroy" name="resourceCloth" count="0"/>
 	<drop event="Harvest" name="resourceCloth" count="1,3" tag="allHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="allHarvest,PercMasteryDukeHarvest"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="allHarvest,PercMasteryDukeHarvest"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="allHarvest,PercMasteryDukeHarvest"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="allHarvest,PercMasteryDukeHarvest"/>
 	<property name="SortOrder1" value="B112"/>
 	<property name="SortOrder2" value="0303"/>
 	<property name="FilterTags" value="MC_building,SC_commercial"/>
@@ -8386,8 +8386,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<property name="StabilitySupport" value="false"/>
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceScrapPolymers" count="2,8" tag="allHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceScrapPolymers" count="1,2"/>
 	<property name="SortOrder1" value="B113"/>
 	<property name="SortOrder2" value="2001"/>
@@ -8408,8 +8408,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<property name="MaxDamage" value="50"/>
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceScrapPolymers" count="2,8" tag="allHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceScrapPolymers" count="1,2"/>
 	<property name="SortOrder1" value="B113"/>
 	<property name="SortOrder2" value="2002"/>
@@ -21806,8 +21806,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<property name="MultiBlockDim" value="1,1,1"/>
 	<property name="WaterFlow" value="permitted"/>
 	<property name="Collide" value="melee,bullet,arrow,rocket,movement"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="oreWoodHarvest,PercMasteryDukeHarvest"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="oreWoodHarvest,PercMasteryDukeHarvest"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="oreWoodHarvest,PercMasteryDukeHarvest"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="oreWoodHarvest,PercMasteryDukeHarvest"/>
 	<drop event="Destroy" name="resourceScrapPolymers" count="4,7" tag="oreWoodHarvest"/>
 	<property name="DestroyFX" value="blockdestroy_cloth,plasticdestroy"/>
 	<property name="SortOrder1" value="B262"/>
@@ -42294,8 +42294,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	</property>
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceMechanicalParts" count="1,2" tag="salvageHarvest"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceLeather" count="1,2"/>
 	<drop event="Destroy" name="resourceScrapIron" count="5,15"/>
 	<property name="SortOrder1" value="B410"/>
@@ -43269,8 +43269,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	</property>
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceWood" count="2" tag="allHarvest,lumberjackHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceCloth" count="2" tag="allHarvest,perkJunkMiner"/>
 	<property name="SortOrder1" value="B416"/>
 	<property name="SortOrder2" value="0000"/>
@@ -43313,8 +43313,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	</property>
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceWood" count="2" tag="allHarvest,lumberjackHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceLeather" count="2" tag="allHarvest,perkJunkMiner"/>
 	<property name="SortOrder1" value="B417"/>
 	<property name="SortOrder2" value="0000"/>
@@ -43366,8 +43366,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	</property>
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceWood" count="2" tag="allHarvest,lumberjackHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceCloth" count="2" tag="allHarvest,perkJunkMiner"/>
 	<property name="SortOrder1" value="B418"/>
 	<property name="SortOrder2" value="0000"/>
@@ -43684,8 +43684,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	</property>
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceWood" count="2" tag="allHarvest,lumberjackHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceCloth" count="2" tag="allHarvest,perkJunkMiner"/>
 	<property name="SortOrder1" value="B419"/>
 	<property name="SortOrder2" value="0013"/>
@@ -43888,8 +43888,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	</property>
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceScrapIron" count="2" tag="allHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceCloth" count="2" tag="allHarvest,perkJunkMiner"/>
 	<property name="SortOrder1" value="B420"/>
 	<property name="SortOrder2" value="0000"/>
@@ -43950,8 +43950,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	</property>
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceScrapIron" count="2" tag="allHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceCloth" count="2" tag="allHarvest,perkJunkMiner"/>
 	<property name="SortOrder1" value="B420"/>
 	<property name="SortOrder2" value="0002"/>
@@ -43982,8 +43982,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	</property>
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceScrapIron" count="2" tag="allHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceCloth" count="2" tag="allHarvest,perkJunkMiner"/>
 	<property name="SortOrder1" value="B420"/>
 	<property name="SortOrder2" value="0003"/>
@@ -44014,8 +44014,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	</property>
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceScrapIron" count="2" tag="allHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceCloth" count="2" tag="allHarvest,perkJunkMiner"/>
 	<property name="SortOrder1" value="B420"/>
 	<property name="SortOrder2" value="0004"/>
@@ -44046,8 +44046,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	</property>
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceScrapIron" count="2" tag="allHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceCloth" count="2" tag="allHarvest,perkJunkMiner"/>
 	<property name="SortOrder1" value="B420"/>
 	<property name="SortOrder2" value="0005"/>
@@ -44234,8 +44234,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	</property>
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceWood" count="2" tag="allHarvest,lumberjackHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceCloth" count="2" tag="allHarvest,perkJunkMiner"/>
 	<property name="SortOrder1" value="B421"/>
 	<property name="SortOrder2" value="0000"/>
@@ -45344,8 +45344,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceWood" count="8" tag="allHarvest,lumberjackHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceSpring" count="6" tag="salvageHarvest"/>
 	<drop event="Harvest" name="resourceMetalPipe" count="2,3" tag="salvageHarvest"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceScrapIron" count="10,15"/>
 	<property name="SortOrder1" value="B434"/>
 	<property name="SortOrder2" value="9009"/>
@@ -45509,8 +45509,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	</property>
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceCloth" count="5" tag="allHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceCloth" count="5"/>
 	<property name="DowngradeBlock" value="bunkBedFrame"/>
 	<property name="SortOrder1" value="B434"/>
@@ -45959,8 +45959,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceMetalPipe" count="4" tag="salvageHarvest"/>
 	<drop event="Harvest" name="resourceSpring" count="3" tag="salvageHarvest"/>
 	<drop event="Harvest" name="resourceScrapIron" count="10" tag="allHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="SortOrder1" value="B434"/>
 	<property name="SortOrder2" value="0251"/>
@@ -45995,8 +45995,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	</property>
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceCloth" count="5" tag="allHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceCloth" count="5"/>
 	<property name="SortOrder1" value="B434"/>
 	<property name="SortOrder2" value="0300"/>
@@ -46142,8 +46142,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	</property>
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceCloth" count="5" tag="allHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceCloth" count="5"/>
 	<property name="SortOrder1" value="B434"/>
 	<property name="SortOrder2" value="0400"/>
@@ -46460,8 +46460,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<property name="EconomicValue" value="60"/> <!-- disassemble value -->
 	<property name="FallDamage" value=".6"/>
 	<drop event="Harvest" name="resourceCloth" count="2" tag="allHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="allHarvest,PercMasteryDukeHarvest"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="allHarvest,PercMasteryDukeHarvest"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="allHarvest,PercMasteryDukeHarvest"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="allHarvest,PercMasteryDukeHarvest"/>
 	<drop event="Destroy" count="0"/>
 	<property name="SortOrder1" value="B434"/>
 	<property name="SortOrder2" value="1000"/>
@@ -46493,8 +46493,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceMetalPipe" count="2,3" tag="salvageHarvest"/>
 	<drop event="Harvest" name="resourceScrapPolymers" count="2,4" tag="allHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceScrapIron" count="5,25"/>
 	<property name="SortOrder1" value="B434"/>
 	<property name="SortOrder2" value="2000"/>
@@ -46512,8 +46512,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceElectricParts" count="1,3" tag="salvageHarvest"/>
 	<drop event="Harvest" name="resourceMechanicalParts" count="1,3" tag="salvageHarvest"/>
 	<drop event="Harvest" name="resourceScrapPolymers" count="3,6" tag="allHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceScrapIron" count="5,20"/>
 	<property name="SortOrder2" value="2001"/>
 	<property name="Tags" value="challenge_elec_parts,challenge_mech_parts,challenge_sinks"/>
@@ -46537,8 +46537,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
 	<drop event="Harvest" name="resourceMetalPipe" count="2,3" tag="salvageHarvest"/>
 	<drop event="Harvest" name="resourceScrapPolymers" count="2,4" tag="allHarvest,perkJunkMiner"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceScrapIron" count="5,25"/>
 	<property name="SortOrder1" value="B435"/>
 	<property name="SortOrder2" value="0000"/>
@@ -52078,8 +52078,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceMechanicalParts" count="1,3" tag="salvageHarvest"/>
 	<drop event="Harvest" name="resourceScrapPolymers" count="1,15" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="1,2" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceScrapIron" count="1,15"/>
 	<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
 	<property name="SortOrder1" value="B473"/>
@@ -52161,8 +52161,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceMechanicalParts" count="1,3" tag="salvageHarvest"/>
 	<drop event="Harvest" name="resourceScrapPolymers" count="1,15" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="1,2" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="resourceScrapIron" count="1,15"/>
 	<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
 	<property name="SortOrder1" value="B473"/>
@@ -52368,8 +52368,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<property name="Place" value="TowardsPlacerInverted"/>
 	<property name="Collide" value="movement,melee,bullet,arrow,rocket"/>
 	<property name="StabilitySupport" value="false"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="allHarvest,PercMasteryDukeHarvest"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="allHarvest,PercMasteryDukeHarvest"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="allHarvest,PercMasteryDukeHarvest"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="allHarvest,PercMasteryDukeHarvest"/>
 	<drop event="Destroy" name="resourceScrapPolymers" count="5"/>
 	<property name="DestroyFX" value="blockdestroy_cloth,plasticdestroy"/>
 	<property name="SortOrder1" value="B474"/>
@@ -52536,8 +52536,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceLeather" count="1" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Destroy" count="0"/>
 	<drop event="Harvest" name="terrStone" count="0" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" name="oldCash" count="1,3" prob="0.05"/>
 	<property name="SortOrder1" value="B474"/>
 	<property name="SortOrder2" value="0508"/>
@@ -63426,8 +63426,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceLeather" count="1,3" prob="0.2" tag="salvageHarvest"/>
 	<drop event="Harvest" name="resourceScrapIron" count="10,20" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="DowngradeBlock" value="cntCar03SedanDamage1Master"/>
 	<property name="SortOrder1" value="B851"/>
@@ -63480,8 +63480,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceAcid" prob=".08" count="1" tag="WasteTreasuresAcidHarvest"/>
 	<drop event="Harvest" name="resourceScrapIron" count="17,35" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="DowngradeBlock" value="cntCar03SedanDamage2Master"/>
 	<property name="SortOrder1" value="B852"/>
@@ -63532,8 +63532,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceSpring" count="1,3" tag="salvageHarvest"/>
 	<drop event="Harvest" name="resourceScrapIron" count="12,20" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<drop event="Fall" name="scrapMetalPile" count="1" prob="1" stick_chance="1"/>
 	<property name="SortOrder1" value="B853"/>
@@ -64136,8 +64136,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceCloth" count="10,20" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="ShowModelOnFall" value="false"/>
 	<property name="SortOrder1" value="B855"/>
@@ -64876,8 +64876,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceCloth" count="10,20" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="ShowModelOnFall" value="false"/>
 	<property name="SortOrder1" value="B857"/>
@@ -65617,8 +65617,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceCloth" count="10,20" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="ShowModelOnFall" value="false"/>
 	<property name="SortOrder1" value="B859"/>
@@ -65806,8 +65806,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceCloth" count="10,20" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="ShowModelOnFall" value="false"/>
 	<property name="SortOrder1" value="B860"/>
@@ -65996,8 +65996,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceCloth" count="10,20" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="ShowModelOnFall" value="false"/>
 	<property name="SortOrder1" value="B861"/>
@@ -66185,8 +66185,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceCloth" count="10,20" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="ShowModelOnFall" value="false"/>
 	<property name="SortOrder1" value="B862"/>
@@ -66365,8 +66365,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceCloth" count="10,20" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="ShowModelOnFall" value="false"/>
 	<property name="SortOrder1" value="B863"/>
@@ -66544,8 +66544,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceCloth" count="10,20" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="ShowModelOnFall" value="false"/>
 	<property name="SortOrder1" value="B864"/>
@@ -66724,8 +66724,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceCloth" count="10,20" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="ShowModelOnFall" value="false"/>
 	<property name="SortOrder1" value="B865"/>
@@ -66901,8 +66901,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceCloth" count="10,20" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="ShowModelOnFall" value="false"/>
 	<property name="SortOrder1" value="B866"/>
@@ -67123,8 +67123,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceMetalPipe" count="5" prob="0.5" tag="salvageHarvest"/>
 	<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="SortOrder2" value="9100"/>
 	<property name="Tags" value="challenge_steel"/>
@@ -67233,8 +67233,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceCloth" count="10,20" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="ShowModelOnFall" value="false"/>
 	<property name="SortOrder1" value="B867"/>
@@ -67336,8 +67336,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceCloth" count="10,20" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="ShowModelOnFall" value="false"/>
 	<property name="SortOrder1" value="B867"/>
@@ -67424,8 +67424,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceCloth" count="10,20" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="ShowModelOnFall" value="false"/>
 	<property name="SortOrder1" value="B868"/>
@@ -67764,8 +67764,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceScrapIron" count="70,180" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceCloth" count="10,20" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<drop event="Fall" name="scrapMetalPile" count="1" prob="0.75" stick_chance="1"/>
 	<property name="ShowModelOnFall" value="false"/>
@@ -68109,8 +68109,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceAcid" prob=".08" count="1" tag="WasteTreasuresAcidHarvest"/>
 	<drop event="Harvest" name="resourceScrapIron" count="17,35" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<property name="SortOrder1" value="B873"/>
 	<property name="Tags" value="challenge_elec_parts,challenge_mech_parts,challenge_cars,challenge_steel"/>
 </block>
@@ -68160,8 +68160,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceAcid" prob=".08" count="1" tag="WasteTreasuresAcidHarvest"/>
 	<drop event="Harvest" name="resourceScrapIron" count="17,35" tag="allHarvest,perkJunkMiner,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="SortOrder2" value="0002"/>
 	<property name="Tags" value="challenge_elec_parts,challenge_mech_parts,challenge_cars,challenge_steel,perkBookworm"/>
@@ -68494,8 +68494,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceScrapIron" count="140,360" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceCloth" count="5,10" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="ShowModelOnFall" value="false"/>
 	<property name="SortOrder1" value="B878"/>
@@ -68590,8 +68590,8 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Harvest" name="resourceScrapIron" count="140,360" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceCloth" count="5,10" tag="allHarvest,perkJunkMiner"/>
 	<drop event="Harvest" name="resourceForgedSteel" count="3,6" tag="PercMasterySteelHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
-	<drop event="Harvest" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="casinoCoin" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
+	<drop event="Destroy" name="oldCash" count="5,15" tag="PercMasteryDukeHarvest" tool_category="Disassemble"/>
 	<drop event="Destroy" count="0"/>
 	<property name="ShowModelOnFall" value="false"/>
 	<property name="SortOrder1" value="B878"/>
@@ -70479,6 +70479,7 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<property name="SortOrder2" value="0000"/>
 	<property name="Tags" value="wood,challenge_stump"/>
 	<property name="FilterTags" value="MC_outdoor,SC_trees"/>
+	<property name="DestroyedEvent" value="block_tree_stump_bees"/>
 </block>
 
 <!-- Different collider that allows objects to be placed on top of it -->
@@ -70502,6 +70503,7 @@ MC_playerBlocks - SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<property name="SortOrder2" value="0001"/>
 	<property name="Tags" value="wood,challenge_stump"/>
 	<property name="FilterTags" value="MC_outdoor,SC_trees"/>
+	<property name="DestroyedEvent" value="block_tree_stump_bees"/>
 </block>
 
 	<!-- *** TREE_HELPERS -->

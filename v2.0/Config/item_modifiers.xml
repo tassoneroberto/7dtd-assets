@@ -1654,7 +1654,8 @@
 		<property name="Material" value="Msteel"/>
 
 		<effect_group tiered="false">
-			<passive_effect name="NoiseMultiplier" operation="perc_add" value="-.04"/><display_value name="dNoiseMultiplier" value="-.05"/>
+			<passive_effect name="NoiseMultiplier" operation="perc_add" value="-.04"/>
+			<display_value name="dNoiseMultiplier" value="-.05"/>
 		</effect_group>
 	</item_modifier>
 
@@ -1666,7 +1667,8 @@
 		<property name="Material" value="Msteel"/>
 
 		<effect_group tiered="false">
-			<passive_effect name="NoiseMultiplier" operation="perc_add" value="-.08"/><display_value name="dNoiseMultiplier" value="-.1"/>
+			<passive_effect name="NoiseMultiplier" operation="perc_add" value="-.08"/>
+			<display_value name="dNoiseMultiplier" value="-.1"/>
 		</effect_group>
 	</item_modifier>
 
@@ -1687,17 +1689,18 @@
 		<property name="Extends" value="modGeneralMaster" param1="CustomIcon"/>
 		<property name="UnlockedBy" value="perkUrbanCombatLanding"/>
 		<property name="TraderStageTemplate" value="modsTier2"/>
+		<property name="DisplayType" value="modNoiseStaminaReduction"/>
 		<property name="Material" value="Msteel"/>
 
 		<effect_group tiered="false">
-			<requirement name="ItemHasTags" tags="mediumArmor"/>
-				<triggered_effect trigger="onSelfEquipStart" action="AddBuff" buff="buffMediumStealthBoots"/>
-				<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" buff="buffMediumStealthBoots"/>
+		<display_value name="dStaminaChangeOT" value=".1"/>
+		<display_value name="dNoiseMultiplier" value="-.1"/>
 		</effect_group>
+
 		<effect_group tiered="false">
-			<requirement name="ItemHasTags" tags="heavyArmor"/>
-				<triggered_effect trigger="onSelfEquipStart" action="AddBuff" buff="buffHeavyStealthBoots"/>
-				<triggered_effect trigger="onSelfEquipStop" action="RemoveBuff" buff="buffHeavyStealthBoots"/>
+				<passive_effect name="StaminaChangeOT" operation="perc_add" value=".03" tags="walking"/>
+				<passive_effect name="StaminaChangeOT" operation="perc_add" value=".1" tags="running"/>
+				<passive_effect name="NoiseMultiplier" operation="perc_add" value="-.1"/>
 		</effect_group>
 	</item_modifier>
 

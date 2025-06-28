@@ -8819,34 +8819,6 @@
 		</effect_group>
 	</buff>
 
-	<!-- *** buffMediumStealthBoots -->
-	<!-- TRIGGERED_BY: item_modifiers = modArmorStealthBoots -->
-	<!-- Removes noise and stamina penalties -->
-	<buff name="buffMediumStealthBoots" hidden="true">
-		<stack_type value="ignore"/>
-		<duration value="0"/>
-
-		<effect_group>
-			<passive_effect name="StaminaChangeOT" operation="perc_add" value=".0281" tags="walking"/>
-			<passive_effect name="StaminaChangeOT" operation="perc_add" value=".0562" tags="running"/>
-			<passive_effect name="NoiseMultiplier" operation="perc_add" value="-.1"/>
-		</effect_group>
-	</buff>
-
-	<!-- *** buffHeavyStealthBoots -->
-	<!-- TRIGGERED_BY: item_modifiers = modArmorStealthBoots -->
-	<!-- Removes noise and stamina penalties -->
-	<buff name="buffHeavyStealthBoots" hidden="true">
-		<stack_type value="ignore"/>
-		<duration value="0"/>
-
-		<effect_group>
-			<passive_effect name="StaminaChangeOT" operation="perc_add" value=".045" tags="walking"/>
-			<passive_effect name="StaminaChangeOT" operation="perc_add" value=".09" tags="running"/>
-			<passive_effect name="NoiseMultiplier" operation="perc_add" value="-.2"/>
-		</effect_group>
-	</buff>
-
 	<!-- *** buffArmorShredding -->
 	<!-- TRIGGERED_BY: items_modifiers = modMeleeClubMetalSpikes -->
 	<!-- Increase damage through armor -->

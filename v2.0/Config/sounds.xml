@@ -413,7 +413,7 @@
 
 	<!-- *** Sleeper Spawns -->
 
-<SoundDataNode name="sleeperspawnconcrete"> <AudioSource name="@:Sounds/Prefabs/AudioSource_Interact_Large.prefab"/>
+<SoundDataNode name="sleeperspawnconcrete"> <AudioSource name="@:Sounds/Prefabs/AudioSource_SleeperSpawns_Close.prefab"/>
 	<Noise ID="2" noise="11" time="3" muffled_when_crouched="0.507"/>
 	<AudioClip ClipName="@:Sounds/ImpactSurface/sleeperspawnconcrete1.wav"/>
 	<AudioClip ClipName="@:Sounds/ImpactSurface/sleeperspawnconcrete2.wav"/>
@@ -423,7 +423,7 @@
 	<HighestPitch name="1.0"/>
 	<LocalCrouchVolumeScale value="0.5"/> <CrouchNoiseScale value="0.4002"/> <NoiseScale value="1"/> <MaxVoices value="2"/> <MaxRepeatRate value="0.01"/> <runningvolumescale value="2"/> </SoundDataNode>
 
-<SoundDataNode name="sleeperspawndirt"> <AudioSource name="@:Sounds/Prefabs/AudioSource_Interact_Large.prefab"/>
+<SoundDataNode name="sleeperspawndirt"> <AudioSource name="@:Sounds/Prefabs/AudioSource_SleeperSpawns.prefab"/>
 	<Noise ID="2" noise="11" time="3" muffled_when_crouched="0.507"/>
 	<AudioClip ClipName="@:Sounds/ImpactSurface/sleeperspawndirt1.wav"/>
 	<AudioClip ClipName="@:Sounds/ImpactSurface/sleeperspawndirt2.wav"/>
@@ -433,7 +433,7 @@
 	<HighestPitch name="1.0"/>
 	<LocalCrouchVolumeScale value="0.5"/> <CrouchNoiseScale value="0.4002"/> <NoiseScale value="1"/> <MaxVoices value="2"/> <MaxRepeatRate value="0.01"/> <runningvolumescale value="2"/> </SoundDataNode>
 
-<SoundDataNode name="sleeperspawnmetal"> <AudioSource name="@:Sounds/Prefabs/AudioSource_Interact_Large.prefab"/>
+<SoundDataNode name="sleeperspawnmetal"> <AudioSource name="@:Sounds/Prefabs/AudioSource_SleeperSpawns.prefab"/>
 	<Noise ID="2" noise="11" time="3" muffled_when_crouched="0.507"/>
 	<AudioClip ClipName="@:Sounds/ImpactSurface/sleeperspawnmetal1.wav"/>
 	<AudioClip ClipName="@:Sounds/ImpactSurface/sleeperspawnmetal2.wav"/>
@@ -443,7 +443,7 @@
 	<HighestPitch name="1.0"/>
 	<LocalCrouchVolumeScale value="0.5"/> <CrouchNoiseScale value="0.4002"/> <NoiseScale value="1"/> <MaxVoices value="2"/> <MaxRepeatRate value="0.01"/> <runningvolumescale value="2"/> </SoundDataNode>
 
-<SoundDataNode name="sleeperspawnwater"> <AudioSource name="@:Sounds/Prefabs/AudioSource_Interact_Large.prefab"/>
+<SoundDataNode name="sleeperspawnwater"> <AudioSource name="@:Sounds/Prefabs/AudioSource_SleeperSpawns.prefab"/>
 	<Noise ID="2" noise="11" time="3" muffled_when_crouched="0.507"/>
 	<AudioClip ClipName="@:Sounds/ImpactSurface/sleeperspawnwater1.wav"/>
 	<AudioClip ClipName="@:Sounds/ImpactSurface/sleeperspawnwater2.wav"/>
@@ -453,7 +453,7 @@
 	<HighestPitch name="1.0"/>
 	<LocalCrouchVolumeScale value="0.5"/> <CrouchNoiseScale value="0.4002"/> <NoiseScale value="1"/> <MaxVoices value="2"/> <MaxRepeatRate value="0.01"/> <runningvolumescale value="2"/> </SoundDataNode>
 
-<SoundDataNode name="sleeperspawnwood"> <AudioSource name="@:Sounds/Prefabs/AudioSource_Interact_Large.prefab"/>
+<SoundDataNode name="sleeperspawnwood"> <AudioSource name="@:Sounds/Prefabs/AudioSource_SleeperSpawns.prefab"/>
 	<Noise ID="2" noise="11" time="3" muffled_when_crouched="0.507"/>
 	<AudioClip ClipName="@:Sounds/ImpactSurface/sleeperspawnwood1.wav"/>
 	<AudioClip ClipName="@:Sounds/ImpactSurface/sleeperspawnwood2.wav"/>
@@ -2725,8 +2725,13 @@
 	<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0"/> <NoiseScale value="0"/> <MaxVoices value="18"/> <MaxRepeatRate value="0.001"/> </SoundDataNode>
 
 <SoundDataNode name="rallymarker_lp"> <AudioSource name="@:Sounds/Prefabs/AudioSource_RallyMarker.prefab"/>
-	<AudioClip ClipName="@:Sounds/Ambient_Loops/a_rallymarker_lp.wav" Loop="true"/>
+	<AudioClip ClipName="@:Sounds/Ambient_Loops/a_rallymarker_lp.wav" Loop="false"/>
 	<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0"/> <NoiseScale value="0"/> <MaxVoices value="18"/> <MaxRepeatRate value="0.001"/> </SoundDataNode>
+
+<SoundDataNode name="tvcrt_lp"> <AudioSource name="@:Sounds/Prefabs/AudioSource_TVCRT.prefab"/>
+	<AudioClip ClipName="@:Sounds/Ambient_Loops/a_tv_crt_emergency_lp.wav" Loop="true"/>
+	<LocalCrouchVolumeScale value="1.0"/> <CrouchNoiseScale value="0"/> <NoiseScale value="0"/> <MaxVoices value="18"/> <MaxRepeatRate value="0.001"/> </SoundDataNode>
+
 
 	<!-- *** Fists -->
 
@@ -13101,6 +13106,8 @@
 	<AudioClip ClipName="@:Sounds/Enemies/Burnt_Zombie/zombieburntattack2.wav"/>
 	<AudioClip ClipName="@:Sounds/Enemies/Burnt_Zombie/zombieburntattack3.wav"/>
 	<AudioClip ClipName="@:Sounds/Enemies/Burnt_Zombie/zombieburntattack4.wav"/>
+	<AudioClip ClipName="@:Sounds/Enemies/Burnt_Zombie/zombieburntattack5.wav"/>
+	<AudioClip ClipName="@:Sounds/Enemies/Burnt_Zombie/zombieburntattack6.wav"/>
 	<Channel name="Mouth"/>
 	<Priority name="2"/>
 	<maxVoicesPerEntity value="1"/>

@@ -899,7 +899,7 @@
 	<challenge name="burntSurvivalMinutes" title_key="challengeBurntSurvivalMinutes" icon="ui_game_symbol_clock" group="Burnt Survival"
 		short_description_key="challengeBurntSurvivalMinutesShort" description_key="challengeBurntSurvivalMinutesDesc"
 		reward_text_key="challenge_reward_10000xp" reward_event="challenge_reward_10000">
-		<objective type="Time" max_time="1200" biome="burnt_forest"/>
+		<objective type="Time" max_time="900" biome="burnt_forest"/>
 	</challenge>
 
 
@@ -951,7 +951,7 @@
 	<challenge name="desertSurvivalMinutes" title_key="challengeDesertSurvivalMinutes" icon="ui_game_symbol_clock" group="Desert Survival"
 		short_description_key="challengeDesertSurvivalMinutesShort" description_key="challengeDesertSurvivalMinutesDesc"
 		reward_text_key="challenge_reward_10000xp" reward_event="challenge_reward_10000">
-		<objective type="Time" max_time="1500" biome="desert"/>
+		<objective type="Time" max_time="1200" biome="desert"/>
 	</challenge>
 
 
@@ -1003,7 +1003,7 @@
 	<challenge name="snowSurvivalMinutes" title_key="challengeSnowSurvivalMinutes" icon="ui_game_symbol_clock" group="Snow Survival"
 		short_description_key="challengeSnowSurvivalMinutesShort" description_key="challengeSnowSurvivalMinutesDesc"
 		reward_text_key="challenge_reward_10000xp" reward_event="challenge_reward_10000">
-		<objective type="Time" max_time="1800" biome="snow"/>
+		<objective type="Time" max_time="1500" biome="snow"/>
 	</challenge>
 
 
@@ -1055,7 +1055,7 @@
 	<challenge name="wastelandSurvivalMinutes" title_key="challengeWastelandSurvivalMinutes" icon="ui_game_symbol_clock" group="Wasteland Survival"
 		short_description_key="challengeWastelandSurvivalMinutesShort" description_key="challengeWastelandSurvivalMinutesDesc"
 		reward_text_key="challenge_reward_10000xp" reward_event="challenge_reward_10000">
-		<objective type="Time" max_time="2100" biome="wasteland"/>
+		<objective type="Time" max_time="1800" biome="wasteland"/>
 	</challenge>
 
 

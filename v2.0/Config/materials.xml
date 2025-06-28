@@ -1096,7 +1096,7 @@ Do not rename "basic" materials like cloth, metal, or stone. These auto-generate
 	<property name="fertile_level" value="1"/>
 	<property name="stability_glue" value="15"/>
 	<property name="Mass" type="int" value="5"/>
-	<property name="MaxDamage" value="50"/>
+	<property name="MaxDamage" value="160"/>
 	<property name="Experience" value="2"/>
 </material>
 

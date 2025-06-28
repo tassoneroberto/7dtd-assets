@@ -56,7 +56,7 @@
 	</actions_preset>
 	
 	<!-- This is not ready for use. You can enable it but it is not balanced. USE AT YOUR OWN RISK -->
-	<!-- <actions_preset name="bits_only" title_key="Bits Only" description_key="Bits Only Description" allow_point_generation="false" /> -->
+	<actions_preset name="bits_only" title_key="Bits Only" description_key="Bits Only Description" allow_point_generation="false" enabled="false" />
 	
 	<!-- Twitch Command Permission Overrides
 		command_permission example:
@@ -4362,6 +4362,7 @@
 		<property name="cooldown_add_amount" value="120" />
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 
@@ -4376,6 +4377,7 @@
 		<property name="cooldown_add_amount" value="60" />
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4390,6 +4392,7 @@
 		<property name="cooldown_add_amount" value="60" />
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4404,6 +4407,7 @@
 		<property name="cooldown_add_amount" value="120" />
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4418,6 +4422,7 @@
 		<property name="cooldown_add_amount" value="200" />
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4435,6 +4440,7 @@
 		<property name="random_group" value="spawn_animal" />
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4449,6 +4455,7 @@
 		<property name="cooldown_add_amount" value="240" />
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4463,6 +4470,7 @@
 		<property name="cooldown_add_amount" value="300" />
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4477,6 +4485,7 @@
 		<property name="cooldown_add_amount" value="400" />
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4491,6 +4500,7 @@
 		<property name="cooldown_add_amount" value="500" />
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 
@@ -4505,6 +4515,7 @@
 		<property name="cooldown_add_amount" value="180" />
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 
@@ -4538,6 +4549,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_pistol" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4554,6 +4566,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_pistol" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4570,6 +4583,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_pistol" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4586,6 +4600,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_pistol" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4602,6 +4617,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_machinegun" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4618,6 +4634,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_machinegun" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4634,6 +4651,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_machinegun" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4650,6 +4668,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_machinegun" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4666,6 +4685,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_rifle" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4682,6 +4702,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_rifle" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4698,6 +4719,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_rifle" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4714,6 +4736,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_rifle" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4730,6 +4753,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_shotgun" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4746,6 +4770,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_shotgun" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4762,6 +4787,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_shotgun" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4778,6 +4804,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_shotgun" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4794,6 +4821,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_bows" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 
@@ -4810,6 +4838,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_bows" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 
@@ -4826,6 +4855,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_bows" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 
@@ -4842,6 +4872,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_crossbows" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 
@@ -4858,6 +4889,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_crossbows" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4875,6 +4907,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_armor" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4891,6 +4924,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_armor" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4907,6 +4941,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_armor" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4923,6 +4958,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_armor" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4939,6 +4975,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_armor" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4955,6 +4992,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_armor" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4971,6 +5009,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_armor" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -4987,6 +5026,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_armor" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5003,6 +5043,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_armor" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5019,6 +5060,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_armor" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5035,6 +5077,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_armor" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5051,6 +5094,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_armor" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5067,6 +5111,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_armor" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5083,6 +5128,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_armor" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5099,6 +5145,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_armor" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5115,6 +5162,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_ammo" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5131,6 +5179,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_ammo" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5147,6 +5196,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_ammo" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5163,6 +5213,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_ammo" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5191,6 +5242,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_meds" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5207,6 +5259,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_meds" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5223,6 +5276,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_meds" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5239,6 +5293,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_meds" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5255,6 +5310,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_meds" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5273,7 +5329,8 @@
         <property name="play_bit_sound" value="false" />
         <property name="twitch_notify" value="false" />
         <!-- <property name="random_group" value="bits_only_meds" /> -->
-        <property name="presets" value="bits_only" />
+        <property name="only_show_in_preset" value="true" />
+		<property name="presets" value="bits_only" />
     </action>
 	
 	<action name="twitch_spawnFoodSmall" extends="twitch_spawnFoodWater">
@@ -5288,7 +5345,8 @@
         <property name="play_bit_sound" value="false" />
         <property name="twitch_notify" value="false" />
         <property name="random_group" value="bits_only_food" />
-        <property name="presets" value="bits_only" />
+        <property name="only_show_in_preset" value="true" />
+		<property name="presets" value="bits_only" />
     </action>
 	
 	<action name="twitch_spawnFoodMedium" extends="twitch_spawnFoodWater2">
@@ -5303,7 +5361,8 @@
         <property name="play_bit_sound" value="false" />
         <property name="twitch_notify" value="false" />
         <property name="random_group" value="bits_only_food" />
-        <property name="presets" value="bits_only" />
+        <property name="only_show_in_preset" value="true" />
+		<property name="presets" value="bits_only" />
     </action>
 	
 	<action name="twitch_spawnFoodLarge" extends="twitch_spawnFoodWater3">
@@ -5318,7 +5377,8 @@
         <property name="play_bit_sound" value="false" />
         <property name="twitch_notify" value="false" />
         <property name="random_group" value="bits_only_food" />
-        <property name="presets" value="bits_only" />
+        <property name="only_show_in_preset" value="true" />
+		<property name="presets" value="bits_only" />
     </action>
 	
 	<!-- *** Bit_Only_Drink_Spawns -->
@@ -5335,7 +5395,8 @@
         <property name="play_bit_sound" value="false" />
         <property name="twitch_notify" value="false" />
         <property name="random_group" value="bits_only_drink" />
-        <property name="presets" value="bits_only" />
+        <property name="only_show_in_preset" value="true" />
+		<property name="presets" value="bits_only" />
     </action>
 	
 	<action name="twitch_spawnDrinkMedium" extends="twitch_spawnFoodWater2">
@@ -5350,7 +5411,8 @@
         <property name="play_bit_sound" value="false" />
         <property name="twitch_notify" value="false" />
         <property name="random_group" value="bits_only_drink" />
-        <property name="presets" value="bits_only" />
+        <property name="only_show_in_preset" value="true" />
+		<property name="presets" value="bits_only" />
     </action>
 	
 	<action name="twitch_spawnDrinkLarge" extends="twitch_spawnFoodWater3">
@@ -5365,7 +5427,8 @@
         <property name="play_bit_sound" value="false" />
         <property name="twitch_notify" value="false" />
         <property name="random_group" value="bits_only_drink" />
-        <property name="presets" value="bits_only" />
+        <property name="only_show_in_preset" value="true" />
+		<property name="presets" value="bits_only" />
     </action>
 	
 	
@@ -5385,6 +5448,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_explosives" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5401,6 +5465,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_explosives" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5417,6 +5482,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_explosives" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	
@@ -5433,6 +5499,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_explosives" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 
@@ -5449,6 +5516,7 @@
 		<property name="play_bit_sound" value="false" />
 		<property name="twitch_notify" value="false" />
 		<property name="random_group" value="bits_only_utils" />
+		<property name="only_show_in_preset" value="true" />
 		<property name="presets" value="bits_only" />
 	</action>
 	

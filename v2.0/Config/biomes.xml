@@ -801,7 +801,6 @@ Description of Options:
 			<!-- <decoration type="prefab" name="deco_rubble_wood_02" 					prob=".02"/> -->
 		</decorations>
 	</biome>
-</biomes>
 
 	<!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 	<!-- **** Desert: Main Biome -->
@@ -1863,6 +1862,7 @@ Description of Options:
 			<decoration type="block" blockname="treeGreenBrownGrassDiagonal" 		prob=".06"/>
 		</decorations>
 	</biome>
+</biomes>
 
 <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
 <!-- ***** Street Parameters -->

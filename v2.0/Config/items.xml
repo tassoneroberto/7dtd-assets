@@ -2557,8 +2557,36 @@
 		<triggered_effect trigger="onSelfEquipStart" action="AddPart" part="Sparks" prefab="@:ParticleEffects/p_electric_shock_small.prefab" parentTransform="Handle" localPos="0,0,0" localRot="0,0,0">
 			<requirement name="CompareItemMetaFloat" operation="GTE" value="4" key="charge"/></triggered_effect>
 		<triggered_effect trigger="onSelfEquipStop" action="RemovePart" part="Sparks"/>
-			
-		<!-- set shock duration -->
+
+		<!-- perkIntellectMastery level 4 allows only 2 hits to charge -->
+		<triggered_effect trigger="onSelfPrimaryActionRayHit" action="SetItemMetaFloat" change="3" relative="false" key="charge">
+			<requirement name="CompareItemMetaFloat" operation="LTE" value="3" key="charge"/>
+			<requirement name="ProgressionLevel" progression_name="perkIntellectMastery" operation="GTE" value="4"/>
+			<requirement name="IsAlive" target="other"/>
+			<requirement name="!EntityTagCompare" target="other" tags="trader"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfSecondaryActionRayHit" action="SetItemMetaFloat" change="3" relative="false" key="charge">
+			<requirement name="CompareItemMetaFloat" operation="LTE" value="3" key="charge"/>
+			<requirement name="ProgressionLevel" progression_name="perkIntellectMastery" operation="GTE" value="4"/>
+			<requirement name="IsAlive" target="other"/>
+			<requirement name="!EntityTagCompare" target="other" tags="trader"/>
+		</triggered_effect>
+
+		<!-- perkIntellectMastery level 5 keeps baton charged and ready at all times -->
+		<triggered_effect trigger="onSelfPrimaryActionRayHit" action="SetItemMetaFloat" change="4" relative="false" key="charge">
+			<requirement name="CompareItemMetaFloat" operation="LTE" value="4" key="charge"/>
+			<requirement name="ProgressionLevel" progression_name="perkIntellectMastery" operation="Equals" value="5"/>
+			<requirement name="IsAlive" target="other"/>
+			<requirement name="!EntityTagCompare" target="other" tags="trader"/>
+		</triggered_effect>
+		<triggered_effect trigger="onSelfSecondaryActionRayHit" action="SetItemMetaFloat" change="4" relative="false" key="charge">
+			<requirement name="CompareItemMetaFloat" operation="LTE" value="4" key="charge"/>
+			<requirement name="ProgressionLevel" progression_name="perkIntellectMastery" operation="Equals" value="5"/>
+			<requirement name="IsAlive" target="other"/>
+			<requirement name="!EntityTagCompare" target="other" tags="trader"/>
+		</triggered_effect>
+
+		<!-- Set shock duration Primary -->
 		<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar" target="other" cvar="stunBatonDuration" operation="set" value="4">
 			<requirement name="ProgressionLevel" progression_name="perkElectrocutioner" operation="Equals" value="0"/>
 			<requirement name="CompareItemMetaFloat" operation="GTE" value="4" key="charge"/></triggered_effect>
@@ -2577,6 +2605,8 @@
 		<triggered_effect trigger="onSelfPrimaryActionRayHit" action="ModifyCVar" target="other" cvar="stunBatonDuration" operation="set" value="8">
 			<requirement name="ProgressionLevel" progression_name="perkElectrocutioner" operation="Equals" value="5"/>
 			<requirement name="CompareItemMetaFloat" operation="GTE" value="4" key="charge"/></triggered_effect>
+
+		<!-- Set shock duration Secondary -->
 		<triggered_effect trigger="onSelfSecondaryActionRayHit" action="ModifyCVar" target="other" cvar="stunBatonDuration" operation="set" value="4">
 			<requirement name="ProgressionLevel" progression_name="perkElectrocutioner" operation="Equals" value="0"/>
 			<requirement name="CompareItemMetaFloat" operation="GTE" value="4" key="charge"/></triggered_effect>
@@ -2642,34 +2672,6 @@
 			<requirement name="IsAlive" target="other"/>
 			<requirement name="!EntityTagCompare" target="other" tags="trader"/>
 			<requirement name="CompareItemMetaFloat" operation="Equals" value="4" key="charge"/></triggered_effect>
-
-		<!-- perkIntellectMastery level 4 allows only 2 hits to charge -->
-		<triggered_effect trigger="onSelfPrimaryActionRayHit" action="SetItemMetaFloat" change="3" relative="false" key="charge">
-			<requirement name="CompareItemMetaFloat" operation="LTE" value="3" key="charge"/>
-			<requirement name="ProgressionLevel" progression_name="perkIntellectMastery" operation="GTE" value="4"/>
-			<requirement name="IsAlive" target="other"/>
-			<requirement name="!EntityTagCompare" target="other" tags="trader"/>
-		</triggered_effect>
-		<triggered_effect trigger="onSelfSecondaryActionRayHit" action="SetItemMetaFloat" change="3" relative="false" key="charge">
-			<requirement name="CompareItemMetaFloat" operation="LTE" value="3" key="charge"/>
-			<requirement name="ProgressionLevel" progression_name="perkIntellectMastery" operation="GTE" value="4"/>
-			<requirement name="IsAlive" target="other"/>
-			<requirement name="!EntityTagCompare" target="other" tags="trader"/>
-		</triggered_effect>
-
-		<!-- perkIntellectMastery level 5 keeps baton charged and ready at all times -->
-		<triggered_effect trigger="onSelfPrimaryActionRayHit" action="SetItemMetaFloat" change="4" relative="false" key="charge">
-			<requirement name="CompareItemMetaFloat" operation="LTE" value="4" key="charge"/>
-			<requirement name="ProgressionLevel" progression_name="perkIntellectMastery" operation="Equals" value="5"/>
-			<requirement name="IsAlive" target="other"/>
-			<requirement name="!EntityTagCompare" target="other" tags="trader"/>
-		</triggered_effect>
-		<triggered_effect trigger="onSelfSecondaryActionRayHit" action="SetItemMetaFloat" change="4" relative="false" key="charge">
-			<requirement name="CompareItemMetaFloat" operation="LTE" value="4" key="charge"/>
-			<requirement name="ProgressionLevel" progression_name="perkIntellectMastery" operation="Equals" value="5"/>
-			<requirement name="IsAlive" target="other"/>
-			<requirement name="!EntityTagCompare" target="other" tags="trader"/>
-		</triggered_effect>
 
 		<!-- potentially apply bonus charges from TechJunkie perk, by setting it to 3 the other actions below increase it to max charge -->
 		<triggered_effect trigger="onSelfPrimaryActionRayHit" action="SetItemMetaFloat" change="3" relative="false" key="charge">
@@ -2754,11 +2756,13 @@
 			<requirement name="HasBuff" buff="buffDrugNerdTats"/> <!-- if you have buffDrugNerdTats, use stun duration so zombies get up after stun is finished -->
 		</triggered_effect>
 
-		<!-- trigger shock events for fully charged baton -->
+		<!-- Trigger shock events for fully charged baton -->
 		<triggered_effect trigger="onSelfPrimaryActionRayHit" action="AddBuff" target="other" buff="buffShocked" duration="@stunBatonDuration">
 			<requirement name="CompareItemMetaFloat" operation="Equals" value="5" key="charge"/></triggered_effect>
 		<triggered_effect trigger="onSelfSecondaryActionRayHit" action="AddBuff" target="other" buff="buffShocked" duration="@stunBatonDuration">
 			<requirement name="CompareItemMetaFloat" operation="Equals" value="5" key="charge"/></triggered_effect>
+
+		<!-- Trigger shock for AOE when using Nerd Tats -->
 		<triggered_effect trigger="onSelfPrimaryActionRayHit" action="AddBuff" target="otherAOE" range="1.1" target_tags="zombie,animal" buff="buffShocked" duration="@stunBatonDuration">
 			<requirement name="CompareItemMetaFloat" operation="Equals" value="5" key="charge"/>
 			<requirement name="HasBuff" buff="buffDrugNerdTats"/></triggered_effect>
@@ -7927,10 +7931,10 @@
 	<property name="HoldType" value="35"/>
 	<property class="Action0">
 		<property name="Delay" value=".85"/>
-		<property name="Range" value="2.9"/>
+		<property name="Range" value="2.4"/>
 		<property name="Sphere" value=".2"/>
 		<property name="DamageEntity" value="50"/>
-		<property name="DamageBlock" value="120"/>
+		<property name="DamageBlock" value="500"/>
 	</property>
 	<effect_group name="meleeHand" tiered="false">
 		<passive_effect name="ModSlots" operation="base_set" value="0"/>
@@ -8392,8 +8396,8 @@
 	<property name="SoundPickup" value="ammocan_grab"/>
 	<property name="SoundPlace" value="ammocan_place"/>
 	<effect_group name="ammoJunkTurretShell" tiered="false">
-		<passive_effect name="MaxRange" operation="base_set" value="10" tags="perkTurrets"/>
-		<passive_effect name="DamageFalloffRange" operation="base_set" value="6" tags="perkTurrets"/>
+		<passive_effect name="MaxRange" operation="base_set" value="15" tags="perkTurrets"/>
+		<passive_effect name="DamageFalloffRange" operation="base_set" value="10" tags="perkTurrets"/>
 		<passive_effect name="BlockRange" operation="base_set" value="3" tags="perkTurrets"/>
 
 		<passive_effect name="EntityDamage" operation="base_set" value="2.1" tags="perkTurrets"/>
@@ -10316,7 +10320,7 @@
 	<property name="DescriptionKey" value="armorPrimitiveHelmetDesc"/>
 	<property name="DisplayType" value="armorPrimitiveHelmet"/>
 	<property name="ArmorGroup" value="groupPrimitive"/>
-	<property name="Tags" value="head,armor,armorHead,canHaveCosmetic,lightArmor,lightArmorDeg"/>
+	<property name="Tags" value="head,armor,armorHead,lightArmor,lightArmorDeg"/>
 	<property name="EquipSlot" value="Head"/>
 	<property name="SoundPickup" value="headwear_cloth_grab"/>
 	<property name="SoundPlace" value="headwear_cloth_place"/>
@@ -10347,7 +10351,7 @@
 	<property name="DescriptionKey" value="armorPrimitiveOutfitDesc"/>
 	<property name="DisplayType" value="armorPrimitiveOutfit"/>
 	<property name="ArmorGroup" value="groupPrimitive"/>
-	<property name="Tags" value="upperbody,chest,armor,armorChest,canHaveCosmetic,lightArmor,lightArmorDeg"/>
+	<property name="Tags" value="upperbody,chest,armor,armorChest,lightArmor,lightArmorDeg"/>
 	<property name="EquipSlot" value="Chest"/>
 	<property name="SoundPickup" value="outfit_cloth_grab"/>
 	<property name="SoundPlace" value="outfit_cloth_place"/>
@@ -10377,7 +10381,7 @@
 	<property name="DescriptionKey" value="armorPrimitiveGlovesDesc"/>
 	<property name="DisplayType" value="armorPrimitiveGloves"/>
 	<property name="ArmorGroup" value="groupPrimitive"/>
-	<property name="Tags" value="upperbody,hands,armor,armorHands,canHaveCosmetic,lightArmor,lightArmorDeg"/>
+	<property name="Tags" value="upperbody,hands,armor,armorHands,lightArmor,lightArmorDeg"/>
 	<property name="EquipSlot" value="Hands"/>
 	<property name="SoundPickup" value="gloves_cloth_grab"/>
 	<property name="SoundPlace" value="gloves_cloth_place"/>
@@ -10407,7 +10411,7 @@
 	<property name="DescriptionKey" value="armorPrimitiveBootsDesc"/>
 	<property name="DisplayType" value="armorPrimitiveBoots"/>
 	<property name="ArmorGroup" value="groupPrimitive"/>
-	<property name="Tags" value="lowerbody,feet,armor,armorFeet,canHaveCosmetic,lightArmor,lightArmorDeg"/>
+	<property name="Tags" value="lowerbody,feet,armor,armorFeet,lightArmor,lightArmorDeg"/>
 	<property name="EquipSlot" value="Feet"/>
 	<property name="SoundPickup" value="footwear_straw_grab"/>
 	<property name="SoundPlace" value="footwear_straw_place"/>
@@ -10464,7 +10468,7 @@
 	<property name="DescriptionKey" value="armorLumberjackHelmetDesc"/>
 	<property name="DisplayType" value="armorLumberjackHelmet"/>
 	<property name="ArmorGroup" value="groupLumberjack"/>
-	<property name="Tags" value="head,armor,armorHead,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
+	<property name="Tags" value="head,armor,armorHead,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Head"/>
 	<property name="SoundPickup" value="headwear_cloth_grab"/>
 	<property name="SoundPlace" value="headwear_cloth_place"/>
@@ -10501,7 +10505,7 @@
 	<property name="DescriptionKey" value="armorLumberjackOutfitDesc"/>
 	<property name="DisplayType" value="armorLumberjackOutfit"/>
 	<property name="ArmorGroup" value="groupLumberjack"/>
-	<property name="Tags" value="upperbody,chest,armor,armorChest,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
+	<property name="Tags" value="upperbody,chest,armor,armorChest,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Chest"/>
 	<property name="SoundPickup" value="outfit_cloth_grab"/>
 	<property name="SoundPlace" value="outfit_cloth_place"/>
@@ -10537,7 +10541,7 @@
 	<property name="DescriptionKey" value="armorLumberjackGlovesDesc"/>
 	<property name="DisplayType" value="armorLumberjackGloves"/>
 	<property name="ArmorGroup" value="groupLumberjack"/>
-	<property name="Tags" value="upperbody,hands,armor,armorHands,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
+	<property name="Tags" value="upperbody,hands,armor,armorHands,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Hands"/>
 	<property name="SoundPickup" value="gloves_leather_grab"/>
 	<property name="SoundPlace" value="gloves_leather_place"/>
@@ -10573,7 +10577,7 @@
 	<property name="DescriptionKey" value="armorLumberjackBootsDesc"/>
 	<property name="DisplayType" value="armorLumberjackBoots"/>
 	<property name="ArmorGroup" value="groupLumberjack"/>
-	<property name="Tags" value="lowerbody,feet,armor,armorFeet,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
+	<property name="Tags" value="lowerbody,feet,armor,armorFeet,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Feet"/>
 	<property name="SoundPickup" value="footwear_regular_grab"/>
 	<property name="SoundPlace" value="footwear_regular_place"/>
@@ -10610,7 +10614,7 @@
 	<property name="DescriptionKey" value="armorPreacherHelmetDesc"/>
 	<property name="DisplayType" value="armorPreacherHelmet"/>
 	<property name="ArmorGroup" value="groupPreacher"/>
-	<property name="Tags" value="head,armor,armorHead,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge,armorPrecherHelmetCritChance"/>
+	<property name="Tags" value="head,armor,armorHead,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge,armorPrecherHelmetCritChance"/>
 	<property name="EquipSlot" value="Head"/>
 	<property name="SoundPickup" value="headwear_cloth_grab"/>
 	<property name="SoundPlace" value="headwear_cloth_place"/>
@@ -10648,7 +10652,7 @@
 	<property name="DescriptionKey" value="armorPreacherOutfitDesc"/>
 	<property name="DisplayType" value="armorPreacherOutfit"/>
 	<property name="ArmorGroup" value="groupPreacher"/>
-	<property name="Tags" value="upperbody,chest,armor,armorChest,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
+	<property name="Tags" value="upperbody,chest,armor,armorChest,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Chest"/>
 	<property name="SoundPickup" value="outfit_cloth_grab"/>
 	<property name="SoundPlace" value="outfit_cloth_place"/>
@@ -10686,7 +10690,7 @@
 	<property name="DescriptionKey" value="armorPreacherGlovesDesc"/>
 	<property name="DisplayType" value="armorPreacherGloves"/>
 	<property name="ArmorGroup" value="groupPreacher"/>
-	<property name="Tags" value="upperbody,hands,armor,armorHands,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
+	<property name="Tags" value="upperbody,hands,armor,armorHands,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Hands"/>
 	<property name="SoundPickup" value="gloves_cloth_grab"/>
 	<property name="SoundPlace" value="gloves_cloth_place"/>
@@ -10724,7 +10728,7 @@
 	<property name="DescriptionKey" value="armorPreacherBootsDesc"/>
 	<property name="DisplayType" value="armorPreacherBoots"/>
 	<property name="ArmorGroup" value="groupPreacher"/>
-	<property name="Tags" value="lowerbody,feet,armor,armorFeet,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge,armorPreacherBootsHealing"/>
+	<property name="Tags" value="lowerbody,feet,armor,armorFeet,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge,armorPreacherBootsHealing"/>
 	<property name="EquipSlot" value="Feet"/>
 	<property name="SoundPickup" value="footwear_leather_grab"/>
 	<property name="SoundPlace" value="footwear_leather_place"/>
@@ -10763,7 +10767,7 @@
 	<property name="DescriptionKey" value="armorRogueHelmetDesc"/>
 	<property name="DisplayType" value="armorRogueHelmet"/>
 	<property name="ArmorGroup" value="groupRogue"/>
-	<property name="Tags" value="head,armor,armorHead,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
+	<property name="Tags" value="head,armor,armorHead,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Head"/>
 	<property name="SoundPickup" value="headwear_cloth_grab"/>
 	<property name="SoundPlace" value="headwear_cloth_place"/>
@@ -10802,7 +10806,7 @@
 	<property name="DescriptionKey" value="armorRogueOutfitDesc"/>
 	<property name="DisplayType" value="armorRogueOutfit"/>
 	<property name="ArmorGroup" value="groupRogue"/>
-	<property name="Tags" value="upperbody,chest,armor,armorChest,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
+	<property name="Tags" value="upperbody,chest,armor,armorChest,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Chest"/>
 	<property name="SoundPickup" value="outfit_leather_grab"/>
 	<property name="SoundPlace" value="outfit_leather_place"/>
@@ -10846,7 +10850,7 @@
 	<property name="DescriptionKey" value="armorRogueGlovesDesc"/>
 	<property name="DisplayType" value="armorRogueGloves"/>
 	<property name="ArmorGroup" value="groupRogue"/>
-	<property name="Tags" value="upperbody,hands,armor,armorHands,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
+	<property name="Tags" value="upperbody,hands,armor,armorHands,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Hands"/>
 	<property name="SoundPickup" value="gloves_leather_grab"/>
 	<property name="SoundPlace" value="gloves_leather_place"/>
@@ -10886,7 +10890,7 @@
 	<property name="DescriptionKey" value="armorRogueBootsDesc"/>
 	<property name="DisplayType" value="armorRogueBoots"/>
 	<property name="ArmorGroup" value="groupRogue"/>
-	<property name="Tags" value="lowerbody,feet,armor,armorFeet,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
+	<property name="Tags" value="lowerbody,feet,armor,armorFeet,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Feet"/>
 	<property name="SoundPickup" value="footwear_leather_grab"/>
 	<property name="SoundPlace" value="footwear_leather_place"/>
@@ -10956,7 +10960,7 @@
 	<property name="DescriptionKey" value="armorAthleticHelmetDesc"/>
 	<property name="DisplayType" value="armorAthleticHelmet"/>
 	<property name="ArmorGroup" value="groupAthletic"/>
-	<property name="Tags" value="head,armor,armorHead,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
+	<property name="Tags" value="head,armor,armorHead,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Head"/>
 	<property name="SoundPickup" value="headwear_cloth_grab"/>
 	<property name="SoundPlace" value="headwear_cloth_place"/>
@@ -10994,7 +10998,7 @@
 	<property name="DescriptionKey" value="armorAthleticOutfitDesc"/>
 	<property name="DisplayType" value="armorAthleticOutfit"/>
 	<property name="ArmorGroup" value="groupAthletic"/>
-	<property name="Tags" value="upperbody,chest,armor,armorChest,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
+	<property name="Tags" value="upperbody,chest,armor,armorChest,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Chest"/>
 	<property name="SoundPickup" value="outfit_cloth_grab"/>
 	<property name="SoundPlace" value="outfit_cloth_place"/>
@@ -11030,7 +11034,7 @@
 	<property name="DescriptionKey" value="armorAthleticGlovesDesc"/>
 	<property name="DisplayType" value="armorAthleticGloves"/>
 	<property name="ArmorGroup" value="groupAthletic"/>
-	<property name="Tags" value="upperbody,hands,armor,armorHands,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
+	<property name="Tags" value="upperbody,hands,armor,armorHands,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Hands"/>
 	<property name="SoundPickup" value="gloves_leather_grab"/>
 	<property name="SoundPlace" value="gloves_leather_place"/>
@@ -11066,7 +11070,7 @@
 	<property name="DescriptionKey" value="armorAthleticBootsDesc"/>
 	<property name="DisplayType" value="armorAthleticBoots"/>
 	<property name="ArmorGroup" value="groupAthletic"/>
-	<property name="Tags" value="lowerbody,feet,armor,armorFeet,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
+	<property name="Tags" value="lowerbody,feet,armor,armorFeet,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Feet"/>
 	<property name="SoundPickup" value="footwear_regular_grab"/>
 	<property name="SoundPlace" value="footwear_regular_place"/>
@@ -11103,7 +11107,7 @@
 	<property name="DescriptionKey" value="armorEnforcerHelmetDesc"/>
 	<property name="DisplayType" value="armorEnforcerHelmet"/>
 	<property name="ArmorGroup" value="groupEnforcer"/>
-	<property name="Tags" value="head,armor,armorHead,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
+	<property name="Tags" value="head,armor,armorHead,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Head"/>
 	<property name="SoundPickup" value="headwear_sunglasses_grab"/>
 	<property name="SoundPlace" value="headwear_sunglasses_place"/>
@@ -11140,7 +11144,7 @@
 	<property name="DescriptionKey" value="armorEnforcerOutfitDesc"/>
 	<property name="DisplayType" value="armorEnforcerOutfit"/>
 	<property name="ArmorGroup" value="groupEnforcer"/>
-	<property name="Tags" value="upperbody,chest,armor,armorChest,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge,armorEnforcerCritResist"/>
+	<property name="Tags" value="upperbody,chest,armor,armorChest,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge,armorEnforcerCritResist"/>
 	<property name="EquipSlot" value="Chest"/>
 	<property name="SoundPickup" value="outfit_cloth_grab"/>
 	<property name="SoundPlace" value="outfit_cloth_place"/>
@@ -11185,7 +11189,7 @@
 	<property name="DescriptionKey" value="armorEnforcerGlovesDesc"/>
 	<property name="DisplayType" value="armorEnforcerGloves"/>
 	<property name="ArmorGroup" value="groupEnforcer"/>
-	<property name="Tags" value="upperbody,hands,armor,armorHands,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
+	<property name="Tags" value="upperbody,hands,armor,armorHands,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Hands"/>
 	<property name="SoundPickup" value="gloves_leather_grab"/>
 	<property name="SoundPlace" value="gloves_leather_place"/>
@@ -11222,7 +11226,7 @@
 	<property name="DescriptionKey" value="armorEnforcerBootsDesc"/>
 	<property name="DisplayType" value="armorEnforcerBoots"/>
 	<property name="ArmorGroup" value="groupEnforcer"/>
-	<property name="Tags" value="lowerbody,feet,armor,armorFeet,canHaveCosmetic,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
+	<property name="Tags" value="lowerbody,feet,armor,armorFeet,lightArmor,lightArmorDeg,armorLightSkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Feet"/>
 	<property name="SoundPickup" value="footwear_regular_grab"/>
 	<property name="SoundPlace" value="footwear_regular_place"/>
@@ -11284,7 +11288,7 @@
 	<property name="DescriptionKey" value="armorFarmerHelmetDesc"/>
 	<property name="DisplayType" value="armorFarmerHelmet"/>
 	<property name="ArmorGroup" value="groupFarmer"/>
-	<property name="Tags" value="head,armor,armorHead,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorFarmerBonus"/>
+	<property name="Tags" value="head,armor,armorHead,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorFarmerBonus"/>
 	<property name="EquipSlot" value="Head"/>
 	<property name="SoundPickup" value="headwear_straw_grab"/>
 	<property name="SoundPlace" value="headwear_straw_place"/>
@@ -11326,7 +11330,7 @@
 	<property name="DescriptionKey" value="armorFarmerOutfitDesc"/>
 	<property name="DisplayType" value="armorFarmerOutfit"/>
 	<property name="ArmorGroup" value="groupFarmer"/>
-	<property name="Tags" value="upperbody,chest,armor,armorChest,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorFarmerBonus"/>
+	<property name="Tags" value="upperbody,chest,armor,armorChest,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorFarmerBonus"/>
 	<property name="EquipSlot" value="Chest"/>
 	<property name="SoundPickup" value="outfit_cloth_grab"/>
 	<property name="SoundPlace" value="outfit_cloth_place"/>
@@ -11397,7 +11401,7 @@
 	<property name="DescriptionKey" value="armorFarmerGlovesDesc"/>
 	<property name="DisplayType" value="armorFarmerGloves"/>
 	<property name="ArmorGroup" value="groupFarmer"/>
-	<property name="Tags" value="upperbody,hands,armor,armorHands,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorFarmerBonus"/>
+	<property name="Tags" value="upperbody,hands,armor,armorHands,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorFarmerBonus"/>
 	<property name="EquipSlot" value="Hands"/>
 	<property name="SoundPickup" value="gloves_cloth_grab"/>
 	<property name="SoundPlace" value="gloves_cloth_place"/>
@@ -11442,7 +11446,7 @@
 	<property name="DescriptionKey" value="armorFarmerBootsDesc"/>
 	<property name="DisplayType" value="armorFarmerBoots"/>
 	<property name="ArmorGroup" value="groupFarmer"/>
-	<property name="Tags" value="lowerbody,feet,armor,armorFeet,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorFarmerBonus"/>
+	<property name="Tags" value="lowerbody,feet,armor,armorFeet,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorFarmerBonus"/>
 	<property name="EquipSlot" value="Feet"/>
 	<property name="SoundPickup" value="footwear_leather_grab"/>
 	<property name="SoundPlace" value="footwear_leather_place"/>
@@ -11515,7 +11519,7 @@
 	<property name="DescriptionKey" value="armorBikerHelmetDesc"/>
 	<property name="DisplayType" value="armorBikerHelmet"/>
 	<property name="ArmorGroup" value="groupBiker"/>
-	<property name="Tags" value="head,armor,armorHead,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorBikerBonus"/>
+	<property name="Tags" value="head,armor,armorHead,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorBikerBonus"/>
 	<property name="EquipSlot" value="Head"/>
 	<property name="SoundPickup" value="headwear_metalplastic_grab"/>
 	<property name="SoundPlace" value="headwear_metalplastic_place"/>
@@ -11557,7 +11561,7 @@
 	<property name="DescriptionKey" value="armorBikerOutfitDesc"/>
 	<property name="DisplayType" value="armorBikerOutfit"/>
 	<property name="ArmorGroup" value="groupBiker"/>
-	<property name="Tags" value="upperbody,chest,armor,armorChest,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorBikerBonus"/>
+	<property name="Tags" value="upperbody,chest,armor,armorChest,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorBikerBonus"/>
 	<property name="EquipSlot" value="Chest"/>
 	<property name="SoundPickup" value="outfit_leather_grab"/>
 	<property name="SoundPlace" value="outfit_leather_place"/>
@@ -11600,7 +11604,7 @@
 	<property name="DescriptionKey" value="armorBikerGlovesDesc"/>
 	<property name="DisplayType" value="armorBikerGloves"/>
 	<property name="ArmorGroup" value="groupBiker"/>
-	<property name="Tags" value="upperbody,hands,armor,armorHands,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorBikerBonus"/>
+	<property name="Tags" value="upperbody,hands,armor,armorHands,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorBikerBonus"/>
 	<property name="EquipSlot" value="Hands"/>
 	<property name="SoundPickup" value="gloves_leather_grab"/>
 	<property name="SoundPlace" value="gloves_leather_place"/>
@@ -11645,7 +11649,7 @@
 	<property name="DescriptionKey" value="armorBikerBootsDesc"/>
 	<property name="DisplayType" value="armorBikerBoots"/>
 	<property name="ArmorGroup" value="groupBiker"/>
-	<property name="Tags" value="lowerbody,feet,armor,armorFeet,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorBikerBonus"/>
+	<property name="Tags" value="lowerbody,feet,armor,armorFeet,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorBikerBonus"/>
 	<property name="EquipSlot" value="Feet"/>
 	<property name="SoundPickup" value="footwear_leather_grab"/>
 	<property name="SoundPlace" value="footwear_leather_place"/>
@@ -11691,7 +11695,7 @@
 	<property name="DescriptionKey" value="armorScavengerHelmetDesc"/>
 	<property name="DisplayType" value="armorScavengerHelmet"/>
 	<property name="ArmorGroup" value="groupScavenger"/>
-	<property name="Tags" value="head,armor,armorHead,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorScavengerBonus"/>
+	<property name="Tags" value="head,armor,armorHead,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorScavengerBonus"/>
 	<property name="EquipSlot" value="Head"/>
 	<property name="SoundPickup" value="headwear_cloth_grab"/>
 	<property name="SoundPlace" value="headwear_cloth_place"/>
@@ -11737,7 +11741,7 @@
 	<property name="DescriptionKey" value="armorScavengerOutfitDesc"/>
 	<property name="DisplayType" value="armorScavengerOutfit"/>
 	<property name="ArmorGroup" value="groupScavenger"/>
-	<property name="Tags" value="upperbody,chest,armor,armorChest,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorScavengerBonus"/>
+	<property name="Tags" value="upperbody,chest,armor,armorChest,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorScavengerBonus"/>
 	<property name="EquipSlot" value="Chest"/>
 	<property name="SoundPickup" value="outfit_cloth_grab"/>
 	<property name="SoundPlace" value="outfit_cloth_place"/>
@@ -11778,7 +11782,7 @@
 	<property name="DescriptionKey" value="armorScavengerGlovesDesc"/>
 	<property name="DisplayType" value="armorScavengerGloves"/>
 	<property name="ArmorGroup" value="groupScavenger"/>
-	<property name="Tags" value="upperbody,hands,armor,armorHands,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorScavengerBonus"/>
+	<property name="Tags" value="upperbody,hands,armor,armorHands,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorScavengerBonus"/>
 	<property name="EquipSlot" value="Hands"/>
 	<property name="SoundPickup" value="gloves_leather_grab"/>
 	<property name="SoundPlace" value="gloves_leather_place"/>
@@ -11856,7 +11860,7 @@
 	<property name="DescriptionKey" value="armorScavengerBootsDesc"/>
 	<property name="DisplayType" value="armorScavengerBoots"/>
 	<property name="ArmorGroup" value="groupScavenger"/>
-	<property name="Tags" value="lowerbody,feet,armor,armorFeet,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorScavengerBonus"/>
+	<property name="Tags" value="lowerbody,feet,armor,armorFeet,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorScavengerBonus"/>
 	<property name="EquipSlot" value="Feet"/>
 	<property name="SoundPickup" value="footwear_leather_grab"/>
 	<property name="SoundPlace" value="footwear_leather_place"/>
@@ -11902,7 +11906,7 @@
 	<property name="DescriptionKey" value="armorRangerHelmetDesc"/>
 	<property name="DisplayType" value="armorRangerHelmet"/>
 	<property name="ArmorGroup" value="groupRanger"/>
-	<property name="Tags" value="head,armor,armorHead,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorRangerBonus"/>
+	<property name="Tags" value="head,armor,armorHead,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorRangerBonus"/>
 	<property name="EquipSlot" value="Head"/>
 	<property name="SoundPickup" value="headwear_cloth_grab"/>
 	<property name="SoundPlace" value="headwear_cloth_place"/>
@@ -11946,7 +11950,7 @@
 	<property name="DescriptionKey" value="armorRangerOutfitDesc"/>
 	<property name="DisplayType" value="armorRangerOutfit"/>
 	<property name="ArmorGroup" value="groupRanger"/>
-	<property name="Tags" value="upperbody,chest,armor,armorChest,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorRangerBonus"/>
+	<property name="Tags" value="upperbody,chest,armor,armorChest,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorRangerBonus"/>
 	<property name="EquipSlot" value="Chest"/>
 	<property name="SoundPickup" value="outfit_leather_grab"/>
 	<property name="SoundPlace" value="outfit_leather_place"/>
@@ -11989,7 +11993,7 @@
 	<property name="DescriptionKey" value="armorRangerGlovesDesc"/>
 	<property name="DisplayType" value="armorRangerGloves"/>
 	<property name="ArmorGroup" value="groupRanger"/>
-	<property name="Tags" value="upperbody,hands,armor,armorHands,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorRangerBonus"/>
+	<property name="Tags" value="upperbody,hands,armor,armorHands,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorRangerBonus"/>
 	<property name="EquipSlot" value="Hands"/>
 	<property name="SoundPickup" value="gloves_leather_grab"/>
 	<property name="SoundPlace" value="gloves_leather_place"/>
@@ -12034,7 +12038,7 @@
 	<property name="DescriptionKey" value="armorRangerBootsDesc"/>
 	<property name="DisplayType" value="armorRangerBoots"/>
 	<property name="ArmorGroup" value="groupRanger"/>
-	<property name="Tags" value="lowerbody,feet,armor,armorFeet,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorRangerBonus"/>
+	<property name="Tags" value="lowerbody,feet,armor,armorFeet,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorRangerBonus"/>
 	<property name="EquipSlot" value="Feet"/>
 	<property name="SoundPickup" value="footwear_leather_grab"/>
 	<property name="SoundPlace" value="footwear_leather_place"/>
@@ -12078,7 +12082,7 @@
 	<property name="DescriptionKey" value="armorCommandoHelmetDesc"/>
 	<property name="DisplayType" value="armorCommandoHelmet"/>
 	<property name="ArmorGroup" value="groupCommando"/>
-	<property name="Tags" value="head,armor,armorHead,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorCommandoBonus"/>
+	<property name="Tags" value="head,armor,armorHead,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorCommandoBonus"/>
 	<property name="EquipSlot" value="Head"/>
 	<property name="SoundPickup" value="headwear_cloth_grab"/>
 	<property name="SoundPlace" value="headwear_cloth_place"/>
@@ -12122,7 +12126,7 @@
 	<property name="DescriptionKey" value="armorCommandoOutfitDesc"/>
 	<property name="DisplayType" value="armorCommandoOutfit"/>
 	<property name="ArmorGroup" value="groupCommando"/>
-	<property name="Tags" value="upperbody,chest,armor,armorChest,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorCommandoBonus"/>
+	<property name="Tags" value="upperbody,chest,armor,armorChest,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorCommandoBonus"/>
 	<property name="EquipSlot" value="Chest"/>
 	<property name="SoundPickup" value="outfit_cloth_grab"/>
 	<property name="SoundPlace" value="outfit_cloth_place"/>
@@ -12167,7 +12171,7 @@
 	<property name="DescriptionKey" value="armorCommandoGlovesDesc"/>
 	<property name="DisplayType" value="armorCommandoGloves"/>
 	<property name="ArmorGroup" value="groupCommando"/>
-	<property name="Tags" value="upperbody,hands,armor,armorHands,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorCommandoBonus"/>
+	<property name="Tags" value="upperbody,hands,armor,armorHands,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorCommandoBonus"/>
 	<property name="EquipSlot" value="Hands"/>
 	<property name="SoundPickup" value="gloves_leather_grab"/>
 	<property name="SoundPlace" value="gloves_leather_place"/>
@@ -12212,7 +12216,7 @@
 	<property name="DescriptionKey" value="armorCommandoBootsDesc"/>
 	<property name="DisplayType" value="armorCommandoBoots"/>
 	<property name="ArmorGroup" value="groupCommando"/>
-	<property name="Tags" value="lowerbody,feet,armor,armorFeet,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorCommandoBonus"/>
+	<property name="Tags" value="lowerbody,feet,armor,armorFeet,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorCommandoBonus"/>
 	<property name="EquipSlot" value="Feet"/>
 	<property name="SoundPickup" value="footwear_leather_grab"/>
 	<property name="SoundPlace" value="footwear_leather_place"/>
@@ -12256,7 +12260,7 @@
 	<property name="DescriptionKey" value="armorAssassinHelmetDesc"/>
 	<property name="DisplayType" value="armorAssassinHelmet"/>
 	<property name="ArmorGroup" value="groupAssassin"/>
-	<property name="Tags" value="head,armor,armorHead,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorAssassinBonus,assassin"/>
+	<property name="Tags" value="head,armor,armorHead,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorAssassinBonus,assassin"/>
 	<property name="EquipSlot" value="Head"/>
 	<property name="SoundPickup" value="headwear_cloth_grab"/>
 	<property name="SoundPlace" value="headwear_cloth_place"/>
@@ -12303,7 +12307,7 @@
 	<property name="DescriptionKey" value="armorAssassinOutfitDesc"/>
 	<property name="DisplayType" value="armorAssassinOutfit"/>
 	<property name="ArmorGroup" value="groupAssassin"/>
-	<property name="Tags" value="upperbody,chest,armor,armorChest,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorAssassinBonus,assassin"/>
+	<property name="Tags" value="upperbody,chest,armor,armorChest,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorAssassinBonus,assassin"/>
 	<property name="EquipSlot" value="Chest"/>
 	<property name="SoundPickup" value="outfit_clothmetal_grab"/>
 	<property name="SoundPlace" value="outfit_clothmetal_place"/>
@@ -12352,7 +12356,7 @@
 	<property name="DescriptionKey" value="armorAssassinGlovesDesc"/>
 	<property name="DisplayType" value="armorAssassinGloves"/>
 	<property name="ArmorGroup" value="groupAssassin"/>
-	<property name="Tags" value="upperbody,hands,armor,armorHands,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorAssassinBonus,assassin"/>
+	<property name="Tags" value="upperbody,hands,armor,armorHands,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorAssassinBonus,assassin"/>
 	<property name="EquipSlot" value="Hands"/>
 	<property name="SoundPickup" value="gloves_leather_grab"/>
 	<property name="SoundPlace" value="gloves_leather_place"/>
@@ -12401,7 +12405,7 @@
 	<property name="DescriptionKey" value="armorAssassinBootsDesc"/>
 	<property name="DisplayType" value="armorAssassinBoots"/>
 	<property name="ArmorGroup" value="groupAssassin"/>
-	<property name="Tags" value="lowerbody,feet,armor,armorFeet,mediumArmor,mediumArmorPenalty,canHaveCosmetic,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorAssassinBonus,assassin"/>
+	<property name="Tags" value="lowerbody,feet,armor,armorFeet,mediumArmor,mediumArmorPenalty,mediumArmorDeg,armorMediumSkill,biomeChallenge,armorAssassinBonus,assassin"/>
 	<property name="EquipSlot" value="Feet"/>
 	<property name="SoundPickup" value="footwear_leather_grab"/>
 	<property name="SoundPlace" value="footwear_leather_place"/>
@@ -12473,7 +12477,7 @@
 	<property name="DescriptionKey" value="armorMinerHelmetDesc"/>
 	<property name="DisplayType" value="armorMinerHelmet"/>
 	<property name="ArmorGroup" value="groupMiner"/>
-	<property name="Tags" value="head,armor,armorHead,heavyArmor,heavyArmorPenalty,canHaveCosmetic,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
+	<property name="Tags" value="head,armor,armorHead,heavyArmor,heavyArmorPenalty,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Head"/>
 	<property name="SoundPickup" value="headwear_metalplastic_grab"/>
 	<property name="SoundPlace" value="headwear_metalplastic_place"/>
@@ -12519,7 +12523,7 @@
 	<property name="DescriptionKey" value="armorMinerOutfitDesc"/>
 	<property name="DisplayType" value="armorMinerOutfit"/>
 	<property name="ArmorGroup" value="groupMiner"/>
-	<property name="Tags" value="upperbody,chest,armor,armorChest,heavyArmor,heavyArmorPenalty,canHaveCosmetic,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
+	<property name="Tags" value="upperbody,chest,armor,armorChest,heavyArmor,heavyArmorPenalty,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Chest"/>
 	<property name="SoundPickup" value="outfit_cloth_grab"/>
 	<property name="SoundPlace" value="outfit_cloth_place"/>
@@ -12564,7 +12568,7 @@
 	<property name="DescriptionKey" value="armorMinerGlovesDesc"/>
 	<property name="DisplayType" value="armorMinerGloves"/>
 	<property name="ArmorGroup" value="groupMiner"/>
-	<property name="Tags" value="upperbody,hands,armor,armorHands,heavyArmor,heavyArmorPenalty,canHaveCosmetic,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
+	<property name="Tags" value="upperbody,hands,armor,armorHands,heavyArmor,heavyArmorPenalty,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Hands"/>
 	<property name="SoundPickup" value="gloves_leather_grab"/>
 	<property name="SoundPlace" value="gloves_leather_place"/>
@@ -12609,7 +12613,7 @@
 	<property name="DescriptionKey" value="armorMinerBootsDesc"/>
 	<property name="DisplayType" value="armorMinerBoots"/>
 	<property name="ArmorGroup" value="groupMiner"/>
-	<property name="Tags" value="lowerbody,feet,armor,armorFeet,heavyArmor,heavyArmorPenalty,canHaveCosmetic,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
+	<property name="Tags" value="lowerbody,feet,armor,armorFeet,heavyArmor,heavyArmorPenalty,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Feet"/>
 	<property name="SoundPickup" value="footwear_leather_grab"/>
 	<property name="SoundPlace" value="footwear_leather_place"/>
@@ -12685,7 +12689,7 @@
 	<property name="DescriptionKey" value="armorNomadHelmetDesc"/>
 	<property name="DisplayType" value="armorNomadHelmet"/>
 	<property name="ArmorGroup" value="groupNomad"/>
-	<property name="Tags" value="head,armor,armorHead,heavyArmor,heavyArmorPenalty,canHaveCosmetic,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
+	<property name="Tags" value="head,armor,armorHead,heavyArmor,heavyArmorPenalty,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Head"/>
 	<property name="SoundPickup" value="headwear_cloth_grab"/>
 	<property name="SoundPlace" value="headwear_cloth_place"/>
@@ -12732,7 +12736,7 @@
 	<property name="DescriptionKey" value="armorNomadOutfitDesc"/>
 	<property name="DisplayType" value="armorNomadOutfit"/>
 	<property name="ArmorGroup" value="groupNomad"/>
-	<property name="Tags" value="upperbody,chest,armor,armorChest,heavyArmor,heavyArmorPenalty,canHaveCosmetic,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
+	<property name="Tags" value="upperbody,chest,armor,armorChest,heavyArmor,heavyArmorPenalty,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Chest"/>
 	<property name="SoundPickup" value="outfit_cloth_grab"/>
 	<property name="SoundPlace" value="outfit_cloth_place"/>
@@ -12773,7 +12777,7 @@
 	<property name="DescriptionKey" value="armorNomadGlovesDesc"/>
 	<property name="DisplayType" value="armorNomadGloves"/>
 	<property name="ArmorGroup" value="groupNomad"/>
-	<property name="Tags" value="upperbody,hands,armor,armorHands,heavyArmor,heavyArmorPenalty,canHaveCosmetic,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
+	<property name="Tags" value="upperbody,hands,armor,armorHands,heavyArmor,heavyArmorPenalty,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Hands"/>
 	<property name="SoundPickup" value="gloves_leather_grab"/>
 	<property name="SoundPlace" value="gloves_leather_place"/>
@@ -12818,7 +12822,7 @@
 	<property name="DescriptionKey" value="armorNomadBootsDesc"/>
 	<property name="DisplayType" value="armorNomadBoots"/>
 	<property name="ArmorGroup" value="groupNomad"/>
-	<property name="Tags" value="lowerbody,feet,armor,armorFeet,heavyArmor,heavyArmorPenalty,canHaveCosmetic,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
+	<property name="Tags" value="lowerbody,feet,armor,armorFeet,heavyArmor,heavyArmorPenalty,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Feet"/>
 	<property name="SoundPickup" value="footwear_leather_grab"/>
 	<property name="SoundPlace" value="footwear_leather_place"/>
@@ -12862,7 +12866,7 @@
 	<property name="DescriptionKey" value="armorNerdHelmetDesc"/>
 	<property name="DisplayType" value="armorNerdHelmet"/>
 	<property name="ArmorGroup" value="groupNerd"/>
-	<property name="Tags" value="head,armor,armorHead,heavyArmor,heavyArmorPenalty,canHaveCosmetic,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
+	<property name="Tags" value="head,armor,armorHead,heavyArmor,heavyArmorPenalty,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Head"/>
 	<property name="SoundPickup" value="headwear_cloth_grab"/>
 	<property name="SoundPlace" value="headwear_cloth_place"/>
@@ -12904,7 +12908,7 @@
 	<property name="DescriptionKey" value="armorNerdOutfitDesc"/>
 	<property name="DisplayType" value="armorNerdOutfit"/>
 	<property name="ArmorGroup" value="groupNerd"/>
-	<property name="Tags" value="upperbody,chest,armor,armorChest,heavyArmor,heavyArmorPenalty,canHaveCosmetic,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
+	<property name="Tags" value="upperbody,chest,armor,armorChest,heavyArmor,heavyArmorPenalty,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Chest"/>
 	<property name="SoundPickup" value="outfit_metal_grab"/>
 	<property name="SoundPlace" value="outfit_metal_place"/>
@@ -13021,7 +13025,7 @@
 	<property name="DescriptionKey" value="armorNerdGlovesDesc"/>
 	<property name="DisplayType" value="armorNerdGloves"/>
 	<property name="ArmorGroup" value="groupNerd"/>
-	<property name="Tags" value="upperbody,hands,armor,armorHands,heavyArmor,heavyArmorPenalty,canHaveCosmetic,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
+	<property name="Tags" value="upperbody,hands,armor,armorHands,heavyArmor,heavyArmorPenalty,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Hands"/>
 	<property name="SoundPickup" value="gloves_leather_grab"/>
 	<property name="SoundPlace" value="gloves_leather_place"/>
@@ -13066,7 +13070,7 @@
 	<property name="DescriptionKey" value="armorNerdBootsDesc"/>
 	<property name="DisplayType" value="armorNerdBoots"/>
 	<property name="ArmorGroup" value="groupNerd"/>
-	<property name="Tags" value="lowerbody,feet,armor,armorFeet,heavyArmor,heavyArmorPenalty,canHaveCosmetic,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
+	<property name="Tags" value="lowerbody,feet,armor,armorFeet,heavyArmor,heavyArmorPenalty,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Feet"/>
 	<property name="SoundPickup" value="footwear_nerd_grab"/>
 	<property name="SoundPlace" value="footwear_nerd_place"/>
@@ -13142,7 +13146,7 @@
 	<property name="DescriptionKey" value="armorRaiderHelmetDesc"/>
 	<property name="DisplayType" value="armorRaiderHelmet"/>
 	<property name="ArmorGroup" value="groupRaider"/>
-	<property name="Tags" value="head,armor,armorHead,heavyArmor,heavyArmorPenalty,canHaveCosmetic,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
+	<property name="Tags" value="head,armor,armorHead,heavyArmor,heavyArmorPenalty,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Head"/>
 	<property name="SoundPickup" value="headwear_metal_grab"/>
 	<property name="SoundPlace" value="headwear_metal_place"/>
@@ -13185,7 +13189,7 @@
 	<property name="DescriptionKey" value="armorRaiderOutfitDesc"/>
 	<property name="DisplayType" value="armorRaiderOutfit"/>
 	<property name="ArmorGroup" value="groupRaider"/>
-	<property name="Tags" value="upperbody,chest,armor,armorChest,heavyArmor,heavyArmorPenalty,canHaveCosmetic,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
+	<property name="Tags" value="upperbody,chest,armor,armorChest,heavyArmor,heavyArmorPenalty,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Chest"/>
 	<property name="SoundPickup" value="outfit_metal_grab"/>
 	<property name="SoundPlace" value="outfit_metal_place"/>
@@ -13230,7 +13234,7 @@
 	<property name="DescriptionKey" value="armorRaiderGlovesDesc"/>
 	<property name="DisplayType" value="armorRaiderGloves"/>
 	<property name="ArmorGroup" value="groupRaider"/>
-	<property name="Tags" value="upperbody,hands,armor,armorHands,heavyArmor,heavyArmorPenalty,canHaveCosmetic,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
+	<property name="Tags" value="upperbody,hands,armor,armorHands,heavyArmor,heavyArmorPenalty,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Hands"/>
 	<property name="SoundPickup" value="gloves_leather_grab"/>
 	<property name="SoundPlace" value="gloves_leather_place"/>
@@ -13275,7 +13279,7 @@
 	<property name="DescriptionKey" value="armorRaiderBootsDesc"/>
 	<property name="DisplayType" value="armorRaiderBoots"/>
 	<property name="ArmorGroup" value="groupRaider"/>
-	<property name="Tags" value="lowerbody,feet,armor,armorFeet,heavyArmor,heavyArmorPenalty,canHaveCosmetic,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
+	<property name="Tags" value="lowerbody,feet,armor,armorFeet,heavyArmor,heavyArmorPenalty,heavyArmorDeg,armorHeavySkill,biomeChallenge"/>
 	<property name="EquipSlot" value="Feet"/>
 	<property name="SoundPickup" value="footwear_leather_grab"/>
 	<property name="SoundPlace" value="footwear_leather_place"/>

@@ -1043,10 +1043,10 @@
 					<rect name="tabsHeader" height="39" depth="0">
 						<!--<sprite depth="0" name="backgroundMainTabs" sprite="menu_empty3px" color="0,0,0" type="sliced" fillcenter="true" globalopacity="false" />-->
 						
-						<grid name="tabButtons" pos="3,-2" depth="2" rows="1" cols="4" cell_width="144" cell_height="36" repeat_content="true" arrangement="horizontal">
+						<grid name="tabButtons" pos="3,-2" depth="2" rows="1" cols="5" cell_width="115" cell_height="36" repeat_content="true" arrangement="horizontal">
 							<rect controller="TabSelectorButton">
-								<simplebutton name="tabButton" depth="2" pos="-1,0" width="143" height="36" font_size="34" bordercolor="[transparent]" defaultcolor="[darkGrey]" selectedsprite="menu_empty" selectedcolor="[mediumGrey]" foregroundlayer="true" caption="{tab_name_localized}" />
-								<sprite depth="8" sprite="menu_empty2px" pos="142,0" width="2" height="35" color="[black]" />
+								<simplebutton name="tabButton" depth="2" pos="-1,0" width="114" height="36" font_size="34" bordercolor="[transparent]" defaultcolor="[darkGrey]" selectedsprite="menu_empty" selectedcolor="[mediumGrey]" foregroundlayer="true" caption="{tab_name_localized}" />
+								<sprite depth="8" sprite="menu_empty2px" pos="113,0" width="2" height="35" color="[black]" />
 							</rect>
 						</grid>
 					</rect>
@@ -1054,7 +1054,7 @@
 					<rect name="tabsContents" depth="2" pos="0,-37" height="711" is_serverbrowser="true">
 						<sprite depth="0" pos="2,0" width="576" name="backgroundMain" sprite="menu_empty3px" color="[mediumGrey]" type="sliced" fillcenter="true" globalopacity="false" />
 
-						<rect controller="TabSelectorTab" tab_key="xuiGameSettingsGeneral">
+						<rect controller="TabSelectorTab" tab_key="xuiGameSettingsServer">
 							<table pos="8,-10" columns="1" padding="0,6" always_reposition="true">
 
 								<rect name="" width="560" height="232">
@@ -1068,8 +1068,9 @@
 								<browsergameoptioninfo name="Region" title="goRegion" value_localization_prefix="goRegionName" support_bb_code="false" />
 								<browsergameoptioninfo name="AllowCrossplay" title="goServerAllowCrossplay" support_bb_code="false" />
 								<browsergameoptioninfo name="Language" title="goLanguage" support_bb_code="false" />
-								<browsergameoptioninfo name="WorldSize" title="goGameWorldSize" />
-
+								
+								<rect createuiwidget="true" width="10" height="32" />
+								
 								<!-- On table: <browsergameoptioninfo name="EACEnabled" title="goEacEnabled" /> -->
 								<!-- On table: <browsergameoptioninfo name="IsPasswordProtected" title="goPasswordProtected" /> -->
 								<!-- On table: <browsergameoptioninfo name="CurrentPlayers" title="goCurrentPlayers" value_localization_prefix="goPlayer" /> -->
@@ -1078,10 +1079,8 @@
 								<!-- On table: <browsergameoptioninfo name="LevelName" title="goGameWorld" /> -->
 								<!-- GameMode basically unused (only creative + prefab editor): <browsergameoptioninfo name="GameMode" title="goGameMode" value_localization_prefix="gm" /> -->
 
-								<browsergameoptioninfo name="StockSettings" title="goStockSettings" />
-								<browsergameoptioninfo name="ModdedConfig" title="goModdedConfig" />
-								<!-- Currently not used: <browsergameoptioninfo name="RequiresMod" title="goRequiresMod" /> -->
-
+								<rect createuiwidget="true" width="10" height="32" />
+								
 								<browsergameoptioninfo name="IP" title="goIp" visible="{showip}" />
 								<browsergameoptioninfo name="Port" title="goPort" visible="{showip}" />
 								
@@ -1090,11 +1089,30 @@
 							</table>
 						</rect>
 
-						<rect controller="TabSelectorTab" tab_key="xuiGameSettingsBasic">
-							<grid pos="8,-40" rows="15" cell_width="525" cell_height="45" repeat_content="false" arrangement="vertical" >
+						<rect controller="TabSelectorTab" tab_key="xuiGameSettingsGeneral">
+							<table pos="8,-10" columns="1" padding="0,6" always_reposition="true">
+								<browsergameoptioninfo name="WorldSize" title="goGameWorldSize" />
+
+								<rect createuiwidget="true" width="10" height="32" />
+
+								<browsergameoptioninfo name="StockSettings" title="goStockSettings" />
+								<browsergameoptioninfo name="ModdedConfig" title="goModdedConfig" />
+								<!-- Currently not used: <browsergameoptioninfo name="RequiresMod" title="goRequiresMod" /> -->
+
+								<rect createuiwidget="true" width="10" height="32" />
+
 								<browsergameoptioninfo name="GameDifficulty" title="goDifficulty" display_names="goDifficulty1,goDifficulty2,goDifficulty3,goDifficulty4,goDifficulty5,goDifficulty6" />
+								<browsergameoptioninfo name="XPMultiplier" title="goXPMultiplier" value_wrap="false" value_type="int" values="25, 50, 75, 100, 125, 150, 175, 200, 300" display_names="" value_localization_prefix="goXPMultiplierValue" />
 								<browsergameoptioninfo name="DayNightLength" title="goDayLength" value_localization_prefix="goMinute" />
 								<browsergameoptioninfo name="DayLightLength" title="goDayLightLength" value_localization_prefix="goDayLightLengthValue" />
+							</table>
+						</rect>
+
+						<rect controller="TabSelectorTab" tab_key="xuiGameSettingsBasic">
+							<grid pos="8,-40" rows="15" cell_width="525" cell_height="45" repeat_content="false" arrangement="vertical" >
+								<browsergameoptioninfo name="BloodMoonFrequency" title="goBloodMoonFrequency" display_names="goDisabled" value_localization_prefix="goDay" />
+								<browsergameoptioninfo name="BloodMoonRange" title="goBloodMoonRange" value_localization_prefix="goDay" />
+								<browsergameoptioninfo name="BloodMoonWarning" title="goBloodMoonWarning" display_names="-1=goDisabled,8=goMorning,18=goEvening" value_localization_prefix="goBloodMoonWarningTime" />
 								<browsergameoptioninfo name="BloodMoonEnemyCount" title="goBloodMoonEnemyCount" value_localization_prefix="goEnemie" />
 								<browsergameoptioninfo name="ZombieMove" title="goZombieMove" display_names="goZMWalk,goZMJog,goZMRun,goZMSprint,goZMNightmare" />
 								<browsergameoptioninfo name="ZombieMoveNight" title="goZombieMoveNight" display_names="goZMWalk,goZMJog,goZMRun,goZMSprint,goZMNightmare" />
@@ -1102,11 +1120,10 @@
 								<browsergameoptioninfo name="ZombieBMMove" title="goZombieBMMove" display_names="goZMWalk,goZMJog,goZMRun,goZMSprint,goZMNightmare" />
 								<browsergameoptioninfo name="ZombieFeralSense" title="goZombieFeralSense" display_names="goOff,goZMDay,goZMNight,goZMAll" />
 								<!--<browsergameoptioninfo name="PersistentPlayerProfiles" title="goPersistentCharacters" />-->
-								<browsergameoptioninfo name="MaxSpawnedZombies" title="goMaxSpawnedZombies" />
-								<browsergameoptioninfo name="MaxSpawnedAnimals" title="goMaxSpawnedAnimals" />
-								<browsergameoptioninfo name="XPMultiplier" title="goXPMultiplier" value_wrap="false" value_type="int" values="25, 50, 75, 100, 125, 150, 175, 200, 300" display_names="" value_localization_prefix="goXPMultiplierValue" />
 								<browsergameoptioninfo name="AirDropFrequency" title="goAirDropFrequency" display_names="goDisabled" />
 								<browsergameoptioninfo name="AirDropMarker" title="goMarkAirDrops" />
+								<browsergameoptioninfo name="BiomeProgression" title="goBiomeProgression" />
+								<browsergameoptioninfo name="StormFreq" title="goStormFreq" value_localization_prefix="goBlockDamageValue" />
 							</grid>
 						</rect>
 
@@ -1124,6 +1141,8 @@
 								<browsergameoptioninfo name="EnemySpawnMode" title="goEnemySpawn" value_localization_prefix="" />
 								<browsergameoptioninfo name="BuildCreate" title="goBuildCreate" />
 								<browsergameoptioninfo name="QuestProgressionDailyLimit" title="goQuestProgressionDailyLimit" value_type="int" values="-1, 1, 2, 3, 4, 5, 6, 7, 8" display_names="-1=goUnlimited"/>
+								<browsergameoptioninfo name="MaxSpawnedZombies" title="goMaxSpawnedZombies" />
+								<browsergameoptioninfo name="MaxSpawnedAnimals" title="goMaxSpawnedAnimals" />
 							</grid>
 						</rect>
 						
@@ -1235,14 +1254,19 @@
 							<browsergameoptioncombined name="StockSettings" title="goStockSettings" value_wrap="false" values="" display_names="" value_localization_prefix="" allow_custom="false" />
 							<browsergameoptioncombined name="ModdedConfig" title="goModdedConfig" value_wrap="false" values="" display_names="" value_localization_prefix="" allow_custom="false" />
 							<browsergameoptioncombined name="RequiresMod" title="goRequiresMod" value_wrap="false" values="" display_names="" value_localization_prefix="" allow_custom="false" />
+							<rect/>
+							<browsergameoptioncombined name="GameDifficulty" title="goDifficulty" value_wrap="false" values="" display_names="goDifficulty1,goDifficulty2,goDifficulty3,goDifficulty4,goDifficulty5,goDifficulty6" value_localization_prefix="" allow_custom="false" />
+							<browsergameoptioncombined name="XPMultiplier" title="goXPMultiplier" value_wrap="false" value_type="int" values="25, 50, 75, 100, 125, 150, 175, 200, 300" display_names="" value_localization_prefix="goXPMultiplierValue" />
+							<browsergameoptioncombined name="DayNightLength" title="goDayLength" value_wrap="false" values="10, 20, 30, 40, 50, 60, 90, 120" display_names="" value_localization_prefix="goMinute" />
+							<browsergameoptioncombined name="DayLightLength" title="goDayLightLength" value_wrap="false" values="12, 14, 16, 18" display_names="" value_localization_prefix="goDayLightLengthValue" />
 						</grid>
 					</rect>
 
 					<rect controller="TabSelectorTab" tab_key="xuiGameSettingsBasic">
 						<grid pos="8,-40" rows="14" cell_width="725" cell_height="45" repeat_content="false" arrangement="vertical" >
-							<browsergameoptioncombined name="GameDifficulty" title="goDifficulty" value_wrap="false" values="" display_names="goDifficulty1,goDifficulty2,goDifficulty3,goDifficulty4,goDifficulty5,goDifficulty6" value_localization_prefix="" allow_custom="false" />
-							<browsergameoptioncombined name="DayNightLength" title="goDayLength" value_wrap="false" values="10, 20, 30, 40, 50, 60, 90, 120" display_names="" value_localization_prefix="goMinute" />
-							<browsergameoptioncombined name="DayLightLength" title="goDayLightLength" value_wrap="false" values="12, 14, 16, 18" display_names="" value_localization_prefix="goDayLightLengthValue" />
+							<browsergameoptioncombined name="BloodMoonFrequency" title="goBloodMoonFrequency" value_wrap="false" value_type="int" values="0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 14, 20, 30" display_names="goDisabled" value_localization_prefix="goDay" />
+							<browsergameoptioncombined name="BloodMoonRange" title="goBloodMoonRange" value_wrap="false" value_type="int" values="0, 1, 2, 3, 4, 7, 10, 14, 20" display_names="" value_localization_prefix="goDay" />
+							<browsergameoptioncombined name="BloodMoonWarning" title="goBloodMoonWarning" value_wrap="false" value_type="int" values="-1, 8, 18" display_names="goDisabled,goMorning,goEvening" value_localization_prefix="" />
 							<browsergameoptioncombined name="BloodMoonEnemyCount" title="goBloodMoonEnemyCount" value_wrap="false" values="4, 6, 8, 10, 12, 16, 24, 32, 64" display_names="" value_localization_prefix="goEnemie" />
 							<browsergameoptioncombined name="ZombieMove" title="goZombieMove" value_wrap="false" values="" display_names="goZMWalk,goZMJog,goZMRun,goZMSprint,goZMNightmare" allow_custom="false"  />
 							<browsergameoptioncombined name="ZombieMoveNight" title="goZombieMoveNight" value_wrap="false" values="" display_names="goZMWalk,goZMJog,goZMRun,goZMSprint,goZMNightmare" allow_custom="false" />
@@ -1250,11 +1274,10 @@
 							<browsergameoptioncombined name="ZombieBMMove" title="goZombieBMMove" value_wrap="false" value_type="int" values="" display_names="goZMWalk,goZMJog,goZMRun,goZMSprint,goZMNightmare" allow_custom="false" />
 							<browsergameoptioncombined name="ZombieFeralSense" title="goZombieFeralSense" value_wrap="false" value_type="int" values="" display_names="goOff,goZMDay,goZMNight,goZMAll" value_localization_prefix="" allow_custom="false" />
 							<!--<gameoption name="PersistentPlayerProfiles" title="goPersistentCharacters" value_wrap="false" values="" display_names="" value_localization_prefix="" />-->
-							<browsergameoptioncombined name="MaxSpawnedZombies" title="goMaxSpawnedZombies" value_wrap="false" values="" display_names="" value_localization_prefix="" allow_custom="true" force_custom="true" />
-							<browsergameoptioncombined name="MaxSpawnedAnimals" title="goMaxSpawnedAnimals" value_wrap="false" values="" display_names="" value_localization_prefix="" allow_custom="true" force_custom="true" />
-							<browsergameoptioncombined name="XPMultiplier" title="goXPMultiplier" value_wrap="false" value_type="int" values="25, 50, 75, 100, 125, 150, 175, 200, 300" display_names="" value_localization_prefix="goXPMultiplierValue" />
 							<browsergameoptioncombined name="AirDropFrequency" title="goAirDropFrequency" value_wrap="false" values="0, 24, 72, 168" display_names="goDisabled" value_localization_prefix="goAirDropValue" />
 							<browsergameoptioncombined name="AirDropMarker" title="goMarkAirDrops" value_wrap="false" values="" display_names="" value_localization_prefix="" allow_custom="false" />
+							<browsergameoptioncombined name="BiomeProgression" title="goBiomeProgression" value_wrap="false" value_type="bool" values="" display_names="" value_localization_prefix="" />
+							<browsergameoptioncombined name="StormFreq" title="goStormFreq" value_wrap="false" value_type="int" values="0, 50, 100, 150, 200, 300, 400, 500" display_names="" value_localization_prefix="goBlockDamageValue" />
 						</grid>
 					</rect>
 
@@ -1277,6 +1300,9 @@
 							<browsergameoptioncombined name="BuildCreate" title="goBuildCreate" value_wrap="false" values="" display_names="" value_localization_prefix="" allow_custom="false" tooltip_key="goBuildCreateServerBrowserDescXBOX" platform="XBOX"/>
 							
 							<browsergameoptioncombined name="QuestProgressionDailyLimit" title="goQuestProgressionDailyLimit" value_wrap="false" values="-1, 1, 2, 3, 4, 5, 6, 7, 8" display_names="goUnlimited"/>
+
+							<browsergameoptioncombined name="MaxSpawnedZombies" title="goMaxSpawnedZombies" value_wrap="false" values="" display_names="" value_localization_prefix="" allow_custom="true" force_custom="true" />
+							<browsergameoptioncombined name="MaxSpawnedAnimals" title="goMaxSpawnedAnimals" value_wrap="false" values="" display_names="" value_localization_prefix="" allow_custom="true" force_custom="true" />
 						</grid>
 					</rect>
 					
@@ -1284,11 +1310,13 @@
 						<grid pos="8,-40" rows="14" cell_width="725" cell_height="45" repeat_content="false" arrangement="vertical" >
 							<browsergameoptioncombined name="PlayerKillingMode" title="goPlayerKillingMode" value_wrap="false" values="" display_names="goPlayerKillingModeNoKilling,goPlayerKillingModeKillAlliesOnly,goPlayerKillingModeKillStrangersOnly,goPlayerKillingModeKillEveryone" value_localization_prefix="" allow_custom="false" />
 							<browsergameoptioncombined name="LandClaimSize" title="goLandClaimSize" value_wrap="false" values="21, 31, 41, 51, 71" display_names="" value_localization_prefix="goLandClaimSizeValue" />
+							<rect/>
 							<browsergameoptioncombined name="LandClaimExpiryTime" title="goLandClaimExpiryTime" value_wrap="false" values="1, 2, 3, 4, 5, 7, 10, 30" display_names="" value_localization_prefix="goLandClaimExpiryTimeValue" />
 							<browsergameoptioncombined name="LandClaimDecayMode" title="goLandClaimDecayMode" value_wrap="false" values="" display_names="goLandClaimDecayModeSlow,goLandClaimDecayModeFast,goLandClaimDecayModeNone" value_localization_prefix="" allow_custom="false" />
 							<browsergameoptioncombined name="LandClaimOnlineDurabilityModifier" title="goLandClaimOnlineDurabilityModifier" value_wrap="false" values="0, 1, 2, 4, 8, 16, 32, 64, 128, 256" display_names="goInfinite" value_localization_prefix="goLandClaimOnlineDurabilityModifierValue" />
 							<browsergameoptioncombined name="LandClaimOfflineDurabilityModifier" title="goLandClaimOfflineDurabilityModifier" value_wrap="false" values="0, 1, 2, 4, 8, 16, 32, 64, 128, 256" display_names="goInfinite" value_localization_prefix="goLandClaimOfflineDurabilityModifierValue" />
 							<browsergameoptioncombined name="LandClaimOfflineDelay" title="goLandClaimOfflineDelay" value_wrap="false" values="0, 1, 5, 10, 20, 30, 60" display_names="" value_localization_prefix="goMinute" />
+							<rect/>
 							<browsergameoptioncombined name="BedrollExpiryTime" title="goBedrollExpiryTime" value_wrap="false" values="3, 7, 15, 30, 45, 60" display_names="" value_localization_prefix="goLandClaimExpiryTimeValue" />
 							<browsergameoptioncombined name="PartySharedKillRange" title="goPartySharedKillRange" value_wrap="false" values="0, 100, 500, 1000, 5000, 10000" display_names="goDisabled" value_localization_prefix="goPartySharedKillRangeValue" />
 							<!-- <browsergameoptioncombined name="ShowFriendPlayerOnMap" title="goShowFriendPlayerOnMap" value_wrap="false" values="" display_names="" value_localization_prefix="" allow_custom="false" /> -->

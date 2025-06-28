@@ -3896,7 +3896,7 @@
 					<sprite depth="4" name="searchIcon" style="icon30px" pos="8,-22" sprite="ui_game_symbol_search" pivot="Left"/>
 					<textfield name="searchInput" depth="5" pos="43,-22" width="260" height="30" pivot="Left" search_field="true" close_group_on_tab="true" focus_on_open="true" />
 
-					<togglebutton name="filterSmall" caption_key="xuiFilterSmallPois" width="210" height="32" pos="360, -7" depth="4" />
+					<togglebutton name="filterSmall" caption_key="xuiFilterSmallPois" tooltip_key="xuiFilterSmallPoisTooltip" width="210" height="32" pos="360, -7" depth="4" />
 
 					<label pos="700,-22" width="100" height="30" pivot="right" justify="right" text_key="xuiFilterPoiTier" />
 					<combobox depth="3" name="cbxFilterTier" pos="700,-7" width="120" height="30" type="ComboBoxInt" format_string="0;'All';0" value_min="-1" value_max="5" value_wrap="true" value_increment="1" />
