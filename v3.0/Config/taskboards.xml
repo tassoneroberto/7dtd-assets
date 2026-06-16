@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Pass in the items the player has in their inventory, try to sometimes pick tasks that use one of your items. -->
+
+<tasks reward_randomness="-.25,.25" >
+
+	<task duration="2,5" requester="Crazy Jake,Carl Bobby" required_item_count="1" >
+		<requested_item item="resourceWood" count="5,15" />
+		<reward_item item="resourceMechanicalParts" count="5,15" />
+	</task>
+
+	<task duration="2,5" requester="Crazy Jake,Carl Bobby" required_item_count="1">
+		<requested_item item="resourceRockSmall" count="5,15" />
+		<reward_item item="resourceDuctTape" count="5,15" />
+	</task>
+
+	<task duration="2,5" requester="Crazy Jake,Carl Bobby,Ned Wyoming" required_item_count="2" task_level="2">
+		<requested_item item="resourceRockSmall" count="5,15" />
+		<requested_item item="resourceFeather" count="5,15" />
+		<reward_item item="resourceDuctTape" count="5,15" />
+	</task>
+
+	<task duration="2,5" requester="Crazy Jake,Ted Lasso,Ned Wyoming" required_item_count="2" reward_item_count="2" task_level="3">
+		<requested_item item="resourceYuccaFibers" count="5,15" />
+		<requested_item item="resourceFeather" count="5,15" />
+		<reward_item item="ammo9mmBulletBall" count="10,40" />
+		<reward_item item="gunHandgunT1Pistol" count="1,3" />
+	</task>
+
+	<task duration="2,5" requester="Roy Kent,Ted Lasso" required_item_count="2">
+		<requested_item item="resourceScrapIron" count="5,15" />
+		<requested_item item="resourceFeather" count="5,15" />
+		<reward_item item="toolAnvil" count="1" />
+	</task>
+
+	<task duration="1,3" requester="Crazy Jake" ignore_random="true" required_item_count="2" reward_item_count="2" task_level="3">
+		<requested_item item="resourceForgedIron" count="5,25" />
+		<requested_item item="resourceFeather" count="5,15" />
+		<!-- <reward_item item="toolAnvil" count="1" /> -->
+		<reward_item item="gunShotgunT1DoubleBarrel" count="1,3" />
+		<reward_item item="ammoShotgunShell" count="10,40" />
+	</task>
+
+	<task duration="2,5" requester="Trader Jen" >
+		<requested_item item="medicalBandage" count="5,15" />
+		<reward_item item="medicalFirstAidBandage" count="5,15" />
+	</task>
+
+	<!-- Trader Rekt's Compound -->
+	<taskboard name="rekt">
+		<requester name="Trader Jen" chance=".25" />
+		<requester name="Crazy Jake" />
+		<requester name="Roy Kent" />
+		<requester name="Ted Lasso" />
+		<requester name="Ned Wyoming" />
+	</taskboard>
+
+	<!-- Trader Jen's Compound -->
+	<taskboard name="jen">
+		<requester name="Trader Jen" />
+		<requester name="Trader Rekt" chance=".25" />
+		<requester name="Crazy Jake" />
+	</taskboard>
+</tasks>

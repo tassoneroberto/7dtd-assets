@@ -1,0 +1,125 @@
+<npc>
+<!-- trader ids 3,4 and 5 are taken by vending machines -->
+	<npc_info
+		id="traitorjoel"
+		name="Traitor Joel"
+		name_key="npc_traitorJoel"
+		faction="whiteriver"
+		portrait="npc_joel"
+		greeting_type="nearby"
+		stance="Like" voice_set="trader_joel"
+		trader_id="1" dialog_id="trader" quest_faction="1" 
+		localization_id="npcTraderJoel"
+		quest_list="trader_joel_quests"
+		dms_section_type="TraderJoel"
+		/>
+		
+	<npc_info
+		id="traderjen"
+		name="Trader Jen"
+		name_key="npc_traderJen"
+		faction="whiteriver"
+		portrait="npc_jen"
+		greeting_type="nearby"
+		stance="Like" voice_set="trader_jen"
+		trader_id="2" dialog_id="trader" quest_faction="1" 
+		localization_id="npcTraderJen"
+		quest_list="trader_jen_quests"
+		dms_section_type="TraderJen"
+		/>
+
+	<npc_info
+		id="traderbob"
+		name="Trader Bob"
+		name_key="npc_traderBob"
+		faction="whiteriver"
+		portrait="npc_bob"
+		greeting_type="nearby"
+		stance="Like" voice_set="trader_bob"
+		trader_id="6" dialog_id="trader" quest_faction="1"
+		localization_id="npcTraderBob"
+		quest_list="trader_bob_quests"
+		dms_section_type="TraderBob"
+		/>
+
+
+	<npc_info
+		id="traderhugh"
+		name="Trader Hugh"
+		name_key="npc_traderHugh"
+		faction="whiteriver"
+		portrait="npc_hugh"
+		greeting_type="nearby"
+		stance="Neutral" voice_set="trader_hugh"
+		trader_id="7" dialog_id="trader" quest_faction="1" 
+		localization_id="npcTraderHugh"
+		quest_list="trader_hugh_quests"
+		dms_section_type="TraderHugh"
+		/>
+
+
+	<npc_info
+		id="traderrekt"
+		name="Traitor Rekt"
+		name_key="npc_traderRekt"
+		faction="whiteriver"
+		portrait="npc_rekt"
+		greeting_type="nearby"
+		stance="Dislike" voice_set="trader_rekt"
+		trader_id="8" dialog_id="trader" quest_faction="1"
+		localization_id="npcTraderRekt" 
+		quest_list="trader_rekt_quests"
+		dms_section_type="TraderRekt"
+		/>
+
+
+	<npc_info
+		id="traderTest"
+		name="Trader Test"
+		name_key="Trader Test"
+		faction="whiteriver"
+		portrait="npc_hugh"
+		greeting_type="nearby"
+		trader_id="9"
+		stance="Like" voice_set="trader_hugh"
+		dialog_id="traderTest"
+		quest_list="test_quests"
+		localization_id="npcTraderTest" />
+
+	<npc_info
+		id="NPCjunkDrone"
+		name="Junk Drone"
+		name_key="npc_junkDrone"
+		faction="trader"
+		portrait="npc_joel"
+		greeting_type="nearby"
+		dialog_id="junkDrone"
+		stance="Like" voice_set="trader"
+		trader_id="1"/>
+
+	<factions>
+		<faction name="none">
+			<relationship name="*" value="neutral"/>
+		</faction>
+		<faction name="animals">
+			<relationship name="*" value="neutral"/>
+		</faction>
+		<faction name="undead">
+			<relationship name="trader" value="neutral"/>
+			<relationship name="*" value="hate"/>
+		</faction>
+		<faction name="whiteriver">
+			<relationship name="*" value="neutral"/>
+			<relationship name="undead" value="hate"/>
+		</faction>
+		<faction name="duke">
+			<relationship name="*" value="neutral"/>
+			<relationship name="whiteriver" value="dislike"/>
+			<relationship name="undead" value="hate"/>
+		</faction>
+		<faction name="trader">
+			<relationship name="*" value="neutral"/>
+			<relationship name="undead" value="hate"/>
+		</faction>
+	</factions>
+</npc>

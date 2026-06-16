@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<iteminfo>
+
+<!--->
+Weapon Carry Types
+	0  Unarmed
+	1  1HMelee
+	2  2HWideMelee
+	3  2HNarrowMelee
+	4  1HPistol
+	5  2HPistol
+	6  2HRifle
+	7  2HBow
+	8  RocketLauncher
+	9  1HGeneric
+	10 2HGeneric
+</!-->
+
+<animation>
+	<!-- For items with weapon hold type=="X" we have a ray cast delay of Y -->
+	<hold id="0" carry="0" ray_cast="0.16"  unholster="0.2" two_handed="true" />                  <!-- 0 hand player -->
+	<hold id="1" carry="5" ray_cast="0.16" holster="0" unholster="0.2" two_handed="true" />       <!-- 1 pistol -->
+	<hold id="2" carry="1" ray_cast="0.40" holster="0" unholster="0.2" two_handed="true" />       <!-- 2 clubs -->
+	<hold id="3" carry="9" ray_cast="2.00" holster="0" unholster="0.2" />                         <!-- 3 jars -->
+	<hold id="4" carry="2" ray_cast="0.64" holster="0" unholster="0.2" two_handed="true" />       <!-- 4 pickaxe -->
+	<hold id="5" carry="6" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />          <!-- 5 shotgun -->
+	<hold id="6" carry="6" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />          <!-- 6 mp5 -->
+	<hold id="7" carry="10" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />          <!-- 7 blocks -->
+	<hold id="8" carry="0" ray_cast="0" holster="0" unholster="0.2" />                            <!-- 8 not used -->
+	<hold id="9" carry="0" ray_cast="0" ray_cast_moving="0" holster="0" unholster="0.2" />        <!-- 9 hand zombie -->
+	<hold id="10" carry="8" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 10 rocket launcher -->
+	<hold id="11" carry="6" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 11 sniper rifle -->
+	<hold id="12" carry="1" ray_cast="0.46" holster="0" unholster="0.2" two_handed="true" />      <!-- 12  torch  -->
+	<hold id="13" carry="9" ray_cast="0.5" holster="0" unholster="0.2" />                         <!-- 13 flashlight  -->
+	<hold id="14" carry="9" ray_cast="3.73" holster="0" unholster="0.2" />                         <!-- 14 canned food-->
+	<!-- <hold id="15" carry="0" ray_cast="2.0" holster="0" unholster="0.2" />                         15 corn and potato -->
+	<hold id="16" carry="9" ray_cast="3.26" holster="0" unholster="0.2" />                         <!-- 16 pill bottles -->
+	<hold id="17" carry="2" ray_cast="0.4" holster="0" unholster="0.2" two_handed="true" />       <!-- 17 fireaxe -->
+	<hold id="18" carry="2" ray_cast="0.5" holster="0" unholster="0.2" two_handed="true" />       <!-- 18 shovel and auger blade -->
+	<hold id="19" carry="10" ray_cast="0.5" holster="0" unholster="0.2" two_handed="true" />       <!-- 19 chainsaw -->
+	<hold id="20" carry="10" ray_cast="0.5" holster="0" unholster="0.2" two_handed="true" />       <!-- 20 auger -->
+	<hold id="21" carry="9" ray_cast="0.5" holster="0" unholster="0.2" />                         <!-- 21 flat hand hold -->
+	<!-- <hold id="22" carry="0" ray_cast="0.5" holster="0" unholster="0.2" />                         22 sham -->
+	<hold id="23" carry="9" ray_cast="2.0" holster="0" unholster="0.2" />                         <!-- 23 stews, bowl -->
+	<hold id="24" carry="0" ray_cast="0" holster="0" unholster="0.2" />                           <!-- 24 hand zombie 02 crawler -->
+	<hold id="25" carry="1" ray_cast="0.3" holster="0" unholster="0.2" />                         <!-- 25 pipe bomb -->
+	<!-- "Sway Off" is hardcoded for hold types 26, 27, 53 -->
+	<hold id="26" carry="6" ray_cast="0.3" holster="0" unholster="0.2" two_handed="true" />       <!-- 26 crossbow -->
+	<hold id="27" carry="7" ray_cast="0.8" holster="0" unholster="0.2" two_handed="true" />       <!-- 27 wooden bow -->
+	<hold id="29" carry="1" ray_cast="0.3" holster="0" unholster="0.2" two_handed="true" />       <!-- wrench -->
+	<hold id="30" carry="6" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- hunting rifle -->
+	<hold id="31" carry="9" ray_cast="2.0" holster="0" unholster="0.2" />                         <!-- parcel -->
+	<hold id="32" carry="1" ray_cast="0.2" holster="0" unholster="0.2" two_handed="true" />       <!-- stone axe -->
+	<hold id="33" carry="2" ray_cast="0.75" holster="0" unholster="0.2" two_handed="true" />      <!-- sledgehammer -->
+	<hold id="34" carry="10" ray_cast="0.75" holster="0" unholster="0.2" two_handed="true"  />     <!-- bucket -->
+	<hold id="35" carry="0" ray_cast="0.18" holster="0" unholster="0.2" />                        <!-- dog, vulture, wolf -->
+	<hold id="36" carry="1" ray_cast="0.43" holster="0" unholster="0.2" two_handed="true" />      <!-- knife -->
+	<hold id="37" carry="4" ray_cast="0.1" holster="0" unholster="0.2" two_handed="true" />         <!-- nailgun -->
+	<hold id="38" carry="9" ray_cast="0" holster="0" unholster="0.2" />                           <!-- cobblestones -->
+	<hold id="39" carry="0" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- blunderbuss -->
+	<hold id="40" carry="1" ray_cast="0.3" holster="0" unholster="0.2" />                         <!-- rock small -->
+	<hold id="44" carry="4" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- magnum -->
+	<hold id="45" carry="9" ray_cast="0" holster="0" unholster="0.2" />                           <!-- sack -->
+	<hold id="46" carry="0" ray_cast="0.38" holster="0" unholster="0.2" />                        <!-- bear hand -->
+	<hold id="47" carry="1" ray_cast="0.1" holster="0" unholster="0.2" two_handed="true" />       <!-- machete -->
+	<hold id="48" carry="6" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- ak47 -->
+	<hold id="49" carry="9" ray_cast="1.00" holster="0" unholster="0.2" />                        <!-- candle -->
+	<hold id="50" carry="2" ray_cast="0.31" holster="0" unholster="0.2" two_handed="true" />      <!-- 50 hoe -->
+	<hold id="51" carry="1" ray_cast="0.31" holster="0" unholster="0.2" two_handed="true" />      <!-- 51 paint brush -->
+	<hold id="52" carry="10" ray_cast="0.31" holster="0" unholster="0.2" two_handed="true" />      <!-- 52 wire tool -->
+	<hold id="53" carry="7" ray_cast="0.8" holster="0" unholster="0.2" two_handed="true" />       <!-- 53 compound bow -->
+	<hold id="54" carry="1" ray_cast="0.35" holster="0" unholster="0.2" two_handed="true" />       <!-- 54 molotov cocktail -->
+	<hold id="55" carry="0" ray_cast="0.5" holster="0" unholster="0.2" />                         <!-- 55 snake -->
+	<hold id="56" carry="6" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 56 DoubleBarrelShotgun -->
+	<hold id="57" carry="1" ray_cast="0.35" holster="0" unholster="0.2" two_handed="true" />       <!-- 57 grenade -->
+	<hold id="58" carry="1" ray_cast="0.1" holster="0" unholster="0.2" two_handed="true" />       <!-- 58 stun baton -->
+	<hold id="59" carry="2" ray_cast="0.1" holster="1.0" unholster="1.0" two_handed="true" />       <!-- 59 spear -->
+	<hold id="60" carry="6" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 60 m60 -->
+	<hold id="61" carry="0" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 61 knuckles -->
+	<hold id="62" carry="10" ray_cast="0.65" holster="0" unholster="0.2" two_handed="true" />       <!-- 62 timed charge -->
+	<hold id="63" carry="1" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 63 pickaxe iron -->
+	<hold id="64" carry="9" ray_cast="1.5" holster="0" unholster="0.2" two_handed="true" />      <!-- 64 bandage -->
+	<hold id="65" carry="3" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 65 bat -->
+	<hold id="66" carry="1" ray_cast="0.3" holster="0" unholster="0.2" two_handed="true" />         <!-- 66 dynamite -->
+	<hold id="67" carry="10" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 67 junk turret -->
+	<hold id="68" carry="7" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 68 advanced wooden bow -->
+	<hold id="69" carry="6" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 69 advanced compound crossbow -->
+	<hold id="70" carry="0" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 70 knuckle wraps -->
+	<hold id="71" carry="6" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 71 tactical assault rifle -->
+	<hold id="72" carry="1" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 72 ratchet -->
+	<hold id="73" carry="10" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 73 junk sledge -->
+	<hold id="74" carry="4" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 74 impact driver -->
+	<hold id="75" carry="5" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 75 desert eagle -->
+	<hold id="76" carry="6" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 76 auto shotgun -->
+	<hold id="77" carry="6" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 77 sharp shooter rifle -->
+	<hold id="78" carry="10" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 78 junk drone -->
+	<hold id="79" carry="0" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 79 knuckles spiked -->
+	<hold id="80" carry="1" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 80 pipe baton -->
+	<hold id="81" carry="6" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 81 pipe machine gun -->
+	<hold id="82" carry="6" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 82 pipe rifle -->
+	<hold id="83" carry="5" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 83 pipe revolver -->
+	<hold id="84" carry="6" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 84 pipe shotgun -->
+	<hold id="85" carry="6" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 85 lever action rifle -->
+	<hold id="86" carry="9" ray_cast="2.23" holster="0" unholster="0.2" two_handed="true" />      <!-- 86 syringe -->
+	<hold id="87" carry="9" ray_cast="2.00" holster="0" unholster="0.2" two_handed="true" />      <!-- 87 empty jar -->
+	<hold id="88" carry="10" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 88 chicken -->	 
+	<hold id="97" carry="9" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 97 generic handle small -->
+	<hold id="98" carry="9" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 98 generic handle medium -->
+	<hold id="99" carry="9" ray_cast="0" holster="0" unholster="0.2" two_handed="true" />         <!-- 99 generic handle large -->
+</animation>
+
+<!-- Trigger Effects -->
+<trigger_effects>
+	<!-- Weapon effects stop the trigger at a position, with a set resistance -->
+	<trigger_effect name="PistolTrigger" type_ds="WeaponSingle"
+					startPosition="2"
+					endPosition="5"
+					strength="8"
+	/>
+		<!-- Anytime there's a strengths array, it's length 10. -->
+	<trigger_effect name="PistolShoot" type_ds="MultipointFeedback"
+					strengths="8,7,6,5,4,3,2,1,8,8,"
+	/>
+	<trigger_effect name="MGShoot" type_ds="Vibration"
+					position="2"
+					amplitude="5"
+					frequency="30"
+	/>
+	<trigger_effect name="PistolShoot2" type_ds="Feedback"
+					position="2"
+					strength="8"
+	/>
+	<trigger_effect name="ShotgunTrigger" type_ds="WeaponSingle"
+					startPosition="2"
+					endPosition="7"
+					strength="8"
+	/>
+	<trigger_effect name="RifleTrigger" type_ds="WeaponSingle"
+					startPosition="2"
+					endPosition="7"
+					strength="8"
+	/>
+		<!-- for type_ds; the vibration effect needs a position, amplitude, and frequency -->
+	<trigger_effect name="ShotgunShoot" type_ds="MultipointFeedback"
+					strengths="3,2,6,5,4,8,2,1,8,8,"
+	/>
+	<trigger_effect name="ShotgunShoot2" type_ds="Vibration"
+					position="5"
+					amplitude="8"
+					frequency="128"
+	/>
+	<trigger_effect name="PistolZoom" type_ds="FeedbackSlope"
+					startPosition="0"
+					endPosition="8"
+					startStrength="2"
+					endStrength="4"
+	/>
+	<trigger_effect name="PistolZoom1" type_ds="FeedbackSlope"
+					startPosition="0"
+					endPosition="8"
+					startStrength="2"
+					endStrength="4"
+	/>
+	<trigger_effect name="PistolZoom2" type_ds="Vibration"
+					position="0"
+					amplitude="5"
+					frequency="128"
+	/>
+	<trigger_effect name="RifleZoom" type_ds="Feedback"
+					position="0"
+					strength="5"
+	/>
+		<!-- Trigger Effects can be named the same for both Xbox and Dualsense types, but their parameters are not the same -->
+	<trigger_effect name="PistolTrigger" type_xb="FeedbackSingle"
+					strength="0.8"
+	/>
+	<trigger_effect name="ShotgunTrigger" type_xb="FeedbackSingle"
+					strength="0.8"
+	/>
+	<trigger_effect name="RifleTrigger" type_xb="FeedbackSingle"
+					strength="0.8"
+	/>
+	<trigger_effect name="PistolShoot" type_xb="FeedbackSingle"
+					strength="0.8"
+	/>
+	<trigger_effect name="ShotgunShoot" type_xb="Vibration"
+					strength="0.5"
+	/>
+	<trigger_effect name="RifleShoot" type_xb="FeedbackSingle"
+					strength="0.8"
+	/>
+<trigger_effect name="PistolZoom" type_xb="Vibration"
+					strength="0.35"
+	/>
+<trigger_effect name="RifleZoom" type_xb="Vibration"
+					strength="0.65"
+	/>
+</trigger_effects>
+</iteminfo>

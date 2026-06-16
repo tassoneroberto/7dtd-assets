@@ -1,0 +1,174 @@
+<archetypes>
+	<archetype name="BaseMale" male="true" race="White" variant="1" eye_color="Blue02"/>
+	<archetype name="BaseFemale" male="false" race="White" variant="1" eye_color="Brown02"/>
+
+	<archetype name="Clark" male="true" race="White" variant="1" eye_color="Blue03" hair="pixie_cut" hair_color="05 DarkBrown" mustache="5" chops="1" beard="1">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/LumberJack/gear{sex}LumberJackPrefab.prefab" excludes="body"/>
+		<!-- <equipment transform_name="head" prefab="@:Entities/Player/{sex}/Gear/Ranger/gear{sex}RangerPrefab.prefab" excludes="head"/> -->
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/LumberJack/gear{sex}LumberJackPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/LumberJack/gear{sex}LumberJackPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Ricky Bobby" male="true" race="White" variant="2" eye_color="Gray02" hair="buzzcut" hair_color="10 Red 1">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Nerd/gear{sex}NerdPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Nerd/gear{sex}NerdPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Nerd/gear{sex}NerdPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Hank" male="true" race="White" variant="3" eye_color="Blue05" hair="midpart_shoulder" hair_color="08 White" mustache="3" chops="4" beard="2">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Ranger/gear{sex}RangerPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Ranger/gear{sex}RangerPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Ranger/gear{sex}RangerPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Jesse" male="true" race="White" variant="4" eye_color="Blue05" hair="buzzcut" hair_color="03 LightBrown" mustache="1" chops="4">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Fiber/gear{sex}FiberPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Fiber/gear{sex}FiberPrefab.prefab" excludes=""/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Fiber/gear{sex}FiberPrefab.prefab" excludes=""/>
+	</archetype>
+
+	<archetype name="Ray" male="true" race="Native" variant="1" eye_color="Brown07" hair="comb_over" hair_color="06 Black" mustache="5" chops="1" beard="4">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Commando/gear{sex}CommandoPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Commando/gear{sex}CommandoPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Commando/gear{sex}CommandoPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Curtis" male="true" race="Native" variant="2" eye_color="Brown01" hair="buzzcut" hair_color="06 Black" mustache="5" chops="1" beard="3">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Miner/gear{sex}MinerPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Miner/gear{sex}MinerPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Miner/gear{sex}MinerPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Manny" male="true" race="Native" variant="3" eye_color="Brown05" hair="midpart_shoulder" hair_color="06 Black" mustache="5">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Biker/gear{sex}BikerPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Biker/gear{sex}BikerPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Biker/gear{sex}BikerPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Yuma" male="true" race="Native" variant="4" eye_color="Brown04" hair="slicked_back" hair_color="06 Black">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Scavenger/gear{sex}ScavengerPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Scavenger/gear{sex}ScavengerPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Scavenger/gear{sex}ScavengerPrefab.prefab" excludes="feet"/>
+	</archetype>
+
+	<archetype name="Lenny" male="true" race="Black" variant="1" eye_color="Green05" hair="dreads" hair_color="05 DarkBrown">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Nomad/gear{sex}NomadPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Nomad/gear{sex}NomadPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Nomad/gear{sex}NomadPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="James" male="true" race="Black" variant="2" eye_color="Blue05" hair_color="06 Black">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Fitness/gear{sex}FitnessPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Fitness/gear{sex}FitnessPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Fitness/gear{sex}FitnessPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Denzel" male="true" race="Black" variant="3" eye_color="Gray02" hair_color="06 Black" mustache="1">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Assassin/gear{sex}AssassinPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Assassin/gear{sex}AssassinPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Assassin/gear{sex}AssassinPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Reggie" male="true" race="Black" variant="4" eye_color="Hazel03" hair="small_fro" hair_color="03 LightBrown" mustache="2" chops="3" beard="3">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Raider/gear{sex}RaiderPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Raider/gear{sex}RaiderPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Raider/gear{sex}RaiderPrefab.prefab" excludes="feet"/>
+	</archetype>
+
+	<archetype name="Daniel" male="true" race="Asian" variant="1" eye_color="Brown06" hair="slicked_back_long" hair_color="04 Brown" mustache="5" chops="4" beard="1">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Farmer/gear{sex}FarmerPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Farmer/gear{sex}FarmerPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Farmer/gear{sex}FarmerPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Ren" male="true" race="Asian" variant="2" eye_color="Brown07" hair="slicked_back" hair_color="06 Black" mustache="1" beard="4">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Enforcer/gear{sex}EnforcerPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Enforcer/gear{sex}EnforcerPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Enforcer/gear{sex}EnforcerPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Chong" male="true" race="Asian" variant="3" eye_color="Brown01" hair_color="06 Black">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Preacher/gear{sex}PreacherPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Preacher/gear{sex}PreacherPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Preacher/gear{sex}PreacherPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Hiro" male="true" race="Asian" variant="4" eye_color="Brown03" hair="ponytail" hair_color="06 Black" mustache="1" beard="1">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Stealth/gear{sex}StealthPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Stealth/gear{sex}StealthPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Stealth/gear{sex}StealthPrefab.prefab" excludes="feet"/>
+	</archetype>
+
+	<!-- Female -->
+	<archetype name="Anne" male="false" race="White" variant="1" eye_color="Green05" hair="afro_curly" hair_color="05 DarkBrown">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Stealth/gear{sex}StealthPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Stealth/gear{sex}StealthPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Stealth/gear{sex}StealthPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Megan" male="false" race="White" variant="2" eye_color="Green01" hair="midpart_long" hair_color="02 Dark Blond">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Farmer/gear{sex}FarmerPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Farmer/gear{sex}FarmerPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Farmer/gear{sex}FarmerPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Jane" male="false" race="White" variant="3" eye_color="Hazel01" hair="slicked_back" hair_color="04 Brown">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Nerd/gear{sex}NerdPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Nerd/gear{sex}NerdPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Nerd/gear{sex}NerdPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Betty" male="false" race="White" variant="4" eye_color="Brown07" hair="sidepart_short" hair_color="07 Gray">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Preacher/gear{sex}PreacherPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Preacher/gear{sex}PreacherPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Preacher/gear{sex}PreacherPrefab.prefab" excludes="feet"/>
+	</archetype>
+
+	<archetype name="Lexi" male="false" race="Native" variant="1" eye_color="Hazel01" hair="sidepart_long" hair_color="06 Black">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Assassin/gear{sex}AssassinPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Assassin/gear{sex}AssassinPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Assassin/gear{sex}AssassinPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Allie" male="false" race="Native" variant="2" eye_color="Hazel03" hair="midpart_mid" hair_color="05 DarkBrown">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Fitness/gear{sex}FitnessPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Fitness/gear{sex}FitnessPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Fitness/gear{sex}FitnessPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Christa" male="false" race="Native" variant="3" eye_color="Brown02" hair="sidepart_mid" hair_color="05 DarkBrown">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Miner/gear{sex}MinerPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Miner/gear{sex}MinerPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Miner/gear{sex}MinerPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Gayle" male="false" race="Native" variant="4" eye_color="Green01" hair="ponytail" hair_color="10 Red 1">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Biker/gear{sex}BikerPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Biker/gear{sex}BikerPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Biker/gear{sex}BikerPrefab.prefab" excludes="feet"/>
+	</archetype>
+
+	<archetype name="Rachonne" male="false" race="Black" variant="1" eye_color="Brown02" hair="dreads" hair_color="06 Black">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Scavenger/gear{sex}ScavengerPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Scavenger/gear{sex}ScavengerPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Scavenger/gear{sex}ScavengerPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Nia" male="false" race="Black" variant="2" eye_color="Brown08" hair="small_fro" hair_color="06 Black">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Commando/gear{sex}CommandoPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Commando/gear{sex}CommandoPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Commando/gear{sex}CommandoPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Tracy" male="false" race="Black" variant="3" eye_color="Gray01" hair="midpart_karen_messy" hair_color="03 LightBrown">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Raider/gear{sex}RaiderPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Raider/gear{sex}RaiderPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Raider/gear{sex}RaiderPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Olivia" male="false" race="Black" variant="4" eye_color="Gray04" hair="pixie_cut" hair_color="07 Gray">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/LumberJack/gear{sex}LumberJackPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/LumberJack/gear{sex}LumberJackPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/LumberJack/gear{sex}LumberJackPrefab.prefab" excludes="feet"/>
+	</archetype>
+
+	<archetype name="Dora" male="false" race="Asian" variant="1" eye_color="Green06" hair="midpart_short" hair_color="05 DarkBrown">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Ranger/gear{sex}RangerPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Ranger/gear{sex}RangerPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Ranger/gear{sex}RangerPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Jade" male="false" race="Asian" variant="2" eye_color="Green07" hair="midpart_shoulder" hair_color="05 DarkBrown">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Fiber/gear{sex}FiberPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Fiber/gear{sex}FiberPrefab.prefab" excludes=""/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Fiber/gear{sex}FiberPrefab.prefab" excludes=""/>
+	</archetype>
+	<archetype name="Evelyn" male="false" race="Asian" variant="3" eye_color="Hazel02" hair="comb_over" hair_color="07 Gray">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Nomad/gear{sex}NomadPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Nomad/gear{sex}NomadPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Nomad/gear{sex}NomadPrefab.prefab" excludes="feet"/>
+	</archetype>
+	<archetype name="Kiri" male="false" race="Asian" variant="4" eye_color="Hazel02" hair="ponytail" hair_color="05 DarkBrown">
+		<equipment transform_name="body" prefab="@:Entities/Player/{sex}/Gear/Enforcer/gear{sex}EnforcerPrefab.prefab" excludes="body"/>
+		<equipment transform_name="hands" prefab="@:Entities/Player/{sex}/Gear/Enforcer/gear{sex}EnforcerPrefab.prefab" excludes="hands"/>
+		<equipment transform_name="feet" prefab="@:Entities/Player/{sex}/Gear/Enforcer/gear{sex}EnforcerPrefab.prefab" excludes="feet"/>
+	</archetype>
+</archetypes>

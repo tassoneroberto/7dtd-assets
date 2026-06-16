@@ -1,0 +1,308 @@
+<twitch_events>
+
+	<!-- Twitch Event Presets
+		name - Name of the preset. Used for linking the events to it.
+		title - Title of the preset. Used for display purposes in the UI.
+		title_key - Localized title of the preset.
+		description - The description of the Preset displayed in the UI.
+		description_key - The localized description of the Preset that is displayed in the UI.
+		default - If this is the default preset.
+		is_empty - If this is the "None" preset.
+		
+		NOTE: This must come before the events.
+		-->
+		<events_preset name="none" is_empty="true" title_key="xuiLightPropShadowsNone" />
+		<events_preset name="casual" title_key="TwitchActionPreset_Casual" description_key="TwitchEventPreset_CasualDesc" />
+		<events_preset name="standard" title_key="TwitchActionPreset_Standard" description_key="TwitchEventPreset_StandardDesc" default="true" />
+		<events_preset name="hardcore" title_key="TwitchActionPreset_Hardcore" description_key="TwitchEventPreset_HardcoreDesc" />
+
+	<!-- Bit Events
+			
+		event_title - The title that shows in chat when the event fires.
+		event_title_key - The localization key of the title.
+		event_name - The game event that is activated.
+		sp_add_amount - The amount of special points added when this is activated. (Bits already add SP by default based on number of bits.)
+		pp_add_amount - The amount of pimp points added when this is activated. (Bits already add SP by default based on number of bits.)
+		start_amount - The minimum amount to start the event.
+		end_amount - The maximum amount to start the event.
+		safe_allowed - If it's allowed to be used in safe zone, if not it queues.
+		starting_cooldown_allowed - If it's allowed to be used during the starting cooldown, if not it queues.
+		cooldown_allowed - If it's allowed to be used during cooldown (excludes starting cooldown), if not it queues.
+		vote_allowed - If it's allowed to be used during vote event, if not it queues.
+		pimp_pot_add - Adds the amount to the pimp pot.
+		bit_pot_add - Adds the amount to the bit pot.
+		cooldown_add - Adds the amount to the cooldown.
+		
+		presets - Comma delimited list of presets this is used in. 
+
+	-->
+
+	<!-- <bit_event event_title="Demo Bits" event_name="spawn_demo" start_amount="200" end_amount="999"  -->
+		<!-- safe_allowed="false" cooldown_allowed="false" vote_allowed="false" pimp_pot_add="10" presets="casual,standard,hardcore" /> -->
+	<!-- <bit_event event_title="Grace Bits" event_name="spawn_grace" start_amount="1000" -->
+		<!-- safe_allowed="false" cooldown_allowed="false" vote_allowed="false" pimp_pot_add="20" presets="casual,standard,hardcore" /> -->
+
+	<!-- Sub Events
+		
+		event_title - The title that shows in chat when the event fires.
+		event_title_key - The localization key of the title.
+		event_name - The game event that is activated.
+		sp_add_amount - The amount of special points added when this is activated. (Subs already add SP by default based on number of subs.)
+		pp_add_amount - The amount of pimp points added when this is activated. (Subs already add SP by default based on number of subs.)
+		start_amount - The minimum amount of months you've been subbed to start the event.
+		end_amount - The maximum amount of months you've been subbed to start the event.
+		safe_allowed - If it's allowed to be used in safe zone, if not it queues.
+		starting_cooldown_allowed - If it's allowed to be used during the starting cooldown, if not it queues.
+		cooldown_allowed - If it's allowed to be used during cooldown (excludes starting cooldown), if not it queues.
+		vote_allowed - If it's allowed to be used during vote event, if not it queues.
+		pimp_pot_add - Adds the amount to the pimp pot.
+		bit_pot_add - Adds the amount to the bit pot.
+		rewards_bit_pot - Rewards the bit pot when the streamer is killed by this event.
+		presets - Comma delimited list of presets this is used in. 
+		sub_tier - The Sub Tier they are subscribed at. (Any, Prime, Tier1, Tier2, Tier3)
+		
+	-->
+
+	<sub_event event_title="Sub Supplies 1" event_title_key="TwitchEventSubSupplies1" event_name="mystery_sub1" start_amount="0" sub_tier="Prime"
+		safe_allowed="true" cooldown_allowed="true" vote_allowed="true" presets="casual,standard" pimp_pot_add="100" /> 
+	<sub_event event_title="Sub Supplies 1" event_title_key="TwitchEventSubSupplies1" event_name="mystery_sub1" start_amount="0" sub_tier="Tier1"
+		safe_allowed="true" cooldown_allowed="true" vote_allowed="true" presets="casual,standard" pimp_pot_add="250" /> 
+	<sub_event event_title="Sub Supplies 2" event_title_key="TwitchEventSubSupplies2" event_name="mystery_sub2" start_amount="0" sub_tier="Tier2"
+		safe_allowed="true" cooldown_allowed="true" vote_allowed="true" presets="casual,standard" pimp_pot_add="500" /> 
+	<sub_event event_title="Sub Supplies 3" event_title_key="TwitchEventSubSupplies3" event_name="mystery_sub3" start_amount="0" sub_tier="Tier3"
+		safe_allowed="true" cooldown_allowed="true" vote_allowed="true" presets="casual,standard" pimp_pot_add="1000" /> 
+
+	<sub_event event_title="Sub Wolf" event_title_key="TwitchEventSubWolf" event_name="spawn_wolf" start_amount="0" sub_tier="Prime"
+		safe_allowed="true" cooldown_allowed="true" vote_allowed="true" presets="hardcore" pimp_pot_add="100" /> 
+	<sub_event event_title="Sub Bear" event_title_key="TwitchEventSubBear" event_name="spawn_bear" start_amount="0" sub_tier="Tier1"
+		safe_allowed="true" cooldown_allowed="true" vote_allowed="true" presets="hardcore" pimp_pot_add="250" /> 
+	<sub_event event_title="Sub Murder Chickens" event_title_key="TwitchEventSubMurderChickens" event_name="event_chickens" start_amount="0" sub_tier="Tier2"
+		safe_allowed="true" cooldown_allowed="true" vote_allowed="true" presets="hardcore" pimp_pot_add="500" /> 
+	<sub_event event_title="Sub Group Bears" event_title_key="TwitchEventSubGroupBears" event_name="group_bears" start_amount="0" sub_tier="Tier3"
+		safe_allowed="true" cooldown_allowed="true" vote_allowed="true" presets="hardcore" pimp_pot_add="1000" /> 
+
+	<!-- Gift Sub Events
+		
+		event_title - The title that shows in chat when the event fires.
+		event_title_key - The localization key of the title.
+		event_name - The game event that is activated.
+		sp_add_amount - The amount of special points added when this is activated. (Gift Subs already add SP by default based on number of subs.)
+		pp_add_amount - The amount of pimp points added when this is activated. (Gift Subs already add SP by default based on number of subs.)
+		start_amount - The minimum amount of subs gifted to start the event.
+		end_amount - The maximum amount of subs gifted to start the event.
+		safe_allowed - If it's allowed to be used in safe zone, if not it queues.
+		starting_cooldown_allowed - If it's allowed to be used during the starting cooldown, if not it queues.
+		cooldown_allowed - If it's allowed to be used during cooldown (excludes starting cooldown), if not it queues.
+		vote_allowed - If it's allowed to be used during vote event, if not it queues.
+		pimp_pot_add - Adds the amount to the pimp pot.
+		bit_pot_add - Adds the amount to the bit pot.
+		rewards_bit_pot - Rewards the bit pot when the streamer is killed by this event.
+		presets - Comma delimited list of presets this is used in. 
+		
+	-->
+
+	<gift_sub_event event_title="Gift of Snakes" event_title_key="TwitchEventGiftSubSnakes" event_name="event_snakes" start_amount="1" end_amount="4"
+		safe_allowed="false" cooldown_allowed="false" vote_allowed="false" presets="casual" pimp_pot_add="100" />
+	<gift_sub_event event_title="Gift of Coyotes" event_title_key="TwitchEventGiftSubCoyotes" event_name="event_coyotes" start_amount="5" end_amount="14"  
+		safe_allowed="false" cooldown_allowed="false" vote_allowed="false" presets="casual" pimp_pot_add="100" />
+	<gift_sub_event event_title="Gift of Vultures" event_title_key="TwitchEventGiftSubVultures" event_name="event_vultures" start_amount="15" end_amount="24"  
+		safe_allowed="false" cooldown_allowed="false" vote_allowed="false" presets="casual" pimp_pot_add="100" />
+	<gift_sub_event event_title="Gift of Dogs" event_title_key="TwitchEventGiftSubDogs" event_name="event_dogs" start_amount="25" end_amount="49"  
+		safe_allowed="false" cooldown_allowed="false" vote_allowed="false" presets="casual" pimp_pot_add="100" />
+	<gift_sub_event event_title="Gift of Chickens" event_title_key="TwitchEventGiftSubChickens" event_name="event_chickens" start_amount="50"
+		safe_allowed="false" cooldown_allowed="false" vote_allowed="false" presets="casual" pimp_pot_add="100" />
+	
+	<gift_sub_event event_title="Gift of Snakes" event_title_key="TwitchEventGiftSubSnakes" event_name="event_snakes" start_amount="1" end_amount="1"
+		safe_allowed="false" cooldown_allowed="false" vote_allowed="false" presets="standard" pimp_pot_add="100" />
+	<gift_sub_event event_title="Gift of Coyotes" event_title_key="TwitchEventGiftSubCoyotes" event_name="event_coyotes" start_amount="2" end_amount="4"  
+		safe_allowed="false" cooldown_allowed="false" vote_allowed="false" presets="standard" pimp_pot_add="100" />
+	<gift_sub_event event_title="Gift of Dogs" event_title_key="TwitchEventGiftSubDogs" event_name="event_dogs" start_amount="5" end_amount="9"  
+		safe_allowed="false" cooldown_allowed="false" vote_allowed="false" presets="standard" pimp_pot_add="100" />
+	<gift_sub_event event_title="Gift of Chickens" event_title_key="TwitchEventGiftSubChickens" event_name="event_chickens" start_amount="10" end_amount="14"  
+		safe_allowed="false" cooldown_allowed="false" vote_allowed="false" presets="standard" pimp_pot_add="100" />
+	<gift_sub_event event_title="Gift of Boars" event_title_key="TwitchEventGiftSubBoars" event_name="event_boars" start_amount="10" end_amount="19"  
+		safe_allowed="false" cooldown_allowed="false" vote_allowed="false" presets="standard" pimp_pot_add="100" />
+	<gift_sub_event event_title="Gift of Wolves" event_title_key="TwitchEventGiftSubWolves" event_name="event_wolves" start_amount="20" end_amount="29"  
+		safe_allowed="false" cooldown_allowed="false" vote_allowed="false" presets="standard" pimp_pot_add="100" />
+	<gift_sub_event event_title="Gift of Bears" event_title_key="TwitchEventGiftSubBears" event_name="group_bears" start_amount="30" end_amount="49"  
+		safe_allowed="false" cooldown_allowed="false" vote_allowed="false" presets="standard" pimp_pot_add="100" />
+	<gift_sub_event event_title="Gift of Grace" event_title_key="TwitchEventGiftSubGrace" event_name="group_grace" start_amount="50"
+		safe_allowed="false" cooldown_allowed="false" vote_allowed="false" presets="standard" pimp_pot_add="100" />
+	
+	<gift_sub_event event_title="Gift of Coyotes" event_title_key="TwitchEventGiftSubCoyotes" event_name="event_coyotes" start_amount="1" end_amount="1"  
+		safe_allowed="false" vote_allowed="false" presets="hardcore" pimp_pot_add="100" />
+	<gift_sub_event event_title="Gift of Dogs" event_title_key="TwitchEventGiftSubDogs" event_name="event_dogs" start_amount="2" end_amount="4"  
+		safe_allowed="false" vote_allowed="false" presets="hardcore" pimp_pot_add="100" />
+	<gift_sub_event event_title="Gift of Chickens" event_title_key="TwitchEventGiftSubChickens" event_name="event_chickens" start_amount="5" end_amount="9"  
+		safe_allowed="false" vote_allowed="false" presets="hardcore" pimp_pot_add="100" />
+	<gift_sub_event event_title="Gift of Boars" event_title_key="TwitchEventGiftSubBoars" event_name="event_boars" start_amount="10" end_amount="19"  
+		safe_allowed="false" vote_allowed="false" presets="hardcore" pimp_pot_add="100" />
+	<gift_sub_event event_title="Gift of Wolves" event_title_key="TwitchEventGiftSubWolves" event_name="event_wolves" start_amount="20" end_amount="29"  
+		safe_allowed="false" vote_allowed="false" presets="hardcore" pimp_pot_add="100" />
+	<gift_sub_event event_title="Gift of Bears" event_title_key="TwitchEventGiftSubBears" event_name="group_bears" start_amount="30" end_amount="49"  
+		safe_allowed="false" vote_allowed="false" presets="hardcore" pimp_pot_add="100" />
+	<gift_sub_event event_title="Gift of Grace" event_title_key="TwitchEventGiftSubGrace" event_name="group_grace" start_amount="50"
+		safe_allowed="false" vote_allowed="false" presets="hardcore" pimp_pot_add="100" />
+	
+
+	<!-- Channel Point Events
+		
+		channel_point_title - The title of the channel point redemption.
+		channel_point_title_key - The localization key of the title of the channel point redemption.
+		event_title - The title that shows in chat when the event fires.
+		event_title_key - The localization key of the event title.
+		event_name - The game event that is activated.
+		sp_add_amount - The amount of special points added when this is activated.
+		pp_add_amount - The amount of pimp points added when this is activated.
+		safe_allowed - If it's allowed to be used in safe zone, if not it queues.
+		starting_cooldown_allowed - If it's allowed to be used during the starting cooldown, if not it queues.
+		cooldown_allowed - If it's allowed to be used during cooldown (excludes starting cooldown), if not it queues.
+		vote_allowed - If it's allowed to be used during vote event, if not it queues.
+		pimp_pot_add - Adds the amount to the pimp pot.
+		bit_pot_add - Adds the amount to the bit pot.
+		presets - Comma delimited list of presets this is used in. 
+		auto_create - If the redemption should be created/removed automatically. (Defaults to True)
+		
+		Channel Point Redemption creation properties:
+		cost - Cost for Channel Point Redemption.
+		max_per_stream - Max Redemptions per Stream
+		max_per_user_per_stream - Max Redemptions per User per Stream
+		global_cooldown - The cooldown between each uses of this redemption.
+		
+	-->
+
+	<channel_point_event channel_point_title="7DTD: Mystery Supplies" channel_point_title_key="TwitchEventChannelPointMysteryTitle" event_title="Mystery Supplies" event_title_key="TwitchEventChannelPointMystery" event_name="mystery_channelpoint"
+		safe_allowed="true" vote_allowed="true" cost="500" global_cooldown="900" presets="casual,standard" />
+
+	<channel_point_event channel_point_title="7DTD: 500 PP" channel_point_title_key="TwitchEventChannelPointPPTitle" event_title="Channel Point PP" event_title_key="TwitchEventChannelPointPP" starting_cooldown_allowed="true" pp_add_amount="500" presets="casual,standard,hardcore"
+		cost="1000" max_per_user_per_stream="1" />
+		
+	<channel_point_event channel_point_title="7DTD: Murder Chicken" channel_point_title_key="TwitchEventChannelPointChickenTitle" event_title="Spawn Murder Chicken" event_title_key="TwitchEventChannelPointChicken" event_name="spawn_chicken"
+		safe_allowed="false" vote_allowed="false" cooldown_add="20" max_per_user_per_stream="3" global_cooldown="5" presets="hardcore" pimp_pot_add="10" />
+			
+	<!-- Raid Events
+		
+		event_title - The title that shows in chat when the event fires.
+		event_title_key - The localization key of the event title.
+		event_name - The game event that is activated.
+		start_amount - The minimum amount of viewers to start the event.
+		end_amount - The maximum amount of viewers to start the event.
+		sp_add_amount - The amount of special points added when this is activated.
+		pp_add_amount - The amount of pimp points added when this is activated.
+		safe_allowed - If it's allowed to be used in safe zone, if not it queues.
+		cooldown_allowed - If it's allowed to be used during cooldown, if not it queues.
+		vote_allowed - If it's allowed to be used during vote event, if not it queues.
+		pimp_pot_add - Adds the amount to the pimp pot.
+		bit_pot_add - Adds the amount to the bit pot.
+		presets - Comma delimited list of presets this is used in. 
+
+	-->
+
+	<raid_event event_title="Celebrate Raid" event_title_key="TwitchEventRaidCelebrate" event_name="vote_celebrate" start_amount="1" 
+		safe_allowed="true" cooldown_allowed="true" vote_allowed="true" presets="casual" pimp_pot_add="100" />
+	
+	<raid_event event_title="Celebrate Raid" event_title_key="TwitchEventRaidCelebrate" event_name="vote_celebrate" start_amount="1" end_amount="9"
+		safe_allowed="true" cooldown_allowed="true" vote_allowed="true" presets="standard" pimp_pot_add="100" />
+	<raid_event event_title="Tough Raid" event_title_key="TwitchEventRaidTough" event_name="vote_minor_random2" start_amount="10" end_amount="19"
+		safe_allowed="false" cooldown_allowed="false" vote_allowed="false" presets="standard" pimp_pot_add="100" />
+	<raid_event event_title="Cop Raid" event_title_key="TwitchEventRaidCop" event_name="group_cops" start_amount="20" end_amount="49"
+		safe_allowed="false" cooldown_allowed="false" vote_allowed="false" presets="standard" pimp_pot_add="100" />
+	<raid_event event_title="Wight Raid" event_title_key="TwitchEventRaidWight" event_name="vote_minor_fwight" start_amount="50" end_amount="99"
+		safe_allowed="false" cooldown_allowed="false" vote_allowed="false" presets="standard" pimp_pot_add="100" />
+	<raid_event event_title="Buffed Raid" event_title_key="TwitchEventRaidBuffed" event_name="group_buffed_zombies" start_amount="100"
+		safe_allowed="false" cooldown_allowed="false" vote_allowed="false" presets="standard" pimp_pot_add="100" />
+		
+	<raid_event event_title="Celebrate Raid" event_title_key="TwitchEventRaidCelebrate" event_name="vote_celebrate" start_amount="1" end_amount="5"
+		safe_allowed="true" cooldown_allowed="true" vote_allowed="true" presets="hardcore" pimp_pot_add="100" />
+	<raid_event event_title="Tough Raid" event_title_key="TwitchEventRaidTough" event_name="vote_minor_random2" start_amount="6" end_amount="14"
+		safe_allowed="false" vote_allowed="false" presets="hardcore" pimp_pot_add="100" />
+	<raid_event event_title="Cop Raid" event_title_key="TwitchEventRaidCop" event_name="group_cops" start_amount="15" end_amount="49"
+		safe_allowed="false" vote_allowed="false" presets="hardcore" pimp_pot_add="100" />
+	<raid_event event_title="Buffed Raid" event_title_key="TwitchEventRaidBuffed" event_name="group_buffed_zombies" start_amount="50" end_amount="99"
+		safe_allowed="false" vote_allowed="false" presets="hardcore" pimp_pot_add="100" />
+	<raid_event event_title="Buffed Wight Raid" event_title_key="TwitchEventRaidBuffedWight" event_name="group_buffed_wights" start_amount="100"
+		safe_allowed="false" vote_allowed="false" presets="hardcore" pimp_pot_add="100" />
+		
+	<!-- Charity Events
+		
+		event_title - The title that shows in chat when the event fires.
+		event_title_key - The localization key of the event title.
+		event_name - The game event that is activated.
+		sp_add_amount - The amount of special points added when this is activated. (Charity already add SP by default based on number of bits.)
+		pp_add_amount - The amount of pimp points added when this is activated. (Charity already add SP by default based on number of bits.)
+		start_amount - The minimum amount to start the event.
+		end_amount - The maximum amount to start the event.
+		safe_allowed - If it's allowed to be used in safe zone, if not it queues.
+		cooldown_allowed - If it's allowed to be used during cooldown, if not it queues.
+		vote_allowed - If it's allowed to be used during vote event, if not it queues.
+		pimp_pot_add - Adds the amount to the pimp pot.
+		bit_pot_add - Adds the amount to the bit pot.
+		presets - Comma delimited list of presets this is used in. 
+
+	-->
+
+	<!-- <charity_event event_title="Charity Cop" event_name="spawn_cop" start_amount="1" end_amount="101" -->
+		<!-- safe_allowed="false" cooldown_allowed="false" vote_allowed="false" pimp_pot_add="1000" sp_add_amount="1000" presets="casual,standard,hardcore" /> -->
+	<!-- <charity_event event_title="Charity Demo" event_name="spawn_demo" start_amount="102" end_amount="999" -->
+		<!-- safe_allowed="false" cooldown_allowed="false" vote_allowed="false" pimp_pot_add="10" presets="casual,standard,hardcore" /> -->
+	
+	<!-- Hype Train Events
+		
+		event_title - The title that shows in chat when the event fires.
+		event_title_key - The localization key of the event title.
+		event_name - The game event that is activated.
+		sp_add_amount - The amount of special points added when this is activated. (Adds to all active viewers)
+		pp_add_amount - The amount of pimp points added when this is activated. (Adds to all active viewers)
+		start_amount - The minimum amount to start the event.
+		end_amount - The maximum amount to start the event.
+		safe_allowed - If it's allowed to be used in safe zone, if not it queues.
+		cooldown_allowed - If it's allowed to be used during cooldown, if not it queues.
+		vote_allowed - If it's allowed to be used during vote event, if not it queues.
+		pimp_pot_add - Adds the amount to the pimp pot.
+		bit_pot_add - Adds the amount to the bit pot.
+		reward_amount - The amount of a reward to give if the streamer is killed by this event.
+		reward_type - The type of reward to give. (PP or SP)
+		presets - Comma delimited list of presets this is used in. 
+
+	-->
+	
+	<hype_train_event event_title="Hype Train Party" event_title_key="TwitchEventHypeTrainParty" event_name="event_hype_casual" start_amount="1" 
+		safe_allowed="false" vote_allowed="false" reward_amount="250" reward_type="SP" 
+		presets="casual" />
+		
+	<hype_train_event event_title="Hype Train Zoo" event_title_key="TwitchEventHypeTrainZoo" event_name="event_hype_zoo_standard" start_amount="1" 
+		safe_allowed="false" vote_allowed="false" reward_amount="250" reward_type="SP" 
+		presets="standard" />
+		
+	<hype_train_event event_title="Hype Train Zoo" event_title_key="TwitchEventHypeTrainZoo" event_name="event_hype_zoo_hardcore" start_amount="1" 
+		safe_allowed="false" vote_allowed="false" reward_amount="250" reward_type="SP" 
+		presets="hardcore" />
+		
+	<!-- Creator Goal Events
+		
+		event_title - The title that shows in chat when the event fires.
+		event_title_key - The localization key of the event title.
+		event_name - The game event that is activated.
+		sp_add_amount - The amount of special points added when this is activated. (Adds to all active viewers)
+		pp_add_amount - The amount of pimp points added when this is activated. (Adds to all active viewers)
+		safe_allowed - If it's allowed to be used in safe zone, if not it queues.
+		cooldown_allowed - If it's allowed to be used during cooldown, if not it queues.
+		vote_allowed - If it's allowed to be used during vote event, if not it queues.
+		pimp_pot_add - Adds the amount to the pimp pot.
+		bit_pot_add - Adds the amount to the bit pot.
+		reward_amount - The amount of a reward to give if the streamer is killed by this event.
+		reward_type - The type of reward to give. (PP or SP)
+		presets - Comma delimited list of presets this is used in. 
+		goal_type - The type of goal you are tracking 
+			new_subs - New Subscribers
+			new_sub_points - New Subscriber Points
+			subs - Total Subscribers
+			sub_points - Total Subscriber Points
+			followers - Total Followers
+	-->
+	
+	<!-- <creator_goal_event goal_type="followers" event_title="Sub Goal Zoo" event_name="group_hype_zoo_standard" 
+		safe_allowed="false" vote_allowed="false" reward_amount="250" reward_type="SP" 
+		presets="casual,standard,hardcore" /> -->
+	
+</twitch_events>

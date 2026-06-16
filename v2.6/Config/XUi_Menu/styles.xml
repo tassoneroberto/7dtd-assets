@@ -1,0 +1,16 @@
+<styles>
+	<global>
+		<!-- 	
+			GLOBAL STYLE ENTRIES
+				Any entry in global is accessible by [name] example: value="[white]" 
+				These values are also accessible from window and control xml files 
+				as long as this style file is included in a window file.
+		-->
+		
+	</global>
+
+	<style name="header.name" type="label">
+		<style_entry name="upper_case" value="true"/>
+	</style>
+
+</styles>

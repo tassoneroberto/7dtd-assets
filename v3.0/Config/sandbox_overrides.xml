@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sandbox_overrides>
+	<!-- <preset name="My Preset" localized_name="" description="Test Preset" description_key="" icon="" code="ABEABTBBWADFP" default="true" /> -->
+	
+	<!-- <sandbox_override option="MaxEnemyTier" /> -->
+</sandbox_overrides>
+
+<!-- *** xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- **** NOTES -->
+<!-- *** xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!-- name                        Name of the preset -->
+<!-- localized_name  (optional)  Localization key for name shown in UI -->
+<!-- description                 Description of the preset -->
+<!-- description_key             Localization key for description of the preset -->
+<!--     At least one of description and description_key is required -->
+<!-- icon            (optional)  URI of icon to show (can use @modfolder etc) -->
+<!-- code                        The Sandbox Option code that is copied from the Sandbox Options window -->
+<!-- default         (optional)  When set to true, this preset will be the first option shown for a new game -->
+
+<!-- sandbox_override   Sets the named option to the Default setting and disables the option from being changed. -->
+
+<!-- *** xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+<!-- **** Sandbox Options -->
+<!-- *** xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+<!-- RangedDamage -->
+<!-- MeleeDamage -->
+<!-- BlockDamage -->
+<!-- TerrainDamage -->
+<!-- HeadshotMultiplier -->
+<!-- CrouchSpeed -->
+<!-- WalkSpeed -->
+<!-- RunSpeed -->
+<!-- JumpStrength -->
+<!-- StaminaUsage -->
+<!-- StaminaRegen -->
+<!-- PlayerLevelBonusApplied -->
+<!-- JarRefund -->
+<!-- ShowHealthBars -->
+<!-- ShowEnemyDamage -->
+<!-- NewbieCoat -->
+<!-- HeadshotMode -->
+<!-- IncomingDamage -->
+<!-- XPMultiplier -->
+<!-- ShowXP -->
+<!-- EncumbranceModifier -->
+<!-- ItemDegradation -->
+<!-- LoseItemsOnDeathType -->
+<!-- LoseItemsOnDeathCount -->
+<!-- DegradeItemsOnDeath -->
+<!-- DegradeAmountOnDeath -->
+<!-- DeathPenalty -->
+<!-- DropOnDeath -->
+<!-- DropOnQuit -->
+<!-- InfectionRate -->
+<!-- EnemySpawnMode -->
+<!-- EntityDamage -->
+<!-- BlockDamageAI -->
+<!-- BlockDamageAIBM -->
+<!-- ZombieMove -->
+<!-- ZombieMoveNight -->
+<!-- ZombieFeralMove -->
+<!-- ZombieBMMove -->
+<!-- ZombieFeralSense -->
+<!-- AISmellMode -->
+<!-- AllowZombieDigging -->
+<!-- ZombieRageChance -->
+<!-- EntityIncomingDamage -->
+<!-- MaxEnemyTier -->
+<!-- BiomeZombieRespawn -->
+<!-- BiomeAnimalRespawn -->
+<!-- BiomeEnemyDensity -->
+<!-- ZombiesEatAnimals -->
+<!-- BloodMoonFrequency -->
+<!-- BloodMoonRange -->
+<!-- BloodMoonWarning -->
+<!-- BloodMoonEnemyCount -->
+<!-- AirDropFrequency -->
+<!-- AirDropMarker -->
+<!-- AirDropRandomTime -->
+<!-- BiomeProgression -->
+<!-- TemperatureSurvival -->
+<!-- StormFreq -->
+<!-- StormWarning -->
+<!-- HeatMapSensitivity -->
+<!-- GlobalGSModifier -->
+<!-- BiomeGSModifier -->
+<!-- GlobalLSModifier -->
+<!-- BiomeLSModifier -->
+<!-- POITierLSModifier -->
+<!-- GlobalTSModifier -->
+<!-- DayNightLength -->
+<!-- DayLightLength -->
+<!-- AllowMap -->
+<!-- AllowCompass -->
+<!-- AllowScreenMarkers -->
+<!-- ShowLocationInfo -->
+<!-- ShowDayTime -->
+<!-- WorkstationsInTheWild -->
+<!-- MaxTechType -->
+<!-- LootRespawnDays -->
+<!-- LootTimer -->
+<!-- LootMaxTier -->
+<!-- GlobalLootCount -->
+<!-- FoodLootCount -->
+<!-- DrinkLootCount -->
+<!-- MedicalLootCount -->
+<!-- AmmoLootCount -->
+<!-- ResourceLootCount -->
+<!-- ArmorLootCount -->
+<!-- MeleeLootCount -->
+<!-- RangedLootCount -->
+<!-- DukesLootCount -->
+<!-- CraftingMagazinesLootCount -->
+<!-- TreasureMapChance -->
+<!-- LootBagChance -->
+<!-- CropOutput -->
+<!-- SeedDropOutput -->
+<!-- CropGrowthSpeed -->
+<!-- BackpackCrafting -->
+<!-- WorkstationCrafting -->
+<!-- CraftingProgression -->
+<!-- CraftingTime -->
+<!-- CraftingInput -->
+<!-- CraftingOutput -->
+<!-- CraftingMaxTier -->
+<!-- MiningOutput -->
+<!-- HarvestingOutput -->
+<!-- ScrappingOutput -->
+<!-- SmeltingType -->
+<!-- DewCollectorTime -->
+<!-- DewCollectorOutput -->
+<!-- DewCollectorInput -->
+<!-- ApiaryTime -->
+<!-- ApiaryOutput -->
+<!-- ApiaryInput -->
+<!-- RepairTypes -->
+<!-- MaxDegradationAmount -->
+<!-- PointsPerMagazine -->
+<!-- SkillGainRate -->
+<!-- SkillPointsPerLevel -->
+<!-- QuestsEnabled -->
+<!-- IntroQuestEnabled -->
+<!-- TraderToTraderQuestsEnabled -->
+<!-- StarterSkillPoints -->
+<!-- QuestsPerTier -->
+<!-- QuestProgressionDailyLimit -->
+<!-- BuriedQuestsEnabled -->
+<!-- POIQuestsEnabled -->
+<!-- TraderDialog -->
+<!-- TraderHours -->
+<!-- TradersEnabled -->
+<!-- VendingEnabled -->
+<!-- TraderSellPrices -->
+<!-- TraderBuyPrices -->
+<!-- TraderProtection -->
+<!-- TraderResetInterval -->
+<!-- TraderItemAbundance -->
+<!-- TraderBuyLimit -->
+<!-- TraderMaxTier -->
+<!-- VendingResetInterval -->
+<!-- VendingItemAbundance -->
+<!-- ChallengesEnabled -->
+<!-- IntroChallengesEnabled -->
+<!-- VehicleFuelUsage -->
+<!-- VehicleEntityDamage -->
+<!-- VehicleBlockDamage -->
+<!-- VehicleSelfDamage -->
+<!-- ElectricalOutput -->
+<!-- SillyCelebrate -->
+<!-- SillyBigHeads -->
+<!-- SillyTinyZombies -->
+<!-- SillySounds -->
+<!-- SillyLowGravity -->
+<!-- SillyBlackandWhite -->
