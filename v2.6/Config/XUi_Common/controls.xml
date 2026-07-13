@@ -1,0 +1,428 @@
+<controls>
+	<pager depth="3" pos="0,0" width="100" height="32"
+			show_max_page="false" separator="/" primary_pager="true" contents_parent="">
+		<rect name="${name}" depth="${depth}" pos="${pos}" disableautobackground="true" controller="Paging" visible="{paging_visible}" show_max_page="${show_max_page}" separator="${separator}" primary_pager="${primary_pager}" contents_parent="${contents_parent}"> <!-- default size: 100x32 -->
+			<button depth="4" name="pageDown" style="icon30px, press" width="${height-2}" height="${height-2}" pos="${Round(height/2, 0)},${Round(-height/2, 0)}" enabled="{# int(pagenumber) &gt; 1}" sprite="ui_game_symbol_arrow_left" disabledcolor="[lightGrey]" pivot="center" sound="[paging_click]" use_selection_box="false" />
+			<rect depth="4" pos="${height},${Round(-height/2, 0)}">
+				<sprite name="background" style="icon30px" width="${width-2*height}" height="${height-2}" pivot="left" color="[black]" type="sliced" />
+				<label depth="5" text="{#showmaxpage ? pagenumber + separator + maxpagenumber : pagenumber}" width="${width-2*height}" height="${height-2}" font_size="${height-4}" pivot="left" justify="center" />
+			</rect>
+			<button depth="4" name="pageUp"   style="icon30px, press" width="${height-2}" height="${height-2}" pos="${Round(width - height/2, 0)},${Round(-height/2, 0)}" enabled="{# int(pagenumber) &lt; int(maxpagenumber)}" sprite="ui_game_symbol_arrow_right" disabledcolor="[lightGrey]" pivot="center" sound="[paging_click]" use_selection_box="false"/>
+		</rect>
+	</pager>
+
+	<slider>
+		<rect depth="1" controller="Slider" height="24">
+			<label depth="1" pos="0, -6"  width="128" height="24" text="{name}"/>
+			<rect pos="34,-1">
+				<sprite name="bar" controller="SliderBar" depth="1" pos="100, -5" color="[mediumGrey]" width="200" height="20" type="sliced" style="press, scroll" />
+				<sprite depth="2" pos="100, -5" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" width="200" height="20" foregroundlayer="true"/>		
+				<sprite name="thumb" controller="SliderThumb" depth="2" pos="200, -15" color="[lightGrey]" width="16" height="30" style="press, hover, drag, scroll" pivot="center">
+					<sprite depth="2" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" width="16" height="30" pivot="center"/>
+				</sprite>
+				<label depth="1" pos="312, -6" width="40" height="24" text="{value}" justify="center"/>
+			</rect>
+		</rect>
+	</slider>
+
+	<togglebutton depth="3" pos="0,0" height="32"
+			enabled_font_color="[labelColor]" disabled_font_color="[disabledLabelColor]" visible="true" tooltip_key="" caption="" caption_key="" font_size="28" parse_actions="false"
+			toggle_value="false">
+		<rect name="${name}" depth="${depth}" pos="${pos}" width="${width}" height="${height}" enabled_font_color="${enabled_font_color}" disabled_font_color="${disabled_font_color}" controller="ToggleButton" visible="${visible}" toggle_value="${toggle_value}" >
+			<button name="clickable" sprite="menu_empty" defaultcolor="[mediumGrey]" disabledcolor="[darkGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" type="sliced" hoverscale="1.0" tooltip_key="${tooltip_key}" />
+			<sprite depth="1" name="border" sprite="menu_empty2px" color="[black]" type="sliced" fillcenter="false" />	
+			<sprite depth="2" name="tickbox" width="${height-6}" height="${height-6}" pos="7,-4" color="[darkGrey]" sprite="Highlight - Shadowed" type="sliced" />
+			<sprite depth="3" name="tickmark" width="${height-12}" height="${height-12}" pos="10,-7" color="[iconColor]" sprite="ui_game_symbol_check" visible="{value}" />
+			<label depth="2" name="btnLabel" width="${width-height-8}" height="${height-2}" pos="${6+height},${Round(-height/2,0)}" justify="left" text="${caption}" text_key="${caption_key}" effect="outline" pivot="left" font_size="${font_size}" parse_actions="${parse_actions}" />
+		</rect>
+	</togglebutton>
+
+	<simplebutton depth="3" pos="0,0" height="32"
+			enabled_font_color="[labelColor]" hovered_font_color="[labelColor]" disabled_font_color="[disabledLabelColor]" visible="true" enabled="true" bordersprite="menu_empty2px" bordercolor="[black]" pivot="left"
+			defaultsprite="menu_empty" defaultcolor="[mediumGrey]" hoversprite="ui_game_select_row" hovercolor="[white]" selectedsprite="ui_game_select_row" selectedcolor="[mediumGrey]"
+			foregroundlayer="true" tooltip_key="" disabled_tooltip_key="" sound="[default_click]" justify="center" caption="" caption_key="" font_size="28" upper_case="false" parse_actions="false" >
+		<rect name="${name}" depth="${depth}" pos="${pos}" width="${width}" height="${height}" controller="SimpleButton" visible="${visible}" button_enabled="${enabled}">
+			<sprite depth="1" name="border" sprite="${bordersprite}" pos="0,${Round(-height/2,0)}" color="${bordercolor}" type="sliced" fillcenter="false" foregroundlayer="true" pivot="${pivot}" />	
+			<button name="clickable" pos="0,${Round(-height/2,0)}" sprite="${defaultsprite}" defaultcolor="${defaultcolor}" disabledcolor="[darkGrey]" hoversprite="${hoversprite}" hovercolor="${hovercolor}" selectedsprite="${selectedsprite}" selectedcolor="${selectedcolor}" foregroundlayer="${foregroundlayer}" type="sliced" hoverscale="1.0" pivot="${pivot}" tooltip_key="${tooltip_key}" disabled_tooltip_key="${disabled_tooltip_key}" sound_play_on_hover="[default_hover]" sound="${sound}" /> 
+			<label depth="2" name="btnLabel" width="${width}" height="${height-2}" pos="0,${Round(-height/2,0)}" justify="${justify}" text="${caption}" text_key="${caption_key}" effect="outline" pivot="${pivot}" font_size="${font_size}" color="{# enabled ? ( hovered ? '${hovered_font_color}' : '${enabled_font_color}' ) : '${disabled_font_color}' }" upper_case="${upper_case}" parse_actions="${parse_actions}" />
+		</rect>
+	</simplebutton>
+
+	<textfield depth="3" pos="0,0" height="32"
+			value="" active_text_color="[labelColor]" caret_color="[labelColor]" selection_color="[mediumGrey_half_alpha]" 
+			character_limit="0" validation="none" backgroundcolor="[black]" on_hover="false" on_scroll="false" ignore_up_down_keys="false" virtual_keyboard_prompt="" effect="none" effect_distance="1,1" effect_color="[black]"
+			pivot="topleft" enabled="true" visible="true" on_return="submit" select_on_tab="" tooltip_key="" search_field="false" password_field="false" clear_button="false" focus_on_open="false" clear_on_open="false" close_group_on_tab="false" open_vk_on_open="false"
+			foregroundlayer="false" justify="center" overflow="ShrinkContent" max_line_count="0" font_face="ReferenceFont" crispness="Never">
+		<panel name="${name}" depth="${depth}" controller="TextInput" pos="${pos}" width="${password_field? width-height-10 : width}" height="${height}" value="${value}"
+			active_text_color="${active_text_color}" caret_color="${caret_color}" selection_color="${selection_color}" 
+			character_limit="${character_limit}" validation="${validation}" backgroundcolor="${backgroundcolor}" ignore_up_down_keys="${ignore_up_down_keys}" virtual_keyboard_prompt="${virtual_keyboard_prompt}"
+			disableautobackground="true" pivot="${pivot}" input_enabled="${enabled}" visible="${visible}" on_return="${on_return}" select_on_tab="${select_on_tab}"
+			search_field="${search_field}" password_field="${password_field}" clear_button="${clear_button}" focus_on_open="${focus_on_open}" clear_on_open="${clear_on_open}" close_group_on_tab="${close_group_on_tab}" open_vk_on_open="${open_vk_on_open}">
+			<sprite depth="0" name="background" color="${backgroundcolor}" type="sliced" pivot="${pivot}" foregroundlayer="${foregroundlayer}" width="${password_field ? width-height-10 : width}"/>
+			<label depth="1" name="text" justify="${justify}" font_size="${Defined(font_size) ? font_size : height}" pivot="${pivot}" overflow="${overflow}" max_line_count="${max_line_count}" font_face="${font_face}" crispness="${crispness}" width="${width - (password_field ? 10+height : 0) - (clear_button ? 6+min(height,36) : 0)}"  effect="${effect}" effect_distance="${effect_distance}" effect_color="${effect_color}" tooltip_key="${tooltip_key}" style="press, select" on_hover="${on_hover}" on_scroll="${on_scroll}" enabled="${enabled}" />
+			<button name="btnShowPassword" pos="${Round(width-height/2-5,0)},-${Round(height/2,0)}" width="${height-2}" height="${height-2}" sprite="ui_game_symbol_stealth" defaultcolor="180,180,180" hovercolor="[white]" selectedcolor="[selectedColor]" foregroundlayer="true" type="simple" hoverscale="1.1" pivot="center" tooltip_key="xuiShowPassword" selected="{showpassword}" visible="{passwordfield}" />
+			<button name="btnClearInput" pos="${password_field ? width-height-Round(min(height,36)/2,0)-12 : width-Round(min(height,36)/2,0)-3},-${Round(height/2,0)}" width="${4+min(height,36)}" height="${min(height,36)-4}" pivot="center" sprite="ui_game_symbol_clear_textfield" hoverscale="1.1" tooltip_key="xuiClearTextInput" visible="{clearbutton}" />
+		</panel>
+	</textfield>
+
+	<combobox depth="3" pos="0,0" height="30"
+			value_min="@DEF" value_max="@DEF" value_wrap="@DEF" value_increment="@DEF" scroll_by_increment="false" values="@DEF" reverse_list="@DEF" localization_prefix="" localization_key_caseinsensitive="false" format_string=""
+			enabled="true" enabled_color="[white]" disabled_color="[lightGrey]" bg_color="[black]" enabled_fill_color="[white]" disabled_fill_color="[lightGrey]" visible="true" segmented_fill="false" segment_height="15" segment_count="1" segments_max="20" segment_spacing="10"
+			tooltip_key="" foregroundlayer="false" index_markers="false" gamepad_selectable="true" gamepad_decrease="" gamepad_increase="" gamepad_callout_size_increase="0" >
+
+		<rect name="${name}" controller="${type}" depth="${depth}" pos="${pos}" width="${width}" height="${height}"
+				value_min="${value_min}" value_max="${value_max}" value_wrap="${value_wrap}" value_increment="${value_increment}" scroll_by_increment="${scroll_by_increment}" values="${values}" reverse_list="${reverse_list}" localization_prefix="${localization_prefix}" localization_key_caseinsensitive="${localization_key_caseinsensitive}" format_string="${format_string}"
+				combo_enabled="${enabled}" enabled_color="${enabled_color}" disabled_color="${disabled_color}" bg_color="${bg_color}" enabled_fill_color="${enabled_fill_color}" disabled_fill_color="${disabled_fill_color}" visible="${visible}" segmented_fill="${segmented_fill}" segment_spacing="${segment_spacing}" segment_count="${segment_count}"
+				pivot="left" index_markers="${index_markers}" gamepad_decrease="${gamepad_decrease}" gamepad_increase="${gamepad_increase}" >
+
+			<button name="back"        depth="${1+depth}" style="icon30px, press, hover" pos="${height/2},${-height/2}" width="${height}" height="${height}" pivot="center" sprite="ui_game_symbol_arrow_menu" disabledcolor="[disabledColor]" sound="[paging_click]" tooltip_key="${tooltip_key}" gamepad_selectable="false" enabled="{can_backward}" visible="{# show_buttons and !hascontrollershortcuts or !is_controller_input}" />
+			<gamepad_icon name="gamepadIconBack" depth="${1+depth}" pos="${height/2-gamepad_callout_size_increase/2},${-height/2}" width="${0+height+gamepad_callout_size_increase}" height="${0+height+gamepad_callout_size_increase}" pivot="center" visible="{# show_buttons and hascontrollershortcuts and is_controller_input}" color="{# can_backward ? '255,255,255' : '160,160,160'}" action="${gamepad_decrease}" />
+
+			<rect name="regularFill" pos="${2+height},0" width="${width-height*2-4}" height="${height}" force_hide="${ segmented_fill }">
+				<sprite name="background"  depth="${1+depth}" pivot="topleft" color="{bgcolor}" type="sliced" foregroundlayer="${foregroundlayer}" />
+				<filledsprite name="fill"  depth="${2+depth}" pivot="topleft" color="{fillcolor}" fill="{fillvalue}" filldirection="horizontal" visible="{isnumber}" foregroundlayer="true" />
+			</rect>
+			<rect name="segmentedFill" pos="${2+height},${-height/2+Round(segment_height/2,0)}" width="${width-height*2-4}" height="${segment_height}" force_hide="${ !segmented_fill }" repeat_content="true" repeat_count="${segmented_fill ? segments_max : 1}">
+				<rect pos="${repeat_i * 25},0">
+					<sprite name="bg"  depth="${1+depth}" width="20" pivot="topleft" color="{bgcolor}" type="sliced" foregroundlayer="${foregroundlayer}" />
+					<filledsprite name="fillSegment"  depth="${2+depth}" width="20" pivot="topleft" color="{fillcolor}" fill="{# segment_fill_${repeat_i}}" filldirection="horizontal" visible="{isnumber}" foregroundlayer="true" />
+				</rect>
+			</rect>
+
+			<label name="currentValue" depth="${3+depth}" pos="${2+height},${-height/2}" width="${width-height*2-4}" height="${height-2}" pivot="left" text="{valuetext}" font_size="${Defined(font_size) ? font_size : height-4}" justify="center" color="{valuecolor}" effect="outline" effect_color="[black]" effect_distance="1,1" />
+
+			<button name="forward"     depth="${1+depth}" style="icon30px, press, hover" pos="${width-height/2},${-height/2}" width="${height}" height="${height}" pivot="center" sprite="ui_game_symbol_arrow_menu" disabledcolor="[disabledColor]" sound="[paging_click]" tooltip_key="${tooltip_key}" flip="Horizontally" gamepad_selectable="false" enabled="{can_forward}" visible="{# show_buttons and !hascontrollershortcuts or !is_controller_input}" />
+			<gamepad_icon name="gamepadIconForward" depth="${1+depth}" pos="${width-height/2+gamepad_callout_size_increase/2},${-height/2}" width="${0+height+gamepad_callout_size_increase}" height="${0+height+gamepad_callout_size_increase}" pivot="center" visible="{# show_buttons and hascontrollershortcuts and is_controller_input}" color="{# can_forward ? '255,255,255' : '160,160,160'}" action="${gamepad_increase}" />
+
+			<rect name="directvalue" style="press, scroll, hover, drag" pos="${2+height},0" width="${width-height*2-4}" height="${height}" pivot="topleft" createuiwidget="true" tooltip_key="${tooltip_key}" gamepad_selectable="${gamepad_selectable}" />
+			
+			<rect name="indexMarkers"  pos="${2+height},${-height+5}" width="${width-height*2-4}" height="5" visible="{usesmarkers}" active_color="[white]" inactive_color="[darkGrey]" repeat_content="true" repeat_count="${index_markers ? 20 : 1}">
+				<sprite depth="${2+depth}" width="20" pivot="topleft" color="[white]" type="sliced" foregroundlayer="true" />
+			</rect>
+		</rect>
+	</combobox>
+
+	<dropdown_entry>
+		<rect height="${height}" width="${width}" style="press, hover, scroll" sound="[recipe_click]" controller="DropDown+Entry">
+			<sprite depth="2" name="background" color="[darkGrey]" type="sliced" />
+			<label depth="4" name="Name" pos="0,${Round(-height/2,0)}" text="{name}" font_size="${height}" color="{textcolor}" justify="left" pivot="left" />
+		</rect>
+	</dropdown_entry>
+
+	<dropdownbox name="dropdownbox" depth="3" pos="0,0" height="32"
+			dropdown_size="10" dropdown_lineheight="26" dropdown_textcolor="[white]" dropdown_hovercolor="[tan]" sortentries="true" clearonopen="false"
+			backgroundcolor="[black]"
+			>
+		<rect name="${name}" depth="${depth}" pos="${pos}" width="${width}" height="${height}" controller="DropDown"
+				createuiwidget="true"
+				thumbareasize="${dropdown_size*dropdown_lineheight-64}" dropdown_textcolor="${dropdown_textcolor}" dropdown_hovercolor="${dropdown_hovercolor}"
+				sortentries="${sortentries}" clearonopen="${clearonopen}">
+
+			<rect depth="4" name="inputBox">
+				<sprite depth="1" name="background" color="${backgroundcolor}" type="sliced" globalopacity="false" />
+
+				<textfield name="input" depth="2" pos="0,${-height/2}" width="${width-height}" height="${height}" pivot="Left" backgroundcolor="${backgroundcolor}" />
+				<button depth="2" name="btnDropdown" style="icon30px" pos="${width-height/2},${-height/2}" width="${height-2}" height="${height-2}" sprite="ui_game_symbol_drop" flip="{flip_dropdownbutton}" pivot="center" />
+			</rect>
+			
+			<panel depth="8" name="dropdown" createuipanel="true" disableautobackground="true" on_scroll="true" pos="0,${Defined(dropdown_above) and dropdown_above ? ( dropdown_size*dropdown_lineheight+4 ) : -height}" width="${width}" height="${dropdown_size*dropdown_lineheight+4}" visible="{dropdown_open}">
+				<sprite depth="4" name="border" sprite="menu_empty3px" color="[black]" type="sliced" fillcenter="false" />
+				<sprite depth="0" name="backgroundMain" sprite="menu_empty3px" color="[darkGrey]" type="sliced" fillcenter="true" />
+
+				<grid name="list" depth="2" rows="${dropdown_size}" cols="1" pos="4,-2" height="${dropdown_size*dropdown_lineheight}" cell_width="${width-8-30}" cell_height="${dropdown_lineheight}" repeat_content="true" arrangement="vertical" >
+					<dropdown_entry width="${width-8-30}" height="${dropdown_lineheight}" />
+				</grid>
+
+				<panel name="scrollbar" pos="${width-30-2},0" width="30" height="${dropdown_size*dropdown_lineheight+4}" disableautobackground="true">
+					<button depth="4" name="pageDown" style="icon30px, press" pos="14,-17" sprite="ui_game_symbol_arrow_left" pivot="center" sound="[paging_click]" rotation="-90" />
+					<rect name="thumbArea" pos="1,-32" width="26" height="${dropdown_size*dropdown_lineheight-64}">
+						<sprite depth="8" name="thumb" sprite="menu_empty3px" color="[lightGrey]" type="sliced" fillcenter="true" height="{thumb_size}" pos="0,-{thumb_position}" pivot="topleft" globalopacity="false" update_position="true" />
+					</rect>
+					<button depth="4" name="pageUp" style="icon30px, press" pos="14,${-dropdown_size*dropdown_lineheight-4+17}" sprite="ui_game_symbol_arrow_right" pivot="center" sound="[paging_click]" rotation="-90" />
+				</panel>
+			</panel>
+		</rect>
+	</dropdownbox>
+
+	<color_picker>
+		<rect controller="ColorPicker">
+			<sprite depth="2" name="selectedColor" pos="212,0" style="icon30px" type="sliced"/>
+			<texture depth="2" name="svPicker" pos="6,0" width="200" height="200" on_drag="true" on_press="true">
+				<sprite depth="2" name="selectedColorSVPointer" pos="0,0" style="icon30px" width="21" height="21" type="sliced" pivot="center" sprite="ui_game_symbol_map_cursor"/>
+			</texture>
+			<texture depth="2" name="hPicker" pos="212,-33" width="30" height="167" on_drag="true" on_press="true" gamepad_selectable="false"/>
+		</rect>
+	</color_picker>
+
+	<confirmation_prompt pos="0,0" width="400" height="220" depth="20">    
+		<panel name="confirmation_prompt_controller" depth="${depth}" createuipanel="true" on_hover="true" disableautobackground="true" controller="ConfirmationPrompt">
+			<rect pos="${pos}" width="${width}" height="${height}">
+				<sprite pos="-4000,4000" width="8000" height="8000" depth="0" name="backgroundFill" sprite="menu_empty" color="0,0,0,100" type="sliced" fillcenter="true" globalopacity="false" />
+				<panel pos="-20,20" width="${40+width}" height="${40+height}" clipping="softclip" clippingsoftness="20,20" disableautobackground="true">
+					<sprite depth="0" name="backgroundMain" sprite="menu_empty" color="0,0,0,100" type="sliced" fillcenter="true" globalopacity="false" />
+				</panel>
+
+				<panel name="header" pos="0,0" height="43" depth="1" backgroundspritename="ui_game_panel_header" bordercolor="[black]" borderthickness="3" globalopacity="false">
+					<label style="header.name" name="headerText" pos="6,-6" width="${width}" text="{headertext}" globalopacity="false" />
+				</panel>
+
+				<rect name="body" pos="0,-50" height="${height-106}">
+					<sprite depth="10" name="border" sprite="menu_empty2px" color="[black]" type="sliced" fillcenter="false" globalopacity="false"  />
+					<sprite depth="0" name="backgroundMain" sprite="menu_empty3px" color="[mediumGrey]" type="sliced" fillcenter="true" globalopacity="false" />
+					<label name="bodyText" pos="10,-8" width="${width-20}" height="${height-122}" pivot="topleft" justify="left" depth="2" text="{bodytext}" globalopacity="false" />
+				</rect>
+
+				<rect name="buttons" pos="0, -${height-48}">
+					<simplebutton name="btnPromptCancel" depth="3" pos="0, 0" width="180" height="48" font_size="32" caption="{canceltext}" upper_case="true" globalopacity="false" />
+					<simplebutton name="btnPromptConfirm" depth="3" pos="${width}, 0" pivot="right" width="180" height="48" font_size="32" caption="{confirmtext}" upper_case="true" globalopacity="false" visible="{confirmvisible}" />
+				</rect>
+			</rect>
+		</panel>
+	</confirmation_prompt>
+	
+	<player_name width="175" height="46" pos="0,0">
+		<rect controller="PlayerName" name="playerName" pos="${pos}" width="${width}" height="${height}" on_press="true" disablefallthrough="true">
+			<label depth="1" name="name" pos="5,-23" width="${width}" height="${height}" text="" font_size="26" pivot="left" justify="left"/>
+			<sprite name="iconCrossplay" depth="50" width="25" height="25" pos="5,-10" globalopacity="false"/>
+			<label depth="1" name="nameCrossplay" pos="40,-23" width="${width-40}" height="${height}" text="" font_size="26" pivot="left" justify="left" />
+		</rect>
+	</player_name>
+	
+	<blocked_players_list name="blockedPlayersList">
+		<rect name="blockedPlayersRect" controller="BlockedPlayersList">
+			<panel name="noclick" depth="20" createuipanel="true" on_press="true" pos="-4000,4000" width="8000" height="8000" disableautobackground="true" gamepad_selectable="false" enabled="false"/>
+			
+			<panel name="headerBlocked" width="660" height="43" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="1" name="windowIcon" style="icon32px" pos="4,-5" sprite="ui_game_symbol_players"/>
+				<label style="header.name" text="BLOCKED" text_key="xuiBlockedPlayers" />
+			</panel>
+			
+			<panel name="headerRecent" width="660" height="43" pos="660,0" depth="1" backgroundspritename="ui_game_panel_header">
+				<sprite depth="1" name="windowIcon" style="icon32px" pos="4,-5" sprite="ui_game_symbol_players"/>
+				<label style="header.name" text="RECENT" text_key="xuiRecentPlayers" />
+			</panel>
+			
+			<panel name="subheaderBlocked" depth="0" pos="0,-43" width="660" height="50" disableautobackground="true">
+				<sprite depth="10" name="backgroundMain" sprite="menu_empty3px" pos="0,0" width="660" height="47" color="[black]" type="sliced" fillcenter="false" />
+				<sprite color="[mediumGrey]" type="sliced" pos="3,-3" height="44" width="654" />
+				<rect depth="1" name="subheader" width="154" height="44" pos="3,-3">
+					<label depth="1" name="name" pos="4,-22" text_key="xuiSteamID" font_size="26" pivot="left" />
+					<label depth="1" name="blockedCounter" pos="650,-22" text="{blockedCount}" font_size="26" pivot="right" justify="right"/>
+				</rect>
+			</panel>
+			
+			<panel name="subheaderRecent" depth="0" pos="660,-43" width="660" height="50" disableautobackground="true">
+				<sprite depth="10" name="backgroundMain" sprite="menu_empty3px" pos="0,0" width="660" height="47" color="[black]" type="sliced" fillcenter="false" />
+				<sprite color="[mediumGrey]" type="sliced" pos="3,-3" height="44" width="654" />
+				<rect depth="1" name="subheader" width="154" height="44" pos="3,-3">
+					<label depth="1" name="name" pos="4,-22" text_key="xuiSteamID" font_size="26" pivot="left" />
+					<label depth="1" name="lastSeen" pos="300,-22" text_key="xuiLastSeen" font_size="26" pivot="left" />
+					<label depth="1" name="recentCounter" pos="650,-22" text="{recentCount}" font_size="26" pivot="right" justify="right" />
+				</rect>
+			</panel>
+			
+			<grid name="blockList" rows="13" cols="1" pos="0,-93" width="660" height="598" cell_height="46" repeat_content="true" arrangement="vertical">
+				<rect depth="1" width="660" height="46" pos="0,0" disabled_color="[disabledLabelColor]" alternating_color="[darkestGrey]" controller="PlayersBlockedListEntry">
+					<sprite depth="10" name="backgroundMain" sprite="menu_empty3px" width="660" height="46" color="[black]" type="sliced" fillcenter="false" />
+					<sprite name="background" color="[darkGrey]" height="46" width="660" type="sliced" />
+					<player_name width="175" />
+					<button depth="1" name="btnReportPlayer" style="icon32px, press, hover" pos="580,-23" pivot="center" sprite="ui_game_symbol_report" color="[lightGrey]" sound="[craft_click]" tooltip_key="xuiPlayersReportPlayer" />
+					<button depth="1" name="unblockBtn" style="icon32px, press, hover" pivot="center" pos="630,-23" sprite="ui_game_symbol_player" tooltip_key="ttUnblockPlayer" sound="[paging_click]" />
+				</rect>
+			</grid>
+			
+			<grid name="recentList" rows="13" cols="1" pos="660,-93" width="660" height="598" cell_height="46" repeat_content="true" arrangement="vertical">
+				<rect depth="1" width="660" height="46" pos="0,0" disabled_color="[disabledLabelColor]" alternating_color="[darkestGrey]" controller="PlayersRecentListEntry">
+					<sprite depth="10" name="backgroundMain" sprite="menu_empty3px" width="660" height="46" color="[black]" type="sliced" fillcenter="false" />
+					<sprite name="background" color="[darkGrey]" height="46" width="660" type="sliced" />
+					<player_name width="175" />
+					<label name="lastSeen" hight="46" width="175" pos="300,-23" font_size="26" pivot="left" />
+					<button depth="1" name="btnReportPlayer" style="icon32px, press, hover" pos="580,-23" pivot="center" sprite="ui_game_symbol_report" color="[lightGrey]" sound="[craft_click]" tooltip_key="xuiPlayersReportPlayer" />
+					<button depth="1" name="blockBtn" style="icon32px, press, hover" pivot="center" pos="630,-23" sprite="ui_game_symbol_player_block" tooltip_key="ttBlockPlayer" sound="[paging_click]" />
+					<button depth="1" name="btnViewProfile" style="icon32px, press, hover" pivot="center" pos="630,-23" sprite="ui_game_symbol_stealth" tooltip_key="ttViewProfile" sound="[paging_click]" />
+				</rect>
+			</grid>
+			
+			<rect name="footerBlocked" depth="3" width="660" height="49" pos="0,-691">
+				<sprite depth="1" name="backgroundMain" sprite="menu_empty3px" pos="0,0" width="660" height="49" color="[black]" type="sliced" fillcenter="false" />
+				<sprite name="pagingControls" color="[mediumGrey]" type="sliced" />
+				<panel pos="546,0" width="104" height="49" disableautobackground="true">
+					<pager name="blockedPager" pos="-16,-6" contents_parent="blockList"/>
+				</panel>
+			</rect>
+			
+			<rect name="footerRecent" depth="3" width="660" height="49" pos="660,-691">
+				<sprite depth="1" name="backgroundMain" sprite="menu_empty3px" pos="0,0" width="660" height="49" color="[black]" type="sliced" fillcenter="false" />
+				<sprite name="pagingControls" color="[mediumGrey]" type="sliced" />
+				<panel pos="546,0" width="104" height="49" disableautobackground="true">
+					<pager name="recentPager" pos="-16,-6" contents_parent="recentList"/>
+				</panel>
+			</rect>
+		</rect>
+	</blocked_players_list>
+
+	<discord_callmembers_list_entry width="200" height="24" >
+		<rect width="${width}" height="${height}" depth="5" visible="{hasentry}" controller="ListEntry`1[XUiC_DiscordLobbyMemberList+LobbyMember]" padding="0,6">
+			<label pos="0,${-Round(height/2,0)}" width="${Round(width - 12 - 3*(8+height) ,0)}" height="${height}" pivot="left" justify="left" text="{displayname}" on_hover="true" color="{# is_self ? '150,150,150,255' : '255,255,255,255'}" />
+			<sprite name="speakingState" pos="${Round(width - 12 - height/2 - 2*(8+height) ,0)},${-Round(height/2,0)}" width="${height}" height="${height}" depth="2" sprite="ui_game_symbol_talk" pivot="center" color="{# is_speaking ? '200,200,0,255' : '120,120,120,255' }" visible="{# !is_self }" />
+			<sprite name="muteMic" pos="${Round(width - 12 - height/2 - 1*(8+height) ,0)},${-Round(height/2,0)}" width="${height}" height="${height}" depth="2" sprite="ui_game_symbol_mic" tooltip="{# voice_muted ? localization('xuiDiscordOtherMicMuted') : '' }" style="icon32px, hover" pivot="center" color="{# voice_muted ? '180,0,0,255' : '0,200,0,255'}" visible="{# !is_self }" />
+			<sprite name="muteOutput" pos="${Round(width - 12 - height/2 - 0*(8+height) ,0)},${-Round(height/2,0)}" width="${height}" height="${height}" depth="2" sprite="ui_game_symbol_noise" tooltip="{# output_muted ? localization('xuiDiscordOtherOutputMuted') : '' }" style="icon32px, hover" pivot="center" color="{# output_muted ? '180,0,0,255' : '0,200,0,255'}" visible="{# !is_self }" />
+		</rect>
+	</discord_callmembers_list_entry>
+
+	<discord_callmembers_list pos="0,0" width="800" height="800" count="12" depth="10">
+		<rect name="callmembers" pos="${pos}" width="${width}" height="${height}" on_scroll="true" controller="DiscordLobbyMemberList">
+			<rect depth="4" name="searchControls" height="44" pos="0,-0">
+				<sprite depth="8" name="backgroundMain" sprite="menu_empty2px" color="[black]" type="sliced" fillcenter="false" />
+
+				<sprite depth="4" name="searchIcon" style="icon30px" pos="5,-22" sprite="ui_game_symbol_search" pivot="Left"/>
+				<textfield name="searchInput" depth="5" pos="40,-7" width="${width-170}" height="30" pivot="topLeft" clear_button="true" />
+
+				<panel pos="${width-110},0" width="98" height="43" disableautobackground="true">
+					<pager name="pager" pos="1,-6" />
+				</panel>
+			</rect>
+
+			<grid name="list" pos="0,-50" width="${width}" rows="${count}" cols="1" arrangement="vertical" cell_width="300" cell_height="36" repeat_content="true">
+				<discord_callmembers_list_entry width="${width}" height="26" />
+			</grid>
+		</rect>
+	</discord_callmembers_list>
+
+	<discord_friends_list_entry width="200" height="42" status_icon_indent="5" size_status_icon="20" height_name="20" height_status_text="16">
+		<rect width="${width}" height="${height}" depth="5" visible="{hasentry}" controller="XUiC_DiscordFriendsList+DiscordFriendsListEntryController" style="press,scroll,hover" use_selection_box="false" enabled="{hasentry}">
+			<rect name="user" visible="{# entry_type == 'User' }">
+				<sprite pos="4,2" width="${width-8}" height="${4+height}" name="rowBackground" pivot="topleft" depth="1" sprite="menu_empty" type="sliced" fillcenter="true" color="{# hovered ? '96,96,96' : '64,64,64' }" />
+			
+				<texture pos="${0+status_icon_indent+Round(height/2,0)},-${Round(height/2,0)}" width="${height}" height="${height}" name="avatar" pivot="center" depth="3" color="[white]" />
+				<sprite pos="${0+status_icon_indent+height},${-height+Round(size_status_icon/2,0)+4}" width="${6+size_status_icon}" height="${6+size_status_icon}" name="statusIconBg" pivot="center" depth="4" sprite="ui_game_filled_circle" color="64,64,64,240" />
+				<sprite pos="${0+status_icon_indent+height},${-height+Round(size_status_icon/2,0)+4}" width="${size_status_icon}" height="${size_status_icon}" name="statusIcon" pivot="center" depth="5" sprite="{discordstate_icon}" />
+				<label pos="${0+status_icon_indent+height+Round(size_status_icon/2,0)+8},${-Round(height_name/2,0)-2}" width="${width-height-50-status_icon_indent}" height="${height_name}" name="name" pivot="left" depth="5" justify="left" text="{displayname}" />
+				<label pos="${0+status_icon_indent+height+Round(size_status_icon/2,0)+8},${-height+Round(height_status_text/2,0)+2}" width="${width-height-50-status_icon_indent}" height="${height_status_text}" name="statusText" pivot="left" depth="5" justify="left" text="{statustext}" />
+
+				<sprite name="sprSignalButton" pos="${width-20},-${Round(height/2,0)}" width="26" height="26" depth="5" sprite="ui_game_symbol_more_options" style="icon32px" pivot="center" />
+			</rect>
+			<rect name="sectionHeader" visible="{# entry_type == 'SectionHeader' }">
+				<sprite pos="0,0" width="${width}" height="${height}" pivot="topLeft" depth="2" name="background" color="{# hovered ? '40,40,40' : '0,0,0' }" type="sliced" />
+				<label pos="${Round(width/2,0)},${-Round(height/2,0)}" width="${width}" height="${height}" pivot="center" depth="3" justify="center" text="{# localization('discordFriendSection' + section_type)} ({section_user_count})" />
+
+				<sprite name="sprCollapsed" pos="${width-20},-${Round(height/2,0)}" width="26" height="26" depth="5" sprite="ui_game_symbol_arrow_menu" flip="Horizontally" rotation="{# section_open ? '-90' : '0' }" style="icon32px" pivot="center" />
+			</rect>
+		</rect>
+	</discord_friends_list_entry>
+
+	<discord_friends_list pos="0,0" width="800" height="800" count="12" depth="10">
+		<rect name="friends" pos="${pos}" width="${width}" height="${height}" on_scroll="true" controller="DiscordFriendsList">
+			<rect depth="4" name="searchControls" height="44" pos="0,-0">
+				<sprite depth="8" name="backgroundMain" sprite="menu_empty2px" color="[black]" type="sliced" fillcenter="false" />
+
+				<sprite depth="4" name="searchIcon" style="icon30px" pos="5,-22" sprite="ui_game_symbol_search" pivot="Left"/>
+				<textfield name="searchInput" depth="5" pos="40,-7" width="${width-170}" height="30" pivot="topLeft" clear_button="true" />
+
+				<panel pos="${width-110},0" width="98" height="43" disableautobackground="true">
+					<pager name="pager" pos="1,-6" />
+				</panel>
+			</rect>
+
+			<grid name="list" pos="0,-50" width="${width}" rows="${count}" cols="1" arrangement="vertical" cell_width="300" cell_height="56" repeat_content="true">
+				<discord_friends_list_entry width="${width}" height="46" status_icon_indent="8" size_status_icon="14" height_name="22" height_status_text="18" />
+			</grid>
+			
+			<discord_button name="btnDiscordLinkAccount" pos="10,${-height+54}" width="${width-20}" height="44" depth="5" caption_key="xuiDiscordFindYourFriends" visible="{# discord_is_ready and !discordaccountlinked and discord_supports_full_accounts }" />
+		</rect>
+	</discord_friends_list>
+
+	<discord_blockedusers_list_entry width="200" height="42" status_icon_indent="5" size_status_icon="20" >
+		<rect width="${width}" height="${height}" depth="5" visible="{hasentry}" controller="XUiC_DiscordBlockedUsersList+DiscordBlockedUsersListEntryController" style="press,scroll,hover" use_selection_box="false" enabled="{hasentry}">
+			<sprite pos="4,2" width="${width-8}" height="${4+height}" name="rowBackground" pivot="topleft" depth="1" sprite="menu_empty" type="sliced" fillcenter="true" color="{# hovered ? '96,96,96' : '64,64,64' }" />
+		
+			<texture pos="${0+status_icon_indent+Round(height/2,0)},-${Round(height/2,0)}" width="${height}" height="${height}" name="avatar" pivot="center" depth="3" color="[white]" />
+			<label pos="${0+status_icon_indent+height+Round(size_status_icon/2,0)+8},${-Round(height/2,0)}" width="${width-height-90-status_icon_indent}" height="${height}" name="name" pivot="left" depth="5" justify="left" text="{displayname}" />
+
+			<sprite name="sprSignalButton" pos="${width-20},-${Round(height/2,0)}" width="26" height="26" depth="5" sprite="ui_game_symbol_more_options" style="icon32px" pivot="center" />
+		</rect>
+	</discord_blockedusers_list_entry>
+
+	<discord_blockedusers_list pos="0,0" width="800" height="800" count="12" depth="10">
+		<rect name="friends" pos="${pos}" width="${width}" height="${height}" on_scroll="true" controller="DiscordBlockedUsersList">
+			<rect depth="4" name="searchControls" height="44" pos="0,-0">
+				<sprite depth="8" name="backgroundMain" sprite="menu_empty2px" color="[black]" type="sliced" fillcenter="false" />
+
+				<sprite depth="4" name="searchIcon" style="icon30px" pos="5,-22" sprite="ui_game_symbol_search" pivot="Left"/>
+				<textfield name="searchInput" depth="5" pos="40,-7" width="160" height="30" pivot="topLeft" clear_button="true" />
+
+				<panel pos="${width-110},0" width="98" height="43" disableautobackground="true">
+					<pager name="pager" pos="1,-6" />
+				</panel>
+			</rect>
+
+			<grid name="list" pos="0,-50" width="${width}" rows="${count}" cols="1" arrangement="vertical" cell_width="300" cell_height="40" repeat_content="true">
+				<discord_blockedusers_list_entry width="${width}" height="30" status_icon_indent="8" size_status_icon="14" />
+			</grid>
+		</rect>
+	</discord_blockedusers_list>
+
+	<discord_pending_list_entry width="200" height="42" status_icon_indent="5" size_status_icon="20" height_name="20" height_status_text="16">
+		<rect width="${width}" height="${height}" depth="5" visible="{hasentry}" controller="XUiC_DiscordPendingList+DiscordPendingListEntryController">
+			<texture pos="${0+status_icon_indent+Round(height/2,0)},-${Round(height/2,0)}" width="${height}" height="${height}" name="avatar" pivot="center" depth="3" color="[white]" />
+			<label pos="${0+status_icon_indent+height+Round(size_status_icon/2,0)+8},${-Round(height_name/2,0)-2}" width="${width-height-90-status_icon_indent}" height="${height_name}" name="name" pivot="left" justify="left" text="{displayname}" />
+			<label pos="${0+status_icon_indent+height+Round(size_status_icon/2,0)+8},${-height+Round(height_status_text/2,0)+2}" width="${width-height-90-status_icon_indent}" height="${height_status_text}" name="statusText" pivot="left" depth="5" justify="left" text_key="xuiDiscordPendingType{entry_type}" />
+			<button name="btnAccept" pos="${width-60},-${Round(height/2,0)}" width="26" height="26" depth="5" sprite="ui_game_symbol_check" tooltip_key="xuiAccept" style="icon32px, press, hover" pivot="center" collider_scale="1.25" sound="[paging_click]" use_selection_box="false" defaultcolor="0,180,0" />
+			<button name="btnDecline" pos="${width-20},-${Round(height/2,0)}" width="26" height="26" depth="5" sprite="ui_game_symbol_x" tooltip_key="xuiDecline" style="icon32px, press, hover" pivot="center" collider_scale="1.25" sound="[paging_click]" use_selection_box="false" defaultcolor="200,0,0" />
+		</rect>
+	</discord_pending_list_entry>
+
+	<discord_pending_list pos="0,0" width="800" height="800" count="12" depth="10">
+		<rect name="pending" pos="${pos}" width="${width}" height="${height}" on_scroll="true" controller="DiscordPendingList">
+			<rect depth="4" name="searchControls" height="44" pos="0,-0">
+				<sprite depth="8" name="backgroundMain" sprite="menu_empty2px" color="[black]" type="sliced" fillcenter="false" />
+
+				<panel pos="${width-110},0" width="98" height="43" disableautobackground="true">
+					<pager name="pager" pos="1,-6" />
+				</panel>
+			</rect>
+
+			<grid name="list" pos="0,-50" width="${width}" rows="${count}" cols="1" arrangement="vertical" cell_width="300" cell_height="56" repeat_content="true">
+				<discord_pending_list_entry width="${width}" height="46" status_icon_indent="8" size_status_icon="14" height_name="22" height_status_text="18" />
+			</grid>
+		</rect>
+	</discord_pending_list>
+	
+	<discord_button name="discordButton" pos="0,0" width="200" height="30" depth="0" visible="true" caption="" caption_key="" tooltip_key="" disabled_tooltip_key="" parse_actions="false" gradient_start="101,113,243" gradient_end="71,82,196">
+		<panel name="${name}" depth="${depth}" createuipanel="true" pos="${pos}" width="${width}" height="${height}" clipping="softclip" clippingsoftness="0,0" disableautobackground="true" controller="SimpleButton" visible="${visible}" >
+			<sprite name="background" depth="1" pos="${Round(-(height-2)/2+1,0)},${Round(-(height-2)/2-1,0)}" rotation="45" width="${Round((width-2+height-2)/sqrt(2),0)}" height="${Round((width-2+height-2)/sqrt(2),0)}" pivot="topleft" sprite="menu_empty" type="sliced" color="{# hovered ? '200,200,200' : '255,255,255' }" globalopacity="false" gradient_start="${gradient_start}" gradient_end="${gradient_end}" />
+			<button name="clickable" depth="2" pos="0,0" pivot="topleft" globalopacity="false" defaultcolor="0,0,0,8" hovercolor="0,0,0,8" tooltip_key="${tooltip_key}" disabled_tooltip_key="${disabled_tooltip_key}" sound_play_on_hover="[default_hover]" sound="[default_click]" hoverscale="1" /> 
+			<label name="btnLabel" depth="3" pos="10,${Round(-height/2,0)}" width="${width-20}" height="${height-10}" pivot="left" justify="center" text="${caption}" text_key="${caption_key}" effect="outline" font_size="${height-20}" upper_case="false" parse_actions="${parse_actions}" />
+		</panel>
+	</discord_button>
+
+	<popupMenu>
+		<window name="popupMenu" depth="200" pos="200,-200" width="{# 6+grid_width }" height="{# 6+grid_height}" controller="PopupMenu" cursor_area="true" element_padding_over_label="60" slider_min_width="250">
+			<sprite depth="1" width="{# 6+grid_width }" height="{# 6+grid_height}" pos="0,0" name="sprBackgroundBorder" sprite="ui_game_header_fill" type="sliced" color="[black]" />
+			<sprite depth="2" width="{# 0+grid_width }" height="{# 0+grid_height}" pos="3,-3" name="sprBackground" sprite="ui_game_header_fill" type="sliced" color="[darkGrey]"/>
+			<grid depth="5" width="{# 0+grid_width }" height="{# 0+grid_height}" pos="3,-3" name="list" rows="10" cols="1" cell_width="{grid_width}" cell_height="43" repeat_content="true" arrangement="vertical">
+				<rect depth="10" width="{grid_width}" height="43" style="press, hover" createuiwidget="true" controller="PopupMenuItem" sound="[craft_click]" sound_play_on_hover="[default_hover]" use_selection_box="false" gamepad_selectable="{enabled}">
+					<rect name="button" visible="{# type == 'Button' }">
+						<sprite depth="1" width="{grid_width}" name="background" type="sliced" sprite="{# enabled and hovered ? 'ui_game_select_row' : 'menu_empty' }" color="{# enabled and hovered ? '255,255,255' : '64,64,64' }" />
+						<sprite depth="10" pos="8,-3" style="icon32px" sprite="{menuicon}" color="{# enabled ? '255,255,255' : '148,148,148' }" />
+						<label depth="10" width="{#grid_width - 60}" height="28" pos="50,-8" name="lblText" text="{menutext}" font_size="22" color="{# enabled ? '255,255,255' : '148,148,148' }" justify="left" overflow="ResizeFreely" />
+					</rect>
+					<rect name="slider" visible="{# type == 'Slider' }">
+						<sprite depth="1" width="{grid_width}" name="background" type="sliced" sprite="{# enabled and hovered ? 'ui_game_select_row' : 'menu_empty' }" color="{# enabled and hovered ? '255,255,255' : '64,64,64' }" />
+						<sprite depth="10" pos="8,-3" style="icon32px" sprite="{menuicon}" color="{# enabled ? '255,255,255' : '148,148,148' }" />
+						
+						<combobox name="combo" type="ComboBoxFloat" pos="45,-5" width="250" height="30" depth="10" value_min="0" value_max="2" value_wrap="false" value_increment="0.10" scroll_by_increment="false" format_string="p0" gamepad_selectable="false" gamepad_decrease="GUI Page Down" gamepad_increase="GUI Page Up" />
+					</rect>
+				</rect>
+			</grid>	
+		</window>
+	</popupMenu>
+	
+	<boxbg depth="0" backsprite="menu_empty" backcolor="[darkGrey]" bordersprite="menu_empty3px" bordercolor="[black]" globalopacitymod="0" borderleft="0" borderright="0" bordertop="0" borderbottom="0">
+		<rect name="boxbackground" depth="${depth}" ignoreparentpadding="true">
+			<sprite depth="1" name="sprBorder"     pivot="topleft" type="sliced" fillcenter="false" sprite="${bordersprite}" color="${bordercolor}" globalopacitymod="${globalopacitymod}" ignoreparentpadding="true" pos="${borderleft},-${bordertop}" width="${outerwidth-borderleft-borderright}" height="${outerheight-bordertop-borderbottom}" />
+			<sprite depth="0" name="sprBackground" pivot="topleft" type="sliced" fillcenter="true"  sprite="${backsprite}"   color="${backcolor}"   globalopacitymod="${globalopacitymod}" ignoreparentpadding="true" />
+		</rect>
+	</boxbg>
+
+</controls>
