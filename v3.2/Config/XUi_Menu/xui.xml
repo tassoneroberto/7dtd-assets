@@ -1,0 +1,258 @@
+<xui scale="1.255" stackpanel_scale="1.05">
+
+	<window_group name="toolTip" actionset="false">
+		<window name="toolTip" />
+	</window_group>
+
+	<window_group name="popupMenu" actionset="false">
+		<window name="popupMenu" />
+	</window_group>
+
+	<window_group name="saveIndicator" actionset="false">
+		<window name="saveIndicator" />
+	</window_group>
+	
+	<window_group name="exitingGame" actionset="false">
+		<window name="exitingGame" />
+	</window_group>
+	
+	<window_group name="customCharacterSystem" defaultselected="cbxGender">
+		<window name="windowCharacterPreview"/>
+	</window_group>
+	
+	<window_group name="CalloutGroup" actionset="false">
+		<window name="GamepadCallouts" />
+	</window_group>
+
+	<window_group name="rwgeditor" defaultselected="seedInput" controller="WorldGenerationWindowGroup">
+		<window name="worldGeneration" />
+	</window_group>
+	
+	<window_group name="messageBox" controller="XUiC_MessageBoxWindowGroup">
+		<window name="messageBox" />
+	</window_group>
+
+	<window_group name="editingTools" defaultselected="btnRwgPreviewer">
+		<window name="editingTools" />
+	</window_group>
+	
+	<window_group name="poiEditor">
+		<window name="poiEditor" />
+	</window_group>
+	
+	<window_group name="worldEditor" defaultselected="btnBack">
+		<window name="worldEditor" />
+	</window_group>
+	
+	<window_group name="worldEditorCreateWorld">
+		<window name="worldEditorCreateWorld" />
+	</window_group>
+	
+	<window_group name="dataManagement" defaultselected="btnBack">
+		<window name="dataManagement" />
+	</window_group>
+	
+	<window_group name="saveManagementPrompt">
+		<window name="saveManagementPrompt" />
+	</window_group>
+	
+	<window_group name="saveSpaceNeeded" defaultselected="btnStart">
+		<window name="saveSpaceNeeded" />
+	</window_group>
+	
+	<window_group name="loginWindow" defaultselected="btnRetry">
+		<window name="loginWindow" />
+	</window_group>   
+	
+	<window_group name="newsScreen" defaultselected="btnContinue">
+		<window name="newsScreen" />
+	</window_group>
+	
+	<window_group name="menuBackground" actionset="false">
+		<window name="menuBackground" />
+	</window_group>
+	
+	<window_group name="mainMenuDiscordButton">
+		<window name="mainMenuDiscordButton" />
+	</window_group>
+	
+	<window_group name="mainMenu" defaultselected="btnPlayGame">
+		<window name="mainMenu" />
+		<window name="mainMenuVersion" />
+		<window name="mainMenuPlayerName" />
+		<window name="mainMenuNews" />
+	</window_group>
+	
+	<window_group name="playGamePaging">
+		<window name="playGamePaging" />
+	</window_group>
+	
+	<window_group name="playerProfiles" defaultselected="btnProfileCreate">
+		<window name="playerProfiles" />
+	</window_group>
+	
+	<window_group name="playerProfilesCreate">
+		<window name="playerProfilesCreate" />
+	</window_group>
+	
+	<window_group name="newGame" controller="NewGame" >
+		<window name="newGame" />
+		<window name="newContinueGameSettings" />
+		<window name="newContinueGameDMBar" />
+	</window_group>
+	
+	<window_group name="continueGame" controller="ContinueGame" >
+		<window name="continueGame" />
+		<window name="newContinueGameSettings" />
+		<window name="newContinueGameDMBar" />
+	</window_group>
+
+	<window_group name="worldSelectionPopup" controller="WorldSelectionPopup">
+		<window name="worldSelectionPopup"/>
+	</window_group>
+	
+	<window_group name="serverBrowser" controller="ServerBrowser">
+		<window name="serverBrowser" />
+		<window name="serverBrowserServerInfo" />
+	</window_group>
+	
+	<window_group name="serverBrowserDirectConnect">
+		<window name="serverBrowserDirectConnect" />
+	</window_group>
+
+	<window_group name="serverPassword" defaultselected="txtPassword">
+		<window name="serverPassword" />
+	</window_group>
+	
+	<window_group name="optionsPaging">
+		<window name="optionsPaging" />
+	</window_group>
+	
+	<window_group name="optionsGeneral" defaultselected="content">
+		<window name="optionsGeneral" />
+	</window_group>
+	
+	<window_group name="optionsVideo" defaultselected="Resolution">
+		<window name="optionsVideo" />
+	</window_group>
+	
+	<window_group name="optionsVideoSimplified" defaultselected="Brightness">
+		<window name="optionsVideoSimplified" />
+	</window_group>
+	
+	<window_group name="optionsAudio" defaultselected="OverallAudioVolumeLevel">
+		<window name="optionsAudio" />
+	</window_group>
+	
+	<window_group name="optionsControls">
+		<window name="optionsControls" />
+	</window_group>
+
+	<window_group name="optionsControlsNewBinding">
+		<window name="optionsControlsNewBinding" />
+	</window_group>
+
+	<window_group name="optionsController">
+		<window name="optionsController" />
+	</window_group>
+
+	<window_group name="optionsUsername">
+		<window name="optionsUsername" />
+	</window_group>
+	
+	<window_group name="optionsTwitch" defaultselected="btnBack">
+		<window name="optionsTwitch" />
+	</window_group>
+
+	<window_group name="credits">
+		<window name="credits" />
+	</window_group>
+
+	<window_group name="dlcWindow">
+		<window name="dlcWindow" />
+	</window_group>
+	
+	<window_group name="dlcWindowNew">
+		<window name="dlcWindowNew" />
+	</window_group>
+
+	<window_group name="eacWarning" actionset="false">
+		<window name="eacWarning" />
+	</window_group>
+	
+	<window_group name="crossplayWarning" actionset="false">
+		<window name="crossplayWarning" />
+	</window_group>
+	
+	<window_group name="progress" actionset="false">
+		<window name="progress" />
+	</window_group>
+	
+	<window_group name="loadingScreen" actionset="false">
+		<window name="loadingScreen" />
+	</window_group>
+	
+	<window_group name="spawnselection">
+		<window name="spawnselection" />
+	</window_group>
+	
+	<window_group name="subtitlesDisplay" actionset="false">
+		<window name="subtitlesDisplay" />
+	</window_group>
+
+	<window_group name="videoPlayer">
+		<window name="videoPlayer" />
+	</window_group>
+	
+	<window_group name="windowMultiplayerPrivilegesMenu" controller="MultiplayerPrivilegeNotification">
+		<window name="windowMultiplayerPrivilegesMenu" />
+	</window_group>
+	
+	<window_group name="windowEula" defaultselected="btnDecline">
+		<window name="windowEula" />
+	</window_group>
+	
+	<window_group name="uiLimitsTest">
+		<window name="uiLimitsTest" />
+	</window_group>
+
+	<window_group name="bugReportWindow" defaultselected="txtDescription">
+		<window name="bugReport"/>
+	</window_group>
+
+	<window_group name="blockedPlayersList">
+		<window name="optionsBlockedPlayers"/>
+	</window_group>
+	
+	<window_group name="reportPlayer" defaultselected="btnCancel">
+		<window name="reportPlayer" />
+	</window_group>
+	
+	<window_group name="discord" actionset="false">
+		<window name="discord" />
+	</window_group>
+	
+	<window_group name="discordInfo">
+		<window name="discordInfo" />
+	</window_group>
+
+	<window_group name="discordLogin">
+		<window name="discordLogin" />
+	</window_group>
+	
+	<window_group name="discordInteractions" defaultselected="list">
+		<window name="discordInteractions" />
+	</window_group>
+	
+	<window_group name="discordBlockedUsers">
+		<window name="discordBlockedUsers" />
+	</window_group>
+		
+	<window_group name="sandboxOptions" defaultselected="btnGeneral">
+		<window name="sandboxOptions" />
+	</window_group>
+	
+	<window_group name="sandboxSaveAsPreset">
+		<window name="sandboxSaveAsPreset" />
+	</window_group>
+</xui>
