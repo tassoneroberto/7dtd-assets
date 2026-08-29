@@ -145,7 +145,7 @@
 			
 			<boxshadow_new color="228, 18, 21, 170" on_press="true" />
 
-			<headerbox text="{msgTitle}" justify="center" />
+			<headerboxicon sprite="{msgIcon}" text="{msgTitle}" justify="center" iconsize="40" />
 
 			<rect name="content" pos="0,-49" height="${parentinnerheight-50}" depth="1" padding="20">
 				<boxbg backcolor="16,16,16,255" bordersprite="menu_empty2px" bordercolor="64,64,64,255" />
@@ -762,11 +762,11 @@
 		</rect>
 	</headerbox>
 
-	<headerboxicon pos="0,0" width="" height="50" sprite="" text="" text_key="" justify="left" font_size="38" backcolor="0,0,0,255" bordercolor="228,18,21,255" textcolor="228,18,21,255" iconcolor="">
+	<headerboxicon pos="0,0" width="" height="50" sprite="" text="" text_key="" justify="left" font_size="38" backcolor="0,0,0,255" bordercolor="228,18,21,255" textcolor="228,18,21,255" iconcolor="" iconsize="">
 		<rect name="header" pos="${pos}" width="${ length(width)=0 ? parentinnerwidth : width }" height="${height}" depth="2" padding="4,20">
 			<boxbg backcolor="${backcolor}" bordersprite="menu_empty2px" bordercolor="${bordercolor}" />
-			<sprite name="windowIcon" pivot="center" pos="${Round(parentinnerheight/2,0)},${-Round(parentinnerheight/2,0)}" width="${parentinnerheight}" height="${parentinnerheight}" sprite="${sprite}" color="${ length(iconcolor)=0 ? textcolor : iconcolor }" />
-			<label text="${text}" text_key="${text_key}" pos="${10+parentinnerheight},${-Round(parentinnerheight/2,0)-1}" width="${parentinnerwidth-height}" font_size="${font_size}" upper_case="true" pivot="left" justify="${justify}" color="${textcolor}" />
+			<sprite name="windowIcon" pivot="center" pos="0,${-Round(parentinnerheight/2,0)}" width="${length(iconsize)=0 ? parentinnerheight : iconsize}" height="${length(iconsize)=0 ? parentinnerheight : iconsize}" sprite="${sprite}" color="${ length(iconcolor)=0 ? textcolor : iconcolor }" anchor_left="text,0,${-10-(length(iconsize)=0 ? parentinnerheight : iconsize)}" anchor_right="text,0,-10" />
+			<label name="text" text="${text}" text_key="${text_key}" pos="${justify == 'left' ? 10+parentinnerheight : Round(parentinnerwidth/2,0) },${-Round(parentinnerheight/2,0)-1}" font_size="${font_size}" upper_case="true" pivot="${justify}" justify="${justify}" color="${textcolor}" overflow="ResizeFreely" overflow_width="${parentinnerwidth-2*(parentinnerheight+10)}" overflow_height="${parentinnerheight}" />
 		</rect>
 	</headerboxicon>
 

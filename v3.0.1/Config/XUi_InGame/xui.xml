@@ -453,6 +453,10 @@
 		<window name="sandboxOptions" />
 	</window_group>
 
+	<window_group name="subtitlesDisplay" actionset="false">
+		<window name="subtitlesDisplay" />
+	</window_group>
+
 <!-- Uncomment this window group and the according window in windows.xml and adapt the latter to your needs, it will show up whenever the user has the ingame menu (ESC) open -->
 <!--
 	<window_group name="serverinfowindow">

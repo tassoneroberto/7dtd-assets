@@ -31,7 +31,7 @@
 			caption="" caption_key=""
 			color_default="0,0,0,0" color_hovered="228,18,21,255" color_disabled="0,0,0,0"
 			text_color_default="[labelColor]" text_color_hovered="228,18,21,255" text_color_disabled="[disabledLabelColor]"
-			sound_on_click="[paging_click]" sound_on_hover="[default_hover]"
+			sound_on_click="[default_click]" sound_on_hover="[default_hover]"
 			visible="true" enabled="true" nav_up="" nav_down="" nav_left="" nav_right=""
 			tooltip_key="" disabled_tooltip_key=""
 			
@@ -43,7 +43,7 @@
 				pos="${pos}" depth="${depth}"
 				on_press="true" on_hover="true" use_selection_box="false" nav_up="${nav_up}" nav_down="${nav_down}" nav_left="${nav_left}" nav_right="${nav_right}"
 				tooltip_key="${tooltip_key}" disabled_tooltip_key="${disabled_tooltip_key}"
-				sound="[default_click]" sound_play_on_hover="[default_hover]"
+				sound="${sound_on_click}" sound_play_on_hover="${sound_on_hover}"
 				overflow_width="${width}" overflow_height="${height-4}" overflow="ResizeFreely" max_line_count="1"
 				font_size="{% btn_hovered ? ${height-4} : ${height-16} }"
 				color="{% !btn_enabled ? color(${text_color_disabled}) : (btn_hovered ? color(${text_color_hovered}) : color(${text_color_default}) ) }"

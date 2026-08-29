@@ -306,10 +306,6 @@
 		<video name="videoTexture" depth="2" anchor_left="#cam,0.5,-924" anchor_right="#cam,0.5,924" anchor_bottom="#cam,0.5,-530" anchor_top="#cam,0.5,530" uri="/Video/MenuBackground" videoaspect="FitInside" loop="true" />
 	</window>
 	
-	<window name="mainMenuLogo" anchor="Center" pos="0,0" width="1050" height="780" depth="-2">
-		<texture depth="3" color="[white]" texture="@:Textures/UI/7DTD_logo.tga" name="gameLogo" anchor_left="#cam,0.5,-20" anchor_bottom="#cam,0.5,20" anchor_right="#cam,0.5,-20" anchor_top="#cam,0.5,490" pivot="center" keep_aspect_ratio="BasedOnHeight" aspect_ratio="2.3" visible="false" />
-	</window>
-	
 	<window name="mainMenu" anchor="Top" pos="-810,-70" width="400" height="400" controller="MainMenu" cursor_area="true" windows_to_open_globally="menuBackground,mainMenuDiscordButton,-discordInteractions">
 		<texture pos="0,0" height="400" color="[white]" texture="@:Textures/UI/news_logo.png" name="gameLogo" pivot="topleft" keep_aspect_ratio="BasedOnHeight" aspect_ratio="0.608" />
 
@@ -487,7 +483,7 @@
 				<rect controller="TabSelectorTab" tab_key="xuiGameSettingsBasic">
 					<rect name="presetSelector" controller="SandboxPresetSelector" height="250">
 						<texture name="icon" width="180" height="180" texture="{% icon }" />
-						<rect name="difficulty" pos="0,-190" width="180" height="36" visible="{% !userpreset and !custompreset }">
+						<rect name="difficulty" pos="0,-190" width="180" height="36" visible="{% !userpreset and !custompreset and difficulty &gt; 0 }">
 							<sprite sprite="ui_game_symbol_skull" pos="${Round(parentinnerwidth/2,0)-2},${-Round(parentinnerheight/2,0)}" width="${parentinnerheight}" height="${parentinnerheight}" pivot="right" color="228,18,21,255" />
 							<label pos="${Round(parentinnerwidth/2,0)+2},${-Round(parentinnerheight/2,0)-1}" width="${parentinnerwidth - (Round(parentinnerwidth/2,0)+2)}" height="${parentinnerheight-2}" font_size="${parentinnerheight-2}" pivot="left" color="228,18,21,255" text="{% 'x' + difficulty }" />
 						</rect>
@@ -1156,6 +1152,7 @@
 									</rect>
 
 									<options_combo_intindex name_localization_prefix="xuiOptionsVideo" name="VSync" prefname="{% vsync_count_pref }" type="ComboBoxList`1[System.String]" values="Off,On,Half" localization_prefix="xuiOptionsVideoVsync" value_wrap="false" apply_defaults="false" />
+									<options_combo_intindex name_localization_prefix="xuiOptionsVideo" name="FpsLimitInGame" prefname="OptionsGfxLimitFpsInGame" type="ComboBoxList`1[System.Int32]" values="-1,30,60,90,120,144" value_wrap="false" enabled="{# vsync_mode == 0 }" apply_defaults="false" />
 
 									<options_combo_float name_localization_prefix="xuiOptionsVideo" name="Brightness" prefname="OptionsGfxBrightness" />
 
@@ -1222,7 +1219,7 @@
 									<options_combo_bool name_localization_prefix="xuiOptionsVideo" name="SSAO" prefname="OptionsGfxSSAO" localization_prefix="xuiComboOnOff" apply_defaults="false" />
 									<options_combo_intindex name_localization_prefix="xuiOptionsVideo" name="SSReflections" prefname="OptionsGfxSSReflections" type="ComboBoxList`1[System.String]" values="Off,Low,Medium,High,Ultra" localization_prefix="xuiOptionsVideoPresets" value_wrap="false" allow_custom="true" apply_defaults="false" />
 									<options_combo_bool name_localization_prefix="xuiOptionsVideo" name="SunShafts" prefname="OptionsGfxSunShafts" localization_prefix="xuiComboOnOff" apply_defaults="false" />
-									<options_combo_intindex name_localization_prefix="xuiOptionsVideo" name="SignQuality" prefname="OptionsGfxSignQuality" type="ComboBoxList`1[System.String]" values="Lowest,Low,Medium,High,Ultra,Ultra+" localization_prefix="xuiOptionsVideoPresets" value_wrap="false" apply_defaults="false" />
+									<options_combo_intindex name_localization_prefix="xuiOptionsVideo" name="SignQuality" prefname="OptionsGfxSignQuality" type="ComboBoxList`1[System.String]" values="Lowest,Low,Medium,High,Ultra,Ultra+" localization_prefix="xuiOptionsVideoPresets" value_wrap="false" applies_after="reload" apply_defaults="false" />
 
 								</grid>
 							</scrollview>
@@ -1822,7 +1819,7 @@
 		<options_buttons />
 	</window>
 
-	<window name="optionsControlsNewBinding" anchor="Center" pos="-400,150" width="800" height="300" controller="OptionsControlsNewBinding" cursor_area="true" depth="20">
+	<window name="optionsControlsNewBinding" anchor="Center" pos="-400,150" width="800" height="300" controller="OptionsControlsNewBinding" cursor_area="true" depth="20" lock_navigation="true">
 		<fullscreencollider color="0,0,0,245" />
 	
 		<boxshadow color="228, 18, 21, 170" />
@@ -2005,7 +2002,7 @@
 
 						<pagingheader_button max_width="300" name="rwgPreviewer" text_key="xuiRwgPreviewer" />
 						<pagingheader_button max_width="300" name="poiEditor" text_key="xuiPrefabEditor" platform="!CONSOLE" />
-						<pagingheader_button max_width="300" name="worldEditor" text_key="xuiWorldEditor" />
+						<pagingheader_button max_width="300" name="worldEditor" text_key="xuiWorldEditor" platform="!CONSOLE" />
 
 						<gamepad_icon name="controllericonRight" width="60" height="60" depth="2" pivot="center" action="GUI Window Paging Down" />
 					</table>
@@ -2144,17 +2141,17 @@
 				<rect name="callouts" pos="10,${-parentinnerheight+190}" width="${parentinnerwidth-40}" height="180">
 					<rect name="unselected" pos="0,${-parentinnerheight+30}" visible="{% !iscontrolling }">
 						<label width="100" font_size="22" style="outline" color="228,18,21,255" parse_actions="true" justify="right" text="[action:gui:GUI Left Click][action:gui:GUI Submit]" />
-						<label pos="110,0" font_size="22" style="outline" color="160,160,160,255" text_key="xuiRwgEditorPreviewEnter" />
+						<label pos="110,0" font_size="22" style="outline" color="240,240,240,255" text_key="xuiRwgEditorPreviewEnter" />
 					</rect>
 					<rect name="selectedNames" visible="{% iscontrolling }">
 						<grid pos="110,0" width="400" cell_height="26" cols="1" arrangement="horizontal">
-							<label font_size="22" style="outline" color="160,160,160,255" text_key="xuiRwgEditorPreviewExit" />
-							<label font_size="22" style="outline" color="160,160,160,255" text_key="xuiRwgEditorPreviewMove" />
-							<label font_size="22" style="outline" color="160,160,160,255" text_key="xuiRwgEditorPreviewMoveUp" />
-							<label font_size="22" style="outline" color="160,160,160,255" text_key="xuiRwgEditorPreviewMoveDown" />
-							<label font_size="22" style="outline" color="160,160,160,255" text_key="xuiRwgEditorPreviewLook" />
-							<label font_size="22" style="outline" color="160,160,160,255" text_key="xuiRwgEditorPreviewSprint" />
-							<label font_size="22" style="outline" color="160,160,160,255" text_key="xuiRwgEditorPreviewResetCamera" />
+							<label font_size="22" style="outline" color="240,240,240,255" text_key="xuiRwgEditorPreviewExit" />
+							<label font_size="22" style="outline" color="240,240,240,255" text_key="xuiRwgEditorPreviewMove" />
+							<label font_size="22" style="outline" color="240,240,240,255" text_key="xuiRwgEditorPreviewMoveUp" />
+							<label font_size="22" style="outline" color="240,240,240,255" text_key="xuiRwgEditorPreviewMoveDown" />
+							<label font_size="22" style="outline" color="240,240,240,255" text_key="xuiRwgEditorPreviewLook" />
+							<label font_size="22" style="outline" color="240,240,240,255" text_key="xuiRwgEditorPreviewSprint" />
+							<label font_size="22" style="outline" color="240,240,240,255" text_key="xuiRwgEditorPreviewResetCamera" />
 						</grid>
 					</rect>
 					<rect name="selectedKbdMouse" visible="{% iscontrolling and !is_controller_input }">
@@ -2181,7 +2178,7 @@
 					</rect>
 				</rect>
 
-				<label name="countyName" depth="1" pos="20,-20" height="30" style="outline" pivot="topleft" on_hover="true" text="{% '[A0A0A0]' + localization('xuiRwgCountyName') + ':[-] ' + countyname }" color="{% countynamevalid ? color(255,255,255,255) : color(255,0,0,255) }" tooltip_key="{% countynamevalid ? '' : 'mmLblRwgSeedErrorWorldExists' }" />
+				<label name="countyName" depth="1" pos="20,-20" height="30" style="outline" pivot="topleft" on_hover="true" text="{% '[F2F2F2]' + localization('xuiRwgCountyName') + ':[-] ' + countyname }" color="{% countynamevalid ? color(255,255,255,255) : color(255,0,0,255) }" tooltip_key="{% countynamevalid ? '' : 'mmLblRwgSeedErrorWorldExists' }" />
 				
 				<texture depth="0" name="worldPreviewTex" material="Materials/Transparent Colored" on_press="true" on_hover="true" snap="false" />
 			</rect>
@@ -2417,7 +2414,7 @@
 							<spawnnearfriends_list_entry width="492" height="30" />
 						</grid>
 					
-						<simplebutton name="btnSpawnNearFriend" pos="0,-200" width="492" height="42" font_size="36" caption_key="lblSpawnNearFriendButton" enabled="{selectionValid}" tooltip_key="xuiPromptViewPlayerProfile" />
+						<simplebutton name="btnSpawnNearFriend" pos="0,-200" width="492" height="42" font_size="36" caption_key="lblSpawnNearFriendButton" enabled="{selectionValid}" />
 					</rect>
 					
 					<label pos="250,-80" width="400" height="60" font_size="28" color="[red]" pivot="center" justify="center" overflow="shrinkcontent" text_key="lblSpawnNoAvailableFriends" visible="{# entrycounttotal == 0 }" ignoreparentpadding="true" />
@@ -2439,8 +2436,8 @@
 	<window name="subtitlesDisplay" anchor="Bottom" pos="-376,155" width="753" height="100" cursor_area="false" controller="SubtitlesDisplay" actionset="false" depth="950" globalopacitymod="0">
 		<rect name="bgPanel" pos="0,0" height="60" depth="1">
 			<headerbg backcolor="[black_threequarters_alpha]" />
-			<label name="lblSpeaker" pos="6,-28" width="136" height="54" text_key="SubtitleSpeaker" justify="left" pivot="left" font_size="28" depth="975"/>
-			<label name="lblSubtitle" pos="143,-28" width="610" height="54" text_key="SubtitleContent" justify="left" pivot="left" font_size="28" depth="975"/>
+			<label name="lblSpeaker" pos="6,-28" width="136" height="54" text_key="SubtitleSpeaker" justify="left" pivot="left" font_size="28" depth="5"/>
+			<label name="lblSubtitle" pos="143,-28" width="610" height="54" text_key="SubtitleContent" justify="left" pivot="left" font_size="28" depth="5" max_line_count="2" overflow="shrinkcontent" />
 		</rect>
 	</window>
 
@@ -2448,8 +2445,8 @@
 		<sprite name="videoBackground" depth="0" sprite="menu_empty" type="sliced" color="[black]" anchor_left="#cam,0,-10" anchor_right="#cam,1,10" anchor_bottom="#cam,0,-10" anchor_top="#cam,1,10" style="press" gamepad_selectable="false" />
 		<video name="videoTexture" depth="1" anchor_left="#cam,0,0" anchor_right="#cam,1,0" anchor_bottom="#cam,0,0" anchor_top="#cam,1,0"/>
 
-		<sprite name="skipPrompt"  depth="25" sprite="ui_game_panel_header" color="[black]" anchor_left="#cam,1,-200" anchor_right="#cam,1,0" anchor_bottom="#cam,0,-0" anchor_top="#cam,0,60">
-			<label name="lblSkip" depth="30" text_key="Skip" justify="left" pivot="left" font_size="32" width="180" height="100" pos="20,-30" parse_actions="true" actions_default_format="( ### )"/>
+		<sprite name="skipPrompt"  depth="5" sprite="ui_game_panel_header" color="[black]" anchor_left="#cam,1,-200" anchor_right="#cam,1,0" anchor_bottom="#cam,0,-0" anchor_top="#cam,0,60">
+			<label name="lblSkip" depth="6" text_key="Skip" justify="left" pivot="left" font_size="32" width="180" height="100" pos="20,-30" parse_actions="true" actions_default_format="( ### )"/>
 		</sprite>
 
 	</window>
@@ -2716,7 +2713,7 @@
 				
 				<rect name="presetSelector" controller="SandboxPresetSelector" height="390">
 					<texture name="icon" pos="70,0" width="180" height="180" texture="{% icon }" keepsourceaspectratio="true" />
-					<rect name="difficulty" pos="250,-74" width="${parentinnerwidth-250}" height="32" visible="{% !userpreset and !custompreset }">
+					<rect name="difficulty" pos="250,-74" width="${parentinnerwidth-250}" height="32" visible="{% !userpreset and !custompreset and difficulty &gt; 0 }">
 						<sprite sprite="ui_game_symbol_skull" pos="10,${-Round(parentinnerheight/2,0)}" width="${parentinnerheight}" height="${parentinnerheight}" pivot="left" color="228,18,21,255" />
 						<label pos="${10+parentinnerheight+5},${-Round(parentinnerheight/2,0)-1}" width="60" height="${parentinnerheight-2}" font_size="${parentinnerheight-2}" pivot="left" color="228,18,21,255" text="{% 'x' + difficulty }" />
 					</rect>

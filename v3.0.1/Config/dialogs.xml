@@ -409,6 +409,8 @@
 			<requirement type="DroneState" value="Heal" requirementtype="Hide" />
 			<action type="Trader" id="drone_command_heal" />
 		</response>
-		<response id="done" text="dialog_trader_response_nevermind" />
+		<response id="done" text="dialog_trader_response_nevermind">
+			<action type="Trader" id="trader_response_nevermind" />
+		</response>
 	</dialog>
 </dialogs>

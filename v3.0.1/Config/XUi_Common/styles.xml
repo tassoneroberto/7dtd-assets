@@ -191,6 +191,8 @@
 		<style_entry name="hovercolor" value="[hoverColor]" />
 		<style_entry name="selectedcolor" value="[selectedColor]" />
 		<style_entry name="hoverscale" value="1.25" />
+		<style_entry name="foregroundlayer" value="true" />
+		<style_entry name="globalopacitymod" value="0" />
 	</style>
 	
 	<style type="button" name="icon32px">

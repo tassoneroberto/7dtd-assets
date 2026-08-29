@@ -2424,7 +2424,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="SellableToTrader" value="false"/>
 	<property name="SoundDestroy" value="wooddestroy1"/>
 	<property name="ShowQuality" value="true"/>
-	<property name="Group" value="Ammo/Weapons,Melee Weapons"/>
+	<property name="Group" value="Limited,Ammo/Weapons,Melee Weapons"/>
 	<property name="SoundUnholster" value="weapon_unholster"/>
 	<property name="SoundHolster" value="weapon_holster"/>
 	<property name="SoundPickup" value="boneknife_grab"/>
@@ -3604,7 +3604,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="Tags" value="T0,melee,grunting,light,perkFlurryOfIntellect,weapon,meleeWeapon,noStunEffect,attIntellect,perkElectrocutioner,canHaveCosmetic,roboticsSkill,meleeIntellect,batonJunkie,scrap100"/>
 	<!-- <property name="Tags" value="longShaft"/> with the way the baton is held there is no good place to put the burning shaft particles -->
 	<property name="DisplayType" value="melee"/>
-	<property name="Group" value="Ammo/Weapons,Melee Weapons"/>
+	<property name="Group" value="Limited,Ammo/Weapons,Melee Weapons"/>
 	<property name="Meshfile" value="@:Other/Items/Weapons/Melee/PipeBaton/pipeBatonPrefab.prefab"/>
 	<property name="HoldType" value="80"/>
 	<property name="Material" value="Mmetal"/>
@@ -4095,11 +4095,13 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 		
 		<triggered_effect trigger="onSelfPrimaryActionRayHit" action="Ragdoll" target="otherAOE" range="1.1" duration="@stunBatonDuration" force="175" target_tags="zombie,animal">
 			<requirement name="CompareItemMetaFloat" operation="Equals" value="5" key="charge"/>
-			<requirement name="HasBuff" buff="buffmodMeleeStunBatonRepulsor,buffDrugNerdTats"/> <!-- if you have buffDrugNerdTats, use stun duration so zombies get up after stun is finished -->
+			<requirement name="HasBuff" buff="buffmodMeleeStunBatonRepulsor"/>
+			<requirement name="HasBuff" buff="buffDrugNerdTats"/> <!-- Must be a separate requirement. If you have buffDrugNerdTats, use stun duration so zombies get up after stun is finished -->
 		</triggered_effect>
 		<triggered_effect trigger="onSelfSecondaryActionRayHit" action="Ragdoll" target="otherAOE" range="1.3" duration="@stunBatonDuration" force="175" target_tags="zombie,animal">
 			<requirement name="CompareItemMetaFloat" operation="Equals" value="5" key="charge"/>
-			<requirement name="HasBuff" buff="buffmodMeleeStunBatonRepulsor,buffDrugNerdTats"/> <!-- if you have buffDrugNerdTats, use stun duration so zombies get up after stun is finished -->
+			<requirement name="HasBuff" buff="buffmodMeleeStunBatonRepulsor"/>
+			<requirement name="HasBuff" buff="buffDrugNerdTats"/> <!-- Must be a separate requirement. If you have buffDrugNerdTats, use stun duration so zombies get up after stun is finished -->
 		</triggered_effect>
 
 		<!-- Trigger shock events for fully charged baton -->
@@ -4158,7 +4160,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="EconomicBundleSize" value="1"/>
 	<property name="SellableToTrader" value="false"/>
 	<property name="ShowQuality" value="true"/>
-	<property name="Group" value="Ammo/Weapons,Melee Weapons,Ranged Weapons"/>
+	<property name="Group" value="Limited,Ammo/Weapons,Melee Weapons,Ranged Weapons"/>
 	<property name="RepairExpMultiplier" value="5.5"/>
 	<property name="SoundUnholster" value="weapon_unholster"/>
 	<property name="SoundHolster" value="weapon_holster"/>
@@ -4600,7 +4602,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="EconomicValue" value="200"/>
 	<property name="TraderStageTemplate" value="baseTier0"/><!-- meleeWpnSledgeT0StoneSledgehammer -->
 	<property name="SellableToTrader" value="false"/>
-	<property name="Group" value="Ammo/Weapons,Melee Weapons"/>
+	<property name="Group" value="Limited,Ammo/Weapons,Melee Weapons"/>
 	<property name="ShowQuality" value="true"/>
 	<property name="SoundUnholster" value="weapon_unholster"/>
 	<property name="SoundHolster" value="weapon_holster"/>
@@ -5053,7 +5055,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="Canhold" value="true"/>
 	<property name="EconomicValue" value="200"/>
 	<property name="TraderStageTemplate" value="baseTier0"/><!-- meleeWpnKnucklesT0LeatherKnuckles -->
-	<property name="Group" value="Ammo/Weapons,Melee Weapons"/>
+	<property name="Group" value="Limited,Ammo/Weapons,Melee Weapons"/>
 	<property name="ShowQuality" value="true"/>
 	<property name="SoundUnholster" value="weapon_unholster"/>
 	<property name="SoundHolster" value="weapon_holster"/>
@@ -11123,7 +11125,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 
 <item name="ammo9mmBulletHP">
 	<property name="Extends" value="ammo9mmBulletBall"/>
-	<property name="Tags" value="ammo9mm,scrap100"/>
+	<property name="Tags" value="ammo,ammo9mm,scrap100"/>
 	<property name="DisplayType" value="ammoBulletHP"/>
 	<property name="EconomicValue" value="14"/>
 	<property name="TraderStageTemplate" value="ammoTier2"/><!-- ammo9mmBulletHP -->
@@ -11144,7 +11146,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 
 <item name="ammo9mmBulletAP">
 	<property name="Extends" value="ammo9mmBulletBall"/>
-	<property name="Tags" value="ammo9mm,scrap100"/>
+	<property name="Tags" value="ammo,ammo9mm,scrap100"/>
 	<property name="DisplayType" value="ammoBulletAP"/>
 	<property name="EconomicValue" value="14"/>
 	<property name="TraderStageTemplate" value="ammoTier3"/><!-- ammo9mmBulletAP -->
@@ -11183,7 +11185,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 
 <item name="ammo44MagnumBulletBall">
 	<property name="Extends" value="ammo9mmBulletBall"/>
-	<property name="Tags" value="T2,ammo44Mag,scrap100"/>
+	<property name="Tags" value="T2,ammo,ammo44Mag,scrap100"/>
 	<property name="EconomicValue" value="10"/>
 	<property name="TraderStageTemplate" value="ammoTier1"/><!-- ammo44MagnumBulletBall -->
 	<property name="SoundPickup" value="bullets_grab"/>
@@ -11226,7 +11228,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 
 <item name="ammo44MagnumBulletHP">
 	<property name="Extends" value="ammo44MagnumBulletBall"/>
-	<property name="Tags" value="T2,ammo44Mag,scrap100"/>
+	<property name="Tags" value="T2,ammo,ammo44Mag,scrap100"/>
 	<property name="DisplayType" value="ammoBulletHP"/>
 	<property name="EconomicValue" value="15"/>
 	<property name="TraderStageTemplate" value="ammoTier2"/><!-- ammo44MagnumBulletHP -->
@@ -11271,7 +11273,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 
 <item name="ammo44MagnumBulletAP">
 	<property name="Extends" value="ammo44MagnumBulletBall"/>
-	<property name="Tags" value="T2,ammo44Mag,scrap100"/>
+	<property name="Tags" value="T2,ammo,ammo44Mag,scrap100"/>
 	<property name="DisplayType" value="ammoBulletAP"/>
 	<property name="EconomicValue" value="15"/>
 	<property name="TraderStageTemplate" value="ammoTier3"/><!-- ammo44MagnumBulletAP -->
@@ -11332,7 +11334,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 
 <item name="ammo762mmBulletBall">
 	<property name="Extends" value="ammo9mmBulletBall"/>
-	<property name="Tags" value="ammo762mm,scrap100"/>
+	<property name="Tags" value="ammo,ammo762mm,scrap100"/>
 	<property name="Stacknumber" value="150"/> <!-- STK ammo low -->
 	<property name="EconomicValue" value="11"/>
 	<property name="TraderStageTemplate" value="ammoTier1"/><!-- ammo762mmBulletBall -->
@@ -11350,7 +11352,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 
 <item name="ammo762mmBulletHP">
 	<property name="Extends" value="ammo762mmBulletBall"/>
-	<property name="Tags" value="ammo762mm,scrap100"/>
+	<property name="Tags" value="ammo,ammo762mm,scrap100"/>
 	<property name="DisplayType" value="ammoBulletHP"/>
 	<property name="EconomicValue" value="16"/>
 	<property name="TraderStageTemplate" value="ammoTier2"/><!-- ammo762mmBulletHP -->
@@ -11373,7 +11375,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 
 <item name="ammo762mmBulletAP">
 	<property name="Extends" value="ammo762mmBulletBall"/>
-	<property name="Tags" value="ammo762mm,scrap100"/>
+	<property name="Tags" value="ammo,ammo762mm,scrap100"/>
 	<property name="DisplayType" value="ammoBulletAP"/>
 	<property name="EconomicValue" value="16"/>
 	<property name="TraderStageTemplate" value="ammoTier3"/><!-- ammo762mmBulletAP -->
@@ -11434,7 +11436,6 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 		<passive_effect name="RoundRayCount" operation="base_set" value="10" />
 		<passive_effect name="MaxRange" operation="base_set" value="10" />
 		<passive_effect name="DamageFalloffRange" operation="base_set" value="4" />
-		<passive_effect name="EntityPenetrationCount" operation="base_set" value="2" />
 		<passive_effect name="BlockPenetrationFactor" operation="base_set" value="51" />
 		<passive_effect name="SpreadDegreesVertical" operation="base_set" value="4.5" />
 		<passive_effect name="SpreadDegreesHorizontal" operation="base_set" value="4.5" />
@@ -22179,6 +22180,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="DescriptionKey" value="schematicNoQualityGroupDesc"/>
 	<property name="CreativeMode" value="None"/>
 	<property name="CustomIcon" value="schematicMaster"/>
+	<property name="Tags" value="books"/>
 </item>
 
 <!-- *** Mod_Schematics -->
@@ -22959,6 +22961,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="DescriptionKey" value="schematicNoQualityRecipeGroupDesc"/>
 	<property name="CreativeMode" value="None"/>
 	<property name="CustomIcon" value="schematicMaster"/>
+	<property name="Tags" value="books"/>
 	<property class="Action0">
 		<property name="Sound_start" value="read_recipe"/>
 	</property>
@@ -24534,7 +24537,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	</effect_group>
 	
 	<effect_group>
-		<requirement name="!HoldingItemHasTags" tags="toolCookingPot"/>
+		<requirement name="!HoldingItemHasTags" tags="toolCookingGrill"/>
 			<!-- Perk Master Chef Level 0 increases CraftingTime by 400%. This will adjust the cooking pot accordingly. -->
 			<passive_effect name="CraftingTime" operation="perc_add" value="-1.5,-2,-2.5,-3,-3.5,-4" tier="1,2,3,4,5,6" tags="grill">
 				<requirement name="ProgressionLevel" progression_name="perkMasterChef" operation="EQ" value="0"/>
@@ -24932,7 +24935,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="Stacknumber" value="20"/>
 	<property name="EconomicValue" value="500"/>
 	<property name="Unlocks" value="perkFiremansAlmanacHeat"/>
-	<property name="Tags" value="firemansProb"/>
+	<property name="Tags" value="books,firemansProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<property name="SoundPickup" value="book_grab"/>
 	<property name="SoundPlace" value="book_place"/>
@@ -25068,7 +25071,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="CustomIcon" value="bookNightStalkerStealthDamage"/>
 	<property name="DescriptionKey" value="perkNightStalkerStealthDamageLongDesc"/>
 	<property name="Unlocks" value="perkNightStalkerStealthDamage"/>
-	<property name="Tags" value="nightStalkerProb"/>
+	<property name="Tags" value="books,nightStalkerProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<effect_group tiered="false">
 		<requirement name="ProgressionLevel" progression_name="perkNightStalkerStealthDamage" operation="Equals" value="0"/>
@@ -25197,7 +25200,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="CustomIcon" value="bookLuckyLooterDukes"/>
 	<property name="DescriptionKey" value="perkLuckyLooterDukesLongDesc"/>
 	<property name="Unlocks" value="perkLuckyLooterDukes"/>
-	<property name="Tags" value="luckyProb"/>
+	<property name="Tags" value="books,luckyProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<effect_group tiered="false">
 		<requirement name="ProgressionLevel" progression_name="perkLuckyLooterDukes" operation="Equals" value="0"/>
@@ -25326,7 +25329,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="CustomIcon" value="bookEnforcerDamage"/>
 	<property name="DescriptionKey" value="perkEnforcerDamageLongDesc"/>
 	<property name="Unlocks" value="perkEnforcerDamage"/>
-	<property name="Tags" value="enforcerProb"/>
+	<property name="Tags" value="books,enforcerProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<effect_group tiered="false">
 		<requirement name="ProgressionLevel" progression_name="perkEnforcerDamage" operation="Equals" value="0"/>
@@ -25455,7 +25458,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="DescriptionKey" value="perkBatterUpBigHitsLongDesc"/>
 	<property name="CustomIcon" value="bookBatterUpBigHits"/>
 	<property name="Unlocks" value="perkBatterUpBigHits"/>
-	<property name="Tags" value="batterUpProb"/>
+	<property name="Tags" value="books,batterUpProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<effect_group tiered="false">
 		<requirement name="ProgressionLevel" progression_name="perkBatterUpBigHits" operation="Equals" value="0"/>
@@ -25584,7 +25587,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="DescriptionKey" value="perkSledgeSagaKnockdownLongDesc"/>
 	<property name="CustomIcon" value="bookSledgeSagaKnockdown"/>
 	<property name="Unlocks" value="perkSledgeSagaKnockdown"/>
-	<property name="Tags" value="sledgeSagaProb"/>
+	<property name="Tags" value="books,sledgeSagaProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<effect_group tiered="false">
 		<requirement name="ProgressionLevel" progression_name="perkSledgeSagaKnockdown" operation="Equals" value="0"/>
@@ -25713,7 +25716,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="CustomIcon" value="bookTheGreatHeistSafes"/>
 	<property name="DescriptionKey" value="perkGreatHeistSafesLongDesc"/>
 	<property name="Unlocks" value="perkGreatHeistSafes"/>
-	<property name="Tags" value="greatHeistProb"/>
+	<property name="Tags" value="books,greatHeistProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<effect_group tiered="false">
 		<requirement name="ProgressionLevel" progression_name="perkGreatHeistSafes" operation="Equals" value="0"/>
@@ -25842,7 +25845,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="DescriptionKey" value="perkWasteTreasuresHoneyLongDesc"/>
 	<property name="CustomIcon" value="bookWasteTreasuresHoney"/>
 	<property name="Unlocks" value="perkWasteTreasuresHoney"/>
-	<property name="Tags" value="wastelandProb"/>
+	<property name="Tags" value="books,wastelandProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<effect_group tiered="false">
 		<requirement name="ProgressionLevel" progression_name="perkWasteTreasuresHoney" operation="Equals" value="0"/>
@@ -25971,7 +25974,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="CustomIcon" value="bookHuntingJournalBears"/>
 	<property name="DescriptionKey" value="perkHuntingJournalBearsLongDesc"/>
 	<property name="Unlocks" value="perkHuntingJournalBears"/>
-	<property name="Tags" value="huntingProb"/>
+	<property name="Tags" value="books,huntingProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<effect_group tiered="false">
 		<requirement name="ProgressionLevel" progression_name="perkHuntingJournalBears" operation="Equals" value="0"/>
@@ -26100,7 +26103,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="CustomIcon" value="bookArtOfMiningLuckyStrike"/>
 	<property name="DescriptionKey" value="perkArtOfMiningLuckyStrikeLongDesc"/>
 	<property name="Unlocks" value="perkArtOfMiningLuckyStrike"/>
-	<property name="Tags" value="artOfMiningProb"/>
+	<property name="Tags" value="books,artOfMiningProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<effect_group tiered="false">
 		<requirement name="ProgressionLevel" progression_name="perkArtOfMiningLuckyStrike" operation="Equals" value="0"/>
@@ -26229,7 +26232,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="CustomIcon" value="bookRangersArrowRecovery"/>
 	<property name="DescriptionKey" value="perkRangersArrowRecoveryLongDesc"/>
 	<property name="Unlocks" value="perkRangersArrowRecovery"/>
-	<property name="Tags" value="rangersProb"/>
+	<property name="Tags" value="books,rangersProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<effect_group tiered="false">
 		<requirement name="ProgressionLevel" progression_name="perkRangersArrowRecovery" operation="Equals" value="0"/>
@@ -26358,7 +26361,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="CustomIcon" value="bookPistolPeteTakeAim"/>
 	<property name="DescriptionKey" value="perkPistolPeteTakeAimLongDesc"/>
 	<property name="Unlocks" value="perkPistolPeteTakeAim"/>
-	<property name="Tags" value="pistolPeteProb"/>
+	<property name="Tags" value="books,pistolPeteProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<effect_group tiered="false">
 		<requirement name="ProgressionLevel" progression_name="perkPistolPeteTakeAim" operation="Equals" value="0"/>
@@ -26487,7 +26490,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="CustomIcon" value="bookShotgunMessiahDamage"/>
 	<property name="DescriptionKey" value="perkShotgunMessiahDamageLongDesc"/>
 	<property name="Unlocks" value="perkShotgunMessiahDamage"/>
-	<property name="Tags" value="shotgunMessiahProb"/>
+	<property name="Tags" value="books,shotgunMessiahProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<effect_group tiered="false">
 		<requirement name="ProgressionLevel" progression_name="perkShotgunMessiahDamage" operation="Equals" value="0"/>
@@ -26616,7 +26619,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="DescriptionKey" value="perkSniperDamageLongDesc"/>
 	<property name="CustomIcon" value="bookSniperDamage"/>
 	<property name="Unlocks" value="perkSniperDamage"/>
-	<property name="Tags" value="sniperProb"/>
+	<property name="Tags" value="books,sniperProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<effect_group tiered="false">
 		<requirement name="ProgressionLevel" progression_name="perkSniperDamage" operation="Equals" value="0"/>
@@ -26745,7 +26748,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="CustomIcon" value="bookAutoWeaponsDamage"/>
 	<property name="DescriptionKey" value="perkAutoWeaponsDamageLongDesc"/>
 	<property name="Unlocks" value="perkAutoWeaponsDamage"/>
-	<property name="Tags" value="autoWeaponsProb"/>
+	<property name="Tags" value="books,autoWeaponsProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<effect_group tiered="false">
 		<requirement name="ProgressionLevel" progression_name="perkAutoWeaponsDamage" operation="Equals" value="0"/>
@@ -26874,7 +26877,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="CustomIcon" value="bookUrbanCombatLanding"/>
 	<property name="DescriptionKey" value="perkUrbanCombatLandingLongDesc"/>
 	<property name="Unlocks" value="perkUrbanCombatLanding"/>
-	<property name="Tags" value="urbanProb"/>
+	<property name="Tags" value="books,urbanProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<effect_group tiered="false">
 		<requirement name="ProgressionLevel" progression_name="perkUrbanCombatLanding" operation="Equals" value="0"/>
@@ -27003,7 +27006,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="CustomIcon" value="bookTechJunkie1Damage"/>
 	<property name="DescriptionKey" value="perkTechJunkie1DamageLongDesc"/>
 	<property name="Unlocks" value="perkTechJunkie1Damage"/>
-	<property name="Tags" value="techJunkieProb"/>
+	<property name="Tags" value="books,techJunkieProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<effect_group tiered="false">
 		<requirement name="ProgressionLevel" progression_name="perkTechJunkie1Damage" operation="Equals" value="0"/>
@@ -27132,7 +27135,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="CustomIcon" value="bookBarBrawling1BasicMoves"/>
 	<property name="DescriptionKey" value="perkBarBrawling1BasicMovesLongDesc"/>
 	<property name="Unlocks" value="perkBarBrawling1BasicMoves"/>
-	<property name="Tags" value="barBrawlingProb"/>
+	<property name="Tags" value="books,barBrawlingProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<effect_group tiered="false">
 		<requirement name="ProgressionLevel" progression_name="perkBarBrawling1BasicMoves" operation="Equals" value="0"/>
@@ -27261,7 +27264,7 @@ The example below represents the statement: [sampleVar0 == 0] OR [sampleVar1 == 
 	<property name="CustomIcon" value="bookSpearHunter1Damage"/>
 	<property name="DescriptionKey" value="perkSpearHunter1DamageLongDesc"/>
 	<property name="Unlocks" value="perkSpearHunter1Damage"/>
-	<property name="Tags" value="spearHunterProb"/>
+	<property name="Tags" value="books,spearHunterProb"/>
 	<property name="Group" value="Books,BooksOnly,TCReading"/>
 	<effect_group tiered="false">
 		<requirement name="ProgressionLevel" progression_name="perkSpearHunter1Damage" operation="Equals" value="0"/>

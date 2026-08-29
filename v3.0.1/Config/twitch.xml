@@ -1056,17 +1056,6 @@
 		<property name="cooldown" value="900" />
 	</action>
 
-	<action name="twitch_spawnMystery1" extends="twitch_spawnWeapon1">
-		<property name="command" value="#supply_mystery" />
-		<!-- <property name="command_key" value="TwitchAction_SupplyBooksCommand" /> -->
-		<property name="title_key" value="Mystery Box" />
-		<property name="description_key" value="TwitchAction_SupplyBooks1Desc" />
-		<property name="start_gamestage" value="12" />
-		<property name="event_name" value="spawn_mysterybox1" />
-		<property name="default_cost" value="200" />
-		<property name="cooldown" value="600" />
-	</action>
-
 	<action name="twitch_spawnBicycle" extends="twitch_spawnWeapon1">
 		<property name="command" value="#supply_bicycle" />
 		<property name="command_key" value="TwitchAction_SupplyBicycleCommand" />

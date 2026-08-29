@@ -2269,6 +2269,7 @@
 
 		<effect_group>
 		<requirement name="ItemHasTags" tags="melee"/>
+		<requirement name="!HasBuff" buff="buffStatusHungry03,buffStatusThirsty03"/>
 			<triggered_effect trigger="onSelfKilledOther" action="ModifyStats" stat="Health" operation="add" value="2">
 				<requirement name="ProgressionLevel" progression_name="perkSiphoningStrikes" operation="EQ" value="1"/>
 			</triggered_effect>
@@ -4762,6 +4763,7 @@
 			<requirement name="EntityTagCompare" target="other" tags="zombie,animal,bandit"/>
 			<requirement name="IsAlive" target="other"/>
 			<requirement name="!IsAttachedToEntity"/>
+			<requirement name="!HasBuff" buff="buffStatusHungry03,buffStatusThirsty03"/>
 				<triggered_effect trigger="onSelfAttackedOther" action="ModifyStats" stat="Health" operation="add" value="1"/>
 		</effect_group>
 	</book>

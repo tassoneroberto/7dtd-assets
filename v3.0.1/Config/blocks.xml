@@ -1441,7 +1441,7 @@ MC_playerBlocks   SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Fall" name="resourceYuccaFibers" count="0" prob="1" stick_chance="0" />
 	<property name="SortOrder1" value="M190" />
 	<property name="SortOrder2" value="0000" />
-	<property name="Tags" value="challenge_farming" />
+	<property name="Tags" value="crops,challenge_farming" />
 	<property name="FilterTags" value="MC_outdoor,SC_crops" />
 </block>
 
@@ -77651,6 +77651,7 @@ MC_playerBlocks   SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Fall" name="resourceYuccaFibers" count="0" prob="1" stick_chance="0" />
 	<property name="SortOrder1" value="B951" />
 	<property name="SortOrder2" value="0004" />
+	<property name="Tags" value="crops" />
 	<property name="FilterTags" value="MC_outdoor,SC_crops" />
 </block>
 
@@ -77666,6 +77667,7 @@ MC_playerBlocks   SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Destroy" name="plantedMushroom1" count="1" prob="0.5" />
 	<!-- <property name="DowngradeBlock" value="plantedMushroom1"/> -->
 	<property name="SortOrder2" value="0005" />
+	<property name="Tags" value="crops" />
 </block>
 
 	<!-- *** BIOME_MUSHROOMS -->
@@ -77786,6 +77788,7 @@ MC_playerBlocks   SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Destroy" count="0" />
 	<property name="DowngradeBlock" value="mushroomRadiated01" />
 	<property name="SortOrder2" value="0202" />
+	<property name="Tags" value="crops" />
 </block>
 
 <block name="mushroomRadiated03">
@@ -77826,6 +77829,7 @@ MC_playerBlocks   SC_electrical,SC_traps,SC_decor,SC_playerHelpers
 	<drop event="Destroy" count="0" />
 	<property name="DowngradeBlock" value="mushroomRadiated03" />
 	<property name="SortOrder2" value="0204" />
+	<property name="Tags" value="crops" />
 </block>
 
 	<!-- *** SEEDS_YUCCA -->

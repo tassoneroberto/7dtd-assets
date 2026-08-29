@@ -623,8 +623,12 @@
 			<passive_effect name="StaminaMax" operation="base_add" value="@$PlayerLevelBonus">
 				<requirement name="SandboxOptionBool" option="PlayerLevelBonusApplied"/>
 			</passive_effect>
-			<passive_effect name="WaterMax" operation="base_add" value="@$PlayerLevelBonus"/>
-			<passive_effect name="FoodMax" operation="base_add" value="@$PlayerLevelBonus"/>
+			<passive_effect name="WaterMax" operation="base_add" value="@$PlayerLevelBonus">
+				<requirement name="SandboxOptionBool" option="PlayerLevelBonusApplied"/>
+			</passive_effect>
+			<passive_effect name="FoodMax" operation="base_add" value="@$PlayerLevelBonus">
+				<requirement name="SandboxOptionBool" option="PlayerLevelBonusApplied"/>
+			</passive_effect>
 		</effect_group>
 
 		<!--
@@ -1442,6 +1446,9 @@
 
 		<effect_group>
 			<triggered_effect trigger="onSelfBuffStart" action="PinToolbeltMessage" message_key="buffDukeNoteToolTip"/>
+			<triggered_effect trigger="onSelfBuffUpdate" action="RemoveBuff" buff="buffDukeNote">
+				<requirement name="IsDayNumber" operation="GTE" value="2"/>
+			</triggered_effect>
 			<triggered_effect trigger="onSelfBuffRemove" action="RemoveToolbeltMessage" message_key="buffDukeNoteToolTip"/>
 			<triggered_effect trigger="onSelfBuffRemove" action="RemoveCVar" cvar=".dukeNoteRead"/>
 		</effect_group>
@@ -3280,7 +3287,6 @@
 		
 		<effect_group>
 			<triggered_effect trigger="onSelfBuffStart" action="PlaySound" sound="buff_dentist" play_in_head="true"/>
-			<triggered_effect trigger="onSelfBuffStart" action="LogMessage" message="Bookworm Hit!"/>
 		</effect_group>
 	</buff>
 
@@ -14850,6 +14856,7 @@
 
 		<effect_group>
 			<triggered_effect trigger="onSelfBuffStart" action="SetBigHead" enabled="true"/>
+			<triggered_effect trigger="onSelfBuffStack" action="SetBigHead" enabled="true"/>
 			<triggered_effect trigger="onSelfBuffRemove" action="SetBigHead" enabled="false"/>
 		</effect_group>
 
@@ -14866,6 +14873,7 @@
 
 		<effect_group>
 			<triggered_effect trigger="onSelfBuffStart" action="SetDancing" enabled="true"/>
+			<triggered_effect trigger="onSelfBuffStack" action="SetDancing" enabled="true"/>
 			<triggered_effect trigger="onSelfBuffRemove" action="SetDancing" enabled="false"/>
 			<triggered_effect trigger="onSelfBuffRemove" action="Rage" enabled="true"/>
 			<triggered_effect trigger="onOtherDamagedSelf" action="RemoveBuff" buff="twitch_dance"/>
@@ -14882,6 +14890,9 @@
 			<triggered_effect trigger="onSelfBuffStart" action="SetScale" scale=".65"/>
 			<triggered_effect trigger="onSelfBuffStart" action="SetHeadSize" size="3"/>
 			<triggered_effect trigger="onSelfBuffStart" action="SetPitch" scale=".5"/>
+			<triggered_effect trigger="onSelfBuffStack" action="SetScale" scale=".65"/>
+			<triggered_effect trigger="onSelfBuffStack" action="SetHeadSize" size="3"/>
+			<triggered_effect trigger="onSelfBuffStack" action="SetPitch" scale=".5"/>
 			<triggered_effect trigger="onSelfBuffStart" action="Rage" enabled="true"/>
 			
 			<triggered_effect trigger="onSelfBuffStart" action="AttachParticleEffectToEntity" particle="p_twitch_smokePuff"/>
@@ -14935,6 +14946,7 @@
 
 		<effect_group>
 			<triggered_effect trigger="onSelfBuffStart" action="SetScale" scale="1.25"/>
+			<triggered_effect trigger="onSelfBuffStack" action="SetScale" scale="1.25"/>
 			<passive_effect name="ExplosionIncomingDamage" operation="perc_add" value="-0.75"/>
 		</effect_group>
 	</buff>
@@ -15891,6 +15903,7 @@
 
 		<effect_group>
 			<triggered_effect trigger="onSelfBuffStart" action="SetBigHead" enabled="true" instant="true"/>
+			<triggered_effect trigger="onSelfBuffStack" action="SetBigHead" enabled="true" instant="true"/>
 			<triggered_effect trigger="onSelfBuffRemove" action="SetBigHead" enabled="false" />
 		</effect_group>
 	</buff>
@@ -15903,7 +15916,9 @@
 			<triggered_effect trigger="onSelfBuffStart" action="SetScale" scale=".65"/>
 			<triggered_effect trigger="onSelfBuffStart" action="SetHeadSize" size="3"/>
 			<triggered_effect trigger="onSelfBuffStart" action="SetPitch" scale=".5"/>
-			
+			<triggered_effect trigger="onSelfBuffStack" action="SetScale" scale=".65"/>
+			<triggered_effect trigger="onSelfBuffStack" action="SetHeadSize" size="3"/>
+			<triggered_effect trigger="onSelfBuffStack" action="SetPitch" scale=".5"/>
 			<passive_effect name="RunSpeed" operation="perc_add" value=".75"/>
 			<passive_effect name="WalkSpeed" operation="perc_add" value=".75"/>
 		</effect_group>

@@ -36,6 +36,11 @@
 					<property name="operation" value="NEQ" />
 					<property name="option" value="NewbieCoat" />
 				</requirement>
+				<requirement class="SandboxFloat">
+					<property name="operation" value="NEQ" />
+					<property name="value" value="0" />
+					<property name="option" value="XPMultiplier" />
+				</requirement>
 			</action>
 
 		<!-- <action class="BeltTooltip"> -->

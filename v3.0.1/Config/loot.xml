@@ -21,7 +21,7 @@
 <!-- Helps loot groups to prevent them from rolling the same exact item x% times. -->
 <!-- <lootgroup name="skillMagazines" abundance_type="Magazines"> -->
 <!-- Hardcoded types are the following: -->
-<!-- Food, Drinks, Ammo, Meds, Resources, Armor, Melee, Ranged, Dukes, Magazines -->
+<!-- Food, Drinks, Ammo, Meds, Resources, Armor, Melee, Ranged, Dukes, Magazines, Books -->
 
 <lootcontainers>
 
@@ -37,6 +37,9 @@
 	</lootprobtemplate>
 	<lootprobtemplate name="veryLow">
 		<loot level="1,999999" prob=".05"/>
+	</lootprobtemplate>
+	<lootprobtemplate name="lower">
+		<loot level="1,999999" prob=".10"/>
 	</lootprobtemplate>
 	<lootprobtemplate name="low">
 		<loot level="1,999999" prob=".20"/>
@@ -2279,7 +2282,7 @@
 </lootgroup>
 
 <!-- *** Perk_Books -->
-<lootgroup name="perkBooks" abundance_type="Magazines">
+<lootgroup name="perkBooks" abundance_type="Books">
 	<item name="bookRangersArrowRecovery"/>
 	<item name="bookRangersCripplingShot"/>
 	<item name="bookRangersKnockdown"/>
@@ -2434,7 +2437,7 @@
 </lootgroup>
 
 <!-- *** PERK_BOOK_GROUPS -->
-<lootgroup name="groupArtOfMiningBooks" abundance_type="Magazines">
+<lootgroup name="groupArtOfMiningBooks" abundance_type="Books">
 	<item name="bookRangersArrowRecovery"/>
 	<item name="bookRangersCripplingShot"/>
 	<item name="bookRangersKnockdown"/>
@@ -2444,7 +2447,7 @@
 	<item name="bookRangersForestGuide"/>
 </lootgroup>
 
-<lootgroup name="groupSpearHunterBooks" abundance_type="Magazines">
+<lootgroup name="groupSpearHunterBooks" abundance_type="Books">
 	<item name="bookSpearHunter1Damage"/>
 	<item name="bookSpearHunter2Maintenance"/>
 	<item name="bookSpearHunter3Bleed"/>
@@ -2454,7 +2457,7 @@
 	<item name="bookSpearHunter7QuickStrike"/>
 </lootgroup>
 
-<lootgroup name="groupHuntingJournalBooks" abundance_type="Magazines">
+<lootgroup name="groupHuntingJournalBooks" abundance_type="Books">
 	<item name="bookHuntingJournalBears"/>
 	<item name="bookHuntingJournalCoyotes"/>
 	<item name="bookHuntingJournalDeer"/>
@@ -2464,7 +2467,7 @@
 	<item name="bookHuntingJournalSelfDefense"/>
 </lootgroup>
 
-<lootgroup name="groupBatterUpBooks" abundance_type="Magazines">
+<lootgroup name="groupBatterUpBooks" abundance_type="Books">
 	<item name="bookBatterUpFoulBalls"/>
 	<item name="bookBatterUpBigHits"/>
 	<item name="bookBatterUpStealingBases"/>
@@ -2474,7 +2477,7 @@
 	<item name="bookBatterUpMetalChain"/>
 </lootgroup>
 
-<lootgroup name="groupSledgeSagaBooks" abundance_type="Magazines">
+<lootgroup name="groupSledgeSagaBooks" abundance_type="Books">
 	<item name="bookSledgeSagaKnockdown"/>
 	<item name="bookSledgeSagaDegradation"/>
 	<item name="bookSledgeSagaCrippledMorale"/>
@@ -2484,7 +2487,7 @@
 	<item name="bookSledgeSagaArmorCrusher"/>
 </lootgroup>
 
-<lootgroup name="groupBarBrawlingBooks" abundance_type="Magazines">
+<lootgroup name="groupBarBrawlingBooks" abundance_type="Books">
 	<item name="bookBarBrawling1BasicMoves"/>
 	<item name="bookBarBrawling2DropABomb"/>
 	<item name="bookBarBrawling3KillerInstinct"/>
@@ -2494,7 +2497,7 @@
 	<item name="bookBarBrawling7BoozedUp"/>
 </lootgroup>
 
-<lootgroup name="groupWasteTreasuresBooks" abundance_type="Magazines">
+<lootgroup name="groupWasteTreasuresBooks" abundance_type="Books">
 	<item name="bookWasteTreasuresHoney"/>
 	<item name="bookWasteTreasuresCoffins"/>
 	<item name="bookWasteTreasuresAcid"/>
@@ -2504,7 +2507,7 @@
 	<item name="bookWasteTreasuresSinks"/>
 </lootgroup>
 
-<lootgroup name="groupUrbanCombatBooks" abundance_type="Magazines">
+<lootgroup name="groupUrbanCombatBooks" abundance_type="Books">
 	<item name="bookUrbanCombatAdrenalineRush"/>
 	<item name="bookUrbanCombatCigar"/>
 	<item name="bookUrbanCombatRoomClearing"/>
@@ -2514,7 +2517,7 @@
 	<item name="bookUrbanCombatSneaking"/>
 </lootgroup>
 
-<lootgroup name="groupNightStalkerBooks" abundance_type="Magazines">
+<lootgroup name="groupNightStalkerBooks" abundance_type="Books">
 	<item name="bookNightStalkerArchery"/>
 	<item name="bookNightStalkerBlades"/>
 	<item name="bookNightStalkerSilentNight"/>
@@ -2524,7 +2527,7 @@
 	<item name="bookNightStalkerTwilightThief"/>
 </lootgroup>
 
-<lootgroup name="groupFiremansAlmanacBooks" abundance_type="Magazines">
+<lootgroup name="groupFiremansAlmanacBooks" abundance_type="Books">
 	<item name="bookFiremansAlmanacSpeed"/>
 	<item name="bookFiremansAlmanacAxes"/>
 	<item name="bookFiremansAlmanacEquipment"/>
@@ -2534,7 +2537,7 @@
 	<item name="bookFiremansAlmanacMolotov"/>
 </lootgroup>
 
-<lootgroup name="groupPistolBooks" abundance_type="Magazines">
+<lootgroup name="groupPistolBooks" abundance_type="Books">
 	<item name="bookPistolPeteAPAmmo"/>
 	<item name="bookPistolPeteDamage"/>
 	<item name="bookPistolPeteHPAmmo"/>
@@ -2544,7 +2547,7 @@
 	<item name="bookPistolPeteTakeAim"/>
 </lootgroup>
 
-<lootgroup name="groupLuckyLooterBooks" abundance_type="Magazines">
+<lootgroup name="groupLuckyLooterBooks" abundance_type="Books">
 	<item name="bookLuckyLooterAmmunition"/>
 	<item name="bookLuckyLooterBooks"/>
 	<item name="bookLuckyLooterBrass"/>
@@ -2554,7 +2557,7 @@
 	<item name="bookLuckyLooterMedical"/>
 </lootgroup>
 
-<lootgroup name="groupEnforcerBooks" abundance_type="Magazines">
+<lootgroup name="groupEnforcerBooks" abundance_type="Books">
 	<item name="bookEnforcerAPAmmo"/>
 	<item name="bookEnforcerApparel"/>
 	<item name="bookEnforcerCriminalPursuit"/>
@@ -2564,7 +2567,7 @@
 	<item name="bookEnforcerPunks"/>
 </lootgroup>
 
-<lootgroup name="groupShotgunMessiahBooks" abundance_type="Magazines">
+<lootgroup name="groupShotgunMessiahBooks" abundance_type="Books">
 	<item name="bookShotgunMessiahBreachingSlugs"/>
 	<item name="bookShotgunMessiahDamage"/>
 	<item name="bookShotgunMessiahLimbShot"/>
@@ -2574,7 +2577,7 @@
 	<item name="bookShotgunMessiahSlugs"/>
 </lootgroup>
 
-<lootgroup name="groupGreatHeistBooks" abundance_type="Magazines">
+<lootgroup name="groupGreatHeistBooks" abundance_type="Books">
 	<item name="bookGreatHeistAdrenalineFall"/>
 	<item name="bookGreatHeistGoldRush"/>
 	<item name="bookGreatHeistClaimed"/>
@@ -2584,7 +2587,7 @@
 	<item name="bookGreatHeistSprintSneak"/>
 </lootgroup>
 
-<lootgroup name="groupSniperBooks" abundance_type="Magazines">
+<lootgroup name="groupSniperBooks" abundance_type="Books">
 	<item name="bookSniperAPAmmo"/>
 	<item name="bookSniperControlledBreathing"/>
 	<item name="bookSniperCripplingShot"/>
@@ -2594,7 +2597,7 @@
 	<item name="bookSniperHPAmmo"/>
 </lootgroup>
 
-<lootgroup name="groupAutoWeaponsBooks" abundance_type="Magazines">
+<lootgroup name="groupAutoWeaponsBooks" abundance_type="Books">
 	<item name="bookAutoWeaponsDamage"/>
 	<item name="bookAutoWeaponsRagdoll"/>
 	<item name="bookAutoWeaponsMaintenance"/>
@@ -2604,7 +2607,7 @@
 	<item name="bookAutoWeaponsMachineGuns"/>
 </lootgroup>
 
-<lootgroup name="groupTechJunkieBooks" abundance_type="Magazines">
+<lootgroup name="groupTechJunkieBooks" abundance_type="Books">
 	<item name="bookTechJunkie1Damage"/>
 	<item name="bookTechJunkie2Maintenance"/>
 	<item name="bookTechJunkie3APAmmo"/>
@@ -2731,7 +2734,7 @@
 	<item name="roboticsSkillMagazine"/>
 </lootgroup>
 
-<lootgroup name="groupMilitaryBooks" abundance_type="Magazines">
+<lootgroup name="groupMilitaryBooks" abundance_type="Books">
 	<item name="bookSniperAPAmmo"/>
 	<item name="bookSniperControlledBreathing"/>
 	<item name="bookSniperCripplingShot"/>
@@ -2847,13 +2850,13 @@
 </lootgroup>
 
 <!-- *** Schematics_Scaled -->
-<lootgroup name="schematicsModsAndGeneralCommon" abundance_type="Magazines">
+<lootgroup name="schematicsModsAndGeneralCommon" abundance_type="Books">
 	<item group="schematicsModsAndGeneralT0"/>
 	<item group="schematicsModsAndGeneralT1" loot_prob_template="ProbT1Cap"/>
 	<item group="schematicsModsAndGeneralT2" loot_prob_template="ProbT2Cap"/>
 </lootgroup>
 
-<lootgroup name="schematicsModsAndGeneralRare" abundance_type="Magazines">
+<lootgroup name="schematicsModsAndGeneralRare" abundance_type="Books">
 	<item group="schematicsModsAndGeneralT1"/>
 	<item group="schematicsModsAndGeneralT2" loot_prob_template="ProbT2Cap"/>
 </lootgroup>
@@ -2879,7 +2882,7 @@
 </lootgroup>
 
 <!-- *** Vehicle_Mod_Schematics_Scaled -->
-<lootgroup name="vehicleModSchematics" abundance_type="Magazines">
+<lootgroup name="vehicleModSchematics" abundance_type="Books">
 	<item group="vehicleModSchematics01"/>
 	<item group="vehicleModSchematics02" loot_prob_template="ProbT1Cap"/>
 	<item group="vehicleModSchematics03" loot_prob_template="ProbT2Cap"/>
@@ -2888,29 +2891,26 @@
 <!-- *** T0_Vehicle_Schematics -->
 <lootgroup name="schematicsVehiclesT0">
 	<item group="vehicleModSchematics01"/>
-	<item name="vehiclesSkillMagazine"/>
 </lootgroup>
 
 <!-- *** T1_Vehicle_Schematics -->
 <lootgroup name="schematicsVehiclesT1">
 	<item group="vehicleModSchematics02"/>
-	<item name="vehiclesSkillMagazine"/>
 </lootgroup>
 
 <!-- *** T2_Vehicle_Schematics -->
 <lootgroup name="schematicsVehiclesT2">
 	<item group="vehicleModSchematics03"/>
-	<item name="vehiclesSkillMagazine"/>
 </lootgroup>
 
 <!-- *** Vehicle_Schematics_Scaled -->
-<lootgroup name="schematicsVehiclesCommon" abundance_type="Magazines">
+<lootgroup name="schematicsVehiclesCommon" abundance_type="Books">
 	<item group="schematicsVehiclesT0"/>
 	<item group="schematicsVehiclesT1" loot_prob_template="ProbT1Cap"/>
 	<item group="schematicsVehiclesT2" loot_prob_template="ProbT2Cap"/>
 </lootgroup>
 
-<lootgroup name="schematicsVehiclesRare" abundance_type="Magazines">
+<lootgroup name="schematicsVehiclesRare" abundance_type="Books">
 	<item group="schematicsVehiclesT1"/>
 	<item group="schematicsVehiclesT2" loot_prob_template="ProbT2Cap"/>
 </lootgroup>
@@ -2926,24 +2926,20 @@
 </lootgroup>
 
 <!-- *** Books_Schematics_Scaled -->
-<lootgroup name="booksAllScaled" abundance_type="Magazines">
+<lootgroup name="booksAllScaled">
 	<item group="perkBooks" loot_prob_template="high"/>
 	<item group="schematicsModsAndGeneralCommon" loot_prob_template="medHigh"/>
 	<item group="schematicsVehiclesCommon" loot_prob_template="low"/>
-	<item group="skillMagazines" loot_prob_template="med"/>
 </lootgroup>
 
-<lootgroup name="booksRareOnlyScaled" abundance_type="Magazines">
+<lootgroup name="booksRareOnlyScaled">
 	<item group="schematicsModsAndGeneralRare" loot_prob_template="med"/>
 	<item group="schematicsVehiclesRare" loot_prob_template="low"/>
-	<item name="plantedGraceCorn1Schematic" loot_prob_template="veryLow"/>
-	<item group="skillMagazines" loot_prob_template="medHigh"/>
 </lootgroup>
 
-<lootgroup name="groupSchematicsAll" abundance_type="Magazines">
+<lootgroup name="groupSchematicsAll">
 	<item group="schematicsModsAndGeneralCommon" loot_prob_template="med"/>
 	<item group="schematicsVehiclesCommon" loot_prob_template="veryLow"/>
-	<item group="skillMagazines" loot_prob_template="medHigh"/>
 </lootgroup>
 
 <!-- *** Electrical_Devices -->
@@ -3213,13 +3209,7 @@
 </lootgroup>
 
 <!-- *** Working_Stiffs -->
-<lootgroup name="groupWorkingStiffsBooks" abundance_type="Magazines">
-
-	<item name="harvestingToolsSkillMagazine"/>
-	<item name="repairToolsSkillMagazine"/>
-	<item name="salvageToolsSkillMagazine"/>
-	<item name="sledgehammersSkillMagazine"/>
-	<item name="workstationSkillMagazine"/>
+<lootgroup name="groupWorkingStiffsBooks" abundance_type="Books">
 
 	<item name="bookArtOfMiningLuckyStrike"/>
 	<item name="bookArtOfMiningDiamondTools"/>
@@ -3244,7 +3234,7 @@
 	<item name="bookWasteTreasuresHoney"/>
 	<item name="bookWasteTreasuresSinks"/>
 	<item name="bookWasteTreasuresWater"/>
-	
+
 	<item name="bookFiremansAlmanacSpeed"/>
 	<item name="bookFiremansAlmanacAxes"/>
 	<item name="bookFiremansAlmanacEquipment"/>
@@ -4907,6 +4897,7 @@
 	<!-- <item group="groupDrinksCommon" loot_prob_template="low"/> -->
 	<item group="groupDrinksUncommon" loot_prob_template="low"/>
 	<item group="groupDrinksRare" loot_prob_template="veryLow"/>
+	<item group="foodCandy" loot_prob_template="low"/>
 </lootgroup>
 
 <lootgroup name="groupShoppingCart" count="all">
@@ -5094,7 +5085,7 @@
 </lootgroup>
 
 <!-- *** Gun_Safe -->
-<lootgroup name="groupSafeBooks" abundance_type="Magazines">
+<lootgroup name="groupSafeBooks" abundance_type="Books">
 	<item name="bookLuckyLooterAmmunition"/>
 	<item name="bookLuckyLooterBooks"/>
 	<item name="bookLuckyLooterBrass"/>
@@ -5340,7 +5331,6 @@
 	<item group="groupScrapRare" loot_prob_template="veryLow"/>
 	<item group="booksAllScaled" loot_prob_template="veryLow"/>
 	<item group="skillMagazines" count="1" loot_prob_template="veryLow"/>
-	<!-- <item group="booksRareOnlyScaled" loot_prob_template="veryLow"/> -->
 	<item group="groupValuablesSmall" loot_prob_template="low"/>
 	<item name="resourceLockPick" count="1,2" loot_prob_template="veryLow"/>
 </lootgroup>
@@ -5376,7 +5366,6 @@
 <lootgroup name="groupJunkNoBMats03" count="1">
 	<item group="groupScrapRare" loot_prob_template="veryLow"/>
 	<item group="booksAllScaled" loot_prob_template="veryLow"/>
-	<!-- <item group="booksRareOnlyScaled" loot_prob_template="veryLow"/> -->
 	<item group="skillMagazines" count="1" loot_prob_template="veryLow"/>
 	<item group="groupValuablesSmall" loot_prob_template="low"/>
 	<item name="resourceLockPick" count="1,2" loot_prob_template="veryLow"/>
@@ -5629,7 +5618,9 @@
 
 <lootgroup name="groupFileCabinet02">
 	<item group="booksAllScaled" loot_prob_template="low"/>
+	<item group="skillMagazines" loot_prob_template="low"/>
 	<item group="booksRareOnlyScaled" loot_prob_template="veryLow"/>
+	<item name="plantedGraceCorn1Schematic" loot_prob_template="veryLow"/>
 </lootgroup>
 
 <lootgroup name="groupFileCabinet" count="all">
@@ -5655,6 +5646,7 @@
 
 <lootgroup name="groupPurse03">
 	<item group="groupWeaponsT1_Gunslinger" loot_prob_template="veryLow"/>
+	<item group="foodCandy" loot_prob_template="low"/>
 </lootgroup>
 
 <lootgroup name="groupPurse" count="all">
@@ -6335,6 +6327,7 @@
 	<item group="perkBooks" loot_prob_template="low"/>
 	<item name="resourceRepairKit" count="1,2" loot_prob_template="low"/>
 	<item name="meleeToolFlashlight02" loot_prob_template="low"/>
+	<item group="foodCandy" loot_prob_template="low"/>
 </lootgroup>
 
 <lootgroup name="groupBackpacks" count="all">
@@ -6458,13 +6451,15 @@
 </lootgroup>
 
 <!-- *** Savage_Country_Crate -->
-<lootgroup name="groupSavageCountryBooks" abundance_type="Magazines">
+<lootgroup name="groupSavageCountryMagazines" abundance_type="Magazines">
 	<item name="armorSkillMagazine"/>
 	<item name="bowsSkillMagazine"/>
 	<item name="spearsSkillMagazine"/>
 	<item name="bladesSkillMagazine"/>
 	<item name="clubsSkillMagazine"/>
+</lootgroup>
 
+<lootgroup name="groupSavageCountryBooks" abundance_type="Books">
 	<item name="bookRangersArrowRecovery"/>
 	<item name="bookRangersCripplingShot"/>
 	<item name="bookRangersKnockdown"/>
@@ -6521,6 +6516,7 @@
 
 <lootgroup name="groupSavageCountryCrate02">
 	<item group="groupSavageCountryBooks" loot_prob_template="medLow"/>
+	<item group="groupSavageCountryMagazines" loot_prob_template="medLow"/>
 	<item name="resourceSewingKit" count="1,2" loot_prob_template="low"/>
 	<item name="resourceCloth" count="3,5" loot_prob_template="high"/>
 	<item group="groupMedicalCommon" loot_prob_template="med"/>
@@ -6555,6 +6551,7 @@
 </lootgroup>
 
 <lootgroup name="groupZpackReg02">
+	<item group="skillMagazines" loot_prob_template="medHigh"/>
 	<item group="booksAllScaled" loot_prob_template="medHigh"/>
 	<item group="groupChallengeRewardSkillMagazinesAll" loot_prob_template="high"/>
 </lootgroup>
@@ -6810,6 +6807,7 @@
 </lootgroup>
 
 <lootgroup name="groupZpackStrong02">
+	<item group="skillMagazines" loot_prob_template="medHigh"/>
 	<item group="booksAllScaled" loot_prob_template="medHigh"/>
 	<item group="groupChallengeRewardSkillMagazinesAll" loot_prob_template="high"/>
 </lootgroup>
@@ -6859,6 +6857,7 @@
 </lootgroup>
 
 <lootgroup name="groupZpackPlague02">
+	<item group="skillMagazines" loot_prob_template="medHigh"/>
 	<item group="booksAllScaled" loot_prob_template="medHigh"/>
 	<item group="groupChallengeRewardSkillMagazinesAll" loot_prob_template="high"/>
 </lootgroup>
@@ -6916,6 +6915,7 @@
 </lootgroup>
 
 <lootgroup name="groupZpackBoss02">
+	<item group="skillMagazines" loot_prob_template="medHigh"/>
 	<item group="booksAllScaled" loot_prob_template="medHigh"/>
 	<item group="groupChallengeRewardSkillMagazinesAll" loot_prob_template="high"/>
 </lootgroup>
@@ -6939,6 +6939,7 @@
 	<item group="groupModAllScaled" loot_prob_template="med"/>
 	<item group="vehiclePartsTiered" loot_prob_template="med"/>
 	<item name="modArmorHelmetLight" loot_prob_template="veryLow"/>
+	<item name="plantedGraceCorn1Schematic" loot_prob_template="veryLow"/>
 </lootgroup>
 
 <lootgroup name="groupZpackBoss" count="all">
@@ -7001,13 +7002,15 @@
 </lootgroup>
 
 <!-- *** Shotgun_Messiah_Crate -->
-<lootgroup name="groupShotgunMessiahCrateBooks" abundance_type="Magazines">
+<lootgroup name="groupShotgunMessiahCrateMagazines" abundance_type="Magazines">
 	<item name="handgunsSkillMagazine"/>
 	<item name="shotgunsSkillMagazine"/>
 	<item name="riflesSkillMagazine"/>
 	<item name="machineGunsSkillMagazine"/>
 	<item name="explosivesSkillMagazine"/>
-	
+</lootgroup>
+
+<lootgroup name="groupShotgunMessiahCrateBooks" abundance_type="Books">
 	<item name="bookPistolPeteAPAmmo"/>
 	<item name="bookPistolPeteDamage"/>
 	<item name="bookPistolPeteHPAmmo"/>
@@ -7065,6 +7068,7 @@
 	<item group="groupAmmoMedium" loot_prob_template="med"/>
 	<item group="groupAmmoResourcesMedium" loot_prob_template="med"/>
 	<item group="groupShotgunMessiahCrateBooks" loot_prob_template="medLow"/>
+	<item group="groupShotgunMessiahCrateMagazines" loot_prob_template="medLow"/>
 </lootgroup>
 
 <lootgroup name="groupShotgunMessiahCrate03">
@@ -7130,9 +7134,12 @@
 </lootgroup>
 
 <!-- *** Pop-N-Pills_Crate -->
-<lootgroup name="groupPopNPillsBooks" abundance_type="Magazines">
+<lootgroup name="groupPopNPillsMagazines" abundance_type="Magazines">
 	<item name="medicalSkillMagazine"/>
 	<item name="knucklesSkillMagazine"/>
+</lootgroup>
+
+<lootgroup name="groupPopNPillsBooks" abundance_type="Books">
 	<item name="bookBarBrawling1BasicMoves"/>
 	<item name="bookBarBrawling2DropABomb"/>
 	<item name="bookBarBrawling3KillerInstinct"/>
@@ -7157,6 +7164,7 @@
 	<item group="groupMedicalUncommon" loot_prob_template="high"/>
 	<item group="groupMedicalRare" loot_prob_template="low"/>
 	<item group="groupPopNPillsBooks" loot_prob_template="medLow"/>
+	<item group="groupPopNPillsMagazines" loot_prob_template="medLow"/>
 </lootgroup>
 
 <lootgroup name="groupPopNPillsCrate03">
@@ -7552,6 +7560,7 @@
 
 <lootgroup name="groupDesks02">
 	<item group="groupMedicalCommon" loot_prob_template="high"/>
+	<item group="foodCandy" loot_prob_template="low"/>
 	<item name="meleeToolFlashlight02" loot_prob_template="veryLow"/>
 	<item name="modArmorCigar" loot_prob_template="veryLow"/>
 	<item name="gunHandgunT1Pistol" loot_prob_template="veryLow"/>
@@ -7559,7 +7568,7 @@
 
 <lootgroup name="groupDesks" count="all">
 	<item group="groupDesks01" count="1"/>
-	<item group="groupDesks02" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="groupDesks02" loot_prob_template="lower" force_prob="true"/>
 </lootgroup>
 
 <!-- *** Luggage_Loot -->
@@ -7618,11 +7627,12 @@
 	<item group="groupToolsTiered" loot_prob_template="low"/>
 	<item group="booksAllScaled" loot_prob_template="veryLow"/>
 	<item group="skillMagazines" loot_prob_template="low"/>
+	<item group="foodCandy" loot_prob_template="low"/>
 </lootgroup>
 
 <lootgroup name="groupLocker" count="all">
 	<item group="groupLocker01" count="1"/>
-	<item group="groupLocker02" loot_prob_template="veryLow" force_prob="true"/>
+	<item group="groupLocker02" loot_prob_template="lower" force_prob="true"/>
 </lootgroup>
 
 <!-- *** Closet_Loot -->
@@ -7711,6 +7721,7 @@
 	<item group="groupValuablesLarge" loot_prob_template="med"/>
 	<item name="workstationSkillMagazine" count="1" loot_prob_template="med"/>
 	<item group="workstationToolsScaled" loot_prob_template="low"/>
+	<item name="plantedGraceCorn1Schematic" loot_prob_template="veryLow"/>
 </lootgroup>
 
 <lootgroup name="groupHiddenStash" count="all">
@@ -7885,9 +7896,11 @@
 	<item group="groupArmorScaled"/>
 	<item group="groupWeaponsAllScaled"/>
 	<item group="groupModAllScaled"/>
+	<item group="skillMagazines"/>
 	<item group="booksAllScaled"/>
 	<item group="booksRareOnlyScaled"/>
 	<item name="workstationSkillMagazine"/>
+	<item name="plantedGraceCorn1Schematic" loot_prob_template="veryLow"/>
 </lootgroup>
 
 <lootgroup name="groupAirDrop" count="all">

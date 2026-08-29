@@ -78,7 +78,6 @@
 	
 	<window_group name="mainMenu" defaultselected="btnPlayGame">
 		<window name="mainMenu" />
-		<window name="mainMenuLogo" />
 		<window name="mainMenuVersion" />
 		<window name="mainMenuPlayerName" />
 		<window name="mainMenuNews" />
