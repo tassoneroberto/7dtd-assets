@@ -31,7 +31,7 @@ Item icons have been extracted using the tool [AssetStudio](https://github.com/P
 
 ### Alpha10.4 preview
 
-![previewBundle](./alpha10/ItemIconsAssets/Items3DPreviewAtlas.png)
+![previewBundle](./alpha10.4/ItemIconsAssets/Items3DPreviewAtlas.png)
 
 ## XML files
 
